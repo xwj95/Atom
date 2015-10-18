@@ -50,7 +50,7 @@ MIPS语言&
 \multicolumn{16}{l|}{ADDU rd rs rt}\\
 \hline
 指令功能&
-\multicolumn{16}{l|}{R[t] $\Leftarrow$ R[s] + R[t]}\\
+\multicolumn{16}{l|}{R[d] $\Leftarrow$ R[s] + R[t]}\\
 \hline
 功能说明&
 \multicolumn{16}{l|}{将寄存器rs与寄存器rt的值求和，结果保存到寄存器rd中}\\
@@ -616,13 +616,13 @@ MIPS语言&
 1\\
 \hline
 MIPS语言&
-\multicolumn{16}{l|}{JALR immediate}\\
+\multicolumn{16}{l|}{JALR rs rd}\\
 \hline
 指令功能&
 \multicolumn{16}{l|}{PC $\Leftarrow$ R[s], R[d] $\Leftarrow$ RPC}\\
 \hline
 功能说明&
-\multicolumn{16}{l|}{无条件跳转目的地址rs执行，将延迟槽后一条指令存入RA}\\
+\multicolumn{16}{l|}{无条件跳转目的寄存器rs中所存地址执行，将延时槽后一条指令存入R[d]}\\
 \hline
 \end{tabular}
 \end{table}
@@ -655,7 +655,7 @@ MIPS语言&
 \multicolumn{16}{l|}{PC $\Leftarrow$ R[s]}\\
 \hline
 功能说明&
-\multicolumn{16}{l|}{无条件跳转目的地址rs执行}\\
+\multicolumn{16}{l|}{无条件跳转至寄存器rs所存地址执行}\\
 \hline
 \end{tabular}
 \end{table}
@@ -934,7 +934,7 @@ MIPS语言&
 \multicolumn{16}{l|}{NOR rd rs rt}\\
 \hline
 指令功能&
-\multicolumn{16}{l|}{R[d] $\Leftarrow$ ~(R[s] $\shortmid$ R[t])}\\
+\multicolumn{16}{l|}{R[d] $\Leftarrow$ $\sim$(R[s] $\mid$ R[t])}\\
 \hline
 功能说明&
 \multicolumn{16}{l|}{将寄存器rs与寄存器rt的值或非后的结果保存至寄存器rd中}\\
@@ -967,7 +967,7 @@ MIPS语言&
 \multicolumn{16}{l|}{OR rd rs rt}\\
 \hline
 指令功能&
-\multicolumn{16}{l|}{R[d] $\Leftarrow$ R[s] $\shortmid$ R[t]}\\
+\multicolumn{16}{l|}{R[d] $\Leftarrow$ R[s] $\mid$ R[t]}\\
 \hline
 功能说明&
 \multicolumn{16}{l|}{将寄存器rs与寄存器rt的值相或后的结果保存至寄存器rd中}\\
@@ -997,7 +997,7 @@ MIPS语言&
 \multicolumn{16}{l|}{ORI rt rs immediate}\\
 \hline
 指令功能&
-\multicolumn{16}{l|}{R[t] $\Leftarrow$ R[s] $\shortmid$ Zero-extend(immediate)}\\
+\multicolumn{16}{l|}{R[t] $\Leftarrow$ R[s] $\mid$ Zero-extend(immediate)}\\
 \hline
 功能说明&
 \multicolumn{16}{l|}{将寄存器rs与立即数immediate零扩展后相或的结果保存至寄存器rd中}\\
@@ -1323,7 +1323,7 @@ MIPS语言&
 \multicolumn{16}{l|}{CACHE}\\
 \hline
 指令功能&
-\multicolumn{16}{l|}{无}\\
+\multicolumn{16}{l|}{}\\
 \hline
 功能说明&
 \multicolumn{16}{l|}{不做cache，视为NOP}\\
