@@ -1,6 +1,26 @@
 \section{功能需求}
 \subsection{CPU}
 \subsubsection{ALU}
+ALU负责实现双输入的算术、逻辑和移位运算功能，其中比较运算通过补码减法实现。输入为两个32位整数和一个4位符号位，输出为32位整数，不给出标志位。
+
+ALU需要实现的运算详见下表。
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{cccccc}
+\hline
+操作码&功能&描述&操作码&功能&描述\\
+\hline
+ADD&A + B&加法&NOR&$\sim$A $\mid$ B&与非\\
+SUB&A - B&减法&SLL&A $\gg$ B&逻辑左移\\
+AND&A $\&$ B&与&SRL&A $\ll$ B&逻辑右移\\
+OR&A $\mid$ B&或&SRA&A $\ggg$ B&算术右移\\
+XOR&A $\wedge$ B&异或&SLT&A $<$ B&比较\\
+\hline
+
+\end{tabular}
+\end{table}
+
 \subsubsection{乘法器}
 乘法器是一个独立于ALU的元件，其中乘法运算直接使用Verilog语言提供的乘法运算符实现。输入为两个32位整数，输出为两个32位整数，分别存放在LO和HI寄存器中。
 
