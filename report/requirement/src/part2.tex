@@ -1,26 +1,6 @@
 \section{功能需求}
 \subsection{CPU}
 \subsubsection{ALU}
-ALU负责实现双输入的算术、逻辑和移位运算功能，其中比较运算通过补码减法实现。输入为两个32位整数和一个4位符号位，输出为32位整数，不给出标志位。
-
-ALU需要实现的运算详见下表。
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{cccccc}
-\hline
-操作码&功能&描述&操作码&功能&描述\\
-\hline
-ADD&A + B&加法&NOR&$\sim$A $\mid$ B&与非\\
-SUB&A - B&减法&SLL&A $\gg$ B&逻辑左移\\
-AND&A $\&$ B&与&SRL&A $\ll$ B&逻辑右移\\
-OR&A $\mid$ B&或&SRA&A $\ggg$ B&算术右移\\
-XOR&A $\wedge$ B&异或&SLT&A $<$ B&比较\\
-\hline
-
-\end{tabular}
-\end{table}
-
 \subsubsection{乘法器}
 \subsubsection{寄存器堆}
 \subsubsection{CP0}
@@ -28,7 +8,51 @@ XOR&A $\wedge$ B&异或&SLT&A $<$ B&比较\\
 \subsubsection{MMU}
 \paragraph{虚拟地址映射}
 \paragraph{TLB}
+
 \subsection{Ucore}
+\subsubsection{BIOS}
+BIOS即为启动ucore所用的Bootloader程序，通常是放在Flash中。而本实验中我们将在FPGA里建立一块ROM，将Bootloader放置在该ROM中，并且设置CPU的访问地址从该ROM开始。这样能避免由于Flash的读写不稳定而对BIOS造成的破坏，还能将ucore与其独立开来。
+
+BIOS启动时，Flash中的操作系统加载到内存中，然后跳转到操作系统的初始化代码，从而开始操作系统的工作。
+\subsubsection{远程文件执行}
+实验要求修改ucore，实现简单的远程文件执行功能，即通过串口从PC上获取ELF文件，并在本地执行。
 \subsection{外设}
+\subsubsection{串口}
+串口模块的主要部分位于板子上的CPLD中，在FPGA端，对串口的控制通过data$\_$ready、tbre、\\
+tsre、rdn、wrn进行。
+
+当data$\_$ready=‘1’时串口数据就绪，可以读出。
+
+当tbre and tsre=‘1’是，表示可以向串口写入。
+
+将rdn置‘0’且数据线写高阻，可以从数据线得出串口数据。
+
+将数据写入数据线且将wrn置‘0’，可以向串口发出数据。
+
+串口模块1FD003F8地址表示数据（只有低8位有效），必须使用SW指令写入。
+
+1FD003FC地址表示状态寄存器Status，Status$\&$1=1时可写，Status$\&$2=2时可读。
+\subsubsection{VGA}
+Device$\_$VGA模块是显示控制模块，接受CPU写入的ASCII码数据，并维护一个字符矩阵，以字符中断的形式通过VGA接口输出到显示器。
+
+CPU需要从1FC03000地址读出数据，如果结果为‘1’表示可以写入，否则不能吸入；可以写入时，向1FC03000地址写入ASCII数据即可。
+\subsubsection{ps/2键盘}
+Device$\_$Keyboard模块位键盘控制模块。只要从0F000000地址读出数据，结果为0表示没有新数据，否则读到的就是键入的ASCII码。
+
+PS/2键盘读到的是扫描码，为了方便软件，可以在硬件层面加入编码转换，CPU读到的直接就是ASCII码。
+\subsubsection{网口}
+实验提供的网口是DM9000A，它带有通用处理器接口的以太网控制器，一个10/100M PHY和4K双字的SRAM，IO端口支持3.3V与5V容限值。
+
+在FPGA中需要做地址映射。
 \subsection{Decaf编译器}
+\subsubsection{汇编指令的生成}
+由于简化的CPU中并未实现add、sub指令，需要把decaf的MIPS后端里生成add、sub指令的部分改成addu、subu，区别仅在于溢出时后者不会产生异常。
+
+另外、CPU中也未实现除法指令，不过由于所用测试程序中没有除法运算，因此不进行相关修改。如果需要除法，可以用其它指令手动实现除法函数，并把除法翻译成函数调用。
+\subsubsection{库函数调用及calling convention}
+标准MIPS32使用032 ABI，函数调用的前四个参数通过\$a0-\$a3四个寄存器传输；但decaf编译出的程序的参数全都在栈上传递。当然，无论什么calling convention，只要能自恰，程序本身就应该能正常运行，所以需要解决的问题只有用于程序与C实现的库函数及操作系统交互的部分。
+
+在这里，我们在decaf和库函数之间增加一个适配器层，将decaf的调用约定翻译成032 ABI再调用库函数。
+\subsubsection{程序入口及退出}
+直接使用ucore里的linker script(user.Id)以及用户静态函数库libuser.a，在该环境下系统会设置好一些全局变量，然后跳转到main执行。我们将修改decaf编译器，将其输出的main重命名为decaf$\_$main，然后汇编实现一个新的main函数。由于decaf的main是void类型，我们默认其执行成功返回0，于是在decaf$\_$main返回后直接调用exit(0)。
 \subsection{指令集与数据通路}
