@@ -1,0 +1,29 @@
+\begin{center}
+\begin{table}[h]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{二进制（高位）} &
+31&30&29&28&27&26&25&24&23&22&21&20&19&18&17&16\\
+\cline{2-17}
+&0&0&1&0&0&1&
+\multicolumn{5}{c|}{rs}&
+\multicolumn{5}{c|}{rt}\\
+\hline
+\multirow{2}{*}{二进制（低位）} &
+15&14&13&12&11&10&9&8&7&6&5&4&3&2&1&0\\
+\cline{2-17}
+&
+\multicolumn{16}{c|}{immediate}\\
+\hline
+MIPS语言&
+\multicolumn{16}{c|}{ADDIU rt is immediate}\\
+\hline
+指令功能&
+\multicolumn{16}{c|}{R[t] $\Leftarrow$ R[s] + Sign-extend(immediate)}\\
+\hline
+功能说明&
+\multicolumn{16}{c|}{对立即数进行符号扩展后与寄存器rs的值求和，结果保存到寄存器rt中}\\
+\hline
+\end{tabular}
+\end{table}
+\end{center}
