@@ -1,11 +1,15 @@
-\usepackage{CJK}			%中日韩三国文字包
-\usepackage{indentfirst}	%首段缩进包
-\usepackage{amssymb}		%数学符号包
-\usepackage{mathpazo}		%正文和数学字体包
-\usepackage{geometry}		%页面设置包
-\usepackage{graphicx}		%图片包
-\usepackage{multirow}		%表格包
-\usepackage{tikz}			%流程图包
+\usepackage{CJK}						%中日韩三国文字包
+\usepackage{indentfirst}				%首段缩进包
+\usepackage{amssymb}					%数学符号包
+\usepackage{mathpazo}					%正文和数学字体包
+\usepackage{geometry}					%页面设置包
+\usepackage{graphicx}					%图片包
+\usepackage{multirow}					%表格包
+\usepackage{float}						%浮动包
+\usepackage{tikz}						%流程图包
+\usepackage{enumerate}					%标签包
+\usepackage{cite}						%引用包
+\usepackage[CJKbookmarks=true, colorlinks, linkcolor=black, anchorcolor=blue, citecolor=green]{hyperref}			%超链接包
 
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
@@ -14,12 +18,4 @@
 
 \usetikzlibrary{shapes.geometric, arrows}
 
-\renewcommand{\abstractname}{摘 \qquad 要}
-\renewcommand{\contentsname}{\center 目\qquad\qquad录}
-\renewcommand{\listfigurename}{图 \quad 示 \quad 目 \quad 录}
-\renewcommand{\listtablename}{表 \quad 格 \quad 目 \quad 录}
-\renewcommand{\appendixname}{附录}
-\renewcommand{\refname}{\center 参 \quad 考 \quad 文 \quad 献}
-\renewcommand{\indexname}{\center 索 \qquad 引}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
+\renewcommand\arraystretch{1.5}
