@@ -61,6 +61,91 @@ CP0是系统控制协处理器，本次实验我们需要通过CP0实现对TLB�
 \end{table}
 
 \subsubsection{异常中断处理}
+本次实验要求实现精确异常处理，以下是一些可能用到的中断及异常的情况
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\hline
+异常号&异常名&描述\\
+\hline
+0&Interrupt&外部中断、异步发生，由硬件引起\\
+1&TLB Modified&内存修改异常，发生在Memory阶段\\
+2&TLBL&读未在TLB中映射的内存地址触发的异常\\
+3&TLBS&写未在TLB中映射的内存地址触发的异常\\
+4&ADEL&读访问一个非对齐地址触发的异常\\
+5&ADES&读访问一个非对齐地址触发的异常\\
+8&SYSCALL&系统调用\\
+10&RI&执行未定义指令异常\\
+11&Co-Processor Unavailable&试图访问不存在的协处理器异常\\
+23&Watch&Watch寄存器监控异常\\
+\hline
+\end{tabular}
+\end{table}
+
+下表列出可能用到的中断号
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+中断号&设备\\
+\hline
+0&系统计时器\\
+1&键盘\\
+3&通讯端口COM2\\
+4&通讯端口COM1\\
+\hline
+\end{tabular}
+\end{table}
+
+中断/异常处理的一般流程如下：
+
+\begin{enumerate}[(1)]
+\item 保存中断信息，主要是EPC，BadVaddr，Status，Cause等寄存器的信息
+
+\qquad EPC:存储异常处理之后程序恢复执行的地址。对于一般异常，当前发生错误的指令地址即为EPC应当保存的地址；而对于硬件中断，由于是异步产生则可以任意设定一条并未执行完成的指令地址保存，但在进入下一步处理之前，该指令前的指令都应当被执行完。
+
+\qquad BadVAddr：捕捉最近一次地址错误或TLB异常（重填、失效、修改）时的虚拟地址。
+
+\qquad Status：将EXL位置为1，进入kernel模式进行中断处理。
+
+\qquad Cause：记录下异常号。
+
+\qquad EntryHi：TLB异常时，记录下BadVAddr的部分高位。
+
+\item 根据Cause中的异常号跳转到相应的异常处理函数入口
+
+\item 中断处理
+
+\item 通过调用ERET指令恢复现场，返回EPC所存地址执行并且将Status中的EXL重置为0表示进入user模式。
+
+\end{enumerate}
+
+\qquad 
+
+实现步骤：
+
+\begin{enumerate}[(1)]
+\item 在可能发生异常的位置实现对异常的记录。
+
+\begin{enumerate}[(a)]
+\item 访存时可能发生ADEL，ADES，TLBM，TLBL，TLBS，Watch异常
+
+\item 译码后可能发生RI，SYSCALL，Co-ProcessorU异常
+\end{enumerate}
+\item 实现对中断的记录。
+
+\begin{enumerate}[(a)]
+\item 硬件产生中断时将信息写入CP0寄存器
+\end{enumerate}
+
+\item 根据异常记录信息判断是否产生异常。
+
+\item 进入异常处理流程。
+
+\end{enumerate}
+
 \subsubsection{MMU}
 \paragraph{虚拟地址映射}
 \paragraph{TLB}
