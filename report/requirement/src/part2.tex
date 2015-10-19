@@ -5,7 +5,7 @@ ALU负责实现双输入的算术、逻辑和移位运算功能，其中包括�
 
 ALU的输入端为两个32位整数和一个8位操作码，输出端为32位整数（乘法运算除外），不给出标志位。
 
-由于ALU需要实现的运算种类较多，我们不在此列举。
+由于ALU需要实现的运算种类较多，我们在此不做列举。
 
 %\begin{table}[ht]
 %\centering
@@ -111,6 +111,92 @@ CP0是系统控制协处理器，本次实验我们需要通过CP0实现对TLB�
 \end{tabular}
 \end{table}
 
+\begin{enumerate}[(1)]
+\item Index寄存器
+Index寄存器是一个32位读/写寄存器，可用于TLBP、TLBR和TLBWI指令访问TLB入口的索引序号。
+
+Index区域的大小根据具体实现方式随TLB的入口个数而定。对于基于TLB的内存管理单元MMU来说，该区域的最小值为$\lceil log_{2}(TLBEntries)\rceil$。
+
+如果一个写入Index寄存器的值大于等于TLB入口数，则该处理器的操作是未定义的。
+
+该寄存器仅对TLB有效。
+
+\item EntryLo1/EntryLo0寄存器
+这对EntryLo寄存器的作用等同于TLB、TLBR、TLBWI和TLBWR指令间的接口。对基于TLB的MMU而言，EntryLo0管理偶数页的入口，EntryLo1管理奇数页的入口。如果出现了地址错误，TLB失效，TLB修改或是TLB重填异常的行为，那么EntryLo0和EntryLo1寄存器的内容将会成为未定义的。只有当基于TLB的存储管理单元存在时，这些寄存器才有效。
+
+\item EntryHi寄存器
+EntryHi寄存器包含了用于TLB读、写和访问操作的虚拟地址匹配信息。当TLB异常（TLB Refill，TLB Invalid或TLB Modified）发生时，系统将虚拟地址的[31:13]位写入EntryHi寄存器的VPN2区域。TLBR指令将选中的TLB入口相应的区域写入EntryHi寄存器。软件（通常是操作系统）将当前地址空间标识符写入ASID区域，该区域在TLB比较过程中用于确定TLB是否可以匹配。
+
+由于ASID区域被TLBR指令重填覆盖了，软件必须保存和重新存储有关TLBR使用的ASID的值。这在发生TLB失效和TLB修改异常时，以及在其它存储管理软件中尤为重要。
+
+在发生了地址错误的异常后，EntryHi寄存器的VPN2区域将成为未定义的，并且该区域可能在发生地址错误异常的过程中被硬件修改。EntryHi寄存器的软件写操作（通过MTC0）不会导致BadVAddr和Context寄存器中的地址相关区域发生隐式的写入（implicit write）。
+
+该寄存器仅对TLB有效。
+
+\item Status寄存器
+Status寄存器是一个读/写寄存器，可以表示处理器的操作模式、中断使能以及诊断状态。该寄存器的区域联合作用，可以创建处理器的工作模式。
+
+中断使能：当一下所有条件成立时启用中断：
+
+\quad Status[0]:IE = 1
+
+\quad Status[0]:EXL = 0
+
+\quad Status[0]:ERL = 0
+
+\quad 额外的：Debug[0]:DM = 0
+
+当这些条件都符合时，设置IM（Status[16:9]）位和IE位可以使能中断。
+
+EXL与ERL任一位置1都可使系统进入Kernel模式，否则为User模式。
+
+\item Cause寄存器
+Cause寄存器主要记录最近一次异常的原因，也控制软件中断请求以及中断处理派分的向量。除了IP1..0、DC、IV和WP区域，Cause寄存器中其它的所有区域都是只读的。第二版架构在外部中断控制器（EIC）的中断模式下，增加了可选项。在这个模式下，IP7..2表示请求中断优先级（RIPL）。
+
+Cause[6:2]表示ExcCode，即异常号。
+
+\item Ebase寄存器
+EBase寄存器是一个读/写寄存器，包含了在StatusBEV为0时所使用的异常向量的基地址及一个只读CPU号，该CPU号可以被软件用来区分多处理器系统中不同的处理器。
+
+EBase寄存器使软件能在多处理器系统中识别特定的处理器，并允许每个处理器的异常向量可以不同，特别是对由多种处理器组成的系统。当StatusBEV为0时，EBase寄存器的位31:12由0构成，形成异常向量的基地址。当StatusBEV为1时，或在任何EJTAG调试异常的情况下，异常向量的基地址由固定的缺省值确定。
+
+EBase寄存器的位31:30固定为2\#10，从而强制异常基地址在kseg0或kseg1的无映射的虚拟地址段中。在缓存错误异常中，异常基地址的位29将被强制置为1，从而使异常处理器从无缓存的kseg1段开始执行。如果需要改变异常基地址寄存器的值，则操作必须在StatusBEV为1的情况下进行。如果在StatusBEV为0时，在异常基地址区域写入了一个不同的值，处理器的操作将成为未定义的。
+
+将位31:12与异常基地址区域相结合，可允许将异常向量的基地址置于任何4KB字节大小的页面的边界上。
+
+\end{enumerate}
+
+通过调用MFC0，MTC0指令，CP0提供了统一的对外接口以完成对寄存器组的访问。\\\\
+实现步骤：
+
+\begin{enumerate}[(1)]
+\item 选择要实现的CP0寄存器，可考虑推荐实现的寄存器或自行决定额外寄存器实现。
+
+\item 按照CP0寄存器的功能分别在CPU的不同模块完成各寄存器的赋值。
+
+\begin{enumerate}[(a)]
+\item 在译码、运算及访存阶段发生地址错误时将错误地址赋值给BadVAddr
+
+\item 异常处理开始时，若为TLB异常，则将错误地址高20位赋值给EntryHi高20位
+
+\item 异常处理开始时，将Status[1]赋值为1；在执行ERET指令时将Status[1]赋值为0
+
+\item 异常处理开始时，将Cause[6:2]赋值为异常号
+
+\item 异常处理开始时，将EPC赋值为Victim指令地址
+
+\item 每个周期，Count加1
+
+\item 其他写操作由软件完成 
+\end{enumerate}
+
+\item 实现MFC0，MTC0指令访问CP0寄存器的功能。
+
+\item 通过各寄存器值控制相应功能。
+
+\end{enumerate}
+
+
 \subsubsection{异常中断处理}
 本次实验要求实现精确异常处理，以下是一些可能用到的中断及异常的情况
 
@@ -173,8 +259,7 @@ CP0是系统控制协处理器，本次实验我们需要通过CP0实现对TLB�
 
 \end{enumerate}
 
-\qquad 
-
+\quad \\
 实现步骤：
 
 \begin{enumerate}[(1)]
