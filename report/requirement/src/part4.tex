@@ -1,3 +1,30 @@
 \section{运行环境需求}
 \subsection{设备}
+在硬件上提供了一块开发板，主要核心部件为Xilinx Spartan6 xc6slx100 FPGA。
+\begin{table}[h]
+	\centering
+	\caption{设备与外部接口}
+	\begin{tabular}{|c|c|}
+		\hline
+		环境 & 描述 \\
+		\hline
+		FPGA & Xilinx Spartan6 xc6slx100 \\
+		\hline
+		RAM & 32-bit字长，4块，共8MB \\
+		\hline
+		Flash & 16-bit字长，共8MB \\
+		\hline
+		CPLD & 与FPGA相连，用于I/O \\
+		\hline
+		串口 & 2个 \\
+		\hline
+		ps/2接口 & 1个 \\
+		\hline
+		以太网接口 & 1个 \\
+		\hline
+		VGA接口 & 1个 \\
+		\hline
+	\end{tabular}
+\end{table}
 \subsection{控制}
+本工程将会充分利用开发板资源，控制部分采用键盘作为输入设备，PVGA显示作为输出，从终端通过串口和网口实现PC和开发板的双向通信和数据交流。如果有需要，也可以启用开发板上的第二个串口。
