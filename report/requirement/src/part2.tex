@@ -232,7 +232,34 @@ EBase寄存器的位31:30固定为2\#10，从而强制异常基地址在kseg0或
 \end{enumerate}
 
 \subsubsection{MMU}
+MMU负责实现虚拟地址转换到物理地址，再访问相应元件读取或写入数据的全过程，并实现内核态与用户态的区分。同时MMU还需要集成TLB模块，并实现相应的TLB异常处理。这里我们只考虑硬件需要提供给操作系统的支持，不考虑操作系统已经实现的功能。
+
 \paragraph{虚拟地址映射}
+
+\quad
+
+\quad
+
+通过划分虚拟地址，将所有外设映射到特定的虚拟地址来实现操作系统对外设的I/O操作，对于未映射的地址，读操始终返回0，写操作忽略。
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cll}
+\hline
+虚拟地址&设备&说明\\
+\hline
+$\left[ 0x00000000, 0x007FFFFF\right] $&RAM&共8MB\\
+$\left[ 0x10000000, 0x10000FFF\right] $&引导ROM&共4KB\\
+$\left[ 0x1E000000, 0x1EFFFFFF\right] $&flash&地址空间共16MB，但对于32位字，只有低16位有效\\
+$\left[ 0x1A000000, 0x1A096000\right] $&VGA&\\
+0x1FD003F8&串口数据&\\
+0x1FD003FC&串口状态&\\
+0x1FD00400&数码管&\\
+0x0F000000&键盘码&\\
+\hline
+\end{tabular}
+\end{table}
+
 \paragraph{TLB}
 
 \subsection{Ucore}
