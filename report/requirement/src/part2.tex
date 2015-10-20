@@ -552,6 +552,14 @@ $\left[ 0x1A000000, 0x1A096000\right] $&VGA&\\
 
 \paragraph{TLB}
 
+\qquad
+
+TLB是一个寄存器组，用作页表的缓存。根据表大小以及相连度不同而不同。以下是设计方案：
+
+对于一个拥有$2^{N}$个表项的TLB来说，每个表项有64位长，每次更新时它的信息被存放在如下寄存器中：目录为$INDEX\left[ N-1:0 \right]$，对应的每个表项即每个入口为\\
+$\left\lbrace EntryHi\left[ 31:13 \right], EntryLo1\left[ 25:6 \right],EntryLo1\left[ 2:1 \right], EntryLo0\left[ 25:6 \right], EntryLo0\left[ 2:1 \right] \right\rbrace $
+
+即高22位存储了虚拟地址高22位，后面分别跟着两组物理地址（奇偶）及其标志位（Valid，Global），匹配虚拟地址与标志后将实地址合并得到物理地址。
 \subsection{Ucore}
 \subsubsection{BIOS}
 BIOS即为启动ucore所用的Bootloader程序，通常是放在Flash中。而本实验中我们将在FPGA里建立一块ROM，将Bootloader放置在该ROM中，并且设置CPU的访问地址从该ROM开始。这样能避免由于Flash的读写不稳定而对BIOS造成的破坏，还能将ucore与其独立开来。
