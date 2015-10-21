@@ -10,6 +10,8 @@ MIPS指令集的各条指令可以分解为取指（IF）、译码（ID）、执
 
 CPU的总体设计图如下图所示。
 
+\input{flowchart}
+
 \subsubsection{ALU}
 ALU负责实现双输入的算术、逻辑和移位运算功能，其中包括乘法运算，并完成指令系统的算术指令。
 
@@ -610,7 +612,7 @@ PS/2键盘读到的是扫描码，为了方便软件，可以在硬件层面加�
 \subsection{Decaf编译器}
 \subsubsection{汇编指令的生成}
 由于简化的CPU中并未实现add、sub指令，需要把decaf的MIPS后端里生成add、sub指令的部分改成addu、subu，区别仅在于溢出时后者不会产生异常。
-
+eps
 另外、CPU中也未实现除法指令，不过由于所用测试程序中没有除法运算，因此不进行相关修改。如果需要除法，可以用其它指令手动实现除法函数，并把除法翻译成函数调用。
 \subsubsection{库函数调用及calling convention}
 标准MIPS32使用032 ABI，函数调用的前四个参数通过\$a0-\$a3四个寄存器传输；但decaf编译出的程序的参数全都在栈上传递。当然，无论什么calling convention，只要能自恰，程序本身就应该能正常运行，所以需要解决的问题只有用于程序与C实现的库函数及操作系统交互的部分。
@@ -623,4 +625,7 @@ PS/2键盘读到的是扫描码，为了方便软件，可以在硬件层面加�
 
 本次实验的基本数据通路图参照《自己动手写CPU》P56，并做一定的扩展。
 
-\input{flowchart}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.2]{datapath.eps}
+\end{figure}
