@@ -108,7 +108,7 @@ module openmips(
 		.id_wd(id_wd_o),			.id_wreg(id_wreg_o),
 		
 		//传递到执行阶段EX模块的信息
-		.ex_aluop(ex_aluop_i),	.ex_alusel(id_alusel_i),
+		.ex_aluop(ex_aluop_i),	.ex_alusel(ex_alusel_i),
 		.ex_reg1(ex_reg1_i),		.ex_reg2(ex_reg2_i),
 		.ex_wd(ex_wd_i),			.ex_wreg(ex_wreg_i)
 	);

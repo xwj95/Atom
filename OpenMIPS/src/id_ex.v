@@ -13,7 +13,7 @@ module id_ex(
 	
 	//传递到执行阶段的信息
 	output	reg[`AluOpBus]		ex_aluop,
-	output	reg[`AluSelBus]	ex_aluse1,
+	output	reg[`AluSelBus]	ex_alusel,
 	output	reg[`RegBus]		ex_reg1,
 	output	reg[`RegBus]		ex_reg2,
 	output	reg[`RegAddrBus]	ex_wd,

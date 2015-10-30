@@ -64,7 +64,7 @@ module id(
 			case (op)
 				`EXE_ORI: begin
 					//ori指令需要将结果写入目的寄存器，所以wreg_o为WriteEnable
-					wreg_O <= `WriteEnable;
+					wreg_o <= `WriteEnable;
 					
 					//运算的子类型是逻辑“或”运算
 					aluop_o <= `EXE_OR_OP;
@@ -87,7 +87,7 @@ module id(
 					//ori指令是有效指令
 					instvalid <= `InstValid;
 				end
-				defalut: begin
+				default: begin
 				end
 			endcase
 			
