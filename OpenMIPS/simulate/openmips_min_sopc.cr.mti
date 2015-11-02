@@ -1,0 +1,109 @@
+C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/mem.v {2 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/mem.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module mem
+** Warning: C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/mem.v(18): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+
+Top level modules:
+	mem
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/mem_wb.v {2 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/mem_wb.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module mem_wb
+** Warning: C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/mem_wb.v(19): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+
+Top level modules:
+	mem_wb
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/pc_reg.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/pc_reg.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module pc_reg
+
+Top level modules:
+	pc_reg
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/openmips.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/openmips.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module openmips
+
+Top level modules:
+	openmips
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/ex_mem.v {2 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/ex_mem.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module ex_mem
+** Warning: C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/ex_mem.v(19): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+
+Top level modules:
+	ex_mem
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/ex.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/ex.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module ex
+
+Top level modules:
+	ex
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id.v {2 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module id
+** Warning: C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id.v(44): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+** Warning: C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id.v(49): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+** Warning: C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id.v(50): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+
+Top level modules:
+	id
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module openmips_min_sopc_tb
+
+Top level modules:
+	openmips_min_sopc_tb
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id_ex.v {2 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id_ex.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module id_ex
+** Warning: C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/id_ex.v(29): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+
+Top level modules:
+	id_ex
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/openmips_min_sopc.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/openmips_min_sopc.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module openmips_min_sopc
+
+Top level modules:
+	openmips_min_sopc
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/if_id.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/if_id.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module if_id
+
+Top level modules:
+	if_id
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/inst_rom.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/inst_rom.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module inst_rom
+
+Top level modules:
+	inst_rom
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/defines.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/defines.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+
+} {} {}} C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/regfile.v {1 {vlog -work work -vopt C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/simulate/regfile.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
+} {} {}}
