@@ -1,0 +1,13 @@
+编译方法说明：以编译inst_rom.s为例
+
+在命令行输入
+make out=inst_rom
+即可得到输出文件inst_rom.data
+
+输入
+make clean
+即可删除编译出来的文件
+
+注：
+1.不同样例的.s取不同的名字并提高区分度
+2.编译所需GNU工具链请自行配置（限Linux操作系统）
