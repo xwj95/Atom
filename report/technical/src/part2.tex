@@ -1,6 +1,664 @@
 \section{模块设计}
-\subsection{取指模块}
-\subsection{译码/读寄存器模块}
-\subsection{ALU模块}
-\subsection{访存模块}
-\subsection{写回模块}
+\subsection{PC模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{PC模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		branch$\_$flag$\_$i & 1 & 输入 & 是否发生转移 \\
+		\hline
+		branch$\_$target$\_$address$\_$i & 32 & 输入 & 转移到的目标地址 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		new$\_$pc & 32 & 输入 & 异常处理例程入口地址 \\
+		\hline
+		stall & 1 & 输入 & 取指地址PC是否保持不变 \\
+		\hline
+		pc & 32 & 输出 & 要读取的指令地址 \\
+		\hline
+		ce & 1 & 输出 & 指令存储器ROM使能信号 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{IF/ID模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{IF/ID模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		if$\_$pc & 32 & 输入 & 取指阶段取出的指令对应的地址 \\
+		\hline
+		if$\_$inst & 32 & 输入 & 取指阶段取出的指令 \\
+		\hline
+		stall & 1 & 输入 & 取指阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		id$\_$pc & 32 & 输出 & 译码阶段的指令对应的地址 \\
+		\hline
+		id$\_$inst & 32 & 输出 & 译码阶段的指令 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{ID模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{ID模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		pc$\_$i & 32 & 输入 & 译码阶段的指令对应的地址 \\
+		\hline
+		inst$\_$i & 32 & 输入 & 译码阶段的指令 \\
+		\hline
+		reg1$\_$data$\_$i & 32 & 输入 & 从Regfile输入的第一个读寄存器端口的输入 \\
+		\hline
+		reg2$\_$data$\_$i & 32 & 输入 & 从Regfile输入的第二个读寄存器端口的输入 \\
+		\hline
+		ex$\_$wreg$\_$i & 1 & 输入 & 处于执行阶段的指令是否要写目的寄存器 \\
+		\hline
+		ex$\_$wd$\_$i & 5 & 输入 & 处于执行阶段的指令要写的目的寄存器地址 \\
+		\hline
+		ex$\_$wdata$\_$i & 32 & 输入 & 处于执行阶段的指令要写入目的寄存器的数据 \\
+		\hline
+		mem$\_$wreg$\_$i & 1 & 输入 & 处于访存阶段的指令是否要写目的寄存器 \\
+		\hline
+		mem$\_$wd$\_$i & 5 & 输入 & 处于访存阶段的指令要写的目的寄存器地址 \\
+		\hline
+		mem$\_$wdata$\_$i & 32 & 输入 & 处于访存阶段的指令要写入目的寄存器的数据 \\
+		\hline
+		ex$\_$aluop$\_$i & 8 & 输入 & 处于执行阶段指令的运算子类型 \\
+		\hline
+		is$\_$in$\_$delayslot$\_$i & 1 & 输入 & 当前处于译码阶段的指令是否位于延迟槽 \\
+		\hline
+		reg1$\_$read$\_$o & 1 & 输出 & Regfile模块的第一个读寄存器端口的读使能信号 \\
+		\hline
+		reg2$\_$read$\_$o & 1 & 输出 & Regfile模块的第二个读寄存器端口的读使能信号 \\
+		\hline
+		reg1$\_$addr$\_$o & 5 & 输出 & Regfile模块的第一个读寄存器端口的读地址信号 \\
+		\hline
+		reg2$\_$addr$\_$o & 5 & 输出 & Regfile模块的第二个读寄存器端口的读地址信号 \\
+		\hline
+		aluop$\_$o & 8 & 输出 & 译码阶段的指令要进行的运算的子类型 \\
+		\hline
+		alusel$\_$o & 3 & 输出 & 译码阶段的指令要进行的运算的类型 \\
+		\hline
+		reg1$\_$o & 32 & 输出 & 译码阶段的指令要进行的运算的源操作数1 \\
+		\hline
+		reg2$\_$o & 32 & 输出 & 译码阶段的指令要进行的运算的源操作数2 \\
+		\hline
+		wd$\_$o & 5 & 输出 & 译码阶段的指令要写入的目的寄存器地址 \\
+		\hline
+		wreg$\_$o & 1 & 输出 & 译码阶段的指令是否有要写入的目的寄存器 \\
+		\hline
+		branch$\_$flag$\_$o & 1 & 输出 & 是否发生转移 \\
+		\hline
+		branch$\_$target$\_$address$\_$o & 32 & 输出 & 转移到的目标地址 \\
+		\hline
+		is$\_$in$\_$delayslot$\_$o & 1 & 输出 & 当前处于译码阶段的指令是否位于延迟槽 \\
+		\hline
+		link$\_$addr$\_$o & 32 & 输出 & 转移指令要保存的返回地址 \\
+		\hline
+		next$\_$inst$\_$in$\_$delayslot$\_$o & 1 & 输出 & 下一条进入译码阶段的指令是否位于延迟槽 \\
+		\hline
+		inst$\_$o & 32 & 输出 & 当前处于译码阶段的指令 \\
+		\hline
+		excepttype$\_$o & 32 & 输出 & 收集的异常信息 \\
+		\hline
+		current$\_$inst$\_$addr$\_$o & 32 & 输出 & 译码阶段指令的地址 \\
+		\hline
+		stallreq & 1 & 输出 & 译码阶段请求流水暂停 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{Regfile模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{Regfile模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号，高电平有效 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		waddr & 5 & 输入 & 要写入的寄存器地址 \\
+		\hline
+		wdata & 32 & 输入 & 要写入的数据 \\
+		\hline
+		we & 1 & 输入 & 写使能信号 \\
+		\hline
+		raddr1 & 5 & 输入 & 第一个读寄存器端口要读取的寄存器的地址 \\
+		\hline
+		re1 & 1 & 输入 & 第一个读寄存器端口读使能信号 \\
+		\hline
+		rdata1 & 32 & 输出 & 第一个读寄存器端口输出的寄存器值 \\
+		\hline
+		raddr2 & 5 & 输入 & 第二个读寄存器端口要读取的寄存器的地址 \\
+		\hline
+		re2 & 1 & 输入 & 第二个读寄存器端口读使能信号 \\
+		\hline
+		rdata2 & 32 & 输出 & 第二个读寄存器端口输出的寄存器值 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{ID/EX模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{ID/EX模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		id$\_$alusel & 3 & 输入 & 译码阶段的指令要进行的运算的类型 \\
+		\hline
+		id$\_$aluop & 8 & 输入 & 译码阶段的指令要进行的运算的子类型 \\
+		\hline
+		id$\_$reg1 & 32 & 输入 & 译码阶段的指令要进行的运算的源操作数1 \\
+		\hline
+		id$\_$reg2 & 32 & 输入 & 译码阶段的指令要进行的运算的源操作数2 \\
+		\hline
+		id$\_$wd & 5 & 输入 & 译码阶段的指令要写入的目的寄存器地址 \\
+		\hline
+		id$\_$wreg & 1 & 输入 & 译码阶段的指令是否有要写入的目的寄存器 \\
+		\hline
+		stall & 1 & 输入 & 译码阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		id$\_$excepttype & 32 & 输入 & 译码阶段收集到的异常信息 \\
+		\hline
+		id$\_$current$\_$inst$\_$addr & 32 & 输入 & 译码阶段指令的地址 \\
+		\hline
+		id$\_$is$\_$in$\_$delayslot & 1 & 输入 & 当前处于译码阶段的指令是否位于延迟槽 \\
+		\hline
+		id$\_$link$\_$address & 32 & 输入 & 处于译码阶段的转移指令要保存的返回地址 \\
+		\hline
+		next$\_$inst$\_$in$\_$delayslot$\_$i & 1 & 输入 & 下一条进入译码阶段的指令是否位于延迟槽 \\
+		\hline
+		id$\_$inst & 32 & 输入 & 当前处于译码阶段的指令 \\
+		\hline
+		ex$\_$inst & 32 & 输出 & 当前处于执行阶段的指令 \\
+		\hline
+		ex$\_$is$\_$in$\_$delayslot & 32 & 输出 & 当前处于执行阶段的指令是否位于延迟槽 \\
+		\hline
+		ex$\_$link$\_$address & 1 & 输出 & 处于执行阶段的转移指令要保存的返回地址 \\
+		\hline
+		is$\_$in$\_$delayslot$\_$o & 1 & 输出 & 当前处于译码阶段的指令是否位于延迟槽 \\
+		\hline
+		ex$\_$excepttype & 32 & 输出 & 译码阶段收集到的异常信息 \\
+		\hline
+		ex$\_$current$\_$inst$\_$addr & 32 & 输出 & 执行阶段指令的地址 \\
+		\hline
+		ex$\_$alusel & 3 & 输出 & 执行阶段的指令要进行的运算的类型 \\
+		\hline
+		ex$\_$aluop & 8 & 输出 & 执行阶段的指令要进行的运算的子类型 \\
+		\hline
+		ex$\_$reg1 & 32 & 输出 & 执行阶段的指令要进行的运算的源操作数1 \\
+		\hline
+		ex$\_$reg2 & 32 & 输出 & 执行阶段的指令要进行的运算的源操作数2 \\
+		\hline
+		ex$\_$wd & 5 & 输出 & 执行阶段的指令要写入的目的寄存器地址 \\
+		\hline
+		ex$\_$wreg & 1 & 输出 & 执行阶段的指令是否有要写入的目的寄存器 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{EX模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{EX模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		alusel$\_$i & 3 & 输入 & 执行阶段要进行的运算的类型 \\
+		\hline
+		aluop$\_$i & 8 & 输入 & 执行阶段要进行的运算的子类型 \\
+		\hline
+		reg1$\_$i & 32 & 输入 & 参与运算的源操作数1 \\
+		\hline
+		reg2$\_$i & 32 & 输入 & 参与运算的源操作数2 \\
+		\hline
+		wd$\_$i & 5 & 输入 & 指令执行要写入的目的寄存器地址 \\
+		\hline
+		wreg$\_$i & 1 & 输入 & 是否有要写入的目的寄存器 \\
+		\hline
+		excepttype$\_$i & 32 & 输入 & 译码阶段收集到的异常信息 \\
+		\hline
+		current$\_$inst$\_$addr$\_$i & 32 & 输入 & 执行阶段指令的地址 \\
+		\hline
+		is$\_$in$\_$delayslot$\_$i & 1 & 输入 & 当前处于执行阶段的指令是否位于延迟槽 \\
+		\hline
+		link$\_$address$\_$i & 32 & 输入 & 处于执行阶段的转移指令要保存的返回地址 \\
+		\hline
+		hilo$\_$temp$\_$i & 64 & 输入 & 第一个执行周期得到的乘法结果 \\
+		\hline
+		cnt$\_$i & 2 & 输入 & 当前处于执行阶段的第几个时钟周期 \\
+		\hline
+		hilo$\_$temp$\_$o & 64 & 输出 & 第一个执行周期得到的乘法结果 \\
+		\hline
+		cnt$\_$o & 2 & 输出 & 下一个时钟周期处于执行阶段的第几个时钟周期 \\
+		\hline
+		excepttype$\_$o & 32 & 输出 & 译码阶段、执行阶段搜集到的异常信息 \\
+		\hline
+		current$\_$inst$\_$addr$\_$o & 32 & 输出 & 执行阶段指令的地址 \\
+		\hline
+		is$\_$in$\_$delayslot$\_$o & 1 & 输出 & 执行阶段的指令是否是延迟槽指令 \\
+		\hline
+		wd$\_$o & 5 & 输出 & 执行阶段的指令最终要写入的目的寄存器地址 \\
+		\hline
+		wreg$\_$o & 1 & 输出 & 执行阶段的指令最终是否有要写入的目的寄存器 \\
+		\hline
+		wdata$\_$o & 32 & 输出 & 执行阶段的指令最终要写入目的寄存器的值 \\
+		\hline
+		hi$\_$i & 32 & 输入 & HILO模块给出的HI寄存器的值 \\
+		\hline
+		lo$\_$i & 32 & 输入 & HILO模块给出的LO寄存器的值 \\
+		\hline
+		mem$\_$whilo$\_$i & 1 & 输入 & 处于访存阶段的指令是否要写HI、LO寄存器 \\
+		\hline
+		mem$\_$hi$\_$i & 32 & 输入 & 处于访存阶段的指令要写入HI寄存器的值 \\
+		\hline
+		mem$\_$lo$\_$i & 32 & 输入 & 处于访存阶段的指令要写入LO寄存器的值 \\
+		\hline
+		wb$\_$whilo$\_$i & 1 & 输入 & 处于写回阶段的指令是否要写HI、LO寄存器 \\
+		\hline
+		wb$\_$hi$\_$i & 32 & 输入 & 处于写回阶段的指令要写入HI寄存器的值 \\
+		\hline
+		wb$\_$lo$\_$i & 32 & 输入 & 处于写回阶段的指令要写入LO寄存器的值 \\
+		\hline
+		whilo$\_$o & 1 & 输出 & 处于执行阶段的指令是否要写HI、LO寄存器 \\
+		\hline
+		hi$\_$o & 32 & 输出 & 处于执行阶段的指令要写入HI寄存器的值 \\
+		\hline
+		lo$\_$o & 32 & 输出 & 处于执行阶段的指令要写入LO寄存器的值 \\
+		\hline
+		cp0$\_$reg$\_$data$\_$i & 32 & 输入 & 从CP0模块读取的指定寄存器的值 \\
+		\hline
+		mem$\_$cp0$\_$reg$\_$we & 1 & 输入 & 访存阶段的指令是否要写CP0中的寄存器 \\
+		\hline
+		mem$\_$cp0$\_$reg$\_$write$\_$addr & 5 & 输入 & 访存阶段的指令要写的CP0中寄存器的地址 \\
+		\hline
+		mem$\_$cp0$\_$reg$\_$data & 32 & 输入 & 访存阶段的指令要写入CP0中寄存器的数据 \\
+		\hline
+		wb$\_$cp0$\_$reg$\_$we & 1 & 输入 & 写回阶段的指令是否要写CP0中的寄存器 \\
+		\hline
+		wb$\_$cp0$\_$reg$\_$write$\_$addr & 5 & 输入 & 写回阶段的指令要写的CP0中寄存器的地址 \\
+		\hline
+		wb$\_$cp0$\_$reg$\_$data & 32 & 输入 & 写回阶段的指令要写入CP0中寄存器的数据 \\
+		\hline
+		cp0$\_$reg$\_$read$\_$addr$\_$o & 5 & 输出 & 执行阶段的指令要读取的CP0中寄存器的地址 \\
+		\hline
+		cp0$\_$reg$\_$we$\_$o & 1 & 输出 & 执行阶段的指令是否要写CP0中的寄存器 \\
+		\hline
+		cp0$\_$reg$\_$write$\_$addr$\_$o & 5 & 输出 & 执行阶段的指令要写的CP0中寄存器的地址 \\
+		\hline
+		cp0$\_$reg$\_$data$\_$o & 32 & 输出 & 执行阶段的指令要写入CP0中寄存器的数据 \\
+		\hline
+		inst$\_$i & 32 & 输入 & 当前处于执行阶段的指令 \\
+		\hline
+		aluop$\_$o & 8 & 输出 & 执行阶段的指令要进行的运算的子类型 \\
+		\hline
+		mem$\_$addr$\_$o & 32 & 输出 & 加载、存储指令对应的存储器地址 \\
+		\hline
+		reg2$\_$o$\_$pc & 32 & 输出 & 存储指令要存储的数据，或者lwl、lwr指令要写入的目的寄存器的原始值 \\
+		\hline
+		stallreq & 1 & 输出 & 执行阶段是否请求流水线暂停 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{EX/MEM模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{EX/MEM模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		ex$\_$wd & 5 & 输入 & 执行阶段的指令执行后要写入的目的寄存器地址 \\
+		\hline
+		ex$\_$wreg & 1 & 输入 & 执行阶段的指令执行后是否有要写入的目的寄存器 \\
+		\hline
+		ex$\_$wdata & 32 & 输入 & 执行阶段的指令执行后要写入的目的寄存器的值 \\
+		\hline
+		mem$\_$wd & 5 & 输出 & 访存阶段的指令要写入的目的寄存器地址 \\
+		\hline
+		mem$\_$wreg & 1 & 输出 & 访存阶段的指令是否有要写入的目的寄存器 \\
+		\hline
+		mem$\_$wdata & 32 & 输出 & 访存阶段的指令要写入目的寄存器的值 \\
+		\hline
+		stall & 1 & 输入 & 执行阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 是否清除流水线 \\
+		\hline
+		ex$\_$cp0$\_$reg$\_$we & 1 & 输入 & 执行阶段的指令是否要写CP0中的寄存器 \\
+		\hline
+		ex$\_$cp0$\_$reg$\_$write$\_$addr & 5 & 输入 & 执行阶段的指令要写的CP0中寄存器的地址 \\
+		\hline
+		ex$\_$cp0$\_$reg$\_$data & 32 & 输入 & 执行阶段的指令要写入CP0中寄存器的数据 \\
+		\hline
+		mem$\_$cp0$\_$reg$\_$we & 1 & 输出 & 访存阶段的指令是否要写CP0中的寄存器 \\
+		\hline
+		mem$\_$cp0$\_$reg$\_$write$\_$addr & 5 & 输出 & 访存阶段的指令要写的CP0中寄存器的地址 \\
+		\hline
+		mem$\_$cp0$\_$reg$\_$data & 32 & 输出 & 访存阶段的指令要写入CP0中寄存器的数据 \\
+		\hline
+		ex$\_$aluop & 8 & 输入 & 执行阶段的指令要进行的运算的子类型 \\
+		\hline
+		ex$\_$mem$\_$addr & 32 & 输入 & 执行阶段的加载、存储指令对应的存储器地址 \\
+		\hline
+		ex$\_$reg2 & 32 & 输入 & 执行阶段的存储指令要存储的数据，或者lwl、lwr指令要写入的目的寄存器的原始值 \\
+		\hline
+		mem$\_$aluop & 8 & 输出 & 访存阶段的指令要进行的运算的子类型 \\
+		\hline
+		mem$\_$mem$\_$addr & 32 & 输出 & 访存阶段的加载、存储指令对应的存储器地址 \\
+		\hline
+		mem$\_$reg2 & 32 & 输出 & 访存阶段的存储指令要存储的数据，或者lwl、lwr指令要写入的目的寄存器的原始值 \\
+		\hline
+		ex$\_$whilo & 1 & 输入 & 执行阶段的指令是否要写HI、LO寄存器 \\
+		\hline
+		ex$\_$hi & 32 & 输入 & 执行阶段的指令要写入HI寄存器的值 \\
+		\hline
+		ex$\_$lo & 32 & 输入 & 执行阶段的指令要写入LO寄存器的值 \\
+		\hline
+		mem$\_$whilo & 1 & 输出 & 访存阶段的指令是否要写HI、LO寄存器 \\
+		\hline
+		mem$\_$hi & 32 & 输出 & 访存阶段的指令要写入HI寄存器的值 \\
+		\hline
+		mem$\_$lo & 32 & 输出 & 访存阶段的指令要写入LO寄存器的值 \\
+		\hline
+		ex$\_$excepttype & 32 & 输入 & 译码、执行阶段收集到的异常信息 \\
+		\hline
+		ex$\_$current$\_$inst$\_$address & 32 & 输入 & 执行阶段指令的地址 \\
+		\hline
+		ex$\_$is$\_$in$\_$delayslot & 1 & 输入 & 执行阶段的指令是否是延迟槽指令 \\
+		\hline
+		mem$\_$excepttype & 32 & 输出 & 译码、执行阶段收集到的异常信息 \\
+		\hline
+		mem$\_$current$\_$inst$\_$address & 32 & 输出 & 访存阶段指令的地址 \\
+		\hline
+		mem$\_$is$\_$in$\_$delayslot & 1 & 输出 & 访存阶段的指令是否是延迟槽指令 \\
+		\hline
+		hilo$\_$i & 64 & 输入 & 保存的乘法结果 \\
+		\hline
+		cnt$\_$i & 2 & 输入 & 下一个时钟周期是执行阶段的第几个时钟周期 \\
+		\hline
+		hilo$\_$o & 64 & 输出 & 保存的乘法结果 \\
+		\hline
+		cnt$\_$o & 2 & 输出 & 当前处于执行阶段的第几个时钟周期 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{MEM模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{MEM模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		wd$\_$i & 5 & 输入 & 访存阶段的指令要写入的目的寄存器地址 \\
+		\hline
+		wreg$\_$i & 1 & 输入 & 访存阶段的指令是否有要写入的目的寄存器 \\
+		\hline
+		wdata$\_$i & 32 & 输入 & 访存阶段的指令要写入目的寄存器的值 \\
+		\hline
+		wd$\_$o & 5 & 输出 & 访存阶段的指令最终要写入的目的寄存器地址 \\
+		\hline
+		wreg$\_$o & 1 & 输出 & 访存阶段的指令最终是否有要写入的目的寄存器 \\
+		\hline
+		wdata$\_$o & 32 & 输出 & 访存阶段的指令最终要写入目的寄存器的值 \\
+		\hline
+		aluop$\_$i & 8 & 输入 & 访存阶段的指令要进行的运算的子类型 \\
+		\hline
+		mem$\_$addr$\_$i & 32 & 输入 & 访存阶段的加载、存储指令对应的存储器地址 \\
+		\hline
+		reg2$\_$i & 32 & 输入 & 访存阶段的存储指令要存储的数据，或者lwl、lwr指令要写入的目的寄存器的原始值 \\
+		\hline
+		mem$\_$data$\_$i & 32 & 输入 & 从数据存储器读取的数据 \\
+		\hline
+		mem$\_$addr$\_$o & 32 & 输出 & 要访问的数据存储器的地址 \\
+		\hline
+		mem$\_$we$\_$o & 1 & 输出 & 是否是写操作，为1表示是写操作 \\
+		\hline
+		mem$\_$sel$\_$o & 4 & 输出 & 字节选择信号 \\
+		\hline
+		mem$\_$data$\_$o & 32 & 输出 & 要写入数据存储器的数据 \\
+		\hline
+		mem$\_$ce$\_$o & 1 & 输出 & 数据存储器使能信号 \\
+		\hline
+		whilo$\_$i & 1 & 输入 & 访存阶段的指令是否要写HI、LO寄存器 \\
+		\hline
+		hi$\_$i & 32 & 输入 & 访存阶段的指令要写入HI寄存器的值 \\
+		\hline
+		lo$\_$i & 32 & 输入 & 访存阶段的指令要写入LO寄存器的值 \\
+		\hline
+		whilo$\_$o & 1 & 输出 & 访存阶段的指令最终是否要写HI、LO寄存器 \\
+		\hline
+		hi$\_$o & 32 & 输出 & 访存阶段的指令最终要写入HI寄存器的值 \\
+		\hline
+		lo$\_$o & 32 & 输出 & 访存阶段的指令最终要写入LO寄存器的值 \\
+		\hline
+		cp0$\_$reg$\_$we$\_$i & 1 & 输入 & 访存阶段的指令是否要写CP0中的寄存器 \\
+		\hline
+		cp0$\_$reg$\_$write$\_$addr$\_$i & 5 & 输入 & 访存阶段的指令要写的CP0中寄存器的地址 \\
+		\hline
+		cp0$\_$reg$\_$data$\_$i & 32 & 输入 & 访存阶段的指令要写入CP0中寄存器的数据 \\
+		\hline
+		cp0$\_$reg$\_$we$\_$o & 1 & 输出 & 访存阶段的指令最终是否要写CP0中的寄存器 \\
+		\hline
+		cp0$\_$reg$\_$write$\_$addr$\_$o & 5 & 输出 & 访存阶段的指令最终要写的CP0中寄存器的地址 \\
+		\hline
+		cp0$\_$reg$\_$data$\_$o & 32 & 输出 & 访存阶段的指令最终要写入CP0中寄存器的数据 \\
+		\hline
+		excepttype$\_$i & 32 & 输入 & 译码、执行阶段收集到的异常信息 \\
+		\hline
+		current$\_$inst$\_$address & 32 & 输入 & 访存阶段指令的地址 \\
+		\hline
+		is$\_$in$\_$delayslot$\_$i & 1 & 输入 & 访存阶段的指令是否是延迟槽指令 \\
+		\hline
+		cp0$\_$status$\_$i & 32 & 输入 & CP0中Status寄存器的值 \\
+		\hline
+		cp0$\_$cause$\_$i & 32 & 输入 & CP0中Cause寄存器的值 \\
+		\hline
+		cp0$\_$epc$\_$i & 32 & 输入 & CP0中EPC寄存器的值 \\
+		\hline
+		wb$\_$cp0$\_$reg$\_$we & 1 & 输入 & 回写阶段的指令是否要写CP0中的寄存器 \\
+		\hline
+		wb$\_$cp0$\_$reg$\_$write$\_$address & 5 & 输入 & 回写阶段的指令要写的CP0中寄存器的地址 \\
+		\hline
+		wb$\_$cp0$\_$reg$\_$data & 32 & 输入 & 回写阶段的指令要写入CP0中寄存器的值 \\
+		\hline
+		excepttype$\_$o & 32 & 输出 & 最终的异常类型 \\
+		\hline
+		current$\_$inst$\_$address$\_$o & 32 & 输出 & 访存阶段指令的地址 \\
+		\hline
+		is$\_$in$\_$delayslot$\_$o & 1 & 输出 & 访存阶段的指令是否是延迟槽指令 \\
+		\hline
+		cp0$\_$epc$\_$o & 32 & 输出 & CP0中EPC寄存器的最新值 \\
+		\hline
+		LLbit$\_$i & 1 & 输入 & LLbit模块给出的LLbit寄存器的值 \\
+		\hline
+		wb$\_$LLbit$\_$we$\_$i & 1 & 输入 & 回写阶段的指令是否要写LLbit寄存器 \\
+		\hline
+		wb$\_$LLbit$\_$value$\_$i & 1 & 输入 & 回写阶段要写入LLbit寄存器的值 \\
+		\hline
+		LLbit$\_$we$\_$o & 1 & 输出 & 访存阶段的指令是否要写LLbit寄存器 \\
+		\hline
+		LLbit$\_$value$\_$o & 1 & 输出 & 访存阶段的指令要写入LLbit寄存器的值 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{MEM/WB模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{IF/ID模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		if$\_$pc & 32 & 输入 & 取指阶段取出的指令对应的地址 \\
+		\hline
+		if$\_$inst & 32 & 输入 & 取指阶段取出的指令 \\
+		\hline
+		stall & 1 & 输入 & 取指阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		id$\_$pc & 32 & 输出 & 译码阶段的指令对应的地址 \\
+		\hline
+		id$\_$inst & 32 & 输出 & 译码阶段的指令 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{CP0模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{IF/ID模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		if$\_$pc & 32 & 输入 & 取指阶段取出的指令对应的地址 \\
+		\hline
+		if$\_$inst & 32 & 输入 & 取指阶段取出的指令 \\
+		\hline
+		stall & 1 & 输入 & 取指阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		id$\_$pc & 32 & 输出 & 译码阶段的指令对应的地址 \\
+		\hline
+		id$\_$inst & 32 & 输出 & 译码阶段的指令 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{LLbit模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{IF/ID模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		if$\_$pc & 32 & 输入 & 取指阶段取出的指令对应的地址 \\
+		\hline
+		if$\_$inst & 32 & 输入 & 取指阶段取出的指令 \\
+		\hline
+		stall & 1 & 输入 & 取指阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		id$\_$pc & 32 & 输出 & 译码阶段的指令对应的地址 \\
+		\hline
+		id$\_$inst & 32 & 输出 & 译码阶段的指令 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{HILO模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{IF/ID模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		if$\_$pc & 32 & 输入 & 取指阶段取出的指令对应的地址 \\
+		\hline
+		if$\_$inst & 32 & 输入 & 取指阶段取出的指令 \\
+		\hline
+		stall & 1 & 输入 & 取指阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		id$\_$pc & 32 & 输出 & 译码阶段的指令对应的地址 \\
+		\hline
+		id$\_$inst & 32 & 输出 & 译码阶段的指令 \\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{CTRL模块}
+\subsubsection{端口说明}
+\begin{table}[H]
+	\centering
+	\caption{IF/ID模块的接口描述}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
+		\hline
+		rst & 1 & 输入 & 复位信号 \\
+		\hline
+		clk & 1 & 输入 & 时钟信号 \\
+		\hline
+		if$\_$pc & 32 & 输入 & 取指阶段取出的指令对应的地址 \\
+		\hline
+		if$\_$inst & 32 & 输入 & 取指阶段取出的指令 \\
+		\hline
+		stall & 1 & 输入 & 取指阶段是否暂停 \\
+		\hline
+		flush & 1 & 输入 & 流水线清除信号 \\
+		\hline
+		id$\_$pc & 32 & 输出 & 译码阶段的指令对应的地址 \\
+		\hline
+		id$\_$inst & 32 & 输出 & 译码阶段的指令 \\
+		\hline
+	\end{tabular}
+\end{table}
