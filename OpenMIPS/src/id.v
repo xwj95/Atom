@@ -35,7 +35,6 @@ module id(
     );
 	
 	//取得指令的指令码，功能码
-	//对于ori指令只需通过判断第26-31bit的值，即可判断是否是ori指令
 	wire[5:0] op = inst_i[31:26];
 	wire[4:0] op2 = inst_i[10:6];
 	wire[5:0] op3 = inst_i[5:0];
@@ -73,37 +72,173 @@ module id(
 			imm <= `ZeroWord;
 			
 			case (op)
-				`EXE_ORI: begin
-					//ori指令需要将结果写入目的寄存器，所以wreg_o为WriteEnable
-					wreg_o <= `WriteEnable;
-					
-					//运算的子类型是逻辑“或”运算
-					aluop_o <= `EXE_OR_OP;
-					
-					//运算类型是逻辑运算
-					alusel_o <= `EXE_RES_LOGIC;
-					
-					//需要通过Regfile的读端口1读取寄存器
-					reg1_read_o <= 1'b1;
-					
-					//不需要通过Regfile的读端口2读取寄存器
-					reg2_read_o <= 1'b0;
-					
-					//指令执行需要的立即数
-					imm <= {16'h0, inst_i[15:0]};
-					
-					//指令执行要写的目的寄存器地址
-					wd_o <= inst_i[20:16];
-					
-					//ori指令是有效指令
-					instvalid <= `InstValid;
+				`EXE_SPECIAL_INST: begin		//指令码是SPECIAL
+					case (op2)
+						5'b00000: begin				//依据功能码判断是哪种指令
+							case (op3)
+								`EXE_OR: begin			//or指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_OR_OP;
+									alusel_o <= `EXE_RES_LOGIC;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+								end
+								`EXE_AND: begin			//and指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_AND_OP;
+									alusel_o <= `EXE_RES_LOGIC;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+								end
+								`EXE_XOR: begin			//xor指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_XOR_OP;
+									alusel_o <= `EXE_RES_LOGIC;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+								end
+								`EXE_NOR: begin			//nor指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_NOR_OP;
+									alusel_o <= `EXE_RES_LOGIC;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+								end
+								`EXE_SLLV: begin		//sllv指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_SLL_OP;
+									alusel_o <= `EXE_RES_SHIFT;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+								end
+								`EXE_SRLV: begin		//slrv指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_SRL_OP;
+									alusel_o <= `EXE_RES_SHIFT;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+								end
+								`EXE_SRAV: begin		//srav指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_SRA_OP;
+									alusel_o <= `EXE_RES_SHIFT;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+								end
+								`EXE_CACHE: begin		//cache指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_SLL_OP;
+									alusel_o <= `EXE_RES_SHIFT;
+									reg1_read_o <= 0'b1;
+									reg2_read_o <= 0'b1;
+									instvalid <= `InstValid;
+								end
+								default: begin
+								end
+							endcase
+						end
+						`EXE_ORI: begin			//ori指令
+							//ori指令需要将结果写入目的寄存器，所以wreg_o为WriteEnable
+							wreg_o <= `WriteEnable;
+							
+							//运算的子类型是逻辑“或”运算
+							aluop_o <= `EXE_OR_OP;
+							
+							//运算类型是逻辑运算
+							alusel_o <= `EXE_RES_LOGIC;
+							
+							//需要通过Regfile的读端口1读取寄存器
+							reg1_read_o <= 1'b1;
+							
+							//不需要通过Regfile的读端口2读取寄存器
+							reg2_read_o <= 1'b0;
+							
+							//指令执行需要的立即数
+							imm <= {16'h0, inst_i[15:0]};
+							
+							//指令执行要写的目的寄存器地址
+							wd_o <= inst_i[20:16];
+							
+							//ori指令是有效指令
+							instvalid <= `InstValid;
+						end
+						`EXE_ANDI: begin		//andi指令
+							wreg_o <= `WriteEnable;
+							aluop_o <= `EXE_AND_OP;
+							alusel_o <= `EXE_RES_LOGIC;
+							reg1_read_o <= 1'b1;
+							reg2_read_o <= 1'b0;
+							imm <= {16'h0, inst_i[15:0]};
+							wd_o <= inst_i[20:16];
+							instvalid <= `InstValid;
+						end
+						`EXE_XORI: begin		//xori指令
+							wreg_o <= `WriteEnable;
+							aluop_o <= `EXE_XOR_OP;
+							alusel_o <= `EXE_RES_LOGIC;
+							reg1_read_o <= 1'b1;
+							reg2_read_o <= 1'b0;
+							imm <= {16'h0, inst_i[15:0]};
+							wd_o <= inst_i[20:16];
+							instvalid <= `InstValid;
+						end
+						`EXE_LUI: begin			//lui指令
+							wreg_o <= `WriteEnable;
+							aluop_o <= `EXE_OR_OP;
+							alusel_o <= `EXE_RES_LOGIC;
+							reg1_read_o <= 1'b1;
+							reg2_read_o <= 1'b0;
+							imm <= {inst_i[15:0], 16'h0};
+							wd_o <= inst_i[20:16];
+							instvalid <= `InstValid;
+						end
+						default: begin
+						end
+					endcase
 				end
 				default: begin
 				end
 			endcase
 			
-		end
-	end
+			if (inst_i[31:21] == 11'b00000000000) begin
+				if (op3 == `EXE_SLL) begin		//sll指令
+					wreg_o <= `WriteEnable;
+					aluop_o <= `EXE_SLL_OP;
+					alusel_o <= `EXE_RES_SHIFT;
+					reg1_read_o <= 1'b0;
+					reg2_read_o <= 1'b1;
+					imm[4:0] <= inst_i[10:6];
+					wd_o <= inst_i[15:11];
+					instvalid <= `InstValid;
+				end else if (op3 == `EXE_SRL) begin		//srl指令
+					wreg_o <= `WriteEnable;
+					aluop_o <= `EXE_SRL_OP;
+					alusel_o <= `EXE_RES_SHIFT;
+					reg1_read_o <= 1'b0;
+					reg2_read_o <= 1'b1;
+					imm[4:0] <= inst_i[10:6];
+					wd_o <= inst_i[15:11];
+					instvalid <= `InstValid;
+				end else if (op3 == `EXE_SRA) begin		//sra指令
+					wreg_o <= `WriteEnable;
+					aluop_o <= `EXE_SRA_OP;
+					alusel_o <= `EXE_RES_SHIFT;
+					reg1_read_o <= 1'b0;
+					reg2_read_o <= 1'b1;
+					imm[4:0] <= inst_i[10:6];
+					wd_o <= inst_i[15:11];
+					instvalid <= `InstValid;
+				end
+			end
+		end		//if
+	end		//always
 	
 /************			第二段：确定进行运算的源操作数2			************/
 	//给reg1_o赋值的过程增加了两种情况：
