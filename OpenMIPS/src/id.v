@@ -138,7 +138,64 @@ module id(
 									alusel_o <= `EXE_RES_SHIFT;
 									reg1_read_o <= 0'b1;
 									reg2_read_o <= 0'b1;
+									imm <= `ZeroWord;
 									instvalid <= `InstValid;
+								end
+								`EXE_MFHI: begin		//mfhi指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_MFHI_OP;
+									alusel_o <= `EXE_RES_MOVE;
+									reg1_read_o <= 1'b0;
+									reg2_read_o <= 1'b0;
+									instvalid <= `InstValid;
+								end
+								`EXE_MFLO: begin		//mflo指令
+									wreg_o <= `WriteEnable;
+									aluop_o <= `EXE_MFLO_OP;
+									alusel_o <= `EXE_RES_MOVE;
+									reg1_read_o <= 1'b0;
+									reg2_read_o <= 1'b0;
+									instvalid <= `InstValid;
+								end
+								`EXE_MTHI: begin		//mthi指令
+									wreg_o <= `WriteDisable;
+									aluop_o <= `EXE_MTHI_OP;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b0;
+									instvalid <= `InstValid;
+								end
+								`EXE_MTLO: begin		//mtlo指令
+									wreg_o <= `WriteDisable;
+									aluop_o <= `EXE_MTLO_OP;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b0;
+									instvalid <= `InstValid;
+								end
+								`EXE_MOVN: begin		//movn指令
+									aluop_o <= `EXE_MOVN_OP;
+									alusel_o <= `EXE_RES_MOVE;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+									//reg2_o的值就是地址为rt的通用寄存器的值
+									if (reg2_read_o != `ZeroWord) begin
+										wreg_o <= `WriteEnable;
+									end else begin
+										wreg_o <= `WriteDisable;
+									end
+								end
+								`EXE_MOVZ: begin		//movz指令
+									aluop_o <= `EXE_MOVZ_OP;
+									alusel_o <= `EXE_RES_MOVE;
+									reg1_read_o <= 1'b1;
+									reg2_read_o <= 1'b1;
+									instvalid <= `InstValid;
+									//reg2_o的值就是地址为rt的通用寄存器的值
+									if (reg2_read_o == `ZeroWord) begin
+										wreg_o <= `WriteEnable;
+									end else begin
+										wreg_o <= `WriteDisable;
+									end
 								end
 								default: begin
 								end
