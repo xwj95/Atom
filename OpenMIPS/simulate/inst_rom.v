@@ -1,8 +1,8 @@
 `include "defines.v"
 module inst_rom(
 	input		wire						ce,
-	input		wire[`InstAddrBus]	addr,
-	output	reg[`InstBus]			inst
+	input		wire[`InstAddrBus]			addr,
+	output		reg[`InstBus]				inst
     );
 	//定义一个数组，大小是InstMemNum，元素宽度是InstBus
 	reg[`InstBus]	inst_mem[0:`InstMemNum-1];

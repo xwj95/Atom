@@ -1,0 +1,280 @@
+m255
+K3
+13
+cModel Technology
+Z0 dF:\modelsim\examples
+T_opt
+V1EBTHMC`5UVJFY;DjJ41;0
+Z1 04 20 4 work openmips_min_sopc_tb fast 0
+=1-208984ee51e2-56473b62-2b8-e40
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z2 OL;O;10.1c;51
+T_opt1
+VHAjTS^KgLg7Z<6m9AJSB;2
+R1
+=1-208984ee51e2-564732cf-2b3-10a8
+Z3 o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt1
+R2
+Z4 dF:\modelsim\examples
+T_opt2
+V4d2jTUM1n8T<nZ6zdIk]n3
+R1
+=1-001c42e942e2-5638a884-65-86c
+R3
+n@_opt2
+R2
+R4
+vex
+InSI9j]d[JS9Ub2RK;XiTB2
+VO;2WD<[]A<jjhF>JzTZH10
+Z5 dC:\Users\Administrator-\Documents\git\Atom\OpenMIPS\simulate
+Z6 w1447497290
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex.v
+L0 2
+Z7 OL;L;10.1c;51
+r1
+31
+Z8 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 gUKM4V=2I<J@6BCihG5dS0
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex.v|
+!s108 1447507041.533000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex.v|
+!i10b 1
+!s85 0
+vex_mem
+ILobohUd;3OQhbS:fe1X]Y3
+VZnZVCBdVLoTAPY]MO7GMe2
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex_mem.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex_mem.v
+L0 2
+R7
+r1
+31
+R8
+!s100 :f^5;<7k>EVVCM^hKFQQ93
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex_mem.v|
+!s108 1447507041.673000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/ex_mem.v|
+!i10b 1
+!s85 0
+vhilo_reg
+IhH[3CYZf`eF_If0>D1QXO0
+V^8YfHOj6?D4ha@2?A<4Nj3
+R5
+w1447498099
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/hilo_reg.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/hilo_reg.v
+L0 2
+R7
+r1
+31
+R8
+!s100 =;7:Mb6<9EGkzM0fa6@E41
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/hilo_reg.v|
+!s108 1447507041.861000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/hilo_reg.v|
+!i10b 1
+!s85 0
+vid
+IDVQHic;2GHQgEjY<4`zPY3
+Vcm_9_CVN;SbGTLM0m7boh1
+R5
+w1447506275
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id.v
+L0 2
+R7
+r1
+31
+R8
+!s100 _BNS]cKz4f90H;lm]3<<P2
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id.v|
+!s108 1447507042.048000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id.v|
+!i10b 1
+!s85 0
+vid_ex
+IciJ5<VTJo@XicPWmIb?jj1
+V?TQL7]PR8M7:R]6G@2Jeb1
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id_ex.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id_ex.v
+L0 2
+R7
+r1
+31
+R8
+!s100 =gbZMB^Qgk]>VL4[e_2XC1
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id_ex.v|
+!s108 1447507042.236000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/id_ex.v|
+!i10b 1
+!s85 0
+vif_id
+I>P2g`>C:^2ETdfZN3JTT@3
+V?WLjRa_B7]<n3H?;Wj]4V1
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/if_id.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/if_id.v
+L0 3
+R7
+r1
+31
+R8
+!s100 JDa:0:XfV9EoNVUzSdR4Q3
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/if_id.v|
+!s108 1447507042.361000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/if_id.v|
+!i10b 1
+!s85 0
+vinst_rom
+IZQnl>c5HU>Qlkde`H4;N_1
+Vdd?kfMiSGOL?c[K6=;BCO2
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/inst_rom.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/inst_rom.v
+L0 2
+R7
+r1
+31
+R8
+!s100 i1f;TWL2FcN_>:d;XdBog0
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/inst_rom.v|
+!s108 1447507042.502000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/inst_rom.v|
+!i10b 1
+!s85 0
+vmem
+Ig63TaH0n?L;DV3^L^KZ6_0
+VNnOXVfffVK[WldVgeP83=3
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v
+L0 2
+R7
+r1
+31
+R8
+!s100 :@1ci>RGF^fY36>=k?`c;3
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v|
+!s108 1447507042.658000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v|
+!i10b 1
+!s85 0
+vmem_wb
+IJHdfo]:KkTF^CEYN]WOoC0
+VZKaJ7P]>z<GGkehD6[38L0
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem_wb.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem_wb.v
+L0 2
+R7
+r1
+31
+R8
+!s100 FQ[RKel65eHmB@R=Bi0F22
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem_wb.v|
+!s108 1447507042.861000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem_wb.v|
+!i10b 1
+!s85 0
+vopenmips
+IRKBfV30Mf]2iK9a<U7=UP2
+VT9XabPN5[I[b^GDXFof[=1
+R5
+w1447506605
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v
+L0 2
+R7
+r1
+31
+R8
+!s100 JZ?n>9CR`lnBzKQN3feUS3
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v|
+!s108 1447507043.080000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v|
+!i10b 1
+!s85 0
+vopenmips_min_sopc
+I2lDk;ogF2RNz9D9=V6fV@1
+V>oQnH]7^FROW0cG3a6B;63
+R5
+Z9 w1447497289
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc.v
+L0 2
+R7
+r1
+31
+R8
+!s100 b^[RD4kR8DaKfhNPez^5j0
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc.v|
+!s108 1447507043.221000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc.v|
+!i10b 1
+!s85 0
+vopenmips_min_sopc_tb
+I9IKYj@kDJW[I0^g<I2:3X3
+VjAlLFJz2iV<GeaoLO:T?d1
+R5
+R9
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc_tb.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc_tb.v
+L0 5
+R7
+r1
+31
+R8
+!s100 DjJOMm[bM>UMhf@odWe782
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc_tb.v|
+!s108 1447507043.392000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc_tb.v|
+!i10b 1
+!s85 0
+vpc_reg
+I>FPo[e8l@a6?]7S?:<ZT?3
+VK]mB7jecnjLzMW^lB7hDS0
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/pc_reg.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/pc_reg.v
+L0 3
+R7
+r1
+31
+R8
+!s100 9d@bcQoPGH8SYJ1z^Vm`E2
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/pc_reg.v|
+!s108 1447507043.580000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/pc_reg.v|
+!i10b 1
+!s85 0
+vregfile
+IT^V2jOKKh9bK=G>5m>b313
+VCc88GW:H2:IP]GcGWTbBo0
+R5
+R6
+8C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/regfile.v
+FC:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/regfile.v
+L0 3
+R7
+r1
+31
+R8
+!s100 DR8W;L]fM49YB^=`2`C@c2
+!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/regfile.v|
+!i10b 1
+!s85 0
+!s108 1447507043.752000
+!s107 defines.v|C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/regfile.v|

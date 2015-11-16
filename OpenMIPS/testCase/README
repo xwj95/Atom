@@ -1,1 +1,7 @@
 inst_rom_1.s	测试ori
+inst_rom_2.s	ori
+inst_rom_3.s	lui, ori, or, andi, and, xori, xor, nor
+inst_rom_4.s	lui, ori, cache, sll, sllv, srl, srlv, nop, sra, srav
+inst_rom_5.s 	lui,mthi,mfhi
+inst_rom_6.s 	lui,movz,monv,mthi,mfhi,mtlo,mflo
+inst_rom_7.s 	ori, sll, addu, add, sub, subu, addi, addiu, or, slt, sltu, slti, sltiu, clo, clz, mul, mult, multu

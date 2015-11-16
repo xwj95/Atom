@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-10-30T15:43:47</DateModified>
+  <DateModified>2015-11-05T15:00:21</DateModified>
   <ModuleName>openmips</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Wendy/Documents/stash/proj8/OpenMIPS/iseconfig/openmips.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Wendy/Documents/stash/proj8/OpenMIPS</ImplementationReportsDirectory>
+  <SavedFilePath>Z:/Documents/Project/OpenMIPS/iseconfig/openmips.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Z:/Documents/Project/OpenMIPS\</ImplementationReportsDirectory>
   <DateInitialized>2015-10-30T15:43:47</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

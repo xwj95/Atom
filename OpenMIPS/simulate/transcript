@@ -1,0 +1,34 @@
+vsim -voptargs=+acc work.openmips_min_sopc_tb
+# vsim -voptargs=+acc work.openmips_min_sopc_tb 
+# Loading work.openmips_min_sopc_tb(fast)
+# Loading work.openmips_min_sopc(fast)
+# Loading work.openmips(fast)
+# Loading work.pc_reg(fast)
+# Loading work.if_id(fast)
+# Loading work.id(fast)
+# Loading work.regfile(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.hilo_reg(fast)
+# Loading work.inst_rom(fast)
+# ** Warning: (vsim-3017) C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v(179): [TFMPC] - Too few port connections. Expected 21, found 18.
+# 
+#         Region: /openmips_min_sopc_tb/openmips_min_sopc0/openmips0/ex0
+# ** Warning: (vsim-3722) C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v(179): [TFMPC] - Missing connection for port 'hi_o'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v(179): [TFMPC] - Missing connection for port 'lo_o'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips.v(179): [TFMPC] - Missing connection for port 'whilo_o'.
+# 
+add wave -position end  sim:/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/clk
+add wave -position end  sim:/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/rst
+add wave -position end  sim:/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/id_inst_i
+add wave -position end  sim:/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/regfile1/regs[1]
+add wave -position end  sim:/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/regfile1/regs[2]
+add wave -position end  sim:/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/regfile1/regs[3]
+add wave -position end  sim:/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/regfile1/regs[4]
+run -all
+# Break in Module openmips_min_sopc_tb at C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/openmips_min_sopc_tb.v line 20
