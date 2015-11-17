@@ -36,7 +36,25 @@ module ex(
 	//当前执行阶段的指令是否位于延迟槽
 	input 		wire 					is_in_delayslot_i,
 
-	
+	//访存阶段的指令是否要写CP0中的寄存器，用来检测数据相关
+	input		wire					mem_cp0_reg_we,
+	input		wire[4:0]				mem_cp0_reg_write_addr,
+	input		wire[`RegBus]			mem_cp0_reg_data,
+
+	//回写阶段的指令是否要写CP0中的寄存器，也是用来检测数据相关
+	input		wire					wb_cp0_reg_we,
+	input		wire[4:0]				wb_cp0_reg_write_addr,
+	input		wire[`RegBus]			wb_cp0_reg_data,
+
+	//与CP0直接相连，用于读取其中指定寄存器的值
+	input		wire[`RegBus]			cp0_reg_data_i,
+	output		reg[4:0]				cp0_reg_read_addr_o,
+
+	//向流水线下一级传递，用于写CP0中的指定寄存器
+	output		reg 					cp0_reg_we_o,
+	output		reg[4:0]				cp0_reg_write_addr_o,
+	output		reg[`RegBus]			cp0_reg_data_o,
+		
 	output		reg[`RegAddrBus]		wd_o,
 	output		reg						wreg_o,
 	output		reg[`RegBus]			wdata_o,
@@ -85,7 +103,7 @@ module ex(
 	//将该值通过reg2_o接口传递到访存阶段
 	assign reg2_o = reg2_i;
 
-/************				第一段：依据aluop_i指示的运算子类型进行运算								************/
+	//依据aluop_i指示的运算子类型进行运算
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			logicout <= `ZeroWord;
@@ -202,13 +220,27 @@ module ex(
 					//如果是movn指令，那么将reg1_i的值作为移动操作的结果
 					moveres <= reg1_i;
 				end
+				`EXE_MFC0_OP: begin
+					//要从CP0中读取的寄存器的地址
+					cp0_reg_read_addr_o <= inst_i[15:11];
+
+					//读取到的CP0中指定寄存器的值
+					moveres <= cp0_reg_data_i;
+
+					//判断是否存在数据相关
+					if (mem_cp0_reg_we == `WriteEnable && mem_cp0_reg_write_addr == inst_i[15:11]) begin
+						moveres <= mem_cp0_reg_data;		//与访存阶段存在数据相关
+					end else if (wb_cp0_reg_we == `WriteEnable && wb_cp0_reg_write_addr == inst_i[15:11]) begin
+						moveres <= wb_cp0_reg_data;
+					end
+				end
 				default: begin
 				end
 			endcase
 		end
 	end
 
-/************				第二段：依据alusel_i指示的运算类型，选择一个运算结果作为最终结果			************/
+	//依据alusel_i指示的运算类型，选择一个运算结果作为最终结果
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			arithmeticres <= `ZeroWord;
@@ -283,7 +315,7 @@ module ex(
 		end
 	end
 
-/************						第三段：进行乘法运算					************/
+	//进行乘法运算
 	//（1）取得乘法运算的被乘数，如果是有符号乘法且被乘数是负数，那么取补码
 	assign opdata1_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP)) &&
 							(reg1_i[31] == 1'b1)) ? (~reg1_i + 1) : reg1_i;
@@ -314,8 +346,8 @@ module ex(
 		end
 	end
 
-/************					第四段：确定要写入目的寄存器的数据				************/
-always @ (*) begin
+	//确定要写入目的寄存器的数据
+	always @ (*) begin
 		wd_o <= wd_i;							//wd_o等于wd_i，要写的目的寄存器地址
 		//如果是add、addi、sub、subi指令，且发生溢出，那么设置wreg_o为WriteDisable，表示不写目的寄存器
 		if (((aluop_i == `EXE_ADD_OP) || (aluop_i == `EXE_ADDI_OP) ||
@@ -349,7 +381,7 @@ always @ (*) begin
 		endcase
 	end
 
-/************					第五段：确定对HI、LO寄存器的操作信息			************/
+	//确定对HI、LO寄存器的操作信息
 	//如果是MTHI、MTLO指令，那么需要给出whilo_o、hi_o、lo_i的值
 	always @ (*) begin
 		if (rst == `RstEnable) begin
@@ -375,4 +407,22 @@ always @ (*) begin
 			lo_o <= `ZeroWord;
 		end
 	end
+
+	//给出mtc0指令的执行结果
+	always @ (*) begin
+		if (rst == `RstEnable) begin
+			cp0_reg_write_addr_o <= 5'b00000;
+			cp0_reg_we_o <= `WriteDisable;
+			cp0_reg_data_o <= `ZeroWord;
+		end else if (aluop_i == `EXE_MTC0_OP) begin
+			cp0_reg_write_addr_o <= inst_i[15:11];
+			cp0_reg_we_o <= `WriteEnable;
+			cp0_reg_data_o <= reg1_i;
+		end else begin
+			cp0_reg_write_addr_o <= 5'b00000;
+			cp0_reg_we_o <= `WriteDisable;
+			cp0_reg_data_o <= `ZeroWord;
+		end
+	end
+
 endmodule

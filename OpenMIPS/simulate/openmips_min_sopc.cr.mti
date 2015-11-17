@@ -33,6 +33,13 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	openmips_min_sopc_tb
 
+} {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/cp0_reg.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/cp0_reg.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module cp0_reg
+
+Top level modules:
+	cp0_reg
+
 } {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/data_ram.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/data_ram.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module data_ram
@@ -82,6 +89,9 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	ctrl
 
+} {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/defines.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/defines.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+
 } {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/regfile.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/regfile.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module regfile
@@ -89,8 +99,12 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	regfile
 
-} {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/defines.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/defines.v
+} {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module mem
+
+Top level modules:
+	mem
 
 } {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem_wb.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem_wb.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
@@ -98,13 +112,6 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 
 Top level modules:
 	mem_wb
-
-} {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/mem.v
-Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
--- Compiling module mem
-
-Top level modules:
-	mem
 
 } {} {}} C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/pc_reg.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/Atom/OpenMIPS/simulate/pc_reg.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012

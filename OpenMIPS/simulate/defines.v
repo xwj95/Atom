@@ -97,7 +97,6 @@
 `define EXE_REGIMM_INST		6'b000001
 `define EXE_SPECIAL2_INST	6'b011100
 
-
 `define EXE_NOP				6'b000000			//nop指令的指令码
 
 //AluOp
@@ -171,6 +170,9 @@
 `define EXE_SWL_OP  		8'b11101010
 `define EXE_SWR_OP  		8'b11101110
 `define EXE_SYNC_OP 		8'b00001111
+
+`define EXE_MFC0_OP			8'b01011101
+`define EXE_MTC0_OP			8'b01100000
 `define EXE_NOP_OP			8'b00000000
 
 //AluSel
@@ -208,3 +210,16 @@
 `define RegNum				32					//通用寄存器的数量
 `define RegNumLog2			5					//寻址通用寄存器使用的地址位数
 `define NOPRegAddr			5'b00000
+
+//*****************			与CP0有关的宏定义		*****************
+`define CP0_REG_INDEX		5'b00000
+`define CP0_REG_ENTRYLO0	5'b00010
+`define CP0_REG_ENTRYLO1	5'b00011
+`define CP0_REG_BADVADDR	5'b01001
+`define CP0_REG_COUNT		5'b01010
+`define CP0_REG_ENTRYHI		5'b01011
+`define CP0_REG_COMPARE		5'b01100
+`define CP0_REG_STATUS		5'b01101
+`define CP0_REG_CAUSE		5'b01111
+`define CP0_REG_EPC			5'b10000
+`define CP0_REG_EBASE		5'b10010
