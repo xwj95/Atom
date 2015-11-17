@@ -12,6 +12,9 @@ module ex(
 
 	//inst_i的值是当前处于执行阶段的指令
 	input 		wire[`RegBus] 			inst_i,
+	input		wire[31:0]				excepttype_i,
+	input		wire[`RegBus]			current_inst_address_i,
+
 	//HILO模块给出的HI、LO寄存器的值
 	input		wire[`RegBus]			hi_i,
 	input		wire[`RegBus]			lo_i,
@@ -64,7 +67,11 @@ module ex(
 	output		reg[`RegBus]			lo_o,
 	output		reg						whilo_o,
 	output		reg[`DoubleRegBus]		hilo_temp_o,
-	output		reg[1:0]			cnt_o,
+	output		reg[1:0]				cnt_o,
+
+	output		wire[31:0]				excepttype_o,
+	output		wire					is_in_delayslot_o, 
+	output		wire[`RegBus]			current_inst_address_o,
 
 	//为加载、存储指令准备的接口
 	output 		wire[`AluOpBus] 		aluop_o,
@@ -102,6 +109,12 @@ module ex(
 	//reg2_i是存储指令要存储的数据，或者lwl、lwr指令要加载到目的寄存器的的原始值，
 	//将该值通过reg2_o接口传递到访存阶段
 	assign reg2_o = reg2_i;
+
+	//当前指令是否在延迟槽中
+	assign is_in_delayslot_o = is_in_delayslot_i;
+
+	//当前处于执行阶段指令的地址
+	assign current_inst_address_o = current_inst_address_i;
 
 	//依据aluop_i指示的运算子类型进行运算
 	always @ (*) begin

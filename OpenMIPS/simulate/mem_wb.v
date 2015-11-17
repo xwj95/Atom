@@ -3,6 +3,7 @@ module mem_wb(
 	input		wire					clk,
 	input		wire					rst,
 	input		wire[5:0]				stall,
+	input		wire					flush,
 	
 	//访存阶段的结果
 	input		wire[`RegAddrBus]		mem_wd,
@@ -33,6 +34,16 @@ module mem_wb(
 	//（3）其余情况下，保持回写阶段的寄存器wb_wd、wb_wreg、wb_data、wb_hi、wb_lo、wb_whilo不变
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
+			wb_wd <= `NOPRegAddr;
+			wb_wreg <= `WriteDisable;
+			wb_wdata <= `ZeroWord;
+			wb_hi <= `ZeroWord;
+			wb_lo <= `ZeroWord;
+			wb_whilo <= `WriteDisable;
+			wb_cp0_reg_we <= `WriteDisable;
+			wb_cp0_reg_write_addr <= 5'b00000;
+			wb_cp0_reg_data <= `ZeroWord;
+		end else if (flush == 1'b1) begin		//清除流水线
 			wb_wd <= `NOPRegAddr;
 			wb_wreg <= `WriteDisable;
 			wb_wdata <= `ZeroWord;

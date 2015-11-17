@@ -47,6 +47,9 @@ module id(
 	output 		reg[`RegBus] 			link_addr_o,
 	output 		reg 					is_in_delayslot_o,
 
+	output		wire[31:0]				excepttype_o,
+	output		wire[`RegBus]			current_inst_address_o,
+
 	output		wire 					stallreq
     );
 	
@@ -76,6 +79,9 @@ module id(
 	//上一条指令是否是加载指令
 	wire pre_inst_is_load;
 
+	reg excepttype_is_syscall;			//是否是系统调用异常SYSCALL
+	reg excepttype_is_eret;				//是否是异常返回指令eret
+
 	assign pc_plus_8 = pc_i + 8;		//保存当前译码阶段指令后面第二条指令的地址
 	assign pc_plus_4 = pc_i + 4; 		//保存当前译码阶段指令后面紧接着的指令的地址
 
@@ -100,6 +106,12 @@ module id(
 
 	assign inst_o = inst_i;
 
+	//excepttype_o的低8bit留给外部中断，第8bit表示是否是syscall指令引起的系统调用异常，第9bit表示是否是无效指令引起的异常，第12bit表示是否是eret指令，
+	//eret指令可以认为是一种特殊的异常（返回异常）
+	assign excepttype_o = {19'b0, excepttype_is_eret, 2'b0, instvalid, excepttype_is_syscall, 8'b0};
+
+	//输入信号pc_i就是当前处于译码阶段的指令的地址
+	assign current_inst_address_o = pc_i;
 	 
 /************				第一段：对指令进行译码				************/
 	always @ (*) begin
@@ -118,6 +130,8 @@ module id(
 			branch_target_address_o <= `ZeroWord;
 			branch_flag_o <= `NotBranch;
 			next_inst_in_delayslot_o <= `NotInDelaySlot;
+			excepttype_is_syscall <= `False_v;
+			excepttype_is_eret <= `False_v;
 		end else begin
 			aluop_o <= `EXE_NOP_OP;
 			alusel_o <= `EXE_RES_NOP;
@@ -133,6 +147,8 @@ module id(
 			branch_target_address_o <= `ZeroWord;
 			branch_flag_o <= `NotBranch;
 			next_inst_in_delayslot_o <= `NotInDelaySlot;
+			excepttype_is_syscall <= `False_v;	//默认没有系统调用异常
+			excepttype_is_eret <= `False_v;		//默认不是eret指令
 			
 			case (op)
 				`EXE_SPECIAL_INST: begin		//指令码是SPECIAL
@@ -350,6 +366,19 @@ module id(
 								default: begin
 								end
 							endcase
+						end
+						default: begin
+						end
+					endcase
+					case (op3)
+						`EXE_SYSCALL: begin
+							wreg_o <= `WriteDisable;
+							aluop_o <= `EXE_SYSCALL_OP;
+							alusel_o <= `EXE_RES_NOP;
+							reg1_read_o <= 1'b0;
+							reg2_read_o <= 1'b0;
+							instvalid <= `InstValid;
+							excepttype_is_syscall <= `True_v;
 						end
 						default: begin
 						end
@@ -756,7 +785,15 @@ module id(
 					instvalid <= `InstValid;
 				end
 			end
-			if (inst_i[31:21] == 11'b01000000000 && inst_i[10:0] == 11'b00000000000) begin
+			if (inst_i == `EXE_ERET) begin
+				wreg_o <= `WriteDisable;
+				aluop_o <= `EXE_ERET_OP;
+				alusel_o <= `EXE_RES_NOP;
+				reg1_read_o <= 1'b0;
+				reg2_read_o <= 1'b0;
+				instvalid <= `InstValid;
+				excepttype_is_eret <= `True_v;
+			end else if (inst_i[31:21] == 11'b01000000000 && inst_i[10:0] == 11'b00000000000) begin
 				aluop_o <= `EXE_MFC0_OP;
 				alusel_o <= `EXE_RES_MOVE;
 				wd_o <= inst_i[20:16];

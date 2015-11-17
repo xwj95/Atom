@@ -10,7 +10,6 @@
 `define AluSelBus			2:0					//译码阶段的输出alusel_o的宽度
 `define InstValid			1'b0				//指令有效
 `define InstInvalid			1'b1				//指令无效
-`define True_v				1'b1				//逻辑“真”
 `define Stop 				1'b1 				//流水线赞叹
 `define NoStop 				1'b0 				//流水线继续
 `define InDelaySlot 		1'b1 				//在延迟槽中
@@ -21,6 +20,7 @@
 `define InterruptNotAssert 		1'b0
 `define TrapAssert 			1'b1
 `define TrapNotAssert 		1'b0
+`define True_v				1'b1				//逻辑“真”
 `define False_v				1'b0				//逻辑“假”
 `define ChipEnable			1'b1				//芯片使能
 `define ChipDisable			1'b0				//芯片禁止
@@ -92,6 +92,9 @@
 `define EXE_SWL 			6'b101010 
 `define EXE_SWR 			6'b101110
 
+`define EXE_SYSCALL			6'b001100
+`define EXE_ERET			32'b01000010000000000000000000011000
+
 `define EXE_CACHE			6'b101111			//cache指令的指令码
 `define EXE_SPECIAL_INST	6'b000000			//SPECIAL类指令的指令码
 `define EXE_REGIMM_INST		6'b000001
@@ -122,7 +125,6 @@
 `define EXE_MTHI_OP			8'b00010001
 `define EXE_MFLO_OP			8'b00010010
 `define EXE_MTLO_OP			8'b00010011
-
 
 `define EXE_SLT_OP  		8'b00101010
 `define EXE_SLTU_OP 		8'b00101011
@@ -173,6 +175,9 @@
 
 `define EXE_MFC0_OP			8'b01011101
 `define EXE_MTC0_OP			8'b01100000
+
+`define EXE_SYSCALL_OP		8'b00001100
+`define EXE_ERET_OP		8'b01101011
 `define EXE_NOP_OP			8'b00000000
 
 //AluSel

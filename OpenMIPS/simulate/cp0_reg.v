@@ -8,7 +8,10 @@ module cp0_reg(
 	input			wire[4:0]			raddr_i,
 	input			wire[`RegBus]		data_i,
 
+	input			wire[31:0]			excepttype_i,
 	input			wire[5:0]			int_i,
+	input			wire[`RegBus]		current_inst_addr_i,
+	input			wire				is_in_delayslot_i,
 
 	output			reg[`RegBus]		data_o,
 	output			reg[`RegBus]		index_o,
@@ -140,10 +143,143 @@ module cp0_reg(
 						//这9位由外部设置，对每个CPU都是唯一的，这个区域的值由连接到内核的SI.CPUNum[9:0]静态输入管脚设置
 						ebase_o[9:0] <= data_i[9:0];
 					end
-					default: begin
-					end
 				endcase
 			end
+			case (excepttype_i)
+				32'h00000000: begin				//Interrupt
+					if (is_in_delayslot_i == `InDelaySlot) begin
+						epc_o <= current_inst_addr_i - 4;
+						cause_o[31] <= 1'b1;	//Cause的Branch Delayslot
+					end else begin
+						epc_o <= current_inst_addr_i;
+						cause_o[31] <= 1'b0;
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b00000;
+				end
+				32'h00000001: begin				//TLB Modified
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b00001;
+				end
+				32'h00000002: begin				//TLBL
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b00010;
+				end
+				32'h00000003: begin				//TLBS
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b00011;
+				end
+				32'h00000004: begin				//ADEL
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b00100;
+				end
+				32'h00000005: begin				//ADES
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b00101;
+				end
+				32'h00000008: begin				//Syscall
+					if (status_o[1] == 1'b0) begin	//EXL字段，0表示异常未发生
+						if (is_in_delayslot_i == `InDelaySlot) begin	//如果当前指令在延迟槽中
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;	//BD字段，1表示在延迟槽中
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;	//EXL字段，1表示异常发生
+					cause_o[6:2] <= 5'b01000;
+				end
+				32'h0000000a: begin				//RI
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b01010;
+				end
+				32'h0000000b: begin				//Co-Processor Unavailabel
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b01011;
+				end
+				32'h00000017: begin				//Watch
+					if (status_o[1] == 1'b0) begin
+						if (is_in_delayslot_i == `InDelaySlot) begin
+							epc_o <= current_inst_addr_i - 4;
+							cause_o[31] <= 1'b1;
+						end else begin
+							epc_o <= current_inst_addr_i;
+							cause_o[31] <= 1'b0;
+						end
+					end
+					status_o[1] <= 1'b1;
+					cause_o[6:2] <= 5'b10111;
+				end
+				32'h0000000e: begin				//eret
+					status_o[1] <= 1'b0;
+				end
+				default: begin
+				end
+			endcase
 		end
 	end
 
