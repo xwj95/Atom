@@ -1,7 +1,7 @@
 `include "defines.v"
 module cp0_reg(
 	input			wire				clk,
-	input 			wire				rst, 
+	input			wire				rst, 
 
 	input			wire				we_i,
 	input			wire[4:0]			waddr_i,
@@ -70,8 +70,8 @@ module cp0_reg(
 
 		end else begin
 
-			count_o <= count_o + 1;		//Count寄存器的值在每个时钟周期加1
-			cause_o[15:10] <= int_i;	//Cause寄存器的第10~15bit保持外部中断声明
+			count_o <= count_o + 1;				//Count寄存器的值在每个时钟周期加1
+			cause_o[15:10] <= int_i;			//Cause寄存器的第10~15bit保持外部中断声明
 
 			//当Compare寄存器不为0，且Count寄存器的值等于Compare寄存器的值时，将输出信号timer_int_o置为1，表示时钟中断发生
 			if (compare_o != `ZeroWord && count_o == compare_o) begin
@@ -146,7 +146,7 @@ module cp0_reg(
 				endcase
 			end
 			case (excepttype_i)
-				32'h00000000: begin				//Interrupt
+				32'h0000000f: begin				//Interrupt
 					if (is_in_delayslot_i == `InDelaySlot) begin
 						epc_o <= current_inst_addr_i - 4;
 						cause_o[31] <= 1'b1;	//Cause的Branch Delayslot
@@ -223,16 +223,16 @@ module cp0_reg(
 					cause_o[6:2] <= 5'b00101;
 				end
 				32'h00000008: begin				//Syscall
-					if (status_o[1] == 1'b0) begin	//EXL字段，0表示异常未发生
+					if (status_o[1] == 1'b0) begin						//EXL字段，0表示异常未发生
 						if (is_in_delayslot_i == `InDelaySlot) begin	//如果当前指令在延迟槽中
 							epc_o <= current_inst_addr_i - 4;
-							cause_o[31] <= 1'b1;	//BD字段，1表示在延迟槽中
+							cause_o[31] <= 1'b1;						//BD字段，1表示在延迟槽中
 						end else begin
 							epc_o <= current_inst_addr_i;
 							cause_o[31] <= 1'b0;
 						end
 					end
-					status_o[1] <= 1'b1;	//EXL字段，1表示异常发生
+					status_o[1] <= 1'b1;								//EXL字段，1表示异常发生
 					cause_o[6:2] <= 5'b01000;
 				end
 				32'h0000000a: begin				//RI
@@ -289,37 +289,37 @@ module cp0_reg(
 			data_o <= `ZeroWord;
 		end else begin
 			case (raddr_i)
-				`CP0_REG_INDEX: begin		//读Index寄存器
+				`CP0_REG_INDEX: begin			//读Index寄存器
 					data_o <= index_o;
 				end
-				`CP0_REG_ENTRYLO0: begin	//读EntryLo0寄存器
+				`CP0_REG_ENTRYLO0: begin		//读EntryLo0寄存器
 					data_o <= entry_lo_0_o;
 				end
-				`CP0_REG_ENTRYLO1: begin	//读EntryLo1寄存器
+				`CP0_REG_ENTRYLO1: begin		//读EntryLo1寄存器
 					data_o <= entry_lo_1_o;
 				end
-				`CP0_REG_BADVADDR: begin	//读BadVAddr寄存器
+				`CP0_REG_BADVADDR: begin		//读BadVAddr寄存器
 					data_o <= bad_v_addr_o;
 				end
-				`CP0_REG_COUNT: begin		//读Count寄存器
+				`CP0_REG_COUNT: begin			//读Count寄存器
 					data_o <= count_o;
 				end
-				`CP0_REG_ENTRYHI: begin		//读EntryHi寄存器
+				`CP0_REG_ENTRYHI: begin			//读EntryHi寄存器
 					data_o <= entry_hi_o;
 				end
-				`CP0_REG_COMPARE: begin		//读Compare寄存器
+				`CP0_REG_COMPARE: begin			//读Compare寄存器
 					data_o <= compare_o;
 				end
-				`CP0_REG_STATUS: begin		//读Status寄存器
+				`CP0_REG_STATUS: begin			//读Status寄存器
 					data_o <= status_o;
 				end
-				`CP0_REG_CAUSE: begin		//读Cause寄存器
+				`CP0_REG_CAUSE: begin			//读Cause寄存器
 					data_o <= cause_o;
 				end
-				`CP0_REG_EPC: begin			//读EPC寄存器
+				`CP0_REG_EPC: begin				//读EPC寄存器
 					data_o <= epc_o;
 				end
-				`CP0_REG_EBASE: begin		//读EBase寄存器
+				`CP0_REG_EBASE: begin			//读EBase寄存器
 					data_o <= ebase_o;
 				end
 				default: begin

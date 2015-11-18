@@ -1,7 +1,7 @@
 `include "defines.v"
 module ex(
 	input		wire					rst,
-	
+
 	//译码阶段送到执行阶段的信息
 	input		wire[`AluOpBus]			aluop_i,
 	input		wire[`AluSelBus]		alusel_i,
@@ -11,7 +11,7 @@ module ex(
 	input		wire					wreg_i,
 
 	//inst_i的值是当前处于执行阶段的指令
-	input 		wire[`RegBus] 			inst_i,
+	input		wire[`RegBus] 			inst_i,
 	input		wire[31:0]				excepttype_i,
 	input		wire[`RegBus]			current_inst_address_i,
 
@@ -34,10 +34,10 @@ module ex(
 	input		wire[1:0]				cnt_i,
 
 	//处于执行阶段的转移指令要保存的返回地址
-	input 		wire[`RegBus]			link_address_i,
+	input		wire[`RegBus]			link_address_i,
 
 	//当前执行阶段的指令是否位于延迟槽
-	input 		wire 					is_in_delayslot_i,
+	input		wire 					is_in_delayslot_i,
 
 	//访存阶段的指令是否要写CP0中的寄存器，用来检测数据相关
 	input		wire					mem_cp0_reg_we,
@@ -57,7 +57,7 @@ module ex(
 	output		reg 					cp0_reg_we_o,
 	output		reg[4:0]				cp0_reg_write_addr_o,
 	output		reg[`RegBus]			cp0_reg_data_o,
-		
+
 	output		reg[`RegAddrBus]		wd_o,
 	output		reg						wreg_o,
 	output		reg[`RegBus]			wdata_o,
@@ -74,30 +74,30 @@ module ex(
 	output		wire[`RegBus]			current_inst_address_o,
 
 	//为加载、存储指令准备的接口
-	output 		wire[`AluOpBus] 		aluop_o,
-	output 		wire[`RegBus] 			mem_addr_o, 
-	output 		wire[`RegBus] 			reg2_o,
+	output		wire[`AluOpBus]			aluop_o,
+	output		wire[`RegBus]			mem_addr_o, 
+	output		wire[`RegBus]			reg2_o,
 	output		reg 					stallreq
 
-    );
-	
+	);
+
 	reg[`RegBus] logicout;					//保存逻辑运算的结果
 	reg[`RegBus] shiftres;					//保存移位运算的结果
 	reg[`RegBus] moveres;					//保存移动操作的结果
 	reg[`RegBus] HI;						//保存HI寄存器的最新值
 	reg[`RegBus] LO;						//保存LO寄存器的最新值
 
-	wire ov_sum;					//保存溢出情况
-	wire reg1_eq_reg2;				//第一个操作数是否等于第二个操作数
-	wire reg1_lt_reg2;				//第一个操作数是否小于第二个操作数
-	reg[`RegBus] arithmeticres;		//保存算数运算的结果
-	wire[`RegBus] reg2_i_mux;		//保存输入的第二个操作数reg2_i的补码
-	wire[`RegBus] reg1_i_not;		//保存输入的第一个操作数reg1_i的反后的值
-	wire[`RegBus] result_sum;		//保存加法结果
-	wire[`RegBus] opdata1_mult;		//乘法操作中的被乘数
-	wire[`RegBus] opdata2_mult;		//乘法操作中的乘数
-	wire[`DoubleRegBus] hilo_temp; 	//临时保存乘法结果，宽度为64位
-	reg[`DoubleRegBus] mulres;		//保存乘法结果，宽度为64位
+	wire ov_sum;							//保存溢出情况
+	wire reg1_eq_reg2;						//第一个操作数是否等于第二个操作数
+	wire reg1_lt_reg2;						//第一个操作数是否小于第二个操作数
+	reg[`RegBus] arithmeticres;				//保存算数运算的结果
+	wire[`RegBus] reg2_i_mux;				//保存输入的第二个操作数reg2_i的补码
+	wire[`RegBus] reg1_i_not;				//保存输入的第一个操作数reg1_i的反后的值
+	wire[`RegBus] result_sum;				//保存加法结果
+	wire[`RegBus] opdata1_mult;				//乘法操作中的被乘数
+	wire[`RegBus] opdata2_mult;				//乘法操作中的乘数
+	wire[`DoubleRegBus] hilo_temp; 			//临时保存乘法结果，宽度为64位
+	reg[`DoubleRegBus] mulres;				//保存乘法结果，宽度为64位
 
 	//aluop_o会传递到访存阶段，届时将利用其确定加载、存储类型
 	assign aluop_o = aluop_i;
@@ -109,6 +109,9 @@ module ex(
 	//reg2_i是存储指令要存储的数据，或者lwl、lwr指令要加载到目的寄存器的的原始值，
 	//将该值通过reg2_o接口传递到访存阶段
 	assign reg2_o = reg2_i;
+
+	//执行阶段输出的异常信息就是译码阶段的异常信息
+	assign excepttype_o = excepttype_i;
 
 	//当前指令是否在延迟槽中
 	assign is_in_delayslot_o = is_in_delayslot_i;

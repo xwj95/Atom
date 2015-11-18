@@ -12,7 +12,7 @@ module hilo_reg(
 	output reg[`RegBus]			hi_o,
 	output reg[`RegBus]			lo_o
 	);
-	
+
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			hi_o <= `ZeroWord;

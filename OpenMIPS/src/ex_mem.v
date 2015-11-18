@@ -4,7 +4,7 @@ module ex_mem(
 	input		wire					rst,
 	input		wire[5:0]				stall,
 	input		wire					flush,
-	
+
 	//来自执行阶段的信息
 	input		wire[`RegAddrBus]		ex_wd,
 	input		wire					ex_wreg,
@@ -15,8 +15,8 @@ module ex_mem(
 
 	//为实现加载、存储指令而添加的输入接口
 	input		wire[`AluOpBus]			ex_aluop, 
-	input		wire[`RegBus] 			ex_mem_addr, 
-	input 		wire[`RegBus] 			ex_reg2,	
+	input		wire[`RegBus]			ex_mem_addr, 
+	input		wire[`RegBus]			ex_reg2,
 
 	input		wire[`DoubleRegBus]		hilo_i,
 	input		wire[1:0]				cnt_i,
@@ -37,22 +37,22 @@ module ex_mem(
 	output		reg						mem_whilo,
 
 	//为实现加载、存储指令而添加的输出接口
-	output 		reg[`AluOpBus] 			mem_aluop, 
-	output 		reg[`RegBus] 			mem_mem_addr, 
-	output 		reg[`RegBus] 			mem_reg2,
+	output		reg[`AluOpBus]			mem_aluop, 
+	output		reg[`RegBus]			mem_mem_addr, 
+	output		reg[`RegBus]			mem_reg2,
 
 	output		reg 					mem_cp0_reg_we, 
-	output		reg[4:0] 				mem_cp0_reg_write_addr, 
-	output		reg[`RegBus] 			mem_cp0_reg_data,
+	output		reg[4:0]				mem_cp0_reg_write_addr, 
+	output		reg[`RegBus]			mem_cp0_reg_data,
 
 	output		reg[31:0]				mem_excepttype,
-	output		reg 					mem_is_in_delayslot, 
+	output		reg						mem_is_in_delayslot, 
 	output		reg[`RegBus]			mem_current_inst_address,
 
 	output		reg[`DoubleRegBus]		hilo_o,
 	output		reg[1:0]				cnt_o
-    );
-	
+	);
+
 	//（1）当stall[3]为Stop，stall[4]为NoStop时，表示执行阶段暂停，而访存阶段继续，所以使用空指令作为下一个周期进入访存阶段的指令
 	//（2）当stall[3]为NoStop时，执行阶段继续，执行后的指令进入访存阶段
 	//（3）其余情况下，保持访存阶段的寄存器mem_wb、mem_wreg、mem_wdata、mem_hi、mem_lo、mem_whilo不变
@@ -75,7 +75,7 @@ module ex_mem(
 			mem_excepttype <= `ZeroWord;
 			mem_is_in_delayslot <= `NotInDelaySlot;
 			mem_current_inst_address <= `ZeroWord;
-		end else if (flush == 1'b1) begin
+		end else if (flush == 1'b1) begin									//清除流水线
 			mem_wd <= `NOPRegAddr;
 			mem_wreg <= `WriteDisable;
 			mem_wdata <= `ZeroWord;

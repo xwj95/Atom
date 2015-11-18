@@ -1,7 +1,7 @@
 `include "defines.v"
 module mem(
 	input		wire					rst,
-	
+
 	//来自执行阶段的信息
 	input		wire[`RegAddrBus]		wd_i,
 	input		wire					wreg_i,
@@ -10,11 +10,11 @@ module mem(
 	input		wire[`RegBus]			lo_i,
 	input		wire					whilo_i,
 	input		wire[`AluOpBus]			aluop_i, 
-	input 		wire[`RegBus] 			mem_addr_i,
-	input 		wire[`RegBus] 			reg2_i,
+	input		wire[`RegBus]			mem_addr_i,
+	input		wire[`RegBus]			reg2_i,
 
 	//来自外部数据存储器RAM的信息
-	input 		wire[`RegBus]			mem_data_i,
+	input		wire[`RegBus]			mem_data_i,
 
 	input		wire					cp0_reg_we_i, 
 	input		wire[4:0]				cp0_reg_write_addr_i, 
@@ -43,23 +43,23 @@ module mem(
 	output		reg[`RegBus]			lo_o,
 	output		reg						whilo_o,
 
-	output		reg 					cp0_reg_we_o, 
-	output		reg[4:0] 				cp0_reg_write_addr_o, 
+	output		reg						cp0_reg_we_o, 
+	output		reg[4:0]				cp0_reg_write_addr_o, 
 	output		reg[`RegBus]			cp0_reg_data_o,
 
 	//送到外部数据存储器RAM的信息
 	output		reg[`RegBus]			mem_addr_o,
-	output 		wire					mem_we_o,
-	output 		reg[3:0] 				mem_sel_o,
-	output 		reg[`RegBus] 			mem_data_o,
-	output 		reg 					mem_ce_o,
+	output		wire					mem_we_o,
+	output		reg[3:0]				mem_sel_o,
+	output		reg[`RegBus]			mem_data_o,
+	output		reg 					mem_ce_o,
 
 	output		reg[31:0]				excepttype_o,
 	output		wire[`RegBus]			cp0_epc_o,
 	output		wire					is_in_delayslot_o,
 
 	output		wire[`RegBus]			current_inst_address_o
-    );
+	);
 
 	wire[`RegBus] zero32;
 	reg mem_we;
@@ -409,7 +409,7 @@ module mem(
 				if (((cp0_cause[15:8] & (cp0_status[15:8])) != 8'h00) &&
 					(cp0_status[1] == 1'b0) &&
 					(cp0_status[0] == 1'b1)) begin
-					excepttype_o <= 32'h00000000;		//Interrupt
+					excepttype_o <= 32'h0000000f;		//Interrupt
 				end else if (excepttype_i[1] == 1'b1) begin
 					excepttype_o <= 32'h00000001;		//TLB Modified
 				end else if (excepttype_i[2] == 1'b1) begin
@@ -428,7 +428,7 @@ module mem(
 					excepttype_o <= 32'h0000000b;		//Co-Processor Unavailable
 				end else if (excepttype_i[23] == 1'b1) begin
 					excepttype_o <= 32'h00000017;		//Watch
-				end else if (excepttype_i[14] == 1'b1) begin
+				end else if (excepttype_i[12] == 1'b1) begin
 					excepttype_o <= 32'h0000000e;		//eret
 				end
 			end

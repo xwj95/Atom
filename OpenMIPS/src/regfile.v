@@ -18,8 +18,8 @@ module regfile(
 	input		wire					re2,
 	input		wire[`RegAddrBus]		raddr2,
 	output		reg[`RegBus]			rdata2
-    );
-	
+	);
+
 /************			第一段：定义32个32位寄存器		************/
 	reg[`RegBus]	regs[0:`RegNum-1];
 
@@ -31,7 +31,7 @@ module regfile(
 			end
 		end
 	end
-	
+
 /************			第三段：读端口1的读操作			************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin

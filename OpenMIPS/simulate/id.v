@@ -3,9 +3,9 @@ module id(
 	input		wire					rst,
 	input		wire[`InstAddrBus]		pc_i,
 	input		wire[`InstBus]			inst_i,
-	
+
 	input		wire[`AluOpBus]			ex_aluop_i,
-	
+
 	//读取的Regfile的值
 	input		wire[`RegBus]			reg1_data_i,
 	input		wire[`RegBus]			reg2_data_i,
@@ -38,30 +38,30 @@ module id(
 	output		reg[`RegAddrBus]		wd_o,
 	output		reg						wreg_o,
 
-	output 		wire[`RegBus] 			inst_o,
+	output		wire[`RegBus] 			inst_o,
 
 	output		reg 					next_inst_in_delayslot_o,
 
-	output 		reg 					branch_flag_o, 
-	output 		reg[`RegBus] 			branch_target_address_o,
-	output 		reg[`RegBus] 			link_addr_o,
-	output 		reg 					is_in_delayslot_o,
+	output		reg 					branch_flag_o, 
+	output		reg[`RegBus] 			branch_target_address_o,
+	output		reg[`RegBus] 			link_addr_o,
+	output		reg 					is_in_delayslot_o,
 
 	output		wire[31:0]				excepttype_o,
 	output		wire[`RegBus]			current_inst_address_o,
 
 	output		wire 					stallreq
-    );
-	
+	);
+
 	//取得指令的指令码，功能码
 	wire[5:0] op = inst_i[31:26];
 	wire[4:0] op2 = inst_i[10:6];
 	wire[5:0] op3 = inst_i[5:0];
 	wire[4:0] op4 = inst_i[20:16];
-	 
+
 	//保存指令执行需要的立即数
 	reg[`RegBus] imm;
-	 
+
 	//指示指令是否有效
 	reg instvalid;
 
@@ -69,7 +69,7 @@ module id(
 	wire[`RegBus] pc_plus_4;
 
 	wire[`RegBus] imm_sll2_signedext;
-	
+
 	//要读取的寄存器1是否与上一条指令存在load相关
 	reg stallreq_for_reg1_loadrelate;
 
@@ -83,7 +83,7 @@ module id(
 	reg excepttype_is_eret;				//是否是异常返回指令eret
 
 	assign pc_plus_8 = pc_i + 8;		//保存当前译码阶段指令后面第二条指令的地址
-	assign pc_plus_4 = pc_i + 4; 		//保存当前译码阶段指令后面紧接着的指令的地址
+	assign pc_plus_4 = pc_i + 4;		//保存当前译码阶段指令后面紧接着的指令的地址
 
 	//imm_sll2_signedext对应分支指令中的offset左移两位，再符号扩展至32位的值
 	assign imm_sll2_signedext = {{14{inst_i[15]}}, inst_i[15:0], 2'b00};  
@@ -92,8 +92,8 @@ module id(
 	//从而要求流水线暂停，设置stallreq为top
  	assign stallreq = stallreq_for_reg1_loadrelate | stallreq_for_reg2_loadrelate;
 
- 	//依据输入信号ex_aluop_i的值，判断上一条指令是否是加载指令，如果是加载指令，那么置pre_inst_is_load为1，反之置为0
-  	assign pre_inst_is_load = ((ex_aluop_i == `EXE_LB_OP) ||
+	//依据输入信号ex_aluop_i的值，判断上一条指令是否是加载指令，如果是加载指令，那么置pre_inst_is_load为1，反之置为0
+	assign pre_inst_is_load = ((ex_aluop_i == `EXE_LB_OP) ||
 								(ex_aluop_i == `EXE_LBU_OP)||
 								(ex_aluop_i == `EXE_LH_OP) ||
 								(ex_aluop_i == `EXE_LHU_OP)||
@@ -102,7 +102,7 @@ module id(
 								(ex_aluop_i == `EXE_LWL_OP)||
 								(ex_aluop_i == `EXE_LL_OP) ||
 								(ex_aluop_i == `EXE_SC_OP)) ? 1'b1 : 1'b0;
-	
+
 
 	assign inst_o = inst_i;
 
@@ -387,25 +387,25 @@ module id(
 				`EXE_ORI: begin			//ori指令
 					//ori指令需要将结果写入目的寄存器，所以wreg_o为WriteEnable
 					wreg_o <= `WriteEnable;
-					
+
 					//运算的子类型是逻辑“或”运算
 					aluop_o <= `EXE_OR_OP;
-					
+
 					//运算类型是逻辑运算
 					alusel_o <= `EXE_RES_LOGIC;
-					
+
 					//需要通过Regfile的读端口1读取寄存器
 					reg1_read_o <= 1'b1;
-					
+
 					//不需要通过Regfile的读端口2读取寄存器
 					reg2_read_o <= 1'b0;
-					
+
 					//指令执行需要的立即数
 					imm <= {16'h0, inst_i[15:0]};
-					
+
 					//指令执行要写的目的寄存器地址
 					wd_o <= inst_i[20:16];
-					
+
 					//ori指令是有效指令
 					instvalid <= `InstValid;
 				end
@@ -754,9 +754,9 @@ module id(
 				default: begin
 				end
 			endcase
-			
+
 			if (inst_i[31:21] == 11'b00000000000) begin
-				if (op3 == `EXE_SLL) begin		//sll指令
+				if (op3 == `EXE_SLL) begin				//sll指令
 					wreg_o <= `WriteEnable;
 					aluop_o <= `EXE_SLL_OP;
 					alusel_o <= `EXE_RES_SHIFT;
@@ -812,7 +812,7 @@ module id(
 			end
 		end		//if
 	end		//always
-	
+
 /************			第二段：确定进行运算的源操作数2			************/
 	//给reg1_o赋值的过程增加了两种情况：
 	//1. 如果Regfile模块读端口1要读取的寄存器就是执行阶段要写的目的寄存器，
@@ -840,7 +840,7 @@ module id(
 			reg1_o <= `ZeroWord;
 		end
 	end
-		
+
 /************			第三段：确定进行运算的源操作数2			************/
 	//给reg2_o赋值的过程增加了两种情况：
 	//1. 如果Regfile模块读端口2要读取的寄存器就是执行阶段要写的目的寄存器，

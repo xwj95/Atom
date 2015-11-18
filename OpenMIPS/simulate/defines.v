@@ -129,7 +129,7 @@
 `define EXE_SLT_OP  		8'b00101010
 `define EXE_SLTU_OP 		8'b00101011
 `define EXE_SLTI_OP  		8'b01010111
-`define EXE_SLTIU_OP  		8'b01011000   
+`define EXE_SLTIU_OP  		8'b01011000
 `define EXE_ADD_OP  		8'b00100000
 `define EXE_ADDU_OP  		8'b00100001
 `define EXE_SUB_OP  		8'b00100010
