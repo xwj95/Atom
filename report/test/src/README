@@ -1,0 +1,8 @@
+********************
+2015-10-19
+解决加入hyperref包之后出现目录标签乱码问题
+********************
+如果在编译时遇到目录标签乱码问题，请使用下面的方法编译：
+pdflatex test.tex
+java -classpath . Charset2Unicode UTF-8 test.out
+pdflatex test.tex
