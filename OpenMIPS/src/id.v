@@ -465,7 +465,7 @@ module id(
 					alusel_o <= `EXE_RES_ARITHMETIC;
 					reg1_read_o <= 1'b1;
 					reg2_read_o <= 1'b0;
-					imm <= {{16'h0, inst_i[15:0]};
+					imm <= {{16{inst_i[15]}, inst_i[15:0]};
 					wd_o <= inst_i[20:16];
 					instvalid <= `InstValid;
 				end
