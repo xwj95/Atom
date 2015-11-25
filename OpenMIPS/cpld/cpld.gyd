@@ -1,0 +1,23 @@
+Pin Freeze File:  version P.28xd
+
+95144XL100 XC95144XL-5-TQ100
+IC0 S:PIN8
+IC1 S:PIN92
+RxD S:PIN6
+TxD S:PIN11
+
+
+;The remaining section of the .gyd file is for documentation purposes only.
+;It shows where your internal equations were placed in the last successful fit.
+
+PARTITION FB1_2 TxD_OBUF$BUF0
+
+PARTITION FB2_11 RxD_OBUF$BUF0
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Wendy\Documents\ISEWork\test2\serial.vhd" Line 89: Assignment to <arg fmt="%s" index="1">clk_div4</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Wendy\Documents\ISEWork\test2\serial.vhd" Line 90: Assignment to <arg fmt="%s" index="1">clk_div8</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">TxD_data</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Wendy\Documents\ISEWork\test2\serial.vhd</arg>&quot; line <arg fmt="%s" index="2">94</arg>: Output port &lt;<arg fmt="%s" index="3">RxD_idle</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u3</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Wendy\Documents\ISEWork\test2\serial.vhd</arg>&quot; line <arg fmt="%s" index="2">94</arg>: Output port &lt;<arg fmt="%s" index="3">RxD_endofpacket</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u3</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Acc_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">BaudTickGen_1</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Acc_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">BaudTickGen_1</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Acc_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">BaudTickGen_1</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Acc_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">BaudTickGen_1</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Acc_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">BaudTickGen_2</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u3/GapCnt_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">serial</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u3/GapCnt_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">serial</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u3/GapCnt_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">serial</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u3/GapCnt_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">serial</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u3/GapCnt_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">serial</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u3/GapCnt_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">serial</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u3/RxD_endofpacket</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">serial</arg>&gt;.
+</msg>
+
+</messages>
+
