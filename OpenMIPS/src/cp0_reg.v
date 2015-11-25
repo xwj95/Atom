@@ -143,6 +143,8 @@ module cp0_reg(
 						//这9位由外部设置，对每个CPU都是唯一的，这个区域的值由连接到内核的SI.CPUNum[9:0]静态输入管脚设置
 						ebase_o[9:0] <= data_i[9:0];
 					end
+					default: begin
+					end
 				endcase
 			end
 			case (excepttype_i)

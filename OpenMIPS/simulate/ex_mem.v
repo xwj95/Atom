@@ -28,6 +28,7 @@ module ex_mem(
 	input		wire[31:0]				ex_excepttype,
 	input		wire					ex_is_in_delayslot,
 	input		wire[`RegBus]			ex_current_inst_address,
+
 	//送到访存阶段的信息
 	output		reg[`RegAddrBus]		mem_wd,
 	output		reg						mem_wreg,

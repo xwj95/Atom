@@ -22,16 +22,17 @@ module id(
 
 	//如果上一条指令是转移指令，那么下一条指令进入译码阶段的时候，输入变量is_in_delayslot_i为true，表示是延迟槽指令，反之为false
 	input		wire 					is_in_delayslot_i,
-	
+
 	//输出到Regfile的信息
 	output		reg						reg1_read_o,
 	output		reg						reg2_read_o,
 	output		reg[`RegAddrBus]		reg1_addr_o,
 	output		reg[`RegAddrBus]		reg2_addr_o,
-	
+
 	//送到执行阶段的信息
 	output		reg[`AluOpBus]			aluop_o,
 	output		reg[`AluSelBus]			alusel_o,
+
 	//送到执行阶段的源操作数1、源操作数2
 	output		reg[`RegBus]			reg1_o,
 	output		reg[`RegBus]			reg2_o,
@@ -50,7 +51,7 @@ module id(
 	output		wire[31:0]				excepttype_o,
 	output		wire[`RegBus]			current_inst_address_o,
 
-	output		wire 					stallreq
+	output		wire					stallreq
 	);
 
 	//取得指令的指令码，功能码
@@ -81,6 +82,7 @@ module id(
 
 	reg excepttype_is_syscall;			//是否是系统调用异常SYSCALL
 	reg excepttype_is_eret;				//是否是异常返回指令eret
+	reg excepttype_is_cpu;				//是否是访问不存在的协处理器异常CpU
 
 	assign pc_plus_8 = pc_i + 8;		//保存当前译码阶段指令后面第二条指令的地址
 	assign pc_plus_4 = pc_i + 4;		//保存当前译码阶段指令后面紧接着的指令的地址
@@ -103,16 +105,15 @@ module id(
 								(ex_aluop_i == `EXE_LL_OP) ||
 								(ex_aluop_i == `EXE_SC_OP)) ? 1'b1 : 1'b0;
 
-
 	assign inst_o = inst_i;
 
-	//excepttype_o的低8bit留给外部中断，第8bit表示是否是syscall指令引起的系统调用异常，第9bit表示是否是无效指令引起的异常，第12bit表示是否是eret指令，
+	//excepttype_o的第8bit表示是否是syscall指令引起的系统调用异常，第10bit表示是否是无效指令引起的异常，第11bit表示是否是访问不存在的协处理器引起的异常，第12bit表示是否是eret指令，
 	//eret指令可以认为是一种特殊的异常（返回异常）
-	assign excepttype_o = {19'b0, excepttype_is_eret, 2'b0, instvalid, excepttype_is_syscall, 8'b0};
+	assign excepttype_o = {19'b0, excepttype_is_eret, instvalid, excepttype_is_cpu, 1'b0, excepttype_is_syscall, 8'b0};
 
 	//输入信号pc_i就是当前处于译码阶段的指令的地址
 	assign current_inst_address_o = pc_i;
-	 
+
 /************				第一段：对指令进行译码				************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin
@@ -132,6 +133,7 @@ module id(
 			next_inst_in_delayslot_o <= `NotInDelaySlot;
 			excepttype_is_syscall <= `False_v;
 			excepttype_is_eret <= `False_v;
+			excepttype_is_cpu <= `False_v;
 		end else begin
 			aluop_o <= `EXE_NOP_OP;
 			alusel_o <= `EXE_RES_NOP;
@@ -149,6 +151,7 @@ module id(
 			next_inst_in_delayslot_o <= `NotInDelaySlot;
 			excepttype_is_syscall <= `False_v;	//默认没有系统调用异常
 			excepttype_is_eret <= `False_v;		//默认不是eret指令
+			excepttype_is_cpu <= `False_v;		//默认没有访问不存在的协处理器异常
 			
 			case (op)
 				`EXE_SPECIAL_INST: begin		//指令码是SPECIAL

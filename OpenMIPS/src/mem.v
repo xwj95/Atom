@@ -63,17 +63,30 @@ module mem(
 
 	wire[`RegBus] zero32;
 	reg mem_we;
-	reg[`RegBus] cp0_status;		//用来保存CP0中Status寄存器的最新值
-	reg[`RegBus] cp0_cause;			//用来保存CP0中Cause寄存器的最新值
-	reg[`RegBus] cp0_epc;			//用来保存CP0中EPC寄存器的最新值
+	reg[`RegBus] cp0_status;			//用来保存CP0中Status寄存器的最新值
+	reg[`RegBus] cp0_cause;				//用来保存CP0中Cause寄存器的最新值
+	reg[`RegBus] cp0_epc;				//用来保存CP0中EPC寄存器的最新值
 
-	assign mem_we_o = mem_we; 		//外部数据存储器RAM的读、写信号
+	reg excepttype_is_tlbm;				//是否是内存修改异常TLBM
+	reg excepttype_is_tlbl;				//是否是读未在TLB中映射的内存地址异常TLBL
+	reg excepttype_is_tlbs;				//是否是写未在TLB中映射的内存地址异常TLBS
+	reg excepttype_is_adel;				//是否是读访问非对齐异常ADEL
+	reg excepttype_is_ades;				//是否是写访问非对齐异常ADES
+	reg excepttype_is_watch;			//是否是Watch监控异常Watch
+
+	wire[31:0] excepttype;
+
+	assign mem_we_o = mem_we; 			//外部数据存储器RAM的读、写信号
 	assign zero32 = `ZeroWord;
 
 	//访存阶段指令是否是延迟槽指令
 	assign is_in_delayslot_o = is_in_delayslot_i;
 	assign current_inst_address_o = current_inst_address_i;
-	
+
+	//excepttype_o的第1bit表示是否是内存修改异常，第2bit表示是否是读未在TLB中映射的内存地址异常，第3bit表示是否是写未在TLB中映射的内存地址异常，
+	//第4bit表示是否是读访问非对齐异常ADEL，第5bit表示是否是写访问非对齐异常，第23bit表示是否是Watch监控异常
+	assign excepttype = {excepttype_i[31:24], excepttype_is_watch, excepttype_i[22:6], excepttype_is_ades, excepttype_is_adel, excepttype_is_tlbs, excepttype_is_tlbl, excepttype_is_tlbm, excepttype_i[0]};
+
 	//mem_we_o输出到数据存储器，表示是否是对数据存储器的写操作，如果发生了异常，那么需要取消对数据存储器的写操作
 	assign mem_we_o = mem_we & (~(|excepttype_o));
 
@@ -93,6 +106,12 @@ module mem(
 			cp0_reg_we_o <= `WriteDisable;
 			cp0_reg_write_addr_o <= 5'b00000;
 			cp0_reg_data_o <= `ZeroWord;
+			excepttype_is_tlbm <= `False_v;
+			excepttype_is_tlbl <= `False_v;
+			excepttype_is_tlbs <= `False_v;
+			excepttype_is_adel <= `False_v;
+			excepttype_is_ades <= `False_v;
+			excepttype_is_watch <= `False_v;
 		end else begin
 			wd_o <= wd_i;
 			wreg_o <= wreg_i;
@@ -107,6 +126,12 @@ module mem(
 			cp0_reg_we_o <= cp0_reg_we_i;
 			cp0_reg_write_addr_o <= cp0_reg_write_addr_i;
 			cp0_reg_data_o <= cp0_reg_data_i;
+			excepttype_is_tlbm <= `False_v;			//默认没有发生内存修改异常
+			excepttype_is_tlbl <= `False_v;			//默认没有发生读未在TLB中映射的内存地址异常
+			excepttype_is_tlbs <= `False_v;			//默认没有发生写未在TLB中映射的内存地址异常
+			excepttype_is_adel <= `False_v;			//默认没有发生读访问非对齐异常
+			excepttype_is_ades <= `False_v;			//默认没有发生写访问非对齐异常
+			excepttype_is_watch <= `False_v;		//默认没有发生Watch监控异常
 			case (aluop_i)
 				`EXE_LB_OP: begin
 					mem_addr_o <= mem_addr_i;
@@ -163,45 +188,60 @@ module mem(
 				`EXE_LH_OP: begin
 					mem_addr_o <= mem_addr_i;
 					mem_we <= `WriteDisable;
-					mem_ce_o <= `ChipEnable;
 					case (mem_addr_i[1:0])
 						2'b00: begin
+							mem_ce_o <= `ChipEnable;
 							wdata_o <= {{16{mem_data_i[31]}}, mem_data_i[31:16]};
 							mem_sel_o <= 4'b1100;
 						end
 						2'b10: begin
+							mem_ce_o <= `ChipEnable;
 							wdata_o <= {{16{mem_data_i[15]}}, mem_data_i[15:0]};
 							mem_sel_o <= 4'b0011;
 						end
 						default: begin
+							mem_ce_o <= `ChipDisable;
 							wdata_o <= `ZeroWord;
+							excepttype_is_adel <= `True_v;
 						end
 					endcase
 				end
 				`EXE_LHU_OP: begin
 					mem_addr_o <= mem_addr_i;
 					mem_we <= `WriteDisable;
-					mem_ce_o <= `ChipEnable;
 					case (mem_addr_i[1:0])
 						2'b00: begin
+							mem_ce_o <= `ChipEnable;
 							wdata_o <= {{16{1'b0}}, mem_data_i[31:16]};
 							mem_sel_o <= 4'b1100;
 						end
 						2'b10: begin
+							mem_ce_o <= `ChipEnable;
 							wdata_o <= {{16{1'b0}}, mem_data_i[15:0]};
 							mem_sel_o <= 4'b0011;
 						end
 						default: begin
+							mem_ce_o <= `ChipDisable;
 							wdata_o <= `ZeroWord;
+							excepttype_is_adel <= `True_v;
 						end
 					endcase
 				end
 				`EXE_LW_OP: begin
 					mem_addr_o <= mem_addr_i;
 					mem_we <= `WriteDisable;
-					wdata_o <= mem_data_i;
-					mem_sel_o <= 4'b1111;
-					mem_ce_o <= `ChipEnable;
+					case (mem_addr_i[1:0])
+						2'b00: begin
+							mem_ce_o <= `ChipEnable;
+							wdata_o <= mem_data_i;
+							mem_sel_o <= 4'b1111;
+						end
+						default: begin
+							mem_ce_o <= `ChipDisable;
+							wdata_o <= `ZeroWord;
+							excepttype_is_adel <= `True_v;
+						end
+					endcase
 				end
 				`EXE_LWL_OP: begin
 					mem_addr_o <= {mem_addr_i[31:2], 2'b00};
@@ -275,26 +315,41 @@ module mem(
 				`EXE_SH_OP: begin
 					mem_addr_o <= mem_addr_i;
 					mem_we <= `WriteEnable;
-					mem_data_o <= {reg2_i[15:0], reg2_i[15:0]};
-					mem_ce_o <= `ChipEnable;
 					case (mem_addr_i[1:0])
 						2'b00: begin
+							mem_ce_o <= `ChipEnable;
+							mem_data_o <= {reg2_i[15:0], reg2_i[15:0]};
 							mem_sel_o <= 4'b1100;
 						end
 						2'b10: begin
+							mem_ce_o <= `ChipEnable;
+							mem_data_o <= {reg2_i[15:0], reg2_i[15:0]};
 							mem_sel_o <= 4'b0011;
 						end
 						default: begin
+							mem_ce_o <= `ChipDisable;
+							mem_data_o <= `ZeroWord;
 							mem_sel_o <= 4'b0000;
+							excepttype_is_ades <= `True_v;
 						end
 					endcase
 				end
 				`EXE_SW_OP: begin
 					mem_addr_o <= mem_addr_i;
 					mem_we <= `WriteEnable;
-					mem_data_o <= reg2_i;
-					mem_sel_o <= 4'b1111;
-					mem_ce_o <= `ChipEnable;
+					case (mem_addr_i[1:0])
+						2'b00: begin
+							mem_ce_o <= `ChipEnable;
+							mem_data_o <= reg2_i;
+							mem_sel_o <= 4'b1111;
+						end
+						default: begin
+							mem_ce_o <= `ChipDisable;
+							mem_data_o <= `ZeroWord;
+							mem_sel_o <= 4'b0000;
+							excepttype_is_ades <= `True_v;
+						end
+					endcase
 				end
 				`EXE_SWL_OP: begin
 					mem_addr_o <= {mem_addr_i[31:2], 2'b00};
@@ -409,27 +464,27 @@ module mem(
 				if (((cp0_cause[15:8] & (cp0_status[15:8])) != 8'h00) &&
 					(cp0_status[1] == 1'b0) &&
 					(cp0_status[0] == 1'b1)) begin
-					excepttype_o <= 32'h0000000f;		//Interrupt
+					excepttype_o <= 32'h0000000f;					//Interrupt
 				end else if (excepttype_i[1] == 1'b1) begin
-					excepttype_o <= 32'h00000001;		//TLB Modified
+					excepttype_o <= 32'h00000001;					//TLB Modified
 				end else if (excepttype_i[2] == 1'b1) begin
-					excepttype_o <= 32'h00000002;		//TLBL
+					excepttype_o <= 32'h00000002;					//TLBL
 				end else if (excepttype_i[3] == 1'b1) begin
-					excepttype_o <= 32'h00000003;		//TLBS
+					excepttype_o <= 32'h00000003;					//TLBS
 				end else if (excepttype_i[4] == 1'b1) begin
-					excepttype_o <= 32'h00000004;		//ADEL
+					excepttype_o <= 32'h00000004;					//ADEL
 				end else if (excepttype_i[5] == 1'b1) begin
-					excepttype_o <= 32'h00000005;		//ADES
+					excepttype_o <= 32'h00000005;					//ADES
 				end else if (excepttype_i[8] == 1'b1) begin
-					excepttype_o <= 32'h00000008;		//Syscall
+					excepttype_o <= 32'h00000008;					//Syscall
 				end else if (excepttype_i[10] == 1'b1) begin
-					excepttype_o <= 32'h0000000a;		//RI
+					excepttype_o <= 32'h0000000a;					//RI
 				end else if (excepttype_i[11] == 1'b1) begin
-					excepttype_o <= 32'h0000000b;		//Co-Processor Unavailable
+					excepttype_o <= 32'h0000000b;					//Co-Processor Unavailable
 				end else if (excepttype_i[23] == 1'b1) begin
-					excepttype_o <= 32'h00000017;		//Watch
+					excepttype_o <= 32'h00000017;					//Watch
 				end else if (excepttype_i[12] == 1'b1) begin
-					excepttype_o <= 32'h0000000e;		//eret
+					excepttype_o <= 32'h0000000e;					//eret
 				end
 			end
 		end
