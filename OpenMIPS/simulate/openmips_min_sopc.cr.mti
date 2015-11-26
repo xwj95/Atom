@@ -82,15 +82,15 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	ex
 
+} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/defines.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/defines.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+
 } {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module regfile
 
 Top level modules:
 	regfile
-
-} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/defines.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/defines.v
-Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 
 } {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
@@ -99,18 +99,18 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	openmips_min_sopc_tb
 
-} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v
-Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
--- Compiling module hilo_reg
-
-Top level modules:
-	hilo_reg
-
 } {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module data_ram
 
 Top level modules:
 	data_ram
+
+} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module hilo_reg
+
+Top level modules:
+	hilo_reg
 
 } {} {}}

@@ -465,25 +465,25 @@ module mem(
 					(cp0_status[1] == 1'b0) &&
 					(cp0_status[0] == 1'b1)) begin
 					excepttype_o <= 32'h0000000f;					//Interrupt
-				end else if (excepttype_i[1] == 1'b1) begin
+				end else if (excepttype[1] == 1'b1) begin
 					excepttype_o <= 32'h00000001;					//TLB Modified
-				end else if (excepttype_i[2] == 1'b1) begin
+				end else if (excepttype[2] == 1'b1) begin
 					excepttype_o <= 32'h00000002;					//TLBL
-				end else if (excepttype_i[3] == 1'b1) begin
+				end else if (excepttype[3] == 1'b1) begin
 					excepttype_o <= 32'h00000003;					//TLBS
-				end else if (excepttype_i[4] == 1'b1) begin
+				end else if (excepttype[4] == 1'b1) begin
 					excepttype_o <= 32'h00000004;					//ADEL
-				end else if (excepttype_i[5] == 1'b1) begin
+				end else if (excepttype[5] == 1'b1) begin
 					excepttype_o <= 32'h00000005;					//ADES
-				end else if (excepttype_i[8] == 1'b1) begin
+				end else if (excepttype[8] == 1'b1) begin
 					excepttype_o <= 32'h00000008;					//Syscall
-				end else if (excepttype_i[10] == 1'b1) begin
+				end else if (excepttype[10] == 1'b1) begin
 					excepttype_o <= 32'h0000000a;					//RI
-				end else if (excepttype_i[11] == 1'b1) begin
+				end else if (excepttype[11] == 1'b1) begin
 					excepttype_o <= 32'h0000000b;					//Co-Processor Unavailable
-				end else if (excepttype_i[23] == 1'b1) begin
+				end else if (excepttype[23] == 1'b1) begin
 					excepttype_o <= 32'h00000017;					//Watch
-				end else if (excepttype_i[12] == 1'b1) begin
+				end else if (excepttype[12] == 1'b1) begin
 					excepttype_o <= 32'h0000000e;					//eret
 				end
 			end
