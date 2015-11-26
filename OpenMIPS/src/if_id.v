@@ -11,8 +11,8 @@ module if_id(
 	input		wire[`InstBus]			if_inst,
 
 	//对应译码阶段的信号
-	output	reg[`InstAddrBus]			id_pc,
-	output	reg[`InstBus]				id_inst
+	output		reg[`InstAddrBus]		id_pc,
+	output		reg[`InstBus]			id_inst
 	);
 
 	//（1）当stall[1]为Stop，stall[2]位NoStop时，表示取指阶段暂停，而译码阶段继续，所以使用空指令作为下一个周期进入译码阶段的指令
