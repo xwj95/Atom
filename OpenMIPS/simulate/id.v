@@ -83,6 +83,7 @@ module id(
 	reg excepttype_is_syscall;			//是否是系统调用异常SYSCALL
 	reg excepttype_is_eret;				//是否是异常返回指令eret
 	reg excepttype_is_cpu;				//是否是访问不存在的协处理器异常CpU
+	reg[4:0] cp0_reg_addr;
 
 	assign pc_plus_8 = pc_i + 8;		//保存当前译码阶段指令后面第二条指令的地址
 	assign pc_plus_4 = pc_i + 4;		//保存当前译码阶段指令后面紧接着的指令的地址
@@ -109,7 +110,7 @@ module id(
 
 	//excepttype_o的第8bit表示是否是syscall指令引起的系统调用异常，第10bit表示是否是无效指令引起的异常，第11bit表示是否是访问不存在的协处理器引起的异常，第12bit表示是否是eret指令，
 	//eret指令可以认为是一种特殊的异常（返回异常）
-	assign excepttype_o = {19'b0, excepttype_is_eret, instvalid, excepttype_is_cpu, 1'b0, excepttype_is_syscall, 8'b0};
+	assign excepttype_o = {19'b0, excepttype_is_eret, excepttype_is_cpu, instvalid, 1'b0, excepttype_is_syscall, 8'b0};
 
 	//输入信号pc_i就是当前处于译码阶段的指令的地址
 	assign current_inst_address_o = pc_i;
@@ -134,6 +135,7 @@ module id(
 			excepttype_is_syscall <= `False_v;
 			excepttype_is_eret <= `False_v;
 			excepttype_is_cpu <= `False_v;
+			cp0_reg_addr <= 5'b00000;
 		end else begin
 			aluop_o <= `EXE_NOP_OP;
 			alusel_o <= `EXE_RES_NOP;
@@ -152,6 +154,7 @@ module id(
 			excepttype_is_syscall <= `False_v;	//默认没有系统调用异常
 			excepttype_is_eret <= `False_v;		//默认不是eret指令
 			excepttype_is_cpu <= `False_v;		//默认没有访问不存在的协处理器异常
+			cp0_reg_addr <= 5'b00000;
 			
 			case (op)
 				`EXE_SPECIAL_INST: begin		//指令码是SPECIAL
@@ -804,6 +807,13 @@ module id(
 				instvalid <= `InstValid;
 				reg1_read_o <= 1'b0;
 				reg2_read_o <= 1'b0;
+				cp0_reg_addr <= inst_i[15:11];
+				if (cp0_reg_addr != `CP0_REG_INDEX && cp0_reg_addr != `CP0_REG_ENTRYLO0 && cp0_reg_addr != `CP0_REG_ENTRYLO1 &&
+					cp0_reg_addr != `CP0_REG_BADVADDR && cp0_reg_addr != `CP0_REG_COUNT && cp0_reg_addr != `CP0_REG_ENTRYHI &&
+					cp0_reg_addr != `CP0_REG_COMPARE && cp0_reg_addr != `CP0_REG_STATUS && cp0_reg_addr != `CP0_REG_CAUSE &&
+					cp0_reg_addr != `CP0_REG_EPC && cp0_reg_addr != `CP0_REG_EBASE) begin
+					excepttype_is_cpu <= `True_v;	
+				end
 			end else if (inst_i[31:21] == 11'b01000000100 && inst_i[10:0] == 11'b00000000000) begin
 				aluop_o <= `EXE_MTC0_OP;
 				alusel_o <= `EXE_RES_NOP;
@@ -812,6 +822,13 @@ module id(
 				reg1_read_o <= 1'b1;
 				reg1_addr_o <= inst_i[20:16];
 				reg2_read_o <= 1'b0;
+				cp0_reg_addr <= inst_i[15:11];
+				if (cp0_reg_addr != `CP0_REG_INDEX && cp0_reg_addr != `CP0_REG_ENTRYLO0 && cp0_reg_addr != `CP0_REG_ENTRYLO1 &&
+					cp0_reg_addr != `CP0_REG_BADVADDR && cp0_reg_addr != `CP0_REG_COUNT && cp0_reg_addr != `CP0_REG_ENTRYHI &&
+					cp0_reg_addr != `CP0_REG_COMPARE && cp0_reg_addr != `CP0_REG_STATUS && cp0_reg_addr != `CP0_REG_CAUSE &&
+					cp0_reg_addr != `CP0_REG_EPC && cp0_reg_addr != `CP0_REG_EBASE) begin
+					excepttype_is_cpu <= `True_v;	
+				end
 			end
 		end		//if
 	end		//always
