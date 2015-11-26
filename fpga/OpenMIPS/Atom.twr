@@ -1,0 +1,67 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 2
+-n 3 -fastpaths -xml Atom.twx Atom.ncd -o Atom.twr Atom.pcf -ucf Atom.ucf
+
+Design file:              Atom.ncd
+Physical constraint file: Atom.pcf
+Device,package,speed:     xc6slx100,fgg676,C,-2 (PRODUCTION 1.22 2012-07-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+CLK_From_Key   |FPGA_LED<15>   |   15.893|
+Reset          |FPGA_LED<14>   |   15.404|
+SW_DIP<0>      |FPGA_LED<0>    |   17.311|
+SW_DIP<1>      |FPGA_LED<1>    |   15.605|
+SW_DIP<2>      |FPGA_LED<2>    |   15.203|
+SW_DIP<3>      |FPGA_LED<3>    |   15.015|
+SW_DIP<4>      |FPGA_LED<4>    |   15.228|
+SW_DIP<5>      |FPGA_LED<5>    |   13.804|
+SW_DIP<6>      |FPGA_LED<6>    |   14.968|
+SW_DIP<7>      |FPGA_LED<7>    |   13.507|
+SW_DIP<8>      |FPGA_LED<8>    |   15.598|
+SW_DIP<9>      |FPGA_LED<9>    |   14.761|
+SW_DIP<10>     |FPGA_LED<10>   |   12.814|
+SW_DIP<11>     |FPGA_LED<11>   |   12.475|
+SW_DIP<12>     |FPGA_LED<12>   |   12.782|
+SW_DIP<13>     |FPGA_LED<13>   |   13.148|
+---------------+---------------+---------+
+
+
+Analysis completed Thu Nov 26 21:59:07 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 330 MB
+
+
+

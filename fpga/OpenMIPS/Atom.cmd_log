@@ -1,0 +1,43 @@
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Atom.ucf -p xc6slx100-fgg676-2 Atom.ngc Atom.ngd  
+map -intstyle ise -p xc6slx100-fgg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Atom_map.ncd Atom.ngd Atom.pcf 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Atom.ucf -p xc6slx100-fgg676-2 Atom.ngc Atom.ngd  
+map -intstyle ise -p xc6slx100-fgg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Atom_map.ncd Atom.ngd Atom.pcf 
+par -w -intstyle ise -ol high -mt off Atom_map.ncd Atom.ncd Atom.pcf 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Atom.ucf -p xc6slx100-fgg676-2 Atom.ngc Atom.ngd  
+map -intstyle ise -p xc6slx100-fgg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Atom_map.ncd Atom.ngd Atom.pcf 
+par -w -intstyle ise -ol high -mt off Atom_map.ncd Atom.ncd Atom.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Atom.twx Atom.ncd -o Atom.twr Atom.pcf -ucf Atom.ucf 
+bitgen -intstyle ise -f Atom.ut Atom.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Atom.ucf -p xc6slx100-fgg676-2 Atom.ngc Atom.ngd  
+map -intstyle ise -p xc6slx100-fgg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Atom_map.ncd Atom.ngd Atom.pcf 
+par -w -intstyle ise -ol high -mt off Atom_map.ncd Atom.ncd Atom.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Atom.twx Atom.ncd -o Atom.twr Atom.pcf -ucf Atom.ucf 
+bitgen -intstyle ise -f Atom.ut Atom.ncd 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Atom.ucf -p xc6slx100-fgg676-2 Atom.ngc Atom.ngd  
+map -intstyle ise -p xc6slx100-fgg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Atom_map.ncd Atom.ngd Atom.pcf 
+par -w -intstyle ise -ol high -mt off Atom_map.ncd Atom.ncd Atom.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Atom.twx Atom.ncd -o Atom.twr Atom.pcf -ucf Atom.ucf 
+bitgen -intstyle ise -f Atom.ut Atom.ncd 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Atom.ucf -p xc6slx100-fgg676-2 Atom.ngc Atom.ngd  
+map -intstyle ise -p xc6slx100-fgg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Atom_map.ncd Atom.ngd Atom.pcf 
+par -w -intstyle ise -ol high -mt off Atom_map.ncd Atom.ncd Atom.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Atom.twx Atom.ncd -o Atom.twr Atom.pcf -ucf Atom.ucf 
+bitgen -intstyle ise -f Atom.ut Atom.ncd 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/Atom.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/Atom.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Atom.ucf -p xc6slx100-fgg676-2 Atom.ngc Atom.ngd  
+map -intstyle ise -p xc6slx100-fgg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Atom_map.ncd Atom.ngd Atom.pcf 
+par -w -intstyle ise -ol high -mt off Atom_map.ncd Atom.ncd Atom.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Atom.twx Atom.ncd -o Atom.twr Atom.pcf -ucf Atom.ucf 
+bitgen -intstyle ise -f Atom.ut Atom.ncd 

@@ -1,0 +1,46 @@
+Release 14.2 - par P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Thu Nov 26 21:58:59 2015
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 34 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   CLK11M00592_IBUF
+   CLK50M_IBUF
+   FPGA_Key<0>_IBUF
+   FPGA_Key<1>_IBUF
+   FPGA_Key<2>_IBUF
+   FPGA_Key<3>_IBUF
+   InterConn<0>_IBUF
+   InterConn<1>_IBUF
+   InterConn<2>_IBUF
+   InterConn<3>_IBUF
+   InterConn<4>_IBUF
+   InterConn<5>_IBUF
+   InterConn<6>_IBUF
+   InterConn<7>_IBUF
+   InterConn<8>_IBUF
+   InterConn<9>_IBUF
+   SW_DIP<14>_IBUF
+   SW_DIP<15>_IBUF
+   SW_DIP<16>_IBUF
+   SW_DIP<17>_IBUF
+   SW_DIP<18>_IBUF
+   SW_DIP<19>_IBUF
+   SW_DIP<20>_IBUF
+   SW_DIP<21>_IBUF
+   SW_DIP<22>_IBUF
+   SW_DIP<23>_IBUF
+   SW_DIP<24>_IBUF
+   SW_DIP<25>_IBUF
+   SW_DIP<26>_IBUF
+   SW_DIP<27>_IBUF
+   SW_DIP<28>_IBUF
+   SW_DIP<29>_IBUF
+   SW_DIP<30>_IBUF
+   SW_DIP<31>_IBUF
+
+

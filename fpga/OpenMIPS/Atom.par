@@ -1,0 +1,167 @@
+Release 14.2 par P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+B85C::  Thu Nov 26 21:58:35 2015
+
+par -w -intstyle ise -ol high -mt off Atom_map.ncd Atom.ncd Atom.pcf 
+
+
+Constraints file: Atom.pcf.
+Loading device for application Rf_Device from file '6slx100.nph' in environment C:\Xilinx\14.2\ISE_DS\ISE\.
+   "Atom" is an NCD, version 3.2, device xc6slx100, package fgg676, speed -2
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+INFO:Par:282 - No user timing constraints were detected or you have set the option to ignore timing constraints ("par
+   -x"). Place and Route will run in "Performance Evaluation Mode" to automatically improve the performance of all
+   internal clocks in this design. Because there are not defined timing requirements, a timing score will not be
+   reported in the PAR report in this mode. The PAR timing summary will list the performance achieved for each clock.
+   Note: For the fastest runtime, set the effort level to "std".  For best performance, set the effort level to "high".
+
+Device speed data version:  "PRODUCTION 1.22 2012-07-09".
+
+
+
+Device Utilization Summary:
+
+Slice Logic Utilization:
+  Number of Slice Registers:                     0 out of 126,576    0%
+  Number of Slice LUTs:                          0 out of  63,288    0%
+
+Slice Logic Distribution:
+  Number of occupied Slices:                     0 out of  15,822    0%
+  Nummber of MUXCYs used:                        0 out of  31,644    0%
+  Number of LUT Flip Flop pairs used:            0
+
+IO Utilization:
+  Number of bonded IOBs:                        80 out of     480   16%
+    Number of LOCed IOBs:                       80 out of      80  100%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of     268    0%
+  Number of RAMB8BWERs:                          0 out of     536    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       0 out of      16    0%
+  Number of DCM/DCM_CLKGENs:                     0 out of      12    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     506    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     506    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     506    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     384    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of     180    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       4    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       6    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+
+Overall effort level (-ol):   High 
+Router effort level (-rl):    High 
+
+Starting initial Timing Analysis.  REAL time: 5 secs 
+Finished initial Timing Analysis.  REAL time: 5 secs 
+
+WARNING:Par:288 - The signal SW_DIP<28>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal CLK50M_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<29>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal FPGA_Key<0>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal FPGA_Key<1>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal FPGA_Key<2>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal FPGA_Key<3>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal CLK11M00592_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<0>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<1>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<2>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<3>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<4>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<5>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<6>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<7>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<20>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<8>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<21>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal InterConn<9>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<14>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<22>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<30>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<15>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<23>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<31>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<16>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<24>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<17>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<25>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<18>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<26>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<19>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SW_DIP<27>_IBUF has no load.  PAR will not attempt to route this signal.
+Starting Router
+
+
+Phase  1  : 30 unrouted;      REAL time: 7 secs 
+
+Phase  2  : 30 unrouted;      REAL time: 7 secs 
+
+Phase  3  : 24 unrouted;      REAL time: 18 secs 
+
+Phase  4  : 24 unrouted; (Par is working to improve performance)     REAL time: 21 secs 
+
+Updating file: Atom.ncd with current fully routed design.
+
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 21 secs 
+
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 21 secs 
+
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 21 secs 
+
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 21 secs 
+
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 21 secs 
+
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 21 secs 
+Total REAL time to Router completion: 21 secs 
+Total CPU time to Router completion: 21 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+INFO:Par:459 - The Clock Report is not displayed in the non timing-driven mode.
+Timing Score: 0 (Setup: 0, Hold: 0)
+
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 34 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 23 secs 
+Total CPU time to PAR completion: 23 secs 
+
+Peak Memory Usage:  455 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 36
+Number of info messages: 2
+
+Writing design to file Atom.ncd
+
+
+
+PAR done!
