@@ -3,22 +3,46 @@
 <script src="paths.js"></script><script src="eqns.js"></script><script>
       var design = "cpld";
       var device = "XC95144XL";
-      signals = new Array("RxD","TxD");
-      sigNegs = new Array("OFF","OFF");
-      sigTypes = new Array("","");
+      signals = new Array("IC0","IC1","IC2","IC3","IC4","IC5");
+      sigNegs = new Array("OFF","OFF","OFF","OFF","OFF","OFF");
+      sigTypes = new Array("","","","","","");
 
       
-            pterms["FB1_2_1"]=new Array("IC1");
+            pterms["FB1_2_1"]=new Array("PS2KB_DATA");
           
-            pterms["FB2_11_1"]=new Array("IC0");
+            pterms["FB2_11_1"]=new Array("RXD1");
           
-          d2["TxD"]=new Array("FB1_2_1");
+            pterms["FB2_12_1"]=new Array("TXD1");
           
-            d2imp["TxD"]=new Array("1");
+            pterms["FB2_14_1"]=new Array("RXD2");
           
-          d2["RxD"]=new Array("FB2_11_1");
+            pterms["FB2_15_1"]=new Array("TXD2");
           
-            d2imp["RxD"]=new Array("1");
+            pterms["FB2_17_1"]=new Array("PS2KB_CLOCK");
+          
+          d2["IC5"]=new Array("FB1_2_1");
+          
+            d2imp["IC5"]=new Array("1");
+          
+          d2["IC0"]=new Array("FB2_11_1");
+          
+            d2imp["IC0"]=new Array("1");
+          
+          d2["IC1"]=new Array("FB2_12_1");
+          
+            d2imp["IC1"]=new Array("1");
+          
+          d2["IC2"]=new Array("FB2_14_1");
+          
+            d2imp["IC2"]=new Array("1");
+          
+          d2["IC3"]=new Array("FB2_15_1");
+          
+            d2imp["IC3"]=new Array("1");
+          
+          d2["IC4"]=new Array("FB2_17_1");
+          
+            d2imp["IC4"]=new Array("1");
           
 
       uimSignals = new Array();

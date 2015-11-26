@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<!DOCTYPE document SYSTEM 'file:///D:/Xilinx/14.2/ISE_DS/ISE/chipviewer/data/xsl/buildXML.dtd'>
+<!DOCTYPE document SYSTEM 'file:///C:/Xilinx/14.2/ISE_DS/ISE/chipviewer/data/xsl/buildXML.dtd'>
 
 <document>
 <design name='cpld'/>
 <rptdir name='cpld'/>
-<xilinx path='D:/Xilinx/14.2/ISE_DS/ISE;'/>
-<projDir path='C:\Users\Administrator-\Documents\iseWork\test'/>
+<xilinx path='C:/Xilinx/14.2/ISE_DS/ISE;'/>
+<projDir path='Z:\Documents\Project\OpenMIPS\cpld'/>
 <xslDir path='chipviewer/data/xsl'/>
 <fileDir path='/chipviewer/data/html'/>
 <dataFile file='index.htm'/>
@@ -219,25 +219,25 @@
     <output file='fbs_FB8.htm'/>
   </xslFile>
 </xmlFile>
-<xmlFile file='D:/Xilinx/14.2/ISE_DS/ISE/chipviewer/data/xsl/pinlegend.xml'>
+<xmlFile file='C:/Xilinx/14.2/ISE_DS/ISE/chipviewer/data/xsl/pinlegend.xml'>
   <xslFile file='legend.xsl'>
-    <param name='device' value='XC95144XL-5-TQ100'/>
+    <param name='device' value='XC95144XL-10-TQ100'/>
     <param name='verOn' value='0'/>
     <param name='linkName' value='pinlegendV.htm'/>
     <output file='pinlegend.htm'/>
-    <param name='device' value='XC95144XL-5-TQ100'/>
+    <param name='device' value='XC95144XL-10-TQ100'/>
     <param name='verOn' value='1'/>
     <param name='linkName' value='pinlegend.htm'/>
     <output file='pinlegendV.htm'/>
   </xslFile>
 </xmlFile>
-<xmlFile file='D:/Xilinx/14.2/ISE_DS/ISE/chipviewer/data/xsl/logiclegend.xml'>
+<xmlFile file='C:/Xilinx/14.2/ISE_DS/ISE/chipviewer/data/xsl/logiclegend.xml'>
   <xslFile file='legend.xsl'>
-    <param name='device' value='XC95144XL-5-TQ100'/>
+    <param name='device' value='XC95144XL-10-TQ100'/>
     <param name='verOn' value='0'/>
     <param name='linkName' value='logiclegendV.htm'/>
     <output file='logiclegend.htm'/>
-    <param name='device' value='XC95144XL-5-TQ100'/>
+    <param name='device' value='XC95144XL-10-TQ100'/>
     <param name='verOn' value='1'/>
     <param name='linkName' value='logiclegend.htm'/>
     <output file='logiclegendV.htm'/>

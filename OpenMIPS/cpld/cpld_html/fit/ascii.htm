@@ -3,30 +3,30 @@
  
 cpldfit:  version P.28xd                            Xilinx Inc.
                                   Fitter Report
-Design Name: cpld                                Date: 11-24-2015,  6:44PM
-Device Used: XC95144XL-5-TQ100
+Design Name: cpld                                Date: 11-26-2015,  7:24PM
+Device Used: XC95144XL-10-TQ100
 Fitting Status: Successful
 
 *************************  Mapped Resource Summary  **************************
 
 Macrocells     Product Terms    Function Block   Registers      Pins           
 Used/Tot       Used/Tot         Inps Used/Tot    Used/Tot       Used/Tot       
-2  /144 (  1%) 2   /720  (  1%) 2  /432 (  1%)   0  /144 (  0%) 4  /81  (  5%)
+6  /144 (  4%) 6   /720  (  1%) 6  /432 (  1%)   0  /144 (  0%) 12 /81  ( 15%)
 
 ** Function Block Resources **
 
 Function    Mcells      FB Inps     Pterms      IO          
 Block       Used/Tot    Used/Tot    Used/Tot    Used/Tot    
 FB1           1/18        1/54        1/90       1/11
-FB2           1/18        1/54        1/90       2/10
+FB2           5/18        5/54        5/90       5/10
 FB3           0/18        0/54        0/90       0/10
-FB4           0/18        0/54        0/90       1/10
+FB4           0/18        0/54        0/90       0/10
 FB5           0/18        0/54        0/90       0/10
 FB6           0/18        0/54        0/90       0/10
-FB7           0/18        0/54        0/90       0/10
-FB8           0/18        0/54        0/90       0/10
+FB7           0/18        0/54        0/90       4/10
+FB8           0/18        0/54        0/90       2/10
              -----       -----       -----      -----    
-              2/144       2/432       2/720      4/81 
+              6/144       6/432       6/720     12/81 
 
 * - Resource is exhausted
 
@@ -40,18 +40,18 @@ Global set/reset net(s) unused.
 
 Signal Type    Required     Mapped  |  Pin Type            Used    Total 
 ------------------------------------|------------------------------------
-Input         :    2           2    |  I/O              :     4      73
-Output        :    2           2    |  GCK/IO           :     0       3
+Input         :    6           6    |  I/O              :    12      73
+Output        :    6           6    |  GCK/IO           :     0       3
 Bidirectional :    0           0    |  GTS/IO           :     0       4
 GCK           :    0           0    |  GSR/IO           :     0       1
 GTS           :    0           0    |
 GSR           :    0           0    |
                  ----        ----
-        Total      4           4
+        Total     12          12
 
 ** Power Data **
 
-There are 2 macrocells in high performance mode (MCHP).
+There are 6 macrocells in high performance mode (MCHP).
 There are 0 macrocells in low power mode (MCLP).
 End of Mapped Resource Summary
 **************************  Errors and Warnings  ***************************
@@ -60,19 +60,27 @@ WARNING:Cpld - Unable to retrieve the path to the iSE Project Repository. Will
    use the default filename of 'cpld.ise'.
 *************************  Summary of Mapped Logic  ************************
 
-** 2 Outputs **
+** 6 Outputs **
 
 Signal              Total Total Loc     Pin  Pin     Pin     Pwr  Slew Reg Init
 Name                Pts   Inps          No.  Type    Use     Mode Rate State
-TxD                 1     1     FB1_2   11   I/O     O       STD  FAST 
-RxD                 1     1     FB2_11  6    I/O     O       STD  FAST 
+IC5                 1     1     FB1_2   11   I/O     O       STD  FAST 
+IC0                 1     1     FB2_11  6    I/O     O       STD  FAST 
+IC1                 1     1     FB2_12  7    I/O     O       STD  FAST 
+IC2                 1     1     FB2_14  8    I/O     O       STD  FAST 
+IC3                 1     1     FB2_15  9    I/O     O       STD  FAST 
+IC4                 1     1     FB2_17  10   I/O     O       STD  FAST 
 
-** 2 Inputs **
+** 6 Inputs **
 
 Signal              Loc     Pin  Pin     Pin     
 Name                        No.  Type    Use     
-IC0                 FB2_14  8    I/O     I
-IC1                 FB4_9   92   I/O     I
+TXD1                FB7_8   54   I/O     I
+TXD2                FB7_9   55   I/O     I
+RXD2                FB7_11  56   I/O     I
+RXD1                FB7_12  58   I/O     I
+PS2KB_DATA          FB8_12  70   I/O     I
+PS2KB_CLOCK         FB8_14  71   I/O     I
 
 Legend:
 Pin No. - ~ - User Assigned
@@ -95,7 +103,7 @@ Number of signals used by logic mapping into function block:  1
 Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
 Name                Pt      Pt    Pt  Pt               #    Type    Use
 (unused)              0       0     0   5     FB1_1         (b)     
-TxD                   1       0     0   4     FB1_2   11    I/O     O
+IC5                   1       0     0   4     FB1_2   11    I/O     O
 (unused)              0       0     0   5     FB1_3   12    I/O     
 (unused)              0       0     0   5     FB1_4         (b)     
 (unused)              0       0     0   5     FB1_5   13    I/O     
@@ -114,16 +122,16 @@ TxD                   1       0     0   4     FB1_2   11    I/O     O
 (unused)              0       0     0   5     FB1_18        (b)     
 
 Signals Used by Logic in Function Block
-  1: IC1              
+  1: PS2KB_DATA       
 
 Signal                        1         2         3         4 FB
 Name                0----+----0----+----0----+----0----+----0 Inputs
-TxD                  X....................................... 1
+IC5                  X....................................... 1
                     0----+----1----+----2----+----3----+----4
                               0         0         0         0
 *********************************** FB2  ***********************************
-Number of function block inputs used/remaining:               1/53
-Number of signals used by logic mapping into function block:  1
+Number of function block inputs used/remaining:               5/49
+Number of signals used by logic mapping into function block:  5
 Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
 Name                Pt      Pt    Pt  Pt               #    Type    Use
 (unused)              0       0     0   5     FB2_1         (b)     
@@ -136,21 +144,26 @@ Name                Pt      Pt    Pt  Pt               #    Type    Use
 (unused)              0       0     0   5     FB2_8   3     GTS/I/O 
 (unused)              0       0     0   5     FB2_9   4     GTS/I/O 
 (unused)              0       0     0   5     FB2_10        (b)     
-RxD                   1       0     0   4     FB2_11  6     I/O     O
-(unused)              0       0     0   5     FB2_12  7     I/O     
+IC0                   1       0     0   4     FB2_11  6     I/O     O
+IC1                   1       0     0   4     FB2_12  7     I/O     O
 (unused)              0       0     0   5     FB2_13        (b)     
-(unused)              0       0     0   5     FB2_14  8     I/O     I
-(unused)              0       0     0   5     FB2_15  9     I/O     
+IC2                   1       0     0   4     FB2_14  8     I/O     O
+IC3                   1       0     0   4     FB2_15  9     I/O     O
 (unused)              0       0     0   5     FB2_16        (b)     
-(unused)              0       0     0   5     FB2_17  10    I/O     
+IC4                   1       0     0   4     FB2_17  10    I/O     O
 (unused)              0       0     0   5     FB2_18        (b)     
 
 Signals Used by Logic in Function Block
-  1: IC0              
+  1: RXD1               3: RXD2               5: PS2KB_CLOCK 
+  2: TXD1               4: TXD2             
 
 Signal                        1         2         3         4 FB
 Name                0----+----0----+----0----+----0----+----0 Inputs
-RxD                  X....................................... 1
+IC0                  X....................................... 1
+IC1                  .X...................................... 1
+IC2                  ..X..................................... 1
+IC3                  ...X.................................... 1
+IC4                  ....X................................... 1
                     0----+----1----+----2----+----3----+----4
                               0         0         0         0
 *********************************** FB3  ***********************************
@@ -189,7 +202,7 @@ Name                Pt      Pt    Pt  Pt               #    Type    Use
 (unused)              0       0     0   5     FB4_6   90    I/O     
 (unused)              0       0     0   5     FB4_7         (b)     
 (unused)              0       0     0   5     FB4_8   91    I/O     
-(unused)              0       0     0   5     FB4_9   92    I/O     I
+(unused)              0       0     0   5     FB4_9   92    I/O     
 (unused)              0       0     0   5     FB4_10        (b)     
 (unused)              0       0     0   5     FB4_11  93    I/O     
 (unused)              0       0     0   5     FB4_12  94    I/O     
@@ -257,11 +270,11 @@ Name                Pt      Pt    Pt  Pt               #    Type    Use
 (unused)              0       0     0   5     FB7_5   52    I/O     
 (unused)              0       0     0   5     FB7_6   53    I/O     
 (unused)              0       0     0   5     FB7_7         (b)     
-(unused)              0       0     0   5     FB7_8   54    I/O     
-(unused)              0       0     0   5     FB7_9   55    I/O     
+(unused)              0       0     0   5     FB7_8   54    I/O     I
+(unused)              0       0     0   5     FB7_9   55    I/O     I
 (unused)              0       0     0   5     FB7_10        (b)     
-(unused)              0       0     0   5     FB7_11  56    I/O     
-(unused)              0       0     0   5     FB7_12  58    I/O     
+(unused)              0       0     0   5     FB7_11  56    I/O     I
+(unused)              0       0     0   5     FB7_12  58    I/O     I
 (unused)              0       0     0   5     FB7_13        (b)     
 (unused)              0       0     0   5     FB7_14  59    I/O     
 (unused)              0       0     0   5     FB7_15  60    I/O     
@@ -284,9 +297,9 @@ Name                Pt      Pt    Pt  Pt               #    Type    Use
 (unused)              0       0     0   5     FB8_9   67    I/O     
 (unused)              0       0     0   5     FB8_10        (b)     
 (unused)              0       0     0   5     FB8_11  68    I/O     
-(unused)              0       0     0   5     FB8_12  70    I/O     
+(unused)              0       0     0   5     FB8_12  70    I/O     I
 (unused)              0       0     0   5     FB8_13        (b)     
-(unused)              0       0     0   5     FB8_14  71    I/O     
+(unused)              0       0     0   5     FB8_14  71    I/O     I
 (unused)              0       0     0   5     FB8_15  72    I/O     
 (unused)              0       0     0   5     FB8_16        (b)     
 (unused)              0       0     0   5     FB8_17  73    I/O     
@@ -296,10 +309,22 @@ Name                Pt      Pt    Pt  Pt               #    Type    Use
 ********** Mapped Logic **********
 
 
-RxD <= IC0;
+IC0 <= RXD1;
 
 
-TxD <= IC1;
+IC1 <= TXD1;
+
+
+IC2 <= RXD2;
+
+
+IC3 <= TXD2;
+
+
+IC4 <= PS2KB_CLOCK;
+
+
+IC5 <= PS2KB_DATA;
 
 Register Legend:
  FDCPE (Q,D,C,CLR,PRE,CE); 
@@ -308,7 +333,7 @@ Register Legend:
 
 ******************************  Device Pin Out *****************************
 
-Device : XC95144XL-5-TQ100
+Device : XC95144XL-10-TQ100
 
 
    --------------------------------------------------  
@@ -326,7 +351,7 @@ Device : XC95144XL-5-TQ100
  | 10                                              66  | 
  | 11                                              65  | 
  | 12                                              64  | 
- | 13               XC95144XL-5-TQ100              63  | 
+ | 13              XC95144XL-10-TQ100              63  | 
  | 14                                              62  | 
  | 15                                              61  | 
  | 16                                              60  | 
@@ -349,14 +374,14 @@ No. Name                           No. Name
   1 KPR                              51 VCC                           
   2 KPR                              52 KPR                           
   3 KPR                              53 KPR                           
-  4 KPR                              54 KPR                           
-  5 VCC                              55 KPR                           
-  6 RxD                              56 KPR                           
-  7 KPR                              57 VCC                           
-  8 IC0                              58 KPR                           
-  9 KPR                              59 KPR                           
- 10 KPR                              60 KPR                           
- 11 TxD                              61 KPR                           
+  4 KPR                              54 TXD1                          
+  5 VCC                              55 TXD2                          
+  6 IC0                              56 RXD2                          
+  7 IC1                              57 VCC                           
+  8 IC2                              58 RXD1                          
+  9 IC3                              59 KPR                           
+ 10 IC4                              60 KPR                           
+ 11 IC5                              61 KPR                           
  12 KPR                              62 GND                           
  13 KPR                              63 KPR                           
  14 KPR                              64 KPR                           
@@ -365,8 +390,8 @@ No. Name                           No. Name
  17 KPR                              67 KPR                           
  18 KPR                              68 KPR                           
  19 KPR                              69 GND                           
- 20 KPR                              70 KPR                           
- 21 GND                              71 KPR                           
+ 20 KPR                              70 PS2KB_DATA                    
+ 21 GND                              71 PS2KB_CLOCK                   
  22 KPR                              72 KPR                           
  23 KPR                              73 KPR                           
  24 KPR                              74 KPR                           
@@ -387,7 +412,7 @@ No. Name                           No. Name
  39 KPR                              89 KPR                           
  40 KPR                              90 KPR                           
  41 KPR                              91 KPR                           
- 42 KPR                              92 IC1                           
+ 42 KPR                              92 KPR                           
  43 KPR                              93 KPR                           
  44 GND                              94 KPR                           
  45 TDI                              95 KPR                           
@@ -413,7 +438,7 @@ Legend :  NC  = Not Connected, unbonded pin
 
 Following is a list of all global compiler options used by the fitter run.
 
-Device(s) Specified                         : xc95144xl-5-TQ100
+Device(s) Specified                         : xc95144xl-10-TQ100
 Optimization Method                         : SPEED
 Multi-Level Logic Optimization              : ON
 Ignore Timing Specifications                : OFF

@@ -1,7 +1,7 @@
 Release 8.1i - Fit P.28xd
 Copyright(c) 1995-2003 Xilinx Inc. All rights reserved
 
-11-24-2015  6:44PM
+11-26-2015  7:24PM
 
 NOTE: This file is designed to be imported into a spreadsheet program
 such as Microsoft Excel for viewing, printing and sorting. The pipe '|'
@@ -11,7 +11,7 @@ This file is also designed to support parsing.
 Input file:  cpld.ngd
 output file: cpld.pad
 Part type:   xc95144xl
-Speed grade: -5
+Speed grade: -10
 Package:     tq100
 
 Pinout by Pin Number:
@@ -23,12 +23,12 @@ P2|TIE||I/O/GTS4||||||||||
 P3|TIE||I/O/GTS1||||||||||
 P4|TIE||I/O/GTS2||||||||||
 P5|VCC||VCCINT||||||||||
-P6|RxD|O|I/O|OUTPUT|||||||||
-P7|TIE||I/O||||||||||
-P8|IC0|I|I/O|INPUT|||||||||
-P9|TIE||I/O||||||||||
-P10|TIE||I/O||||||||||
-P11|TxD|O|I/O|OUTPUT|||||||||
+P6|IC0|O|I/O|OUTPUT|||||||||
+P7|IC1|O|I/O|OUTPUT|||||||||
+P8|IC2|O|I/O|OUTPUT|||||||||
+P9|IC3|O|I/O|OUTPUT|||||||||
+P10|IC4|O|I/O|OUTPUT|||||||||
+P11|IC5|O|I/O|OUTPUT|||||||||
 P12|TIE||I/O||||||||||
 P13|TIE||I/O||||||||||
 P14|TIE||I/O||||||||||
@@ -71,11 +71,11 @@ P50|TIE||I/O||||||||||
 P51|VCC||VCCIO||||||||||
 P52|TIE||I/O||||||||||
 P53|TIE||I/O||||||||||
-P54|TIE||I/O||||||||||
-P55|TIE||I/O||||||||||
-P56|TIE||I/O||||||||||
+P54|TXD1|I|I/O|INPUT|||||||||
+P55|TXD2|I|I/O|INPUT|||||||||
+P56|RXD2|I|I/O|INPUT|||||||||
 P57|VCC||VCCINT||||||||||
-P58|TIE||I/O||||||||||
+P58|RXD1|I|I/O|INPUT|||||||||
 P59|TIE||I/O||||||||||
 P60|TIE||I/O||||||||||
 P61|TIE||I/O||||||||||
@@ -87,8 +87,8 @@ P66|TIE||I/O||||||||||
 P67|TIE||I/O||||||||||
 P68|TIE||I/O||||||||||
 P69|GND||GND||||||||||
-P70|TIE||I/O||||||||||
-P71|TIE||I/O||||||||||
+P70|PS2KB_DATA|I|I/O|INPUT|||||||||
+P71|PS2KB_CLOCK|I|I/O|INPUT|||||||||
 P72|TIE||I/O||||||||||
 P73|TIE||I/O||||||||||
 P74|TIE||I/O||||||||||
@@ -109,7 +109,7 @@ P88|VCC||VCCIO||||||||||
 P89|TIE||I/O||||||||||
 P90|TIE||I/O||||||||||
 P91|TIE||I/O||||||||||
-P92|IC1|I|I/O|INPUT|||||||||
+P92|TIE||I/O||||||||||
 P93|TIE||I/O||||||||||
 P94|TIE||I/O||||||||||
 P95|TIE||I/O||||||||||

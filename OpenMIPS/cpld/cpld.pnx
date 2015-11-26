@@ -15,4 +15,4 @@
   sr     (SLOW|FAST|slow|fast) "SLOW"
   dir    (BIDIR|bidir|INPUT|input|OUTPUT|output) "BIDIR">
 ]>
-<ibis><part arch="xc9500xl" device="XC95144XL" pkg="TQ100" spg="-5"/><pin dir="input" nm="IC0" no="8"/><pin dir="input" nm="IC1" no="92"/><pin dir="output" nm="RxD" no="6" sr="fast"/><pin dir="output" nm="TxD" no="11" sr="fast"/></ibis>
+<ibis><part arch="xc9500xl" device="XC95144XL" pkg="TQ100" spg="-10"/><pin dir="input" nm="RXD1" no="58"/><pin dir="input" nm="TXD1" no="54"/><pin dir="input" nm="RXD2" no="56"/><pin dir="input" nm="TXD2" no="55"/><pin dir="input" nm="PS2KB_CLOCK" no="71"/><pin dir="input" nm="PS2KB_DATA" no="70"/><pin dir="output" nm="IC0" no="6" sr="fast"/><pin dir="output" nm="IC1" no="7" sr="fast"/><pin dir="output" nm="IC2" no="8" sr="fast"/><pin dir="output" nm="IC3" no="9" sr="fast"/><pin dir="output" nm="IC4" no="10" sr="fast"/><pin dir="output" nm="IC5" no="11" sr="fast"/></ibis>
