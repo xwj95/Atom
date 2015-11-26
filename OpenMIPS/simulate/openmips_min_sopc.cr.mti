@@ -82,13 +82,21 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	data_ram
 
+<<<<<<< HEAD
 } {} {}} C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc.v
+=======
+} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/defines.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/defines.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+
+} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v
+>>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module openmips_min_sopc
 
 Top level modules:
 	openmips_min_sopc
 
+<<<<<<< HEAD
 } {} {}} C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module if_id
@@ -97,12 +105,16 @@ Top level modules:
 	if_id
 
 } {} {}} C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/inst_rom.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/inst_rom.v
+=======
+} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v
+>>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module inst_rom
 
 Top level modules:
 	inst_rom
 
+<<<<<<< HEAD
 } {} {}} C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ctrl.v {1 {vlog -work work -vopt C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ctrl.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module ctrl
@@ -119,5 +131,20 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 
 Top level modules:
 	regfile
+=======
+} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module data_ram
+
+Top level modules:
+	data_ram
+
+} {} {}} //psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v {1 {vlog -work work -vopt //psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module hilo_reg
+
+Top level modules:
+	hilo_reg
+>>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 
 } {} {}}
