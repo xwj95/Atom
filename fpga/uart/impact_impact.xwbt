@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=C:\Users\Administrator-\Documents\git\proj8\fpga\uart\impact.xsl
+OUTFILE=C:\Users\Administrator-\Documents\git\proj8\fpga\uart\impact.xsl
+FAMILY=None
+PART=None
+WORKINGDIR=C:\Users\Administrator-\Documents\git\proj8\fpga\uart
+LICENSE=iMPACT
+USER_INFO=iMPACT

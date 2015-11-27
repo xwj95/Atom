@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\Wendy\Documents\ISEWork\test2\serial.ncd
-OUTFILE=C:\Users\Wendy\Documents\ISEWork\test2\serial.bit
-FAMILY=Spartan6
-PART=xc6slx100-3fgg676
-WORKINGDIR=C:\Users\Wendy\Documents\ISEWork\test2
-LICENSE=ISE
-USER_INFO=__0_0_0

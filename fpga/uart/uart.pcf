@@ -1,0 +1,9 @@
+//! **************************************************************************
+// Written by: Map P.28xd on Fri Nov 27 12:17:32 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "com_TxD" LOCATE = SITE "R26" LEVEL 1;
+COMP "com_RxD" LOCATE = SITE "P24" LEVEL 1;
+SCHEMATIC END;
+
