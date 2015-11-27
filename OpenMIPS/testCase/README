@@ -31,6 +31,12 @@ inst_rom_13.s
 	测试syscall, eret指令
 inst_rom_14.s
 	测试时钟中断
+inst_rom_15.s
+	测试指令不存在异常
+inst_rom_16.s
+	测试store和load指令的地址不对齐异常
+inst_rom_17.s
+	测试访问不存在的协处理器引起的异常
 	
 目标：
 `	addiu, addu, subu, mult,
