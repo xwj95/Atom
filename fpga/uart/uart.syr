@@ -1,16 +1,16 @@
-Release 14.2 - xst P.28xd (nt)
+Release 14.2 - xst P.28xd (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: uart.prj
 
@@ -105,12 +105,12 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart_async.v" into library work
+Analyzing Verilog file "\\psf\jye\important\uart\uart_async.v" into library work
 Parsing module <uart_async_transmitter>.
 Parsing module <uart_async_receiver>.
 Parsing module <ASSERTION_ERROR>.
 Parsing module <BaudTickGen>.
-Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart.v" into library work
+Analyzing Verilog file "\\psf\jye\important\uart\uart.v" into library work
 Parsing module <uart>.
 
 =========================================================================
@@ -132,14 +132,14 @@ Elaborating module <BaudTickGen(ClkFrequency=50000000,Baud=115200,Oversampling=8
 =========================================================================
 
 Synthesizing Unit <uart>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart.v".
-INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart.v" line 25: Output port <RxD_waiting_data> of the instance <u1> is unconnected or connected to loadless signal.
+    Related source file is "\\psf\jye\important\uart\uart.v".
+INFO:Xst:3210 - "\\psf\jye\important\uart\uart.v" line 31: Output port <RxD_waiting_data> of the instance <u1> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <uart> synthesized.
 
 Synthesizing Unit <uart_async_transmitter>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart_async.v".
+    Related source file is "\\psf\jye\important\uart\uart_async.v".
         ClkFrequency = 50000000
         Baud = 115200
     Found 4-bit register for signal <TxD_state>.
@@ -162,7 +162,7 @@ Synthesizing Unit <uart_async_transmitter>.
 Unit <uart_async_transmitter> synthesized.
 
 Synthesizing Unit <BaudTickGen_1>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart_async.v".
+    Related source file is "\\psf\jye\important\uart\uart_async.v".
         ClkFrequency = 50000000
         Baud = 115200
         Oversampling = 1
@@ -175,7 +175,7 @@ Synthesizing Unit <BaudTickGen_1>.
 Unit <BaudTickGen_1> synthesized.
 
 Synthesizing Unit <uart_async_receiver>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart_async.v".
+    Related source file is "\\psf\jye\important\uart\uart_async.v".
         ClkFrequency = 50000000
         Baud = 115200
         Oversampling = 8
@@ -210,7 +210,7 @@ Synthesizing Unit <uart_async_receiver>.
 Unit <uart_async_receiver> synthesized.
 
 Synthesizing Unit <BaudTickGen_2>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\uart\uart_async.v".
+    Related source file is "\\psf\jye\important\uart\uart_async.v".
         ClkFrequency = 50000000
         Baud = 115200
         Oversampling = 8
@@ -315,9 +315,9 @@ WARNING:Xst:2677 - Node <Acc_1> of sequential type is unconnected in block <Baud
 WARNING:Xst:2677 - Node <Acc_2> of sequential type is unconnected in block <BaudTickGen_2>.
 WARNING:Xst:2677 - Node <Acc_3> of sequential type is unconnected in block <BaudTickGen_2>.
 
-Optimizing unit <uart> ...
-
 Optimizing unit <BaudTickGen_2> ...
+
+Optimizing unit <uart> ...
 
 Optimizing unit <uart_async_transmitter> ...
 
@@ -328,9 +328,9 @@ Optimizing unit <uart_async_receiver> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block uart, actual ratio is 0.
-FlipFlop u0/TxD_state_FSM_FFd1 has been replicated 2 time(s)
+FlipFlop u0/TxD_state_FSM_FFd1 has been replicated 1 time(s)
 FlipFlop u0/TxD_state_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop u0/TxD_state_FSM_FFd3 has been replicated 1 time(s)
+FlipFlop u0/TxD_state_FSM_FFd3 has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -362,9 +362,9 @@ Top Level Output File Name         : uart.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 136
+# BELS                             : 137
 #      GND                         : 1
-#      INV                         : 11
+#      INV                         : 12
 #      LUT1                        : 19
 #      LUT3                        : 3
 #      LUT4                        : 23
@@ -381,9 +381,9 @@ Primitive and Black Box Usage:
 #      FDSE                        : 4
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 22
+# IO Buffers                       : 23
 #      IBUF                        : 11
-#      OBUF                        : 11
+#      OBUF                        : 12
 
 Device utilization summary:
 ---------------------------
@@ -393,19 +393,19 @@ Selected Device : 6slx100fgg676-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:              67  out of  126576     0%  
- Number of Slice LUTs:                   75  out of  63288     0%  
-    Number used as Logic:                75  out of  63288     0%  
+ Number of Slice LUTs:                   76  out of  63288     0%  
+    Number used as Logic:                76  out of  63288     0%  
 
 Slice Logic Distribution: 
  Number of LUT Flip Flop pairs used:     88
    Number with an unused Flip Flop:      21  out of     88    23%  
-   Number with an unused LUT:            13  out of     88    14%  
-   Number of fully used LUT-FF pairs:    54  out of     88    61%  
+   Number with an unused LUT:            12  out of     88    13%  
+   Number of fully used LUT-FF pairs:    55  out of     88    62%  
    Number of unique control sets:         6
 
 IO Utilization: 
- Number of IOs:                          23
- Number of bonded IOBs:                  23  out of    480     4%  
+ Number of IOs:                          24
+ Number of bonded IOBs:                  24  out of    480     5%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -445,7 +445,7 @@ Speed Grade: -3
    Minimum period: 2.769ns (Maximum Frequency: 361.167MHz)
    Minimum input arrival time before clock: 3.750ns
    Maximum output required time after clock: 5.633ns
-   Maximum combinational path delay: No path found
+   Maximum combinational path delay: 4.409ns
 
 Timing Details:
 ---------------
@@ -454,7 +454,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 2.769ns (frequency: 361.167MHz)
-  Total number of paths / destination ports: 524 / 89
+  Total number of paths / destination ports: 523 / 89
 -------------------------------------------------------------------------
 Delay:               2.769ns (Levels of Logic = 1)
   Source:            u1/OversamplingCnt_2 (FF)
@@ -515,6 +515,24 @@ Offset:              5.633ns (Levels of Logic = 3)
                                        (60.9% logic, 39.1% route)
 
 =========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               4.409ns (Levels of Logic = 2)
+  Source:            data_in<0> (PAD)
+  Destination:       test (PAD)
+
+  Data Path: data_in<0> to test
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.616  data_in_0_IBUF (test_OBUF)
+     OBUF:I->O                 2.571          test_OBUF (test)
+    ----------------------------------------
+    Total                      4.409ns (3.793ns logic, 0.616ns route)
+                                       (86.0% logic, 14.0% route)
+
+=========================================================================
 
 Cross Clock Domains Report:
 --------------------------
@@ -531,11 +549,11 @@ clk            |    2.769|         |         |         |
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.94 secs
+Total CPU time to Xst completion: 5.60 secs
  
 --> 
 
-Total memory usage is 184940 kilobytes
+Total memory usage is 254952 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    5 (   0 filtered)

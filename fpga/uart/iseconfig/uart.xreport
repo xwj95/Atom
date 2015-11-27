@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-11-27T12:06:43</DateModified>
+  <DateModified>2015-11-27T18:08:55</DateModified>
   <ModuleName>uart</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Administrator-/Documents/git/proj8/fpga/uart/iseconfig/uart.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Administrator-/Documents/git/proj8/fpga/uart</ImplementationReportsDirectory>
+  <SavedFilePath>Y:/important/uart/iseconfig/uart.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Y:/important/uart\</ImplementationReportsDirectory>
   <DateInitialized>2015-11-27T12:06:43</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

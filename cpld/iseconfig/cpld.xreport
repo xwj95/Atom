@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-11-26T19:13:32</DateModified>
+  <DateModified>2015-11-27T16:52:12</DateModified>
   <ModuleName>cpld</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>Z:/Documents/Project/OpenMIPS/cpld/iseconfig/cpld.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>Z:/Documents/Project/OpenMIPS/cpld\</ImplementationReportsDirectory>
+  <SavedFilePath>Z:/Documents/Project/cpld/iseconfig/cpld.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Z:/Documents/Project/cpld\</ImplementationReportsDirectory>
   <DateInitialized>2015-11-24T18:24:11</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

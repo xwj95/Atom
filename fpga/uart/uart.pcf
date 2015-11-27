@@ -1,9 +1,31 @@
 //! **************************************************************************
-// Written by: Map P.28xd on Fri Nov 27 12:17:32 2015
+// Written by: Map P.28xd on Fri Nov 27 18:41:53 2015
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "com_TxD" LOCATE = SITE "R26" LEVEL 1;
-COMP "com_RxD" LOCATE = SITE "P24" LEVEL 1;
+COMP "com_TxD" LOCATE = SITE "P24" LEVEL 1;
+COMP "clk" LOCATE = SITE "U26" LEVEL 1;
+COMP "data_out<0>" LOCATE = SITE "N26" LEVEL 1;
+COMP "data_out<1>" LOCATE = SITE "M26" LEVEL 1;
+COMP "data_out<2>" LOCATE = SITE "L25" LEVEL 1;
+COMP "test" LOCATE = SITE "G25" LEVEL 1;
+COMP "data_out<3>" LOCATE = SITE "L26" LEVEL 1;
+COMP "data_out<4>" LOCATE = SITE "K26" LEVEL 1;
+COMP "data_in<0>" LOCATE = SITE "Y5" LEVEL 1;
+COMP "data_out<5>" LOCATE = SITE "M23" LEVEL 1;
+COMP "data_in<1>" LOCATE = SITE "W1" LEVEL 1;
+COMP "data_out<6>" LOCATE = SITE "K24" LEVEL 1;
+COMP "data_in<2>" LOCATE = SITE "W2" LEVEL 1;
+COMP "data_out<7>" LOCATE = SITE "L24" LEVEL 1;
+COMP "data_in<3>" LOCATE = SITE "V1" LEVEL 1;
+COMP "data_in<4>" LOCATE = SITE "U1" LEVEL 1;
+COMP "data_in<5>" LOCATE = SITE "U2" LEVEL 1;
+COMP "data_in<6>" LOCATE = SITE "R1" LEVEL 1;
+COMP "data_in<7>" LOCATE = SITE "R2" LEVEL 1;
+COMP "TxD_start" LOCATE = SITE "T3" LEVEL 1;
+COMP "RxD_data_ready" LOCATE = SITE "G26" LEVEL 1;
+COMP "rst" LOCATE = SITE "T1" LEVEL 1;
+COMP "TxD_busy" LOCATE = SITE "F26" LEVEL 1;
+COMP "com_RxD" LOCATE = SITE "R26" LEVEL 1;
 SCHEMATIC END;
 

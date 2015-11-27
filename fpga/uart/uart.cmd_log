@@ -4,3 +4,31 @@ map -intstyle ise -p xc6slx100-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -r
 par -w -intstyle ise -ol high -mt off uart_map.ncd uart.ncd uart.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml uart.twx uart.ncd -o uart.twr uart.pcf -ucf com.ucf 
 bitgen -intstyle ise -f uart.ut uart.ncd 
+bitgen -intstyle ise -f uart.ut uart.ncd 
+xst -intstyle ise -ifn "D:/Users/huang/Desktop/uart/uart.xst" -ofn "D:/Users/huang/Desktop/uart/uart.syr" 
+xst -intstyle ise -ifn "D:/Users/huang/Desktop/uart/uart.xst" -ofn "D:/Users/huang/Desktop/uart/uart.syr" 
+xst -intstyle ise -ifn "D:/Users/huang/Desktop/uart/uart.xst" -ofn "D:/Users/huang/Desktop/uart/uart.syr" 
+xst -intstyle ise -ifn "D:/Users/huang/Desktop/uart/uart.xst" -ofn "D:/Users/huang/Desktop/uart/uart.syr" 
+xst -intstyle ise -ifn "D:/Users/huang/Desktop/uart/uart.xst" -ofn "D:/Users/huang/Desktop/uart/uart.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc uart.ucf -uc com.ucf -p xc6slx100-fgg676-3 uart.ngc uart.ngd  
+map -intstyle ise -p xc6slx100-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o uart_map.ncd uart.ngd uart.pcf 
+par -w -intstyle ise -ol high -mt off uart_map.ncd uart.ncd uart.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml uart.twx uart.ncd -o uart.twr uart.pcf -ucf uart.ucf -ucf com.ucf 
+bitgen -intstyle ise -f uart.ut uart.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc uart.ucf -uc com.ucf -p xc6slx100-fgg676-3 uart.ngc uart.ngd  
+map -intstyle ise -p xc6slx100-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o uart_map.ncd uart.ngd uart.pcf 
+par -w -intstyle ise -ol high -mt off uart_map.ncd uart.ncd uart.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml uart.twx uart.ncd -o uart.twr uart.pcf -ucf uart.ucf -ucf com.ucf 
+bitgen -intstyle ise -f uart.ut uart.ncd 
+xst -intstyle ise -ifn "Y:/important/uart/uart.xst" -ofn "Y:/important/uart/uart.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc com.ucf -uc uart.ucf -p xc6slx100-fgg676-3 uart.ngc uart.ngd  
+map -intstyle ise -p xc6slx100-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o uart_map.ncd uart.ngd uart.pcf 
+par -w -intstyle ise -ol high -mt off uart_map.ncd uart.ncd uart.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml uart.twx uart.ncd -o uart.twr uart.pcf -ucf com.ucf -ucf uart.ucf 
+bitgen -intstyle ise -f uart.ut uart.ncd 
+xst -intstyle ise -ifn "Y:/important/uart/uart.xst" -ofn "Y:/important/uart/uart.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc com.ucf -uc uart.ucf -p xc6slx100-fgg676-3 uart.ngc uart.ngd  
+map -intstyle ise -p xc6slx100-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o uart_map.ncd uart.ngd uart.pcf 
+par -w -intstyle ise -ol high -mt off uart_map.ncd uart.ncd uart.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml uart.twx uart.ncd -o uart.twr uart.pcf -ucf com.ucf -ucf uart.ucf 
+bitgen -intstyle ise -f uart.ut uart.ncd 
