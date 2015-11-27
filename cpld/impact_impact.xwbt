@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=Z:\Documents\Project\OpenMIPS\cpld\impact.xsl
+OUTFILE=Z:\Documents\Project\OpenMIPS\cpld\impact.xsl
+FAMILY=None
+PART=None
+WORKINGDIR=Z:\Documents\Project\OpenMIPS\cpld
+LICENSE=iMPACT
+USER_INFO=iMPACT
