@@ -19,6 +19,17 @@ module ram_test (
 	output extram_we
 	);
 
+	localparam clk2;
+	reg cnt = 1'b0;
+	always @ (posedge clk) begin
+		if (cnt == 1'b1) begin
+			clk2 <= ~clk;
+			cnt <= 0;
+		end else begin
+			cnt <= cnt + 1;
+		end
+	end
+
 	wire[31:0] data_from_ram;
 	reg[3:0] data_to_show;
 	digseg_driver digseg_show_data(data_to_show[3:0], segdisp0);
@@ -27,13 +38,13 @@ module ram_test (
 	assign mode_change_to_write = ~enable_write_key_prev & enable_write_key,
 		mode_change_to_read = ~enable_read_key_prev & enable_read_key;
 
-	always @ (posedge clk) begin
+	always @ (posedge clk2) begin
 		enable_write_key_prev <= enable_write_key;
 		enable_read_key_prev <= enable_read_key;
 	end
 
 	wire write_finished, read_ready;
-	always @(posedge clk) begin
+	always @(posedge clk2) begin
 		if (mode_changed_to_write)
 			led[0] <= ~led[0];
 		if (write_finished)
@@ -45,7 +56,7 @@ module ram_test (
 	end
 
 	ram_driver ram_driver_inst(
-		clk, 1'b1,
+		clk2, 1'b1,
 		mode_change_to_read, mode_change_to_write, 
 		{user_addr[7], 12'b0, user_addr}, {28'b0, user_data}, 
 		data_from_ram, write_finished, read_ready, 
