@@ -77,6 +77,7 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1448637799" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1448637799">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1448637819" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-8397964718788529548" xil_pn:start_ts="1448637819">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -106,6 +107,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
@@ -127,6 +129,7 @@
     <transform xil_pn:end_ts="1448637863" xil_pn:in_ck="-2832242494319813316" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-845353908949650673" xil_pn:start_ts="1448637856">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="ram_test.bld"/>
@@ -136,6 +139,7 @@
     <transform xil_pn:end_ts="1448637885" xil_pn:in_ck="-1164352979366828355" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3007501460119878838" xil_pn:start_ts="1448637863">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="ram_test.pcf"/>
       <outfile xil_pn:name="ram_test_map.map"/>
@@ -149,6 +153,7 @@
     <transform xil_pn:end_ts="1448637911" xil_pn:in_ck="3427376030118894550" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="8313326105510903995" xil_pn:start_ts="1448637885">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="ram_test.ncd"/>
       <outfile xil_pn:name="ram_test.pad"/>
@@ -163,6 +168,7 @@
     <transform xil_pn:end_ts="1448637911" xil_pn:in_ck="35159931353776185" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1448637903">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="ram_test.twr"/>
       <outfile xil_pn:name="ram_test.twx"/>
