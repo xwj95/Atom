@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.18)  5 NOV 2015 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.18)  28 NOV 2015 22:39
 entering extended mode
 **technical.tex
 (technical.tex
@@ -753,91 +753,245 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (part1.tex
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 2.
-) (part2.tex [2] [3] [4]
-Overfull \vbox (23.39279pt too high) has occurred while \output is active []
+ [2]) (part2.tex [3] [4]
+Overfull \hbox (7.43481pt too wide) in paragraph at lines 120--121
+[]\C70/gbsn/m/n/10/6c Ë \C70/gbsn/m/n/10/61  \C70/gbsn/m/n/10/4e   \C70/gbsn/m
+/n/10/70 π \C70/gbsn/m/n/10/ff  \C70/gbsn/m/n/10/8b ˚ \C70/gbsn/m/n/10/5b ƒ X 
+\C70/gbsn/m/n/10/56 h \C70/gbsn/m/n/10/64 Õ \C70/gbsn/m/n/10/4f \ \C70/gbsn/bx/
+n/10/66 / \C70/gbsn/m/n/10/7e ƒ \C70/gbsn/m/n/10/54  \C70/gbsn/m/n/10/90 ; \C7
+0/gbsn/bx/n/10/8f ë \C70/gbsn/m/n/10/75 5 \C70/gbsn/m/n/10/8d Ô \C70/gbsn/m/n/1
+0/ff  \C70/gbsn/m/n/10/4e _ \C70/gbsn/m/n/10/5c 1 \C70/gbsn/bx/n/10/66 / \C70/
+gbsn/m/n/10/4e   \C70/gbsn/bx/n/10/65 Ê \C70/gbsn/bx/n/10/8f ì \C70/gbsn/bx/n/1
+0/51 e \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/m/n/10/89 Å \C70/gbsn/m/n/10/8b ˚ \C70/g
+bsn/bx/n/10/53 ÷ \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/m/n/10/5b ƒ X \C70/gbsn/m/n/10
+/56 h \C70/gbsn/m/n/10/57 0 @\OT1/ppl/m/n/10 raddr1\C70/gbsn/m/n/10/62  \C70/g
+bsn/bx/n/10/80 \OT1/ppl/m/n/10 raddr2\C70/gbsn/bx/n/10/53 —
+ []
+
+[5]
+Overfull \hbox (11.3637pt too wide) in paragraph at lines 168--169
+\OT1/ppl/m/n/10 31bit\C70/gbsn/m/n/10/76 Ñ \C70/gbsn/bx/n/10/63  \C70/gbsn/m/n
+/10/4e ‰ \C70/gbsn/m/n/10/78  \C70/gbsn/bx/n/10/66 / \C70/gbsn/m/n/10/54 & \C7
+0/gbsn/bx/n/10/66 /\OT1/ppl/m/n/10 6'b001101\C70/gbsn/m/n/10/ff  \C70/gbsn/bx/
+n/10/53 s Ô \C70/gbsn/bx/n/10/52 $ \C70/gbsn/bx/n/10/65 ≠ \C70/gbsn/bx/n/10/66 
+/ \C70/gbsn/m/n/10/54 & \C70/gbsn/bx/n/10/66 /\OT1/ppl/m/n/10 ori\C70/gbsn/bx/n
+/10/63  \C70/gbsn/m/n/10/4e ‰ \C70/gbsn/m/n/10/ff  \C70/gbsn/bx/n/10/51 v \C7
+0/gbsn/m/n/10/4e - \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/m/n/10/5b è ö \C70/gbsn/m/n/
+10/4e I\OT1/ppl/m/n/10 EXE$[]$ORI\C70/gbsn/m/n/10/5c 1 \C70/gbsn/bx/n/10/66 /\O
+T1/ppl/m/n/10 6'b001101\C70/gbsn/m/n/10/ff \OT1/ppl/m/n/10 op\C70/gbsn/m/n/10/
+5c 1
+ []
 
 
-[5] [6] [7] [8]
-Overfull \hbox (5.45378pt too wide) in paragraph at lines 352--415
+Overfull \hbox (12.4634pt too wide) in paragraph at lines 171--172
+\C70/gbsn/m/n/10/57 0 @\OT1/ppl/m/n/10 reg1$[]$addr$[]$o\C70/gbsn/m/n/10/76 Ñ \
+C70/gbsn/m/n/10/50 < \C70/gbsn/bx/n/10/66 / \C70/gbsn/bx/n/10/63  \C70/gbsn/m/
+n/10/4e ‰ \C70/gbsn/m/n/10/76 Ñ\OT1/ppl/m/n/10 21-25bit\C70/gbsn/m/n/10/ff  \C
+70/gbsn/m/n/10/6b c \C70/gbsn/bx/n/10/66 /\OT1/ppl/m/n/10 ori\C70/gbsn/bx/n/10/
+63  \C70/gbsn/m/n/10/4e ‰ - \C70/gbsn/m/n/10/76 Ñ\OT1/ppl/m/n/10 rs\C70/gbsn/m
+/n/10/ff  \C70/gbsn/m/n/10/62 @ \C70/gbsn/m/n/10/4e Â \C70/gbsn/m/n/10/8b æ \C
+70/gbsn/m/n/10/7f n\OT1/ppl/m/n/10 reg1$[]$read$[]$o\C70/gbsn/m/n/10/4e :\OT1/p
+pl/m/n/10 1\C70/gbsn/m/n/10/ff \OT1/ppl/m/n/10 reg1$[]$read$[]$o
+ []
+
+
+Overfull \hbox (3.0343pt too wide) in paragraph at lines 171--172
+\C70/gbsn/m/n/10/8b — \C70/gbsn/m/n/10/78  \C70/gbsn/m/n/10/96 6 \C70/gbsn/m/n
+/10/6b µ \C70/gbsn/m/n/10/4f  \C70/gbsn/m/n/10/8b ˚ \C70/gbsn/bx/n/10/53 ÷ \C7
+0/gbsn/m/n/10/5b ƒ X \C70/gbsn/m/n/10/56 h\OT1/ppl/m/n/10 rs\C70/gbsn/m/n/10/76
+ Ñ \C70/gbsn/m/n/10/50 < \C70/gbsn/m/n/10/30  \C70/gbsn/bx/n/10/63  \C70/gbsn
+/m/n/10/4e ‰\OT1/ppl/m/n/10 ori\C70/gbsn/m/n/10/97   \C70/gbsn/m/n/10/89 Å \C70
+/gbsn/m/n/10/76 Ñ \C70/gbsn/bx/n/10/53 Ê \C70/gbsn/m/n/10/4e   * \C70/gbsn/m/n/
+10/64 Õ \C70/gbsn/m/n/10/4f \ \C70/gbsn/bx/n/10/65 p \C70/gbsn/bx/n/10/66 / \C7
+0/gbsn/bx/n/10/7a À \C70/gbsn/bx/n/10/53 s \C70/gbsn/bx/n/10/65 p \C70/gbsn/m/n
+/10/ff  \C70/gbsn/m/n/10/62 @ \C70/gbsn/m/n/10/4e Â \C70/gbsn/m/n/10/8b æ \C70
+/gbsn/m/n/10/7f n\OT1/ppl/m/n/10 reg2$[]$read$[]$o\C70/gbsn/m/n/10/4e :\OT1/ppl
+/m/n/10 0\C70/gbsn/m/n/10/ff 
+ []
+
+
+Overfull \hbox (29.52379pt too wide) in paragraph at lines 173--174
+[]\C70/gbsn/m/n/10/89 Å \C70/gbsn/m/n/10/62 g \C70/gbsn/m/n/10/88 L \C70/gbsn/m
+/n/10/76 Ñ \C70/gbsn/bx/n/10/8f – \C70/gbsn/m/n/10/7b ó \C70/gbsn/m/n/10/ff \O
+T1/ppl/m/n/10 alusel$[]$o\C70/gbsn/m/n/10/7e Ÿ \C70/gbsn/bx/n/10/51 ˙ \C70/gbsn
+/m/n/10/89 Å \C70/gbsn/m/n/10/62 g \C70/gbsn/m/n/10/88 L \C70/gbsn/m/n/10/76 Ñ 
+\C70/gbsn/bx/n/10/8f – \C70/gbsn/m/n/10/7b ó \C70/gbsn/m/n/10/7c { \C70/gbsn/m/
+n/10/57 ã \C70/gbsn/m/n/10/ff  \C70/gbsn/m/n/10/5b ˘ \C70/gbsn/m/n/10/4e é\OT1
+/ppl/m/n/10 ori\C70/gbsn/bx/n/10/63  \C70/gbsn/m/n/10/4e ‰ \C70/gbsn/bx/n/10/8
+0  \C70/gbsn/m/n/10/8a   \C70/gbsn/m/n/10/5c 1 \C70/gbsn/bx/n/10/66 / \C70/gbs
+n/m/n/10/90 ; \C70/gbsn/bx/n/10/8f ë \C70/gbsn/m/n/10/64 Õ \C70/gbsn/m/n/10/4f 
+\ \C70/gbsn/m/n/10/ff  \C70/gbsn/bx/n/10/53 s\OT1/ppl/m/n/10 EXE$[]$RES$[]$LOG
+IC\C70/gbsn/m/n/10/30 
+ []
+
+[6]
+Overfull \hbox (60.9643pt too wide) in paragraph at lines 205--206
+[]\C70/gbsn/m/n/10/59 Ç \C70/gbsn/m/n/10/67 ú \C70/gbsn/m/n/10/59  \C70/gbsn/m
+/n/10/4e é \C70/gbsn/m/n/10/8b — \C70/gbsn/m/n/10/78  \C70/gbsn/m/n/10/96 6 \C
+70/gbsn/m/n/10/6b µ \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/bx/n/10/63  \C70/gbsn/m/n/
+10/4e ‰ \C70/gbsn/bx/n/10/66 / \C70/gbsn/bx/n/10/8f l \C70/gbsn/m/n/10/79 ˚ \C7
+0/gbsn/bx/n/10/63  \C70/gbsn/m/n/10/4e ‰ \C70/gbsn/m/n/10/ff  \C70/gbsn/m/n/1
+0/5e v \C70/gbsn/m/n/10/4e  \C70/gbsn/m/n/10/6e · \C70/gbsn/m/n/10/8d ≥ \C70/g
+bsn/bx/n/10/8f l \C70/gbsn/m/n/10/79 ˚ \C70/gbsn/m/n/10/67 a \C70/gbsn/m/n/10/4
+e ˆ \C70/gbsn/m/n/10/ff  \C70/gbsn/m/n/10/90 £ \C70/gbsn/m/n/10/4e H\OT1/ppl/m
+/n/10 ID\C70/gbsn/m/n/10/6a ! \C70/gbsn/m/n/10/57 W \C70/gbsn/m/n/10/8b æ \C70/
+gbsn/m/n/10/7f n \C70/gbsn/bx/n/10/8f l \C70/gbsn/m/n/10/79 ˚ \C70/gbsn/bx/n/10
+/53 — \C70/gbsn/m/n/10/75  \C70/gbsn/m/n/10/68  \C70/gbsn/m/n/10/5f ◊\OT1/ppl
+/m/n/10 branch$[]$flag$[]$o\C70/gbsn/m/n/10/4e :\OT1/ppl/m/n/10 Branch\C70/gbsn
+/m/n/10/ff 
+ []
+
+
+Overfull \hbox (86.12305pt too wide) in paragraph at lines 207--208
+[]\C70/gbsn/m/n/10/59 Ç \C70/gbsn/m/n/10/67 ú \C70/gbsn/m/n/10/59  \C70/gbsn/m
+/n/10/4e é \C70/gbsn/m/n/10/8b — \C70/gbsn/m/n/10/78  \C70/gbsn/m/n/10/96 6 \C
+70/gbsn/m/n/10/6b µ \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/bx/n/10/63  \C70/gbsn/m/n/
+10/4e ‰ \C70/gbsn/bx/n/10/66 / \C70/gbsn/bx/n/10/8f l \C70/gbsn/m/n/10/79 ˚ \C7
+0/gbsn/bx/n/10/63  \C70/gbsn/m/n/10/4e ‰ \C70/gbsn/m/n/10/ff  \C70/gbsn/m/n/1
+0/5e v \C70/gbsn/m/n/10/4e  \C70/gbsn/m/n/10/6e · \C70/gbsn/m/n/10/8d ≥ \C70/g
+bsn/bx/n/10/8f l \C70/gbsn/m/n/10/79 ˚ \C70/gbsn/m/n/10/67 a \C70/gbsn/m/n/10/4
+e ˆ \C70/gbsn/m/n/10/ff  \C70/gbsn/m/n/10/90 £ \C70/gbsn/m/n/10/4e H\OT1/ppl/m
+/n/10 ID\C70/gbsn/m/n/10/6a ! \C70/gbsn/m/n/10/57 W \C70/gbsn/bx/n/10/8f ÿ \C70
+/gbsn/m/n/10/4f  \C70/gbsn/m/n/10/8b æ \C70/gbsn/m/n/10/7f n\OT1/ppl/m/n/10 ne
+xt$[]$inst$[]$in$[]$delayslot$[]$o\C70/gbsn/m/n/10/4e :\OT1/ppl/m/n/10 InDelayS
+lot\C70/gbsn/m/n/10/ff 
+ []
+
+[7] [8] [9]
+Overfull \hbox (33.84479pt too wide) in paragraph at lines 366--367
+[]\C70/gbsn/m/n/10/62 g \C70/gbsn/m/n/10/88 L \C70/gbsn/m/n/10/96 6 \C70/gbsn/m
+/n/10/6b µ \C70/gbsn/m/n/10/5c  \C70/gbsn/m/n/10/4f ù \C70/gbsn/bx/n/10/63 n \
+C70/gbsn/m/n/10/8b — \C70/gbsn/m/n/10/78  \C70/gbsn/m/n/10/96 6 \C70/gbsn/m/n/
+10/6b µ \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/m/n/10/7e ” \C70/gbsn/m/n/10/67 ú \C70/
+gbsn/m/n/10/ff  \C70/gbsn/m/n/10/5b ˘ \C70/gbsn/m/n/10/6e ê \C70/gbsn/m/n/10/6
+4 Õ \C70/gbsn/m/n/10/4f \ \C70/gbsn/bx/n/10/65 p\OT1/ppl/m/n/10 1\C70/gbsn/m/n/
+10/30  \C70/gbsn/m/n/10/6e ê \C70/gbsn/m/n/10/64 Õ \C70/gbsn/m/n/10/4f \ \C70/
+gbsn/bx/n/10/65 p\OT1/ppl/m/n/10 2\C70/gbsn/bx/n/10/8f € \C70/gbsn/m/n/10/88 L 
+\C70/gbsn/bx/n/10/63  \C70/gbsn/m/n/10/5b ö \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/bx
+/n/10/8f – \C70/gbsn/m/n/10/7b ó \C70/gbsn/m/n/10/30  \C70/gbsn/m/n/10/62 g \C
+70/gbsn/m/n/10/88 L \C70/gbsn/m/n/10/96 6 \C70/gbsn/m/n/10/6b µ \C70/gbsn/bx/n/
+10/53  \C70/gbsn/m/n/10/62 Ï\OT1/ppl/m/n/10 EX\C70/gbsn/m/n/10/30 \OT1/ppl/m/
+n/10 EX/MEM\C70/gbsn/m/n/10/4e $
+ []
+
+[10] [11] [12]
+Overfull \hbox (5.45378pt too wide) in paragraph at lines 515--578
  [][] 
  []
 
-[9] [10] [11] [12] [13] [14] [15]) (part3.tex) (part4.tex) (part5.tex) [16]
-[17]
+[13] [14] [15] [16] [17] [18]
+Overfull \hbox (228.73157pt too wide) in paragraph at lines 820--821
+[]\C70/gbsn/m/n/10/5b ˘ \C70/gbsn/m/n/10/5e î\OT1/ppl/m/n/10 MIPS\C70/gbsn/m/n/
+10/67 ∂ Ñ \C70/gbsn/m/n/10/4e - \C70/gbsn/m/n/10/76 Ñ \C70/gbsn/bx/n/10/53 O \C
+70/gbsn/m/n/10/59  \C70/gbsn/m/n/10/74  \C70/gbsn/m/n/10/56 h\OT1/ppl/m/n/10 
+CP0\C70/gbsn/m/n/10/ff  \C70/gbsn/m/n/10/5b û \C70/gbsn/m/n/10/73 ∞ \C70/gbsn/
+m/n/10/4e Ü\OT1/ppl/m/n/10 Index\C70/gbsn/m/n/10/30 \OT1/ppl/m/n/10 EntryLo0\C
+70/gbsn/m/n/10/30 \OT1/ppl/m/n/10 EntryLo1\C70/gbsn/m/n/10/30 \OT1/ppl/m/n/10
+ BadVAddr\C70/gbsn/m/n/10/30 \OT1/ppl/m/n/10 Count\C70/gbsn/m/n/10/30 \OT1/pp
+l/m/n/10 EntryHi\C70/gbsn/m/n/10/30 \OT1/ppl/m/n/10 Compare\C70/gbsn/m/n/10/30
+ \OT1/ppl/m/n/10 Status\C70/gbsn/m/n/10/30 \OT1/ppl/m/n/10 Cause\C70/gbsn/m/n
+/10/30 \OT1/ppl/m/n/10 EPC\C70/gbsn/m/n/10/30 \OT1/ppl/m/n/10 EBase\C70/gbsn/
+bx/n/10/51 q\OT1/ppl/m/n/10 11\C70/gbsn/m/n/10/4e *
+ []
+
+[19] [20]
+Overfull \hbox (10.68367pt too wide) in paragraph at lines 936--937
+[]\OT1/ppl/m/n/10 CTRL\C70/gbsn/m/n/10/6a ! \C70/gbsn/m/n/10/57 W \C70/gbsn/m/n
+/10/5b ˘ \C70/gbsn/bx/n/10/66 Ç \C70/gbsn/m/n/10/50 \ \C70/gbsn/m/n/10/8b ˜ \C7
+0/gbsn/m/n/10/6c B \C70/gbsn/m/n/10/4f · \C70/gbsn/bx/n/10/53 ˜ \C70/gbsn/bx/n/
+10/8f € \C70/gbsn/m/n/10/88 L \C70/gbsn/bx/n/10/52 $ \C70/gbsn/bx/n/10/65 ≠ \C7
+0/gbsn/m/n/10/ff  \C70/gbsn/m/n/10/71 6 \C70/gbsn/m/n/10/54  \C70/gbsn/bx/n/1
+0/8f ì \C70/gbsn/bx/n/10/51 ˙ \C70/gbsn/m/n/10/6d A \C70/gbsn/m/n/10/6c 4 \C70/
+gbsn/m/n/10/7e ø \C70/gbsn/bx/n/10/66 Ç \C70/gbsn/m/n/10/50 \ \C70/gbsn/m/n/10/
+4f · \C70/gbsn/bx/n/10/53 ˜\OT1/ppl/m/n/10 stall\C70/gbsn/m/n/10/30 \OT1/ppl/m
+/n/10 stall\C70/gbsn/bx/n/10/8f ì \C70/gbsn/bx/n/10/51 ˙ \C70/gbsn/bx/n/10/52 0
+\OT1/ppl/m/n/10 PC\C70/gbsn/m/n/10/30 \OT1/ppl/m/n/10 IF/ID\C70/gbsn/m/n/10/30
+ \OT1/ppl/m/n/10 ID/EX\C70/gbsn/m/n/10/30 
+ []
+
+) (part3.tex [21] [22] [23]) (part4.tex) (part5.tex) [24]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 17.
  (technical.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 17.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17.
 Package rerunfilecheck Info: File `technical.out' has not changed.
-(rerunfilecheck)             Checksum: 8084472ACC086587662EDB47F2FA72F3;2565.
+(rerunfilecheck)             Checksum: 53B1F1CDBB3C72798145194A6E9C2DF9;3996.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 17.
  ) 
 Here is how much of TeX's memory you used:
- 18461 strings out of 493673
- 345243 string characters out of 3144390
- 451854 words of memory out of 3000000
- 21338 multiletter control sequences out of 15000+200000
- 53942 words of font info for 177 fonts, out of 3000000 for 9000
+ 18868 strings out of 493673
+ 352352 string characters out of 3144390
+ 442854 words of memory out of 3000000
+ 21643 multiletter control sequences out of 15000+200000
+ 58785 words of font info for 195 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 57i,14n,56p,448b,785s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,15n,56p,725b,857s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/programming/latex/Latex/fonts/enc/dvips/fontname/8r.enc}<E:/programming/l
-atex/Latex/fonts/type1/arphic/gbsnu/gbsnu30.pfb><E:/programming/latex/Latex/fon
-ts/type1/arphic/gbsnu/gbsnu4e.pfb><E:/programming/latex/Latex/fonts/type1/arphi
-c/gbsnu/gbsnu4f.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu5
-0.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu51.pfb><E:/prog
-ramming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu52.pfb><E:/programming/latex/
-Latex/fonts/type1/arphic/gbsnu/gbsnu53.pfb><E:/programming/latex/Latex/fonts/ty
-pe1/arphic/gbsnu/gbsnu54.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbs
-nu/gbsnu56.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu57.pfb
-><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu59.pfb><E:/programmi
-ng/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><E:/programming/latex/Latex
-/fonts/type1/arphic/gbsnu/gbsnu5c.pfb><E:/programming/latex/Latex/fonts/type1/a
-rphic/gbsnu/gbsnu5d.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gb
-snu5e.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu5f.pfb><E:/
-programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu60.pfb><E:/programming/la
-tex/Latex/fonts/type1/arphic/gbsnu/gbsnu62.pfb><E:/programming/latex/Latex/font
-s/type1/arphic/gbsnu/gbsnu63.pfb><E:/programming/latex/Latex/fonts/type1/arphic
-/gbsnu/gbsnu64.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu65
-.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu66.pfb><E:/progr
-amming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu67.pfb><E:/programming/latex/L
-atex/fonts/type1/arphic/gbsnu/gbsnu68.pfb><E:/programming/latex/Latex/fonts/typ
-e1/arphic/gbsnu/gbsnu69.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsn
-u/gbsnu6a.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu6b.pfb>
-<E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu6c.pfb><E:/programmin
-g/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu6d.pfb><E:/programming/latex/Latex/
-fonts/type1/arphic/gbsnu/gbsnu6e.pfb><E:/programming/latex/Latex/fonts/type1/ar
-phic/gbsnu/gbsnu70.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbs
-nu72.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu73.pfb><E:/p
-rogramming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu74.pfb><E:/programming/lat
-ex/Latex/fonts/type1/arphic/gbsnu/gbsnu75.pfb><E:/programming/latex/Latex/fonts
-/type1/arphic/gbsnu/gbsnu76.pfb><E:/programming/latex/Latex/fonts/type1/arphic/
-gbsnu/gbsnu78.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu79.
-pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu7a.pfb><E:/progra
-mming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu7b.pfb><E:/programming/latex/La
-tex/fonts/type1/arphic/gbsnu/gbsnu7c.pfb><E:/programming/latex/Latex/fonts/type
-1/arphic/gbsnu/gbsnu7e.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu
-/gbsnu7f.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu80.pfb><
-E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu81.pfb><E:/programming
-/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu82.pfb><E:/programming/latex/Latex/f
-onts/type1/arphic/gbsnu/gbsnu88.pfb><E:/programming/latex/Latex/fonts/type1/arp
-hic/gbsnu/gbsnu89.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsn
-u8a.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu8b.pfb><E:/pr
-ogramming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu8c.pfb><E:/programming/late
-x/Latex/fonts/type1/arphic/gbsnu/gbsnu8d.pfb><E:/programming/latex/Latex/fonts/
-type1/arphic/gbsnu/gbsnu8f.pfb><E:/programming/latex/Latex/fonts/type1/arphic/g
-bsnu/gbsnu90.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu94.p
-fb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu95.pfb><E:/program
-ming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu96.pfb><E:/programming/latex/Lat
-ex/fonts/type1/arphic/gbsnu/gbsnu97.pfb><E:/programming/latex/Latex/fonts/type1
-/arphic/gbsnu/gbsnu98.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/
-gbsnu9a.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu9e.pfb><E
-:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnuff.pfb><E:/programming/
-latex/Latex/fonts/type1/urw/palatino/uplb8a.pfb><E:/programming/latex/Latex/fon
-ts/type1/urw/palatino/uplr8a.pfb>
-Output written on technical.pdf (17 pages, 438612 bytes).
+atex/Latex/fonts/type1/arphic/gbsnu/gbsnu20.pfb><E:/programming/latex/Latex/fon
+ts/type1/arphic/gbsnu/gbsnu30.pfb><E:/programming/latex/Latex/fonts/type1/arphi
+c/gbsnu/gbsnu4e.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu4
+f.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu50.pfb><E:/prog
+ramming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu51.pfb><E:/programming/latex/
+Latex/fonts/type1/arphic/gbsnu/gbsnu52.pfb><E:/programming/latex/Latex/fonts/ty
+pe1/arphic/gbsnu/gbsnu53.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbs
+nu/gbsnu54.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu56.pfb
+><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu57.pfb><E:/programmi
+ng/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu58.pfb><E:/programming/latex/Latex
+/fonts/type1/arphic/gbsnu/gbsnu59.pfb><E:/programming/latex/Latex/fonts/type1/a
+rphic/gbsnu/gbsnu5b.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gb
+snu5c.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu5d.pfb><E:/
+programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu5e.pfb><E:/programming/la
+tex/Latex/fonts/type1/arphic/gbsnu/gbsnu5f.pfb><E:/programming/latex/Latex/font
+s/type1/arphic/gbsnu/gbsnu60.pfb><E:/programming/latex/Latex/fonts/type1/arphic
+/gbsnu/gbsnu61.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu62
+.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu63.pfb><E:/progr
+amming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu64.pfb><E:/programming/latex/L
+atex/fonts/type1/arphic/gbsnu/gbsnu65.pfb><E:/programming/latex/Latex/fonts/typ
+e1/arphic/gbsnu/gbsnu66.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsn
+u/gbsnu67.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu68.pfb>
+<E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu69.pfb><E:/programmin
+g/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu6a.pfb><E:/programming/latex/Latex/
+fonts/type1/arphic/gbsnu/gbsnu6b.pfb><E:/programming/latex/Latex/fonts/type1/ar
+phic/gbsnu/gbsnu6c.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbs
+nu6d.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu6e.pfb><E:/p
+rogramming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu6f.pfb><E:/programming/lat
+ex/Latex/fonts/type1/arphic/gbsnu/gbsnu70.pfb><E:/programming/latex/Latex/fonts
+/type1/arphic/gbsnu/gbsnu71.pfb><E:/programming/latex/Latex/fonts/type1/arphic/
+gbsnu/gbsnu72.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu73.
+pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu74.pfb><E:/progra
+mming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu75.pfb><E:/programming/latex/La
+tex/fonts/type1/arphic/gbsnu/gbsnu76.pfb><E:/programming/latex/Latex/fonts/type
+1/arphic/gbsnu/gbsnu77.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu
+/gbsnu78.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu79.pfb><
+E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu7a.pfb><E:/programming
+/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu7b.pfb><E:/programming/latex/Latex/f
+onts/type1/arphic/gbsnu/gbsnu7c.pfb><E:/programming/latex/Latex/fonts/type1/arp
+hic/gbsnu/gbsnu7e.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsn
+u7f.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu80.pfb><E:/pr
+ogramming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu81.pfb><E:/programming/late
+x/Latex/fonts/type1/arphic/gbsnu/gbsnu82.pfb><E:/programming/latex/Latex/fonts/
+type1/arphic/gbsnu/gbsnu86.pfb><E:/programming/latex/Latex/fonts/type1/arphic/g
+bsnu/gbsnu88.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu89.p
+fb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu8a.pfb><E:/program
+ming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu8b.pfb><E:/programming/latex/Lat
+ex/fonts/type1/arphic/gbsnu/gbsnu8c.pfb><E:/programming/latex/Latex/fonts/type1
+/arphic/gbsnu/gbsnu8d.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/
+gbsnu8f.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu90.pfb><E
+:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu91.pfb><E:/programming/
+latex/Latex/fonts/type1/arphic/gbsnu/gbsnu94.pfb><E:/programming/latex/Latex/fo
+nts/type1/arphic/gbsnu/gbsnu95.pfb><E:/programming/latex/Latex/fonts/type1/arph
+ic/gbsnu/gbsnu96.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu
+97.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu98.pfb><E:/pro
+gramming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnu99.pfb><E:/programming/latex
+/Latex/fonts/type1/arphic/gbsnu/gbsnu9a.pfb><E:/programming/latex/Latex/fonts/t
+ype1/arphic/gbsnu/gbsnu9e.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gb
+snu/gbsnu9f.pfb><E:/programming/latex/Latex/fonts/type1/arphic/gbsnu/gbsnuff.pf
+b><E:/programming/latex/Latex/fonts/type1/urw/palatino/uplb8a.pfb><E:/programmi
+ng/latex/Latex/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on technical.pdf (24 pages, 650100 bytes).
 PDF statistics:
- 567 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 333 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 809 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
+ 477 words of extra memory for PDF output out of 10000 (max. 10000000)
 
