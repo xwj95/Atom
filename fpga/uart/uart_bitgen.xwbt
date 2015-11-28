@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=Y:\important\uart\uart.ncd
-OUTFILE=Y:\important\uart\uart.bit
-FAMILY=Spartan6
-PART=xc6slx100-3fgg676
-WORKINGDIR=Y:\important\uart
-LICENSE=ISE
-USER_INFO=135256_15690819_173552794_661
