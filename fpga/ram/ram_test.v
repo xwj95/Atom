@@ -1,4 +1,4 @@
-module ramtest(
+module ram_test (
 	input clk,
 	input enable_read_key,
 	input enable_write_key,
@@ -16,26 +16,26 @@ module ramtest(
 	inout [31:0] extram_data,
 	output extram_ce,
 	output extram_oe,
-	output extram_we);
+	output extram_we
+	);
 
-	wire [31:0] data_from_ram;
-	reg [3:0] data_to_show;
+	wire[31:0] data_from_ram;
+	reg[3:0] data_to_show;
 	digseg_driver digseg_show_data(data_to_show[3:0], segdisp0);
 
 	reg enable_write_key_prev, enable_read_key_prev;
-	assign mode_changed_to_write = ~enable_write_key_prev & enable_write_key,
-		mode_changed_to_read = ~enable_read_key_prev & enable_read_key;
+	assign mode_change_to_write = ~enable_write_key_prev & enable_write_key,
+		mode_change_to_read = ~enable_read_key_prev & enable_read_key;
 
-	always @(posedge clk) begin
+	always @ (posedge clk) begin
 		enable_write_key_prev <= enable_write_key;
 		enable_read_key_prev <= enable_read_key;
 	end
 
-	assign l0 = led[0];
 	wire write_finished, read_ready;
 	always @(posedge clk) begin
 		if (mode_changed_to_write)
-			l0 <= ~l0;
+			led[0] <= ~led[0];
 		if (write_finished)
 			led[1] <= ~led[1];
 		if (read_ready) begin
@@ -46,10 +46,11 @@ module ramtest(
 
 	ram_driver ram_driver_inst(
 		clk, 1'b1,
-		mode_changed_to_read, mode_changed_to_write,
-		{user_addr[7], 12'b0, user_addr}, {28'b0, user_data},
+		mode_change_to_read, mode_change_to_write, 
+		{user_addr[7], 12'b0, user_addr}, {28'b0, user_data}, 
 		data_from_ram, write_finished, read_ready, 
-		baseram_addr, baseram_data, baseram_ce, baseram_oe, baseram_we,
-		extram_addr, extram_data, extram_ce, extram_oe, extram_we);
+		baseram_addr, baseram_data, baseram_ce, baseram_oe, baseram_we, 
+		extram_addr, extram_data, extram_ce, extram_oe, extram_we
+	);
 
 endmodule

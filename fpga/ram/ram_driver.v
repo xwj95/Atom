@@ -3,16 +3,12 @@ module ram_driver(
 	input enable,
 	input enable_read,
 	input enable_write,
-	// addr and data would be latched
+	
 	input [20:0] addr,
 	input [31:0] data_in,
 	output [31:0] data_out,
 
-	// assert for one cycle when finished previous writing
-	output reg write_finished,	
-
-	// assert when data could be continuously read; can not issue commands
-	// when this is asserted
+	output reg write_finished,
 	output read_ready,
 
 	output [19:0] baseram_addr,
@@ -24,8 +20,8 @@ module ram_driver(
 	inout [31:0] extram_data,
 	output extram_ce,
 	output extram_oe,
-	output extram_we);
-
+	output extram_we
+	);
 	reg [20:0] addr_latch = 0;
 	reg [31:0] data_latch = 0;
 
@@ -48,14 +44,13 @@ module ram_driver(
 		baseram_addr = addr_to_dev[19:0],
 		extram_addr = addr_to_dev[19:0];
 
-	
 	reg [1:0] state;
-	reg [2:0] read_wait;	// just like flash, need to wait before first read
+	reg [2:0] read_wait;
 	localparam IDLE = 2'b00, READ = 2'b01, WRITE0 = 2'b11, WRITE1 = 2'b10;
 
 	assign read_ready = (state == READ && read_wait[2]);
 
-	always @(posedge clk) begin
+	always @ (posedge clk) begin
 		case (state)
 			IDLE: begin
 				write_finished <= 0;
@@ -68,23 +63,22 @@ module ram_driver(
 					data_latch <= data_in;
 					ram_oe <= 1;
 					state <= WRITE0;
-				end else
+				end else begin
 					ram_oe <= 1;
+				end
 			end
-
 			READ: begin
-				if (!read_wait[2])
+				if (!read_wait[2]) begin
 					read_wait <= read_wait + 1'b1;
-				else if (!enable_read) begin
+				end else if (!enable_read) begin
 					state <= IDLE;
 					ram_oe <= 1;
 					read_wait <= 0;
 				end
 			end
-
-			WRITE0:
+			WRITE0: begin
 				state <= WRITE1;
-
+			end
 			WRITE1: begin
 				write_finished <= 1;
 				state <= IDLE;
@@ -93,7 +87,8 @@ module ram_driver(
 		endcase
 	end
 
-	always @(negedge clk)
+	always @ (negedge clk) begin
 		ram_we <= (state != WRITE0);
+	end
 
 endmodule

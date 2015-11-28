@@ -1,0 +1,33 @@
+NET "enable_write_key" LOC = Y1;	# K0
+NET "enable_read_key" LOC = Y3;		# K1
+
+NET "user_data[0]" LOC = P1;
+NET "user_data[1]" LOC = N1;
+NET "user_data[2]" LOC = N2;
+NET "user_data[3]" LOC = M1;
+NET "led[0]" LOC = N26;
+NET "led[1]" LOC = M26;
+NET "led[2]" LOC = L25;
+
+
+NET "user_addr[0]" LOC = Y5;
+NET "user_addr[1]" LOC = W1;
+NET "user_addr[2]" LOC = W2;
+NET "user_addr[3]" LOC = V1;
+NET "user_addr[4]" LOC = U1;
+NET "user_addr[5]" LOC = U2;
+NET "user_addr[6]" LOC = R1;
+NET "user_addr[7]" LOC = R2;
+
+
+NET "clk" LOC = U25;
+
+NET "segdisp0[0]" LOC = B26;
+NET "segdisp0[1]" LOC = C25;
+NET "segdisp0[2]" LOC = D24;
+NET "segdisp0[3]" LOC = A25;
+NET "segdisp0[4]" LOC = B24;
+NET "segdisp0[5]" LOC = C26;
+NET "segdisp0[6]" LOC = D26;
+
+
