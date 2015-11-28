@@ -19,14 +19,14 @@ module ram_test (
 	output extram_we
 	);
 
-	localparam clk2;
+	reg clk2;
 	reg cnt = 1'b0;
 	always @ (posedge clk) begin
 		if (cnt == 1'b1) begin
-			clk2 <= ~clk;
-			cnt <= 0;
+			clk2 <= ~clk2;
+			cnt <= 1'b0;
 		end else begin
-			cnt <= cnt + 1;
+			cnt <= 1'b1;
 		end
 	end
 
@@ -45,7 +45,7 @@ module ram_test (
 
 	wire write_finished, read_ready;
 	always @(posedge clk2) begin
-		if (mode_changed_to_write)
+		if (mode_change_to_write)
 			led[0] <= ~led[0];
 		if (write_finished)
 			led[1] <= ~led[1];

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-11-28T17:51:17</DateModified>
+  <DateModified>2015-11-28T18:34:15</DateModified>
   <ModuleName>ram_test</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Administrator-/Documents/git/proj8/fpga/ram/iseconfig/ram_test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Administrator-/Documents/git/proj8/fpga/ram</ImplementationReportsDirectory>
-  <DateInitialized>2015-11-28T17:51:17</DateInitialized>
+  <SummaryTimeStamp>2015-11-28T16:27:37</SummaryTimeStamp>
+  <SavedFilePath>Z:/Documents/Project/fpga/ram/iseconfig/ram_test.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Z:/Documents/Project/fpga/ram</ImplementationReportsDirectory>
+  <DateInitialized>2015-11-28T16:26:47</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

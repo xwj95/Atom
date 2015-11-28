@@ -1,16 +1,16 @@
-Release 14.2 - xst P.28xd (nt)
+Release 14.2 - xst P.28xd (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: ram_test.prj
 
@@ -105,11 +105,11 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\ram\ram_driver.v" into library work
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\ram\ram_driver.v" into library work
 Parsing module <ram_driver>.
-Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\ram\digseg_driver.v" into library work
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\ram\digseg_driver.v" into library work
 Parsing module <digseg_driver>.
-Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\ram\ram_test.v" into library work
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\ram\ram_test.v" into library work
 Parsing module <ram_test>.
 
 =========================================================================
@@ -127,104 +127,106 @@ Elaborating module <ram_driver>.
 =========================================================================
 
 Synthesizing Unit <ram_test>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\ram\ram_test.v".
+    Related source file is "\\psf\home\Documents\Project\fpga\ram\ram_test.v".
+    Found 1-bit register for signal <cnt>.
+    Found 1-bit register for signal <enable_write_key_prev>.
     Found 1-bit register for signal <enable_read_key_prev>.
     Found 1-bit register for signal <led<2>>.
     Found 1-bit register for signal <led<1>>.
     Found 1-bit register for signal <led<0>>.
     Found 4-bit register for signal <data_to_show>.
-    Found 1-bit register for signal <enable_write_key_prev>.
+    Found 1-bit register for signal <clk2>.
     Summary:
-	inferred   9 D-type flip-flop(s).
+	inferred  11 D-type flip-flop(s).
 Unit <ram_test> synthesized.
 
 Synthesizing Unit <digseg_driver>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\ram\digseg_driver.v".
+    Related source file is "\\psf\home\Documents\Project\fpga\ram\digseg_driver.v".
     Found 16x7-bit Read Only RAM for signal <seg>
     Summary:
 	inferred   1 RAM(s).
 Unit <digseg_driver> synthesized.
 
 Synthesizing Unit <ram_driver>.
-    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\ram\ram_driver.v".
+    Related source file is "\\psf\home\Documents\Project\fpga\ram\ram_driver.v".
     Found 1-bit register for signal <write_finished>.
     Found 3-bit register for signal <read_wait>.
+    Found 32-bit register for signal <data_latch>.
     Found 1-bit register for signal <ram_oe>.
     Found 21-bit register for signal <addr_latch>.
-    Found 32-bit register for signal <data_latch>.
     Found 1-bit register for signal <ram_we>.
     Found 2-bit register for signal <state>.
-    Found 3-bit adder for signal <read_wait[2]_GND_3_o_add_15_OUT> created at line 77.
-    Found 2-bit 4-to-1 multiplexer for signal <state[1]_PWR_3_o_wide_mux_20_OUT> created at line 59.
-    Found 1-bit tristate buffer for signal <baseram_data<31>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<30>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<29>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<28>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<27>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<26>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<25>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<24>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<23>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<22>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<21>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<20>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<19>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<18>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<17>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<16>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<15>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<14>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<13>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<12>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<11>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<10>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<9>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<8>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<7>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<6>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<5>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<4>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<3>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<2>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<1>> created at line 46
-    Found 1-bit tristate buffer for signal <baseram_data<0>> created at line 46
-    Found 1-bit tristate buffer for signal <extram_data<31>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<30>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<29>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<28>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<27>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<26>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<25>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<24>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<23>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<22>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<21>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<20>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<19>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<18>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<17>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<16>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<15>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<14>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<13>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<12>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<11>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<10>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<9>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<8>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<7>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<6>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<5>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<4>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<3>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<2>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<1>> created at line 47
-    Found 1-bit tristate buffer for signal <extram_data<0>> created at line 47
+    Found 3-bit adder for signal <read_wait[2]_GND_3_o_add_15_OUT> created at line 72.
+    Found 2-bit 4-to-1 multiplexer for signal <state[1]_PWR_3_o_wide_mux_22_OUT> created at line 54.
+    Found 1-bit tristate buffer for signal <baseram_data<31>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<30>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<29>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<28>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<27>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<26>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<25>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<24>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<23>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<22>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<21>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<20>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<19>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<18>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<17>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<16>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<15>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<14>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<13>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<12>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<11>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<10>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<9>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<8>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<7>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<6>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<5>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<4>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<3>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<2>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<1>> created at line 42
+    Found 1-bit tristate buffer for signal <baseram_data<0>> created at line 42
+    Found 1-bit tristate buffer for signal <extram_data<31>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<30>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<29>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<28>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<27>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<26>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<25>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<24>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<23>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<22>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<21>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<20>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<19>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<18>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<17>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<16>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<15>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<14>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<13>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<12>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<11>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<10>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<9>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<8>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<7>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<6>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<5>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<4>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<3>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<2>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<1>> created at line 43
+    Found 1-bit tristate buffer for signal <extram_data<0>> created at line 43
     HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <state> would allow inference of a finite state machine and as consequence better performance and smaller area.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  61 D-type flip-flop(s).
-	inferred  10 Multiplexer(s).
+	inferred  11 Multiplexer(s).
 	inferred  64 Tristate(s).
 Unit <ram_driver> synthesized.
 
@@ -236,20 +238,20 @@ Macro Statistics
  16x7-bit single-port Read Only RAM                    : 1
 # Adders/Subtractors                                   : 1
  3-bit adder                                           : 1
-# Registers                                            : 13
- 1-bit register                                        : 8
+# Registers                                            : 15
+ 1-bit register                                        : 10
  2-bit register                                        : 1
  21-bit register                                       : 1
  3-bit register                                        : 1
  32-bit register                                       : 1
  4-bit register                                        : 1
-# Multiplexers                                         : 10
+# Multiplexers                                         : 11
  1-bit 2-to-1 multiplexer                              : 1
  2-bit 2-to-1 multiplexer                              : 4
  2-bit 4-to-1 multiplexer                              : 1
  21-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 2
- 32-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 2
 # Tristates                                            : 64
  1-bit tristate buffer                                 : 64
 
@@ -259,14 +261,6 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:1293 - FF/Latch <data_latch_24> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_25> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_26> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_27> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_28> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_29> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_30> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_31> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <addr_latch_8> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <addr_latch_9> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <addr_latch_10> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
@@ -279,26 +273,6 @@ WARNING:Xst:1293 - FF/Latch <addr_latch_16> has a constant value of 0 in block <
 WARNING:Xst:1293 - FF/Latch <addr_latch_17> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <addr_latch_18> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <addr_latch_19> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_4> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_5> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_6> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_7> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_8> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_9> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_10> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_11> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_12> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_13> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_14> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_15> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_16> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_17> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_18> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_19> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_20> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_21> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_22> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <data_latch_23> has a constant value of 0 in block <ram_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 
 Synthesizing (advanced) Unit <digseg_driver>.
 INFO:Xst:3231 - The small RAM <Mram_seg> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
@@ -322,31 +296,33 @@ Macro Statistics
  16x7-bit single-port distributed Read Only RAM        : 1
 # Adders/Subtractors                                   : 1
  3-bit adder                                           : 1
-# Registers                                            : 70
- Flip-Flops                                            : 70
-# Multiplexers                                         : 10
+# Registers                                            : 72
+ Flip-Flops                                            : 72
+# Multiplexers                                         : 11
  1-bit 2-to-1 multiplexer                              : 1
  2-bit 2-to-1 multiplexer                              : 4
  2-bit 4-to-1 multiplexer                              : 1
  21-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 2
- 32-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 2
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <data_latch_4> in Unit <ram_driver> is equivalent to the following 39 FFs/Latches, which will be removed : <data_latch_5> <data_latch_6> <data_latch_7> <data_latch_8> <data_latch_9> <data_latch_10> <data_latch_11> <data_latch_12> <data_latch_13> <data_latch_14> <data_latch_15> <data_latch_16> <data_latch_17> <data_latch_18> <data_latch_19> <data_latch_20> <data_latch_21> <data_latch_22> <data_latch_23> <data_latch_24> <data_latch_25> <data_latch_26> <data_latch_27> <data_latch_28> <data_latch_29> <data_latch_30> <data_latch_31> <addr_latch_8> <addr_latch_9> <addr_latch_10> <addr_latch_11> <addr_latch_12> <addr_latch_13> <addr_latch_14> <addr_latch_15> <addr_latch_16> <addr_latch_17> <addr_latch_18> <addr_latch_19> 
+INFO:Xst:2261 - The FF/Latch <addr_latch_8> in Unit <ram_driver> is equivalent to the following 11 FFs/Latches, which will be removed : <addr_latch_9> <addr_latch_10> <addr_latch_11> <addr_latch_12> <addr_latch_13> <addr_latch_14> <addr_latch_15> <addr_latch_16> <addr_latch_17> <addr_latch_18> <addr_latch_19> 
 INFO:Xst:2261 - The FF/Latch <addr_latch_7> in Unit <ram_driver> is equivalent to the following FF/Latch, which will be removed : <addr_latch_20> 
-WARNING:Xst:1293 - FF/Latch <data_latch_4> has a constant value of 0 in block <ram_driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <addr_latch_8> has a constant value of 0 in block <ram_driver>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <ram_test> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block ram_test, actual ratio is 0.
-FlipFlop ram_driver_inst/state_0 has been replicated 1 time(s)
+FlipFlop enable_read_key_prev has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop enable_read_key_prev connected to a primary input has been replicated
+FlipFlop ram_driver_inst/state_0 has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -354,8 +330,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 30
- Flip-Flops                                            : 30
+# Registers                                            : 62
+ Flip-Flops                                            : 62
 
 =========================================================================
 
@@ -378,25 +354,25 @@ Top Level Output File Name         : ram_test.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 54
+# BELS                             : 86
 #      GND                         : 1
-#      INV                         : 1
-#      LUT2                        : 4
+#      INV                         : 3
+#      LUT2                        : 5
 #      LUT3                        : 4
-#      LUT4                        : 18
-#      LUT5                        : 7
-#      LUT6                        : 19
-# FlipFlops/Latches                : 30
-#      FD                          : 9
+#      LUT4                        : 46
+#      LUT5                        : 11
+#      LUT6                        : 16
+# FlipFlops/Latches                : 62
+#      FD                          : 13
 #      FD_1                        : 1
-#      FDE                         : 20
-# Clock Buffers                    : 1
+#      FDE                         : 48
+# Clock Buffers                    : 2
+#      BUFG                        : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 134
 #      IBUF                        : 14
-#      IOBUF                       : 8
+#      IOBUF                       : 64
 #      OBUF                        : 56
-#      OBUFT                       : 56
 
 Device utilization summary:
 ---------------------------
@@ -405,23 +381,23 @@ Selected Device : 6slx100fgg676-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              30  out of  126576     0%  
- Number of Slice LUTs:                   53  out of  63288     0%  
-    Number used as Logic:                53  out of  63288     0%  
+ Number of Slice Registers:              62  out of  126576     0%  
+ Number of Slice LUTs:                   85  out of  63288     0%  
+    Number used as Logic:                85  out of  63288     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     55
-   Number with an unused Flip Flop:      25  out of     55    45%  
-   Number with an unused LUT:             2  out of     55     3%  
-   Number of fully used LUT-FF pairs:    28  out of     55    50%  
-   Number of unique control sets:         4
+ Number of LUT Flip Flop pairs used:     89
+   Number with an unused Flip Flop:      27  out of     89    30%  
+   Number with an unused LUT:             4  out of     89     4%  
+   Number of fully used LUT-FF pairs:    58  out of     89    65%  
+   Number of unique control sets:         6
 
 IO Utilization: 
  Number of IOs:                         135
  Number of bonded IOBs:                 135  out of    480    28%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -444,7 +420,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 30    |
+clk                                | BUFGP                  | 2     |
+clk2                               | BUFG                   | 60    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -455,10 +432,10 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.652ns (Maximum Frequency: 273.823MHz)
-   Minimum input arrival time before clock: 3.952ns
-   Maximum output required time after clock: 5.915ns
-   Maximum combinational path delay: 6.584ns
+   Minimum period: 3.983ns (Maximum Frequency: 251.037MHz)
+   Minimum input arrival time before clock: 4.892ns
+   Maximum output required time after clock: 6.020ns
+   Maximum combinational path delay: 6.880ns
 
 Timing Details:
 ---------------
@@ -466,84 +443,108 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 3.652ns (frequency: 273.823MHz)
-  Total number of paths / destination ports: 135 / 48
+  Clock period: 1.950ns (frequency: 512.794MHz)
+  Total number of paths / destination ports: 3 / 2
 -------------------------------------------------------------------------
-Delay:               1.826ns (Levels of Logic = 1)
-  Source:            ram_driver_inst/state_1 (FF)
-  Destination:       ram_driver_inst/ram_we (FF)
+Delay:               1.950ns (Levels of Logic = 1)
+  Source:            cnt (FF)
+  Destination:       cnt (FF)
   Source Clock:      clk rising
-  Destination Clock: clk falling
-
-  Data Path: ram_driver_inst/state_1 to ram_driver_inst/ram_we
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q              19   0.447   1.072  ram_driver_inst/state_1 (ram_driver_inst/state_1)
-     LUT2:I1->O            1   0.205   0.000  ram_driver_inst/state[1]_PWR_3_o_not_equal_31_o1 (ram_driver_inst/state[1]_PWR_3_o_not_equal_31_o)
-     FD_1:D                    0.102          ram_driver_inst/ram_we
-    ----------------------------------------
-    Total                      1.826ns (0.754ns logic, 1.072ns route)
-                                       (41.3% logic, 58.7% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 65 / 38
--------------------------------------------------------------------------
-Offset:              3.952ns (Levels of Logic = 2)
-  Source:            enable_read_key (PAD)
-  Destination:       ram_driver_inst/addr_latch_7 (FF)
   Destination Clock: clk rising
 
-  Data Path: enable_read_key to ram_driver_inst/addr_latch_7
+  Data Path: cnt to cnt
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            25   1.222   1.297  enable_read_key_IBUF (enable_read_key_IBUF)
-     LUT2:I0->O           12   0.203   0.908  ram_driver_inst/Mmux_state[1]_PWR_3_o_wide_mux_20_OUT211_cepot (ram_driver_inst/Mmux_state[1]_PWR_3_o_wide_mux_20_OUT211_cepot)
-     FDE:CE                    0.322          ram_driver_inst/data_latch_0
+     FD:C->Q               2   0.447   0.616  cnt (cnt)
+     INV:I->O              1   0.206   0.579  cnt_INV_3_o1_INV_0 (cnt_INV_3_o)
+     FD:D                      0.102          cnt
     ----------------------------------------
-    Total                      3.952ns (1.747ns logic, 2.204ns route)
-                                       (44.2% logic, 55.8% route)
+    Total                      1.950ns (0.755ns logic, 1.195ns route)
+                                       (38.7% logic, 61.3% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 279 / 96
+Timing constraint: Default period analysis for Clock 'clk2'
+  Clock period: 3.983ns (frequency: 251.037MHz)
+  Total number of paths / destination ports: 376 / 105
 -------------------------------------------------------------------------
-Offset:              5.915ns (Levels of Logic = 2)
+Delay:               3.983ns (Levels of Logic = 2)
+  Source:            enable_write_key_prev (FF)
+  Destination:       ram_driver_inst/data_latch_31 (FF)
+  Source Clock:      clk2 rising
+  Destination Clock: clk2 rising
+
+  Data Path: enable_write_key_prev to ram_driver_inst/data_latch_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               4   0.447   0.684  enable_write_key_prev (enable_write_key_prev)
+     LUT2:I1->O            9   0.205   0.830  mode_change_to_write1 (mode_change_to_write)
+     LUT6:I5->O           32   0.205   1.291  ram_driver_inst/_n0193_inv1 (ram_driver_inst/_n0193_inv)
+     FDE:CE                    0.322          ram_driver_inst/data_latch_0
+    ----------------------------------------
+    Total                      3.983ns (1.179ns logic, 2.804ns route)
+                                       (29.6% logic, 70.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk2'
+  Total number of paths / destination ports: 252 / 88
+-------------------------------------------------------------------------
+Offset:              4.892ns (Levels of Logic = 3)
+  Source:            enable_write_key (PAD)
+  Destination:       ram_driver_inst/data_latch_31 (FF)
+  Destination Clock: clk2 rising
+
+  Data Path: enable_write_key to ram_driver_inst/data_latch_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   1.222   0.819  enable_write_key_IBUF (enable_write_key_IBUF)
+     LUT2:I0->O            9   0.203   0.830  mode_change_to_write1 (mode_change_to_write)
+     LUT6:I5->O           32   0.205   1.291  ram_driver_inst/_n0193_inv1 (ram_driver_inst/_n0193_inv)
+     FDE:CE                    0.322          ram_driver_inst/data_latch_0
+    ----------------------------------------
+    Total                      4.892ns (1.952ns logic, 2.940ns route)
+                                       (39.9% logic, 60.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk2'
+  Total number of paths / destination ports: 335 / 96
+-------------------------------------------------------------------------
+Offset:              6.020ns (Levels of Logic = 2)
   Source:            enable_read_key_prev (FF)
   Destination:       baseram_data<31> (PAD)
-  Source Clock:      clk rising
+  Source Clock:      clk2 rising
 
   Data Path: enable_read_key_prev to baseram_data<31>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              24   0.447   1.401  enable_read_key_prev (enable_read_key_prev)
+     FD:C->Q              31   0.447   1.506  enable_read_key_prev (enable_read_key_prev)
      LUT5:I2->O           32   0.205   1.291  ram_driver_inst/enable_ram_oe_AND_6_o1 (ram_driver_inst/enable_ram_oe_AND_6_o)
-     OBUFT:T->O                2.571          baseram_data_31_OBUFT (baseram_data<31>)
+     IOBUF:T->IO               2.571          baseram_data_31_IOBUF (baseram_data<31>)
     ----------------------------------------
-    Total                      5.915ns (3.223ns logic, 2.692ns route)
-                                       (54.5% logic, 45.5% route)
+    Total                      6.020ns (3.223ns logic, 2.797ns route)
+                                       (53.5% logic, 46.5% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 172 / 86
 -------------------------------------------------------------------------
-Delay:               6.584ns (Levels of Logic = 3)
+Delay:               6.880ns (Levels of Logic = 3)
   Source:            enable_read_key (PAD)
-  Destination:       baseram_data<31> (PAD)
+  Destination:       baseram_addr<7> (PAD)
 
-  Data Path: enable_read_key to baseram_data<31>
+  Data Path: enable_read_key to baseram_addr<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            25   1.222   1.297  enable_read_key_IBUF (enable_read_key_IBUF)
-     LUT5:I3->O           32   0.203   1.291  ram_driver_inst/enable_ram_oe_AND_6_o1 (ram_driver_inst/enable_ram_oe_AND_6_o)
-     OBUFT:T->O                2.571          baseram_data_31_OBUFT (baseram_data<31>)
+     IBUF:I->O            34   1.222   1.549  enable_read_key_IBUF (enable_read_key_IBUF)
+     LUT4:I1->O           35   0.205   1.334  ram_driver_inst/addr_to_dev<20>1 (baseram_addr_7_OBUF)
+     OBUF:I->O                 2.571          baseram_addr_7_OBUF (baseram_addr<7>)
     ----------------------------------------
-    Total                      6.584ns (3.996ns logic, 2.588ns route)
-                                       (60.7% logic, 39.3% route)
+    Total                      6.880ns (3.998ns logic, 2.882ns route)
+                                       (58.1% logic, 41.9% route)
 
 =========================================================================
 
@@ -555,20 +556,28 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.055|         |    1.826|         |
+clk            |    1.950|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk2
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk2           |    3.983|         |    1.759|         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.19 secs
+Total CPU time to Xst completion: 5.12 secs
  
 --> 
 
-Total memory usage is 185836 kilobytes
+Total memory usage is 255784 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   41 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of warnings :   13 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 

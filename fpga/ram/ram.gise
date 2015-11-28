@@ -23,13 +23,17 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ram_test.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="ram_test.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="ram_test.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="ram_test.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="ram_test.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="ram_test.lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="ram_test.ncd" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="ram_test.ngc"/>
@@ -45,6 +49,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="ram_test.twr" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="ram_test.twx" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="ram_test.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ram_test.ut" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="ram_test.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="ram_test.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="ram_test_envsettings.html"/>
@@ -69,6 +74,8 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="ramtest.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="ramtest_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ramtest_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
@@ -103,11 +110,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1448637849" xil_pn:in_ck="-4186490606872894892" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1862944237055464317" xil_pn:start_ts="1448637842">
+    <transform xil_pn:end_ts="1448710707" xil_pn:in_ck="-4186490606872894892" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1862944237055464317" xil_pn:start_ts="1448710699">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
@@ -126,20 +132,18 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1448637863" xil_pn:in_ck="-2832242494319813316" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-845353908949650673" xil_pn:start_ts="1448637856">
+    <transform xil_pn:end_ts="1448710712" xil_pn:in_ck="-2832242494319813316" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-845353908949650673" xil_pn:start_ts="1448710707">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="ram_test.bld"/>
       <outfile xil_pn:name="ram_test.ngd"/>
       <outfile xil_pn:name="ram_test_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1448637885" xil_pn:in_ck="-1164352979366828355" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3007501460119878838" xil_pn:start_ts="1448637863">
+    <transform xil_pn:end_ts="1448710726" xil_pn:in_ck="-1164352979366828355" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3007501460119878838" xil_pn:start_ts="1448710712">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="ram_test.pcf"/>
       <outfile xil_pn:name="ram_test_map.map"/>
@@ -150,10 +154,9 @@
       <outfile xil_pn:name="ram_test_summary.xml"/>
       <outfile xil_pn:name="ram_test_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1448637911" xil_pn:in_ck="3427376030118894550" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="8313326105510903995" xil_pn:start_ts="1448637885">
+    <transform xil_pn:end_ts="1448710752" xil_pn:in_ck="3427376030118894550" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="8313326105510903995" xil_pn:start_ts="1448710726">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="ram_test.ncd"/>
       <outfile xil_pn:name="ram_test.pad"/>
@@ -165,10 +168,25 @@
       <outfile xil_pn:name="ram_test_pad.txt"/>
       <outfile xil_pn:name="ram_test_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1448637911" xil_pn:in_ck="35159931353776185" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1448637903">
+    <transform xil_pn:end_ts="1448710786" xil_pn:in_ck="5915560843571617954" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5017394210571468131" xil_pn:start_ts="1448710752">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="ram_test.bgn"/>
+      <outfile xil_pn:name="ram_test.bit"/>
+      <outfile xil_pn:name="ram_test.drc"/>
+      <outfile xil_pn:name="ram_test.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1448710795" xil_pn:in_ck="5915560843571605100" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1448710794">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1448710752" xil_pn:in_ck="35159931353776185" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1448710745">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="ram_test.twr"/>
       <outfile xil_pn:name="ram_test.twx"/>
