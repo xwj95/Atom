@@ -30,8 +30,8 @@ module ram_driver (
 
 	reg[2:0] base_state;
 	reg[2:0] extra_state;
-	localparam IDLE = 3'b000, READ1 = 3'b001, READ2 = 3'b010, READ3 = 3'b011,
-		WRITE1 = 3'b100, WRITE2 = 3'b101, WRITE3 = 3'b110;
+	localparam IDLE = 3'b000, READ1 = 3'b001, READ2 = 3'b011, READ3 = 3'b010,
+		WRITE1 = 3'b110, WRITE2 = 3'b111, WRITE3 = 3'b101;
 
 	assign data_out = ram_selector ? extra_data_out : base_data_out;
 	reg[31:0] extra_data_out;
