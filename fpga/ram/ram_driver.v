@@ -48,9 +48,9 @@ module ram_driver (
 			case (base_state)
 				IDLE: begin
 					baseram_ce <= 1'b1;
-					if (read_enable == 1'b0) begin
+					if (read_enable == 1'b1) begin
 						base_state <= READ1;
-					end else if (write_enable == 1'b0) begin
+					end else if (write_enable == 1'b1) begin
 						base_state <= WRITE1;
 					end
 				end
@@ -107,9 +107,9 @@ module ram_driver (
 			case (extra_state)
 				IDLE: begin
 					extram_ce <= 1'b1;
-					if (read_enable == 1'b0) begin
+					if (read_enable == 1'b1) begin
 						extra_state <= READ1;
-					end else if (write_enable == 1'b0) begin
+					end else if (write_enable == 1'b1) begin
 						extra_state <= WRITE1;
 					end
 				end

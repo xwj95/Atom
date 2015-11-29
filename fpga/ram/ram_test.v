@@ -33,7 +33,7 @@ module ram_test (
 	end
 
 	ram_driver ram_driver_inst (
-		clk, rst, 1'b1, read_enable, write_enable, 
+		clk, rst, 1'b1, !read_enable, !write_enable, 
 		{user_addr[7], 12'b0, user_addr}, {28'b0, user_data}, 
 		data_from_ram, baseram_addr, baseram_data, 
 		baseram_ce, baseram_oe, baseram_we, 
