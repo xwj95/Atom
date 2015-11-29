@@ -1,4 +1,0 @@
-xst -intstyle ise -ifn "C:/Users/Administrator-/Documents/git/proj8/fpga/flash/digseg_driver.xst" -ofn "C:/Users/Administrator-/Documents/git/proj8/fpga/flash/digseg_driver.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc flash.ucf -uc flash_test.ucf -uc led.ucf -uc segdisp.ucf -p xc6slx100-fgg676-3 digseg_driver.ngc digseg_driver.ngd  
-xst -intstyle ise -ifn "C:/Users/Administrator-/Documents/git/proj8/fpga/flash/digseg_driver.xst" -ofn "C:/Users/Administrator-/Documents/git/proj8/fpga/flash/digseg_driver.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc flash.ucf -uc flash_test.ucf -uc led.ucf -uc segdisp.ucf -p xc6slx100-fgg676-3 digseg_driver.ngc digseg_driver.ngd  
