@@ -2,18 +2,20 @@
 module openmips(
 	input		wire					clk,
 	input		wire					rst,
+	input		wire					clk_4,
+	input		wire[1:0]				clk_count,
 
 	input		wire[5:0]				int_i,	
-	input		wire[`RegBus]			rom_data_i,
-	output		wire[`RegBus]			rom_addr_o,
-	output		wire					rom_ce_o,
-	//连接数据存储器RAM
-	input		wire[`RegBus]			ram_data_i,
-	output		wire[`RegBus]			ram_addr_o,
-	output		wire[`RegBus]			ram_data_o,
-	output		wire					ram_we_o,
-	output		wire[3:0]				ram_sel_o,
-	output		wire[3:0]				ram_ce_o,
+
+	//wishbone总线
+	input wire[`RegBus]					wishbone_data_i,
+	input wire							wishbone_ack_i,
+	output wire[`RegBus]				wishbone_addr_o,
+	output wire[`RegBus]				wishbone_data_o,
+	output wire							wishbone_we_o,
+	output wire[3:0]					wishbone_sel_o,
+	output wire							wishbone_stb_o,
+	output wire							wishbone_cyc_o, 
 
 	output		wire					timer_int_o
 	);
@@ -138,8 +140,11 @@ module openmips(
 	wire					id_branch_flag_o;
 	wire[`RegBus]			branch_target_address;
 	wire[5:0]				stall;
-	wire					stallreq_from_id;	
+	wire					stallreq_from_if;
+	wire					stallreq_from_id;
 	wire					stallreq_from_ex;
+	wire					stallreq_from_mem;
+	wire					stallreq_from_wishbone;
 
 	wire[`RegBus]			cp0_data_o;
 	wire[4:0]				cp0_raddr_i;
@@ -161,9 +166,33 @@ module openmips(
 
 	wire[`RegBus]			latest_epc;
 
+	wire					rom_ce;
+
+	wire[`RegBus]			ram_addr_o;
+	wire					ram_we_o;
+	wire[3:0]				ram_sel_o;
+	wire[`RegBus]			ram_data_o;
+	wire					ram_ce_o;
+	wire[`RegBus]			ram_data_i;
+
+	wire					mmu_ce_o;
+	wire[`RegBus]			mmu_data_o;
+	wire[`RegBus]			mmu_addr_o;
+	wire					mmu_we_o;
+	wire[15:0]				mmu_select_o;
+	wire[`RegBus]			mmu_data_i;
+	wire					mmu_ack_i;
+
+	wire[`RegBus]			tlb_if_addr_o;
+	wire[`RegBus]			tlb_mem_addr_o;
+	wire[`RegBus]			tlb_if_addr_i;
+	wire[`RegBus]			tlb_mem_addr_i;
+	wire[15:0]				tlb_if_select_i;
+	wire[15:0]				tlb_mem_select_i;
+
 	//pc_reg例化
 	pc_reg pc_reg0(
-		.clk(clk),
+		.clk(clk_4),
 		.rst(rst),
 		.stall(stall),
 		.flush(flush),
@@ -178,7 +207,7 @@ module openmips(
 
 	//IF/ID模块例化
 	if_id if_id0(
-		.clk(clk),
+		.clk(clk_4),
 		.rst(rst),
 		.stall(stall),
 		.flush(flush),
@@ -237,7 +266,7 @@ module openmips(
 
 	//通用寄存器Regfile模块例化
 	regfile regfile1(
-		.clk(clk),
+		.clk(clk_4),
 		.rst(rst),
 		.we(wb_wreg_i),
 		.waddr(wb_wd_i),
@@ -252,7 +281,7 @@ module openmips(
 
 	//ID/EX模块例化
 	id_ex id_ex0(
-		.clk(clk),
+		.clk(clk_4),
 		.rst(rst),
 
 		.stall(stall),
@@ -359,7 +388,7 @@ module openmips(
 
 	//EX/MEM模块例化
 	ex_mem ex_mem0(
-		.clk(clk),
+		.clk(clk_4),
 		.rst(rst),
 		.stall(stall),
 		.flush(flush),
@@ -471,7 +500,7 @@ module openmips(
 
 	//MEM/WB模块例化
 	mem_wb mem_wb0(
-		.clk(clk),
+		.clk(clk_4),
 		.rst(rst),
 		.stall(stall),
 		.flush(flush),
@@ -502,7 +531,7 @@ module openmips(
 	);
 
 	hilo_reg hilo_reg0(
-		.clk(clk),
+		.clk(clk_4),
 		.rst(rst),
 
 		//写端口
@@ -531,8 +560,8 @@ module openmips(
 		.stall(stall)
 	);
 
-cp0_reg cp0_reg0(
-		.clk(clk),
+	cp0_reg cp0_reg0(
+		.clk(clk_4),
 		.rst(rst),
 
 		.we_i(wb_cp0_reg_we_i),
@@ -559,6 +588,97 @@ cp0_reg cp0_reg0(
 		.ebase_o(cp0_ebase),
 		
 		.timer_int_o(timer_int_o)
+	);
+
+	mmu mmu0(
+		.clk(clk),
+		.rst(rst),
+		.clk_count(clk_count),
+
+		//IF模块的接口
+		.if_ce_i(rom_ce),
+		.if_data_i(32'h00000000),
+		.if_addr_i(pc),
+		.if_we_i(1'b0),
+		.if_sel_i(4'b1111),
+		.if_data_o(inst_i),
+
+		.stall_req_if(stallreq_from_if),
+
+		//MEM模块的接口
+		.mem_ce_i(ram_ce_o),
+		.mem_data_i(ram_data_o),
+		.mem_addr_i(ram_addr_o),
+		.mem_we_i(ram_we_o),
+		.mem_sel_i(ram_sel_o),
+		.mem_data_o(ram_data_i),
+
+		.stall_req_mem(stallreq_from_mem),
+
+		//TLB模块的接口
+		.tlb_if_addr_o(tlb_if_addr_o),
+		.tlb_mem_addr_o(tlb_mem_addr_o),
+		.tlb_if_addr_i(tlb_if_addr_i),
+		.tlb_mem_addr_i(tlb_mem_addr_i),
+		.tlb_if_select_i(tlb_if_select_i),
+		.tlb_mem_select_i(tlb_mem_select_i),
+
+		//MMU侧的接口
+		.mmu_ce_o(mmu_ce_o),
+		.mmu_data_o(mmu_data_o),
+		.mmu_addr_o(mmu_addr_o),
+		.mmu_we_o(mmu_we_o),
+		.mmu_select_o(mmu_select_o),
+		.mmu_data_i(mmu_data_i),
+		.mmu_ack_i(mmu_ack_i),
+
+		.stall_req(stallreq_from_wishbone)
+	);
+
+	tlb tlb_if0(
+		.rst(rst),
+
+		.mmu_addr(tlb_if_addr_o),
+		.tlb_addr(tlb_if_addr_i),
+		.tlb_select(tlb_if_select_i)
+	);
+
+	tlb tlb_mem0(
+		.rst(rst),
+
+		.mmu_addr(tlb_mem_addr_o),
+		.tlb_addr(tlb_mem_addr_i),
+		.tlb_select(tlb_mem_select_i)
+	);
+
+	wishbone_bus wishbone_bus0(
+		.clk(clk),
+		.rst(rst),
+
+		//来自控制模块ctrl
+		.stall_i(stall),
+		.flush_i(flush),
+
+		//CPU侧读写操作信息
+		.mmu_ce_i(mmu_ce_o),
+		.mmu_data_i(mmu_data_o),
+		.mmu_addr_i(mmu_addr_o),
+		.mmu_we_i(mmu_we_o),
+		.mmu_select_i(mmu_select_o),
+		.mmu_data_o(mmu_data_i),
+		.mmu_ack_o(mmu_ack_i),
+
+		//Wishbone总线侧接口
+		.wishbone_data_i(wishbone_data_i),
+		.wishbone_ack_i(wishbone_ack_i),
+		.wishbone_addr_o(wishbone_addr_o),
+		.wishbone_data_o(wishbone_data_o),
+		.wishbone_we_o(wishbone_we_o),
+		.wishbone_sel_o(wishbone_sel_o),
+		.wishbone_stb_o(wishbone_stb_o),
+		.wishbone_cyc_o(wishbone_cyc_o),
+
+		.stallreq(stallreq_from_wishbone)
 	);
 
 endmodule

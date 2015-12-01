@@ -10,14 +10,14 @@
 `define AluSelBus			2:0					//译码阶段的输出alusel_o的宽度
 `define InstValid			1'b0				//指令有效
 `define InstInvalid			1'b1				//指令无效
-`define Stop 				1'b1 				//流水线赞叹
+`define Stop 				1'b1 				//流水线暂停
 `define NoStop 				1'b0 				//流水线继续
 `define InDelaySlot 		1'b1 				//在延迟槽中
 `define NotInDelaySlot 		1'b0  				//不在延迟槽中
 `define Branch				1'b1 				//转移
 `define NotBranch			1'b0 				//不转移
-`define InterruptAssert 		1'b1
-`define InterruptNotAssert 		1'b0
+`define InterruptAssert 	1'b1
+`define InterruptNotAssert 	1'b0
 `define TrapAssert 			1'b1
 `define TrapNotAssert 		1'b0
 `define True_v				1'b1				//逻辑“真”
@@ -177,7 +177,7 @@
 `define EXE_MTC0_OP			8'b01100000
 
 `define EXE_SYSCALL_OP		8'b00001100
-`define EXE_ERET_OP		8'b01101011
+`define EXE_ERET_OP			8'b01101011
 `define EXE_NOP_OP			8'b00000000
 
 //AluSel
@@ -228,3 +228,26 @@
 `define CP0_REG_CAUSE		5'b01111
 `define CP0_REG_EPC			5'b10000
 `define CP0_REG_EBASE		5'b10010
+
+//*****************			与Wishbone总线有关的宏定义		*****************
+`define WB_IDLE				2'b00				//空闲状态
+`define WB_BUSY				2'b01				//忙状态
+`define WB_WAIT_FOR_STALL	2'b11				//等待暂停结束状态
+
+//*****************			与MMU有关的宏定义		******************
+`define MMU_IF0_MEMW0_MEMR0	3'b000				//取指未完成，写访存未完成，读访存未完成
+`define MMU_IF0_MEMW0_MEMR1	3'b001				//取指未完成，写访存未完成，读访存已完成
+`define MMU_IF0_MEMW1_MEMR0	3'b010				//取指未完成，写访存已完成，读访存未完成
+`define MMU_IF0_MEMW1_MEMR1	3'b011				//取指未完成，写访存已完成，读访存已完成
+`define MMU_IF1_MEMW1_MEMR1	3'b111				//取指已完成，写访存已完成，读访存已完成
+
+//*****************			与外设有关的宏定义		******************
+`define WB_SELECT_ZERO		16'b0000000000000000
+`define WB_SELECT_RAM		16'b0000000000000001
+`define WB_SELECT_ROM		16'b0000000000000010
+`define WB_SELECT_FLASH		16'b0000000000000100
+`define WB_SELECT_VGA		16'b0000000000010000
+`define WB_SELECT_UART		16'b0000000000100000
+`define WB_SELECT_UART_STAT	16'b0000000001000000
+`define WB_SELECT_DIGSEG	16'b0000000010000000
+`define WB_SELECT_PS2		16'b0000000100000000

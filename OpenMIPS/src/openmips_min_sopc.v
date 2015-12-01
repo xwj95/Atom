@@ -17,12 +17,31 @@ module openmips_min_sopc(
 	wire[5:0]				int;
 	wire					timer_int;
 
+	reg						clk_4;
+	reg[1:0]				clk_count;
+
+	initial begin
+		clk_4 = 1'b0;
+		clk_count <= 3'b000;
+	end
+
+	always @ (edge clk) begin
+		if (clk_count[2] == 1'b1) begin
+			clk_4 <= ~clk_4;
+			clk_count <= 0;
+		end else begin
+			clk_count <= clk_count + 1'b1;
+		end
+	end
+
 	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输入
 
 	//例化处理器OpenMIPS
 	openmips openmips0 (
 		.clk(clk),
 		.rst(rst),
+		.clk_4(clk_4),
+		.count(clk_count[1:0]),
 		.rom_addr_o(inst_addr),
 		.rom_data_i(inst),
 		.rom_ce_o(rom_ce),

@@ -11,8 +11,8 @@ module if_id(
 	input		wire[`InstBus]			if_inst,
 
 	//对应译码阶段的信号
-	output	reg[`InstAddrBus]			id_pc,
-	output	reg[`InstBus]				id_inst
+	output		reg[`InstAddrBus]		id_pc,
+	output		reg[`InstBus]			id_inst
 	);
 
 	//（1）当stall[1]为Stop，stall[2]位NoStop时，表示取指阶段暂停，而译码阶段继续，所以使用空指令作为下一个周期进入译码阶段的指令
@@ -22,8 +22,7 @@ module if_id(
 		if (rst == `RstEnable) begin
 			id_pc <= `ZeroWord;						//复位的时候pc为0
 			id_inst <= `ZeroWord;					//复位的时候指令也为0，其实就是空指令
-		end else if (flush == 1'b1) begin
-			//flush为1表示异常发生，要清除流水线，所以复位id_pc,id_inst寄存器的值
+		end else if (flush == 1'b1) begin			//flush为1表示异常发生，要清除流水线，所以复位id_pc,id_inst寄存器的值
 			id_pc <= `ZeroWord;
 			id_inst <= `ZeroWord;
 		end else if (stall[1] == `Stop && stall[2] == `NoStop) begin

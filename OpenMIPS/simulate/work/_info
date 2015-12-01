@@ -4,821 +4,981 @@ K3
 cModel Technology
 Z0 dF:\modelsim\examples
 <<<<<<< HEAD
-V<Ld1H=mSFAdU:3Zn>6Nb^3
-Z1 04 20 4 work openmips_min_sopc_tb fast 0
-=1-208984ee51e2-56558949-182-f54
-Z2 o-quiet -auto_acc_if_foreign -work work +acc
-Z3 n@_opt
-Z4 OL;O;10.1c;51
-Z5 dF:\modelsim\examples
+Z1 V<Ld1H=mSFAdU:3Zn>6Nb^3
+Z2 04 20 4 work openmips_min_sopc_tb fast 0
+Z3 =1-208984ee51e2-56558949-182-f54
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+Z5 n@_opt
+Z6 OL;O;10.1c;51
+Z7 dF:\modelsim\examples
 <<<<<<< HEAD
-IIC08GbRWEaKzII>jd24JT1
-Z6 VcSadklIf`]913AKK;nMHA2
-dC:\Users\Administrator-\Documents\git\proj8\OpenMIPS\simulate
-w1448445004
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v
-Z7 =======
-I73MPVh;HzYH[UIAF[<;C31
-R6
-Z8 d\\psf\Home\Documents\Project\OpenMIPS\simulate
-Z9 w1447853842
-Z10 8//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v
-Z11 F//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v
-<<<<<<< HEAD
-R5
-!s100 bWL1W7WVPIW`=PRjg9=fd3
-!s108 1448446191.187000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 KIC>UB@bFA77`0J2zQ;0L0
-!s108 1448446191.702000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ctrl.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ctrl.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 eloTTd@LgkEhScjN4`_IC1
-!s108 1448446191.890000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/data_ram.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/data_ram.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 KZ?J>F<867@_Q1hSmK2nl0
-!s108 1448446192.124000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 0O:zPneG<];P=_Ki2gb=82
-!s108 1448446192.406000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex_mem.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex_mem.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 F`FC2n0_gBlO`52Fac86c2
-!s108 1448446192.609000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/hilo_reg.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/hilo_reg.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 llVX]Wmg@^LoJI2Be8lj=3
-!s108 1448446192.812000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 _^^:l53A;a21CZ^F?FNAD3
-!s108 1448446193.046000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id_ex.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id_ex.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 5G^2X_mEfd1_bihz37Ekj2
-!s108 1448446193.343000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 zV469blOAz:@1EA03zD9G3
-!s108 1448446193.499000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/inst_rom.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/inst_rom.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R7
-R5
-Z12 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v|
-!s100 Y5m1cBFo=C7Mh0LS2C_@J1
-!s108 1448446193.702000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem.v|
-<<<<<<< HEAD
-Ijc4XcUOAW0?WESLmRQf`G1
-Z13 V7[W=VSUomUmXQzM4igOm:0
-R8
+Z8 IIC08GbRWEaKzII>jd24JT1
+Z9 VcSadklIf`]913AKK;nMHA2
+Z10 dC:\Users\Administrator-\Documents\git\proj8\OpenMIPS\simulate
+Z11 w1448445004
+Z12 8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v
+Z13 FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v
+Z14 =======
+Z15 I73MPVh;HzYH[UIAF[<;C31
 R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v
+Z16 d\\psf\Home\Documents\Project\OpenMIPS\simulate
+Z17 w1447853842
+Z18 8//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v
+Z19 F//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v
+<<<<<<< HEAD
 R7
-Z14 IHa30aN[WCAJe@`009OV9^0
-R13
-R8
-R9
-Z15 8//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v
-Z16 F//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v
-<<<<<<< HEAD
-R5
-!s100 N5A]zCcX_PM>6XQXJXUi^0
-!s108 1448446193.921000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 HOYe67Ff70ZMbh9e4>[cX1
-!s108 1448446194.093000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 ggm3O:=aEH>]loj?>J^O[2
-!s108 1448446194.327000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 =l7g]@?j<kD>oKEcT@bI=1
-!s108 1448446194.468000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v|
-!i10b 1
-!s85 0
-<<<<<<< HEAD
-R5
-!s100 59TcK1UFQ891Gl:m6UE;j0
-!s108 1448446194.734000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/pc_reg.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/pc_reg.v|
+Z20 !s100 bWL1W7WVPIW`=PRjg9=fd3
+Z21 !s108 1448446191.187000
+Z22 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v|
+Z23 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/cp0_reg.v|
 !i10b 1
 !s85 0
 <<<<<<< HEAD
 R7
-R5
-Z17 !s100 im_m6Wm6Y28D6]_<WG=191
-Z18 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v|
-Z19 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v|
-!s100 i@0IH71127SAMPC8bH0R_1
-!s108 1448446194.921000
-!s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/regfile.v|
-!s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/regfile.v|
-!s108 1448522504.800000
+Z24 !s100 KIC>UB@bFA77`0J2zQ;0L0
+Z25 !s108 1448446191.702000
+Z26 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ctrl.v|
+Z27 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ctrl.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z28 !s100 eloTTd@LgkEhScjN4`_IC1
+Z29 !s108 1448446191.890000
+Z30 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/data_ram.v|
+Z31 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/data_ram.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z32 !s100 KZ?J>F<867@_Q1hSmK2nl0
+Z33 !s108 1448446192.124000
+Z34 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex.v|
+Z35 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z36 !s100 0O:zPneG<];P=_Ki2gb=82
+Z37 !s108 1448446192.406000
+Z38 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex_mem.v|
+Z39 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex_mem.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z40 !s100 F`FC2n0_gBlO`52Fac86c2
+Z41 !s108 1448446192.609000
+Z42 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/hilo_reg.v|
+Z43 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/hilo_reg.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z44 !s100 llVX]Wmg@^LoJI2Be8lj=3
+Z45 !s108 1448446192.812000
+Z46 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id.v|
+Z47 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z48 !s100 _^^:l53A;a21CZ^F?FNAD3
+Z49 !s108 1448446193.046000
+Z50 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id_ex.v|
+Z51 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/id_ex.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z52 !s100 5G^2X_mEfd1_bihz37Ekj2
+Z53 !s108 1448446193.343000
+Z54 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v|
+Z55 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z56 !s100 zV469blOAz:@1EA03zD9G3
+Z57 !s108 1448446193.499000
+Z58 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/inst_rom.v|
+Z59 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/inst_rom.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R14
+R7
+Z60 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v|
+Z61 !s100 Y5m1cBFo=C7Mh0LS2C_@J1
+Z62 !s108 1448446193.702000
+Z63 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem.v|
+Z64 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem.v|
+<<<<<<< HEAD
+Z65 Ijc4XcUOAW0?WESLmRQf`G1
+Z66 V7[W=VSUomUmXQzM4igOm:0
+R16
+R17
+Z67 8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v
+Z68 FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v
+R14
+Z69 IHa30aN[WCAJe@`009OV9^0
+R66
+R16
+R17
+Z70 8//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v
+Z71 F//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v
+<<<<<<< HEAD
+R7
+Z72 !s100 N5A]zCcX_PM>6XQXJXUi^0
+Z73 !s108 1448446193.921000
+Z74 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v|
+Z75 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem_wb.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z76 !s100 HOYe67Ff70ZMbh9e4>[cX1
+Z77 !s108 1448446194.093000
+Z78 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips.v|
+Z79 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z80 !s100 ggm3O:=aEH>]loj?>J^O[2
+Z81 !s108 1448446194.327000
+Z82 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc.v|
+Z83 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z84 !s100 =l7g]@?j<kD>oKEcT@bI=1
+Z85 !s108 1448446194.468000
+Z86 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v|
+Z87 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R7
+Z88 !s100 59TcK1UFQ891Gl:m6UE;j0
+Z89 !s108 1448446194.734000
+Z90 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/pc_reg.v|
+Z91 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/pc_reg.v|
+!i10b 1
+!s85 0
+<<<<<<< HEAD
+R14
+R7
+Z92 !s100 im_m6Wm6Y28D6]_<WG=191
+Z93 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v|
+Z94 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v|
+Z95 !s100 i@0IH71127SAMPC8bH0R_1
+Z96 !s108 1448446194.921000
+Z97 !s107 defines.v|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/regfile.v|
+Z98 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/regfile.v|
+Z99 !s108 1448522504.800000
 !i10b 1
 !s85 0
 !i10b 1
 !s85 0
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
-R5
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-Z20 OL;L;10.1c;51
+Z100 OL;L;10.1c;51
 r1
 31
-Z21 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
-R5
+Z101 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 3
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
-R5
-Z22 !s100 6Z8l[D;SIa0XCImk31zT]1
-Z23 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v|
-!s108 1448523332.626000
+R7
+Z102 !s100 6Z8l[D;SIa0XCImk31zT]1
+Z103 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v|
+Z104 !s108 1448523332.626000
 !i10b 1
 !s85 0
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 2
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 5
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 3
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
 L0 3
-R20
+R100
 r1
 31
-R21
-R5
+R101
+R7
 >>>>>>> c5c9a98f2b7f7d2ed6d17cdcc703252b2f053ffc
-R5
+R7
 T_opt
-VXnE>SZYDEDYO5z4mC5?4]3
-R1
-=15-001c42e942e2-5656d4f7-125-b18
+Z105 VXnE>SZYDEDYO5z4mC5?4]3
 R2
-R3
-R4
-T_opt1
-Vi:lbV[jQZd`D6Z0FK2bn10
-R1
-=1-208984ee51e2-565588f7-3d9-fe4
-o-quiet -auto_acc_if_foreign -work work
-Z24 n@_opt1
+Z106 =15-001c42e942e2-5656d4f7-125-b18
 R4
 R5
-R7
-VeD7;<86JPdD9;S@^nn]5H3
-R1
-=1-208984ee51e2-564c6b35-248-574
-R2
-R3
-R4
-R5
-T_opt1
-VojoNIlo5BkGm0]Sd4[1eX3
-R1
-=7-001c42e942e2-5656b649-2f8-b18
-R2
-R24
-R4
-R5
-T_opt2
-V4d2jTUM1n8T<nZ6zdIk]n3
-R1
-=1-001c42e942e2-5638a884-65-86c
-R2
-n@_opt2
-R4
-R5
-vcp0_reg
-INfX=39=GGjJdi8U8;1eV93
 R6
-R8
-w1447923790
-R10
-R11
+R7
+T_opt1
+Z107 Vi:lbV[jQZd`D6Z0FK2bn10
+R2
+Z108 =1-208984ee51e2-565588f7-3d9-fe4
+Z109 o-quiet -auto_acc_if_foreign -work work
+Z110 n@_opt1
+R6
+R7
+R14
+Z111 VeD7;<86JPdD9;S@^nn]5H3
+R2
+Z112 =1-208984ee51e2-564c6b35-248-574
+R4
+R5
+R6
+R7
+T_opt1
+Z113 VojoNIlo5BkGm0]Sd4[1eX3
+R2
+Z114 =7-001c42e942e2-5656b649-2f8-b18
+R4
+R110
+R6
+R7
+T_opt2
+Z115 V4d2jTUM1n8T<nZ6zdIk]n3
+R2
+Z116 =1-001c42e942e2-5638a884-65-86c
+R4
+Z117 n@_opt2
+R6
+R7
+vcp0_reg
+Z118 !s100 5J_PnEBBIOERTQ[ZjiBFS2
+Z119 INfX=39=GGjJdi8U8;1eV93
+R9
+R16
+Z120 w1447923790
+R18
+R19
 L0 2
-R20
+R100
 r1
 31
-R21
-!s100 5J_PnEBBIOERTQ[ZjiBFS2
-!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v|
-!s108 1448525617.908000
-!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v|
+Z121 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v|
+R101
+Z122 !s108 1448977647.708000
+Z123 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/cp0_reg.v|
 !i10b 1
 !s85 0
 vctrl
-Z25 !s100 RYAeTng0ZI[kM^NZJN35R1
-Z26 ITU9VA@Kj9Y7mFh1XZG[DB3
-Z27 V=6^gV6X?S0XX]iK4eHGdG2
-R8
-R9
-Z28 8//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v
-Z29 F//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v
+Z124 !s100 RYAeTng0ZI[kM^NZJN35R1
+Z125 ITU9VA@Kj9Y7mFh1XZG[DB3
+Z126 V=6^gV6X?S0XX]iK4eHGdG2
+R16
+R17
+Z127 8//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v
+Z128 F//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v
 L0 2
-R20
+R100
 r1
 31
-Z30 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v|
-R21
-Z31 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v|
-!s108 1448525617.997000
+Z129 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v|
+R101
+Z130 !s108 1448943301.304000
+Z131 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/ctrl.v|
 !i10b 1
 !s85 0
 vctrl
-R26
-R27
-R8
-R9
-R28
-R29
-vdata_ram
-I=4CfP0=HO2l`[[nDdGgeI1
-Z32 VMm=R0KI:jnEE26e]zToiY0
-R8
-R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/data_ram.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/data_ram.v
-R7
-R25
-R30
-R31
-!s108 1448522503.231000
+Z132 !s100 =oMEFK2]a6ClAcWAE>9[21
+Z133 Ie:TmQN59G[fGj5l?nJTNQ2
+Z134 VzO:g?QL_Z2IJ_dmH`Yick2
+R16
+Z135 w1448942067
+R127
+R128
+L0 2
+R100
+r1
+31
+R129
+R101
+Z136 !s108 1448977647.807000
+R131
 !i10b 1
 !s85 0
 vdata_ram
-Ik2hMJzQTRIH0]?eY2EHTG3
-R32
-R8
-R9
-8//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v
-F//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v
+Z137 !s100 6AS=^J^11biR5LW<J]WVR3
+Z138 Ik2hMJzQTRIH0]?eY2EHTG3
+Z139 VMm=R0KI:jnEE26e]zToiY0
+R16
+R17
+Z140 8//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v
+Z141 F//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v
 L0 2
-R20
+R100
 r1
 31
-R21
-!s100 6AS=^J^11biR5LW<J]WVR3
-!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v|
-!s108 1448525618.088000
-!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v|
+Z142 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v|
+R101
+Z143 !s108 1448977647.894000
+Z144 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/data_ram.v|
+!i10b 1
+!s85 0
+vdata_ram
+R137
+R138
+R139
+R16
+R17
+R140
+R141
+L0 2
+R100
+r1
+31
+R142
+R101
+Z145 !s108 1448943301.401000
+R144
 !i10b 1
 !s85 0
 vex
-Z33 !s100 =ATiWioCT0eBCGc1^?1M?1
-Z34 Ii0fAZT6;LUoPaf?h?j3gY2
-Z35 VlWb5S^U3>X`2:So4ina9C0
-R8
-R9
-Z36 8//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v
-Z37 F//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v
+Z146 !s100 =ATiWioCT0eBCGc1^?1M?1
+Z147 Ii0fAZT6;LUoPaf?h?j3gY2
+Z148 VlWb5S^U3>X`2:So4ina9C0
+R16
+R17
+Z149 8//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v
+Z150 F//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v
 L0 2
-R20
+R100
 r1
 31
-Z38 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v|
-R21
-Z39 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v|
-!s108 1448525618.228000
+Z151 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v|
+R101
+Z152 !s108 1448943301.544000
+Z153 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/ex.v|
 !i10b 1
 !s85 0
 vex
-R34
-R35
-R8
-R9
-R36
-R37
-vex_mem
-IKbMJmf;fm3o=ZfcD?a<;W3
-Z40 V6X9Y:^9S1INMUl;HHTnaU0
-R8
-R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex_mem.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/ex_mem.v
-R7
-R33
-R38
-R39
-!s108 1448522503.487000
+R146
+R147
+R148
+R16
+Z154 w1448942095
+R149
+R150
+L0 2
+R100
+r1
+31
+R151
+R101
+Z155 !s108 1448977648.032000
+R153
 !i10b 1
 !s85 0
 vex_mem
-I52j>]982>W^WLe`Fl5kDK0
-R40
-R8
-w1447916562
-8//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v
-F//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v
+Z156 !s100 hZGE:aXfPW^k8`cl6OO]T2
+Z157 I52j>]982>W^WLe`Fl5kDK0
+Z158 V6X9Y:^9S1INMUl;HHTnaU0
+R16
+Z159 w1447916562
+Z160 8//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v
+Z161 F//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v
 L0 2
-R20
+R100
 r1
 31
-R21
-!s100 hZGE:aXfPW^k8`cl6OO]T2
-!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v|
-!s108 1448525618.318000
-!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v|
+Z162 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v|
+R101
+Z163 !s108 1448977648.125000
+Z164 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/ex_mem.v|
+!i10b 1
+!s85 0
+vex_mem
+R156
+R157
+R158
+R16
+R159
+R160
+R161
+L0 2
+R100
+r1
+31
+R162
+R101
+Z165 !s108 1448943301.643000
+R164
 !i10b 1
 !s85 0
 vhilo_reg
-Z41 IDaRzWgz=mjR>GoiIBSD3^3
-Z42 V^8YfHOj6?D4ha@2?A<4Nj3
-R8
-R9
-Z43 8//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v
-Z44 F//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v
+Z166 !s100 SJagF43?NN1C:N^jfkKk]3
+Z167 IDaRzWgz=mjR>GoiIBSD3^3
+Z168 V^8YfHOj6?D4ha@2?A<4Nj3
+R16
+R17
+Z169 8//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v
+Z170 F//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v
 L0 2
-R20
+R100
 r1
 31
-R21
-!s100 SJagF43?NN1C:N^jfkKk]3
-!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v|
-!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v|
-!s108 1448525618.408000
+Z171 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v|
+R101
+Z172 !s108 1448943301.735000
+Z173 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/hilo_reg.v|
 !i10b 1
 !s85 0
 vhilo_reg
-R41
-R42
-R8
-R9
-R43
-R44
-vid
-Ine`1]c6T_XWh8Cn<Ozzi]2
-Z45 Vfc_jjJ5o>bQ8HhQV3lI[K3
-R8
-w1448527602
-Z46 8//psf/Home/Documents/Project/OpenMIPS/simulate/id.v
-Z47 F//psf/Home/Documents/Project/OpenMIPS/simulate/id.v
+R166
+R167
+R168
+R16
+R17
+R169
+R170
 L0 2
-R20
+R100
 r1
 31
-Z48 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/id.v|
-R21
-Z49 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/id.v|
+R171
+R101
+Z174 !s108 1448977648.214000
+R173
 !i10b 1
-!s100 N78J2j;Jn>MNUIlJDgQ:z1
 !s85 0
-!s108 1448531186.841000
 vid
-Ih1Tl;GinWdoN;PY>z@la?1
-R45
-R8
-w1448526235
-R46
-R47
+Z175 !s100 N78J2j;Jn>MNUIlJDgQ:z1
+Z176 Ine`1]c6T_XWh8Cn<Ozzi]2
+Z177 Vfc_jjJ5o>bQ8HhQV3lI[K3
+R16
+Z178 w1448527602
+Z179 8//psf/Home/Documents/Project/OpenMIPS/simulate/id.v
+Z180 F//psf/Home/Documents/Project/OpenMIPS/simulate/id.v
 L0 2
-R20
+R100
 r1
 31
-R21
-R48
-R49
-!s100 LAK^0GYK7:baQR>dZod1S1
-!s108 1448526305.408000
+Z181 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/id.v|
+R101
+Z182 !s108 1448977648.306000
+Z183 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/id.v|
+!i10b 1
+!s85 0
+vid
+R175
+R176
+R177
+R16
+R178
+R179
+R180
+L0 2
+R100
+r1
+31
+R181
+R101
+Z184 !s108 1448943301.830000
+R183
 !i10b 1
 !s85 0
 vid_ex
-Z50 !s100 Jc?Y9UFF9iVmLj^hlhz=G3
-Z51 IYaa_POKml6;6SY>JjnV_Y2
-Z52 VQ8bZ`R4`mM2TJ:S2bQR<W0
-R8
-R9
-Z53 8//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v
-Z54 F//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v
+Z185 !s100 Jc?Y9UFF9iVmLj^hlhz=G3
+Z186 IYaa_POKml6;6SY>JjnV_Y2
+Z187 VQ8bZ`R4`mM2TJ:S2bQR<W0
+R16
+R17
+Z188 8//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v
+Z189 F//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v
 L0 2
-R20
+R100
 r1
 31
-Z55 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v|
-R21
-Z56 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v|
-!s108 1448525618.597000
+Z190 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v|
+R101
+Z191 !s108 1448943301.927000
+Z192 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/id_ex.v|
 !i10b 1
 !s85 0
 vid_ex
-R51
-R52
-R8
-R9
-R53
-R54
-vif_id
-I1_T?b]jX52@;iR1[5m::i3
-Z57 VeH9l^SH>9f[S3Uef3]3:V0
-R8
-R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/if_id.v
-R7
-R50
-R55
-R56
-!s108 1448522503.903000
+R185
+R186
+R187
+R16
+R17
+R188
+R189
+L0 2
+R100
+r1
+31
+R190
+R101
+Z193 !s108 1448977648.409000
+R192
 !i10b 1
 !s85 0
 vif_id
-IZ5oN0k:O9IaF9eGeUIXH23
-R57
-R8
-R9
-8//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v
-F//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v
+Z194 I3nh`0;4kIoY47ZD6cEKfZ1
+Z195 VeH9l^SH>9f[S3Uef3]3:V0
+R16
+Z196 w1448949867
+Z197 8//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v
+Z198 F//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v
 L0 3
-R20
+R100
 r1
 31
-R21
-!s100 BWeW9^3_dmDY<@4J4bP>z2
-!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v|
-!s108 1448525618.683000
-!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v|
+Z199 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v|
+R101
+Z200 !s100 ReP2;LLiNVBJ_8OhfSh^_3
+Z201 !s108 1448977648.500000
+Z202 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/if_id.v|
+!i10b 1
+!s85 0
+vif_id
+Z203 !s100 BWeW9^3_dmDY<@4J4bP>z2
+Z204 IZ5oN0k:O9IaF9eGeUIXH23
+R195
+R16
+R17
+R197
+R198
+L0 3
+R100
+r1
+31
+R199
+R101
+Z205 !s108 1448943302.020000
+R202
 !i10b 1
 !s85 0
 vinst_rom
-Z58 !s100 =`?G@Tg1j8bCgI7S=2GDc1
-Z59 ILIgVC?:zkZEJRj[zZMIel0
-Z60 Vdd?kfMiSGOL?c[K6=;BCO2
-R8
-R9
-Z61 8//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v
-Z62 F//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v
+Z206 !s100 =`?G@Tg1j8bCgI7S=2GDc1
+Z207 ILIgVC?:zkZEJRj[zZMIel0
+Z208 Vdd?kfMiSGOL?c[K6=;BCO2
+R16
+R17
+Z209 8//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v
+Z210 F//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v
 L0 2
-R20
+R100
 r1
 31
-Z63 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v|
-R21
-Z64 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v|
-!s108 1448525618.771000
+Z211 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v|
+R101
+Z212 !s108 1448943302.111000
+Z213 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/inst_rom.v|
 !i10b 1
 !s85 0
 vinst_rom
-R59
+R206
+R207
+R208
+R16
+R17
+R209
+R210
+L0 2
+R100
+r1
+31
+R211
+R101
+Z214 !s108 1448977648.588000
+R213
+!i10b 1
+!s85 0
+vmem
+R102
+Z215 I6lhiDhL:LEJRo4B=`B9JY1
+Z216 VDG^=3A9]G<D>K2b7m3T_V3
+R16
+Z217 w1448949968
+Z218 8//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v
+Z219 F//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v
+L0 2
+R100
+r1
+31
 R60
-R8
-R9
-R61
-R62
-vmem
-I7MHDRdWcca7^IP4JLGzUi1
-Z65 VDG^=3A9]G<D>K2b7m3T_V3
-R8
-R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/mem.v
-R7
-R58
-R63
-R64
-!s108 1448522504.091000
+R101
+Z220 !s108 1448977648.679000
+R103
 !i10b 1
 !s85 0
 vmem
-R22
-I6lhiDhL:LEJRo4B=`B9JY1
-R65
-R8
-w1448523249
-8//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v
-F//psf/Home/Documents/Project/OpenMIPS/simulate/mem.v
+R102
+R215
+R216
+R16
+Z221 w1448523249
+R218
+R219
 L0 2
-R20
+R100
 r1
 31
-R12
-R21
-R23
-!s108 1448525618.861000
+R60
+R101
+Z222 !s108 1448943302.203000
+R103
 !i10b 1
 !s85 0
 vmem_wb
-Z66 !s100 C2<b`a0[1K[O5bB1db>m_2
-R14
-R13
-R8
-R9
-R15
-R16
-L0 2
-R20
-r1
-31
-Z67 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v|
-R21
-Z68 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v|
-!s108 1448525618.956000
-!i10b 1
-!s85 0
-vopenmips
-IM8om7ohf<AhY4]KbdY?_>0
-Z69 VZGE39C^PWQcQPVl_RcVS21
-R8
-R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips.v
-R7
-R66
-R67
-R68
-!s108 1448522504.302000
-!i10b 1
-!s85 0
-vopenmips
-Iz;j:3AhUUhm:iaI>LXY[f3
+Z223 !s100 C2<b`a0[1K[O5bB1db>m_2
 R69
-R8
-R9
-8//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v
-F//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v
-L0 2
-R20
-r1
-31
-R21
-!s100 hG6OGgz@D`WI;Pgzo:04L1
-!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v|
-!s108 1448525619.042000
-!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v|
-!i10b 1
-!s85 0
-vopenmips_min_sopc
-Z70 !s100 HekH^3GH4F9CR27MTF>Go0
-Z71 IkWf2@SGiSSOR>dm`E=j8H1
-Z72 V>oQnH]7^FROW0cG3a6B;63
-R8
-R9
-Z73 8//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v
-Z74 F//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v
-L0 2
-R20
-r1
-31
-Z75 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v|
-R21
-Z76 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v|
-!s108 1448525619.134000
-!i10b 1
-!s85 0
-vopenmips_min_sopc
-R71
-R72
-R8
-R9
-R73
-R74
-vopenmips_min_sopc_tb
-IWSNEMBk5lg59KziS56QoB2
-Z77 VjAlLFJz2iV<GeaoLO:T?d1
-R8
-R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/openmips_min_sopc_tb.v
-R7
-R70
-R75
-R76
-!s108 1448522504.492000
-!i10b 1
-!s85 0
-vopenmips_min_sopc_tb
-I=ElzOB@P<<37UTTVfiz3j1
-R77
-R8
-R9
-8//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v
-F//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v
-L0 5
-R20
-r1
-31
-R21
-!s100 6CRTJg;S255@R0WiNR;;f3
-!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v|
-!s108 1448525619.223000
-!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v|
-!i10b 1
-!s85 0
-vpc_reg
-Z78 !s100 <o;SaIHSg9d4`<oQ8M]cU1
-Z79 I2GZWJ?A1No9c7HlFeII_B2
-Z80 V;TgVA<88E@M?bEZ;S@EXX1
-R8
-R9
-Z81 8//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v
-Z82 F//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v
-L0 3
-R20
-r1
-31
-Z83 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v|
-R21
-Z84 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v|
-!s108 1448525619.311000
-!i10b 1
-!s85 0
-vpc_reg
-R79
-R80
-R8
-R9
-R81
-R82
-vregfile
-I=@mKmnRW9>E8aD4BZRMz_0
-Z85 VCc88GW:H2:IP]GcGWTbBo0
-R8
-R9
-8C:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/regfile.v
-FC:/Users/Administrator-/Documents/git/proj8/OpenMIPS/simulate/regfile.v
-R7
-R78
-R83
-R84
-!s108 1448522504.685000
-!i10b 1
-!s85 0
-vregfile
+R66
+R16
 R17
-IflQm_`ONiX6PHZ]hoO:jG0
-R85
-R8
-R9
-8//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v
-F//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v
-L0 3
-R20
+R70
+R71
+L0 2
+R100
 r1
 31
-R18
-R21
-R19
-!s108 1448525619.397000
+Z224 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v|
+R101
+Z225 !s108 1448977648.779000
+Z226 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/mem_wb.v|
 !i10b 1
 !s85 0
+vmmu
+!i10b 1
+!s100 Pg:5U5?ORFHGVAz]2RRMK3
+IEPdU<i_?dKUXohP<8QQkj3
+Vfi=D9<o`b_T;Ekk9Pl]OM0
+R16
+w1448978550
+8//psf/Home/Documents/Project/OpenMIPS/simulate/mmu.v
+F//psf/Home/Documents/Project/OpenMIPS/simulate/mmu.v
+L0 3
+R100
+r1
+!s85 0
+31
+!s108 1448978589.944000
+!s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/mmu.v|
+!s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/mmu.v|
+R101
+vopenmips
+Z227 I^[g2ajWD[o40XVBH0iZ]X2
+Z228 VDH6ZX06gdI0MACk6@0h=80
+R16
+Z229 w1448942998
+Z230 8//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v
+Z231 F//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v
+L0 2
+R100
+r1
+31
+Z232 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v|
+R101
+Z233 !s100 YA?Qd`ga1>VoKFO>hL[XB3
+Z234 !s108 1448946923.895000
+Z235 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips.v|
+!i10b 1
+!s85 0
+vopenmips
+Z236 I5Lmh1?joKTi;Yl_l9@iFZ1
+Z237 Vd]FM@2XeX@mPg_1?m9AIg0
+R16
+Z238 w1448977745
+R230
+R231
+L0 2
+R100
+r1
+31
+R232
+R101
+Z239 !s100 GQ_J]?`MoJ6SngC>@F;XA3
+Z240 !s108 1448977848.950000
+R235
+!i10b 1
+!s85 0
+vopenmips_min_sopc
+Z241 !s100 HekH^3GH4F9CR27MTF>Go0
+Z242 IkWf2@SGiSSOR>dm`E=j8H1
+Z243 V>oQnH]7^FROW0cG3a6B;63
+R16
+R17
+Z244 8//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v
+Z245 F//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v
+L0 2
+R100
+r1
+31
+Z246 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v|
+R101
+Z247 !s108 1448943302.485000
+Z248 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc.v|
+!i10b 1
+!s85 0
+vopenmips_min_sopc
+Z249 I<g09j^_YSlNT;FSAz^f3;1
+R243
+R16
+Z250 w1448975982
+R244
+R245
+L0 2
+R100
+r1
+31
+R246
+R101
+Z251 !s100 NoY?KRzSQKYe=@hA84DTd3
+Z252 !s108 1448977648.940000
+R248
+!i10b 1
+!s85 0
+vopenmips_min_sopc_tb
+Z253 !s100 6CRTJg;S255@R0WiNR;;f3
+Z254 I=ElzOB@P<<37UTTVfiz3j1
+Z255 VjAlLFJz2iV<GeaoLO:T?d1
+R16
+Z256 w1448975249
+Z257 8//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v
+Z258 F//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v
+L0 5
+R100
+r1
+31
+Z259 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v|
+R101
+Z260 !s108 1448977649.030000
+Z261 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/openmips_min_sopc_tb.v|
+!i10b 1
+!s85 0
+vopenmips_min_sopc_tb
+R253
+R254
+R255
+R16
+R17
+R257
+R258
+L0 5
+R100
+r1
+31
+R259
+R101
+Z262 !s108 1448943302.576000
+R261
+!i10b 1
+!s85 0
+vpc_reg
+Z263 !s100 <o;SaIHSg9d4`<oQ8M]cU1
+Z264 I2GZWJ?A1No9c7HlFeII_B2
+Z265 V;TgVA<88E@M?bEZ;S@EXX1
+R16
+R17
+Z266 8//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v
+Z267 F//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v
+L0 3
+R100
+r1
+31
+Z268 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v|
+R101
+Z269 !s108 1448943302.662000
+Z270 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/pc_reg.v|
+!i10b 1
+!s85 0
+vpc_reg
+Z271 IF77Z[<Tl4ahQ_J3<Zo67W1
+R265
+R16
+Z272 w1448949783
+R266
+R267
+L0 3
+R100
+r1
+31
+R268
+R101
+Z273 !s100 kgWg^YHAQB7_LTGZmo^<O0
+Z274 !s108 1448977649.121000
+R270
+!i10b 1
+!s85 0
+vregfile
+R92
+Z275 IflQm_`ONiX6PHZ]hoO:jG0
+Z276 VCc88GW:H2:IP]GcGWTbBo0
+R16
+R17
+Z277 8//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v
+Z278 F//psf/Home/Documents/Project/OpenMIPS/simulate/regfile.v
+L0 3
+R100
+r1
+31
+R93
+R101
+Z279 !s108 1448977649.210000
+R94
+!i10b 1
+!s85 0
+vregfile
+R92
+R275
+R276
+R16
+R17
+R277
+R278
+L0 3
+R100
+r1
+31
+R93
+R101
+Z280 !s108 1448943302.752000
+R94
+!i10b 1
+!s85 0
+vtlb
+Z281 IcB30WbeWz8FbVGb7]4WX<2
+Z282 V<ABoSXD8H8CEhMz9C:fA]3
+R16
+Z283 w1448973390
+Z284 8//psf/Home/Documents/Project/OpenMIPS/simulate/tlb.v
+Z285 F//psf/Home/Documents/Project/OpenMIPS/simulate/tlb.v
+L0 3
+R100
+r1
+31
+R101
+Z286 !s100 lVAi:o?Lk]7DB1YiWCSaE2
+Z287 !s108 1448977649.432000
+Z288 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/tlb.v|
+Z289 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/tlb.v|
+!i10b 1
+!s85 0
+vwishbone_bus
+Z290 I;ifC7GN1NEJOVSoM]BD6b1
+Z291 V1D?@JJNoBV4UNZi2z_8T_0
+R16
+Z292 w1448977869
+Z293 8//psf/Home/Documents/Project/OpenMIPS/simulate/wishbone_bus.v
+Z294 F//psf/Home/Documents/Project/OpenMIPS/simulate/wishbone_bus.v
+L0 3
+R100
+r1
+31
+Z295 !s90 -reportprogress|300|-work|work|-vopt|//psf/Home/Documents/Project/OpenMIPS/simulate/wishbone_bus.v|
+R101
+!i10b 1
+Z296 !s100 B<<6XO45DQgbH4?c:n^Ah1
+!s85 0
+Z297 !s108 1448978075.726000
+Z298 !s107 defines.v|//psf/Home/Documents/Project/OpenMIPS/simulate/wishbone_bus.v|

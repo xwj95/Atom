@@ -19,13 +19,12 @@ module pc_reg(
 			ce <= `ChipEnable;						//复位结束后，指令存储器使能
 		end
 	end
-	
+
 	always @ (posedge clk) begin
 		if (ce == `ChipDisable) begin
 			pc <= 32'h00000000;						//指令存储器禁用时，PC为0
 		end else begin
-			if (flush == 1'b1) begin
-				//输入信号flush为1表示异常发生，将从CTRL模块给出的异常处理例程入口地址new_pc处取指执行
+			if (flush == 1'b1) begin				//输入信号flush为1表示异常发生，将从CTRL模块给出的异常处理例程入口地址new_pc处取指执行
 				pc <= new_pc;
 			end else if (stall[0] == `NoStop) begin
 				if (branch_flag_i == `Branch) begin

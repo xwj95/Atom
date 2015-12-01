@@ -141,8 +141,8 @@ module ex(
 					logicout <= `ZeroWord;
 				end
 			endcase
-		end		//if
-	end		//always
+		end
+	end
 	
 	always @ (*) begin
 		if (rst == `RstEnable) begin
@@ -162,8 +162,8 @@ module ex(
 					shiftres <= `ZeroWord;
 				end
 			endcase
-		end		//if
-	end		//always
+		end
+	end
 
 	//（1）如果是减法或者有符号比较运算，那么reg2_i_mux等于第二个操作数
 	//	reg2_i的补码，否则reg2_i_mux就等于第二个操作数reg2_i

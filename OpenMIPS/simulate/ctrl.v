@@ -1,8 +1,10 @@
 `include "defines.v"
 module ctrl(
 	input		wire					rst,
+	input		wire					stallreq_from_if,
 	input		wire					stallreq_from_id,
 	input		wire					stallreq_from_ex,
+	input		wire					stallreq_from_mem,
 
 	//来自MEM模块的输入信号
 	input		wire[31:0]				excepttype_i,
@@ -59,10 +61,16 @@ module ctrl(
 				default: begin
 				end
 			endcase
+		end else if (stallreq_from_mem == `Stop) begin
+			stall <= 6'b011111;
+			flush <= 1'b0;
 		end else if (stallreq_from_ex == `Stop) begin
 			stall <= 6'b001111;
 			flush <= 1'b0;
 		end else if (stallreq_from_id == `Stop) begin
+			stall <= 6'b000111;
+			flush <= 1'b0;
+		end else if (stallreq_from_if == `Stop) begin
 			stall <= 6'b000111;
 			flush <= 1'b0;
 		end else begin
