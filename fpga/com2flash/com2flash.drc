@@ -1,7 +1,7 @@
-Release 14.2 Drc P.28xd (nt)
+Release 14.2 Drc P.28xd (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Sun Nov 29 18:03:11 2015
+Mon Nov 30 20:19:09 2015
 
 drc -z com2flash.ncd com2flash.pcf
 

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-11-29T17:57:44</DateModified>
+  <DateModified>2015-11-30T21:25:40</DateModified>
   <ModuleName>com2flash</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Administrator-/Documents/git/proj8/fpga/com2flash/iseconfig/com2flash.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Administrator-/Documents/git/proj8/fpga/com2flash</ImplementationReportsDirectory>
+  <SavedFilePath>Z:/Documents/Project/fpga/com2flash/iseconfig/com2flash.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Z:/Documents/Project/fpga/com2flash\</ImplementationReportsDirectory>
   <DateInitialized>2015-11-29T17:57:44</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

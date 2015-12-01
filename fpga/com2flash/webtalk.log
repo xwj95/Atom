@@ -13,4 +13,4 @@ INFO:WebTalk:2 - WebTalk is enabled.
 INFO:WebTalk:8 - WebTalk Install setting is ON.
 INFO:WebTalk:6 - WebTalk User setting is ON.
 
-INFO:WebTalk:4 - C:/Users/Administrator-/Documents/git/proj8/fpga/com2flash/usage_statistics_webtalk.html WebTalk report has been successfully sent to Xilinx on 2015-11-29T18:03:29.  For additional details about this file, please refer to the WebTalk help file at D:/Xilinx/14.2/ISE_DS/ISE/data/reports/webtalk_introduction.html
+INFO:WebTalk:4 - Z:/Documents/Project/fpga/com2flash/usage_statistics_webtalk.html WebTalk report has been successfully sent to Xilinx on 2015-11-30T20:19:28.  For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/14.2/ISE_DS/ISE/data/reports/webtalk_introduction.html
