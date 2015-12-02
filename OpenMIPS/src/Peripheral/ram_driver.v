@@ -19,9 +19,8 @@ module ram_driver (
 	output reg extram_ce,
 	output reg extram_oe,
 	output reg extram_we, 
-	output reg ack
+	output wire ack
 );
-	initial ack = 0;
 
 	wire ram_selector = addr[20];
 
@@ -30,7 +29,7 @@ module ram_driver (
 
 	assign baseram_data = baseram_oe ? base_data_latch : {32{1'bz}}, 
 		extram_data = extram_oe ? extra_data_latch : {32{1'bz}};
-
+		
 	reg[2:0] base_state;
 	reg[2:0] extra_state;
 	localparam IDLE = 3'b000, READ1 = 3'b001, READ2 = 3'b011, READ3 = 3'b010,
@@ -39,6 +38,10 @@ module ram_driver (
 	reg[31:0] extra_data_out;
 	reg[31:0] base_data_out;
 	assign data_out = ram_selector ? extra_data_out : base_data_out;
+
+	reg extra_ack;
+	reg base_ack;
+	assign ack = ram_selector ? extra_ack : base_ack;
 
 	always @ (posedge clk) begin
 		if (ram_selector == 1'b0) begin			//base
@@ -50,7 +53,7 @@ module ram_driver (
 			end
 			case (base_state)
 				IDLE: begin
-					ack <= 1'b0;
+					base_ack <= 1'b0;
 					if (read_enable == 1'b1) begin
 						base_state <= READ1;
 					end else if (write_enable == 1'b1) begin
@@ -78,7 +81,7 @@ module ram_driver (
 					baseram_ce <= 1'b1;
 					baseram_oe <= 1'b1;
 					baseram_we <= 1'b1;
-					ack <= 1'b1;
+					base_ack <= 1'b1;
 					base_state <= IDLE;
 				end
 				WRITE1: begin
@@ -89,7 +92,7 @@ module ram_driver (
 					baseram_ce <= 1'b1;
 					baseram_we <= 1'b1;
 					baseram_oe <= 1'b1;
-					ack <= 1'b1;
+					base_ack <= 1'b1;
 					base_state <= IDLE;
 				end
 				default: begin
@@ -110,7 +113,7 @@ module ram_driver (
 			case (extra_state)
 				IDLE: begin
 				  extram_ce <= 1'b1;
-				  ack <= 1'b0;
+				  extra_ack <= 1'b0;
 					if (read_enable == 1'b1) begin
 						extra_state <= READ1;
 					end else if (write_enable == 1'b1) begin
@@ -137,7 +140,7 @@ module ram_driver (
 					extram_ce <= 1'b1;
 					extram_oe <= 1'b1;
 					extram_we <= 1'b1;
-					ack <= 1'b1;
+					extra_ack <= 1'b1;
 					extra_state <= IDLE;
 				end
 				WRITE1: begin
@@ -148,7 +151,7 @@ module ram_driver (
 					extram_ce <= 1'b1;
 					extram_we <= 1'b1;
 					extram_oe <= 1'b1;
-					ack <= 1'b1;
+					extra_ack <= 1'b1;
 					extra_state <= IDLE;
 				end
 				default: begin

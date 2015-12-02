@@ -17,8 +17,6 @@ module flash_driver (
 	output reg ack
 );
 
-	initial ack = 0;
-
 	assign data_out = flash_data;
 	reg flash_oe, flash_we;
 
