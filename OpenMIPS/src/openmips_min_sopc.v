@@ -1,0 +1,76 @@
+`include "defines.v"
+module openmips_min_sopc(
+	input		wire		clk,
+	input		wire		rst
+	);
+
+	//连接指令存储器
+	wire[`InstAddrBus]		inst_addr;
+	wire[`InstBus]			inst;
+	wire					rom_ce;
+	wire					mem_we_i;
+	wire[`RegBus]			mem_addr_i;
+	wire[`RegBus]			mem_data_i;
+	wire[`RegBus]			mem_data_o;
+	wire[3:0]				mem_sel_i;
+	wire					mem_ce_i;
+	wire[5:0]				int;
+	wire					timer_int;
+
+	reg						clk_4;
+	reg[1:0]				clk_count;
+
+	initial begin
+		clk_4 = 1'b0;
+		clk_count <= 3'b000;
+	end
+
+	always @ (edge clk) begin
+		if (clk_count[2] == 1'b1) begin
+			clk_4 <= ~clk_4;
+			clk_count <= 0;
+		end else begin
+			clk_count <= clk_count + 1'b1;
+		end
+	end
+
+	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输入
+
+	//例化处理器OpenMIPS
+	openmips openmips0 (
+		.clk(clk),
+		.rst(rst),
+		.clk_4(clk_4),
+		.count(clk_count[1:0]),
+		.rom_addr_o(inst_addr),
+		.rom_data_i(inst),
+		.rom_ce_o(rom_ce),
+		.int_i(int),						//中断输入
+
+		.ram_we_o(mem_we_i),
+		.ram_addr_o(mem_addr_i),
+		.ram_sel_o(mem_sel_i),
+		.ram_data_o(mem_data_i),
+		.ram_data_i(mem_data_o),
+		.ram_ce_o(mem_ce_i),
+
+		.timer_int_o(timer_int)				//时钟中断输出
+	);
+
+	//例化指令存储器ROM
+	inst_rom inst_rom0 (
+		.ce(rom_ce),
+		.addr(inst_addr),	.inst(inst)
+	);
+
+	data_ram data_ram0(
+		.clk(clk),
+		.we(mem_we_i),
+		.addr(mem_addr_i),
+		.sel(mem_sel_i),
+		.data_i(mem_data_i),
+		.data_o(mem_data_o),
+		.ce(mem_ce_i)
+	);
+
+endmodule
