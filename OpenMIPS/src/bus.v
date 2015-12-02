@@ -29,7 +29,7 @@ module bus(
 	output 		reg 					ram_extram_we, 
 
 	//ROM侧的接口
-	output 		reg 					rom_inst,
+	output 		reg[31:0]				rom_inst,
 
 	//FLASH侧的接口
 	output 		reg 					flash_busy, 
