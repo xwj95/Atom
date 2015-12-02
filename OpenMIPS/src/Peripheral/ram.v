@@ -21,7 +21,8 @@ module ram_test (
 	inout [31:0] extram_data,
 	output extram_ce,
 	output extram_oe,
-	output extram_we 
+	output extram_we, 
+	output ack
 	);
 
 	ram_driver ram_driver_inst (
@@ -31,7 +32,7 @@ module ram_test (
 		baseram_addr, baseram_data, 
 		baseram_ce, baseram_oe, baseram_we, 
 		extram_addr, extram_data, 
-		extram_ce, extram_oe, extram_we
+		extram_ce, extram_oe, extram_we, ack
 	);
 
 endmodule

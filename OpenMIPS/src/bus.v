@@ -61,7 +61,7 @@ module bus(
 		SEGDISP: 16'h0005, 
 		PS2: 16'h0006;
 
-	initial wishbone_ack_o <= 1'b0;
+	initial wishbone_ack_o = 1'b0;
 
 	always @ (posedge clk) begin
 		case (wishbone_select_i)
@@ -83,9 +83,9 @@ module bus(
 				.extram_data(ram_extram_data), 
 				.extram_ce(ram_extram_ce), 
 				.extram_oe(ram_extram_oe), 
-				.extram_we(ram_extram_we)
-				);
-				wishbone_ack_o <= 1'b1;				
+				.extram_we(ram_extram_we), 
+				.ack(wishbone_ack_o)
+				);	
 			end
 			ROM: begin
 				inst_rom rom0(
@@ -93,7 +93,6 @@ module bus(
 				.addr(wishbone_addr_i), 
 				.inst(rom_inst)
 				);
-				wishbone_ack_o <= 1'b1;
 			end
 			FLASH: begin
 				flash flash0(
@@ -106,12 +105,11 @@ module bus(
 				.flash_busy(flash_busy), 
 				.flash_addr(flash_addr), 
 				.flash_data(flash_data), 
-				.flash_ctl(flash_ctl)
+				.flash_ctl(flash_ctl), 
+				.ack(wishbone_ack_o)
 				);
-				wishbone_ack_o <= 1'b1;
 			end
 			VGA: begin
-				wishbone_ack_o <= 1'b1;
 			end
 			UART: begin
 				uart uart0(
@@ -122,19 +120,18 @@ module bus(
 				.TxD_busy(uart_TxD_busy), 
 				.RxD_data_ready(uart_RxD_data_ready), 
 				.com_TxD(uart_com_TxD), 
-				.com_RxD(uart_com_RxD)
+				.com_RxD(uart_com_RxD), 
+				.ack(wishbone_ack_o)
 				);
-				wishbone_ack_o <= 1'b1;
 			end
 			SEGDISP: begin
 				digseg_driver digseg0(
 				.data(wishbone_data_i[3:0]), 
-				.seg(segdisp[0:6])
+				.seg(segdisp[0:6]), 
+				.ack(wishbone_ack_o)
 				);
-				wishbone_ack_o <= 1'b1;
 			end
 			PS2: begin
-				wishbone_ack_o <= 1'b1;
 			end
 		endcase
 	end

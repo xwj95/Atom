@@ -13,8 +13,11 @@ module flash_driver (
 	output reg busy, 
 	output [22:0] flash_addr, 
 	inout [15:0] flash_data, 
-	output [7:0] flash_ctl
+	output [7:0] flash_ctl, 
+	output reg ack
 );
+
+	initial ack = 0;
 
 	assign data_out = flash_data;
 	reg flash_oe, flash_we;
@@ -59,6 +62,7 @@ module flash_driver (
 	always @ (posedge clk) begin
 		case (state)
 			IDLE: begin
+				ack <= 1'b0;
 				addr_latch <= addr;
 				if (enable_write) begin
 					data_in_latch <= data_in;
@@ -129,8 +133,10 @@ module flash_driver (
 				end
 			end
 			READ4: begin
-				if (!enable_read)
+				if (!enable_read) begin
 					state <= IDLE;
+					ack <= 1'b1;
+				end
 			end
 
 			//wait for sr[7] becomes 1
@@ -151,6 +157,7 @@ module flash_driver (
 				flash_oe <= 1;
 				if (flash_data[7]) begin
 					state <= IDLE;
+					ack <= 1'b1;
 					busy <= 0;
 				end
 				else

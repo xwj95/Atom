@@ -9,7 +9,11 @@
  */
 module digseg_driver(
 	input [3:0] data,
-	output reg [0:6] seg);
+	output reg [0:6] seg,
+	output reg ack
+	);
+
+	initial ack = 1'b0;
 
 	always @(*) begin
 		case (data)
@@ -30,6 +34,7 @@ module digseg_driver(
 			4'b1110: seg = 7'b1001111;
 			4'b1111: seg = 7'b1000111;
 		endcase
+		ack <= 1'b1;
 	end
 endmodule
 

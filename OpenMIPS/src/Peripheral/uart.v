@@ -13,18 +13,19 @@ module uart(
 	output TxD_busy,
 	output RxD_data_ready,
 	output com_TxD,
-	input com_RxD);
+	input com_RxD, 
+	output ack);
 
 	localparam CLK_FREQ = 50000000,	// 50 MB
 			BAUD = 115200;
 
 	uart_async_transmitter #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u0
 	(.clk(clk), .TxD_start(!TxD_start), .TxD_data(data_in),
-	.TxD(com_TxD), .TxD_busy(TxD_busy));
+	.TxD(com_TxD), .TxD_busy(TxD_busy), .ack(ack));
 
 	uart_async_receiver #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u1
 	(.clk(clk), .rst(!rst), .RxD(com_RxD),
 	.RxD_data_ready(RxD_data_ready), .RxD_waiting_data(),
-	.RxD_data(data_out));
+	.RxD_data(data_out), .ack(ack));
 
 endmodule

@@ -18,8 +18,11 @@ module ram_driver (
 	inout [31:0] extram_data,
 	output reg extram_ce,
 	output reg extram_oe,
-	output reg extram_we
+	output reg extram_we, 
+	output reg ack
 );
+	initial ack = 0;
+
 	wire ram_selector = addr[20];
 
 	reg[31:0] base_data_latch = 0;
@@ -30,8 +33,8 @@ module ram_driver (
 
 	reg[2:0] base_state;
 	reg[2:0] extra_state;
-	localparam IDLE = 3'b000, READ1 = 3'b001, READ2 = 3'b011,
-		WRITE1 = 3'b010, WRITE2 = 3'b110;
+	localparam IDLE = 3'b000, READ1 = 3'b001, READ2 = 3'b011, READ3 = 3'b010,
+		WRITE1 = 3'b110, WRITE2 = 3'b111;
 
 	assign data_out = ram_selector ? extra_data_out : base_data_out;
 	reg[31:0] extra_data_out;
@@ -47,12 +50,8 @@ module ram_driver (
 			end
 			case (base_state)
 				IDLE: begin
-					baseram_ce <= 1'b1;
+					ack <= 1'b0;
 					if (read_enable == 1'b1) begin
-						baseram_ce <= 1'b0;
-						baseram_oe <= 1'b0;
-						baseram_we <= 1'b1;
-						baseram_addr <= addr[19:0];
 						base_state <= READ1;
 					end else if (write_enable == 1'b1) begin
 						baseram_ce <= 1'b0;
@@ -61,16 +60,25 @@ module ram_driver (
 						baseram_addr <= addr[19:0];
 						base_data_latch <= data_in;
 						base_state <= WRITE1;
-					end
+					end else
+						baseram_ce <= 1'b1;
 				end
 				READ1: begin
-					base_data_out <= baseram_data;
+					baseram_ce <= 1'b0;
+					baseram_oe <= 1'b0;
+					baseram_we <= 1'b1;
+					baseram_addr <= addr[19:0];
 					base_state <= READ2;
 				end
 				READ2: begin
+					base_data_out <= baseram_data;
+					base_state <= READ3;
+				end
+				READ3: begin
 					baseram_ce <= 1'b1;
 					baseram_oe <= 1'b1;
 					baseram_we <= 1'b1;
+					ack <= 1'b1;
 					base_state <= IDLE;
 				end
 				WRITE1: begin
@@ -81,6 +89,7 @@ module ram_driver (
 					baseram_ce <= 1'b1;
 					baseram_we <= 1'b1;
 					baseram_oe <= 1'b1;
+					ack <= 1'b1
 					base_state <= IDLE;
 				end
 				default: begin
@@ -99,11 +108,17 @@ module ram_driver (
 				extram_we <= 1'b1;
 			end
 			case (extra_state)
+				extram_ce <= 1'b1;
 				IDLE: begin
-					extram_ce <= 1'b1;
+					ack <= 1'b0;
 					if (read_enable == 1'b1) begin
 						extra_state <= READ1;
 					end else if (write_enable == 1'b1) begin
+						extram_ce <= 1'b0;
+						extram_oe <= 1'b1;
+						extram_we <= 1'b1;
+						extram_addr <= addr[19:0];
+						extra_data_latch <= data_in;
 						extra_state <= WRITE1;
 					end
 				end
@@ -122,24 +137,18 @@ module ram_driver (
 					extram_ce <= 1'b1;
 					extram_oe <= 1'b1;
 					extram_we <= 1'b1;
+					ack <= 1'b1;
 					extra_state <= IDLE;
 				end
 				WRITE1: begin
-					extram_ce <= 1'b0;
-					extram_oe <= 1'b1;
-					extram_we <= 1'b1;
-					extram_addr <= addr[19:0];
-					extra_data_latch <= data_in;
+					extram_we <= 1'b0;
 					extra_state <= WRITE2;
 				end
 				WRITE2: begin
-					extram_we <= 1'b0;
-					extra_state <= WRITE3;
-				end
-				WRITE3: begin
 					extram_ce <= 1'b1;
 					extram_we <= 1'b1;
 					extram_oe <= 1'b1;
+					ack <= 1'b1;
 					extra_state <= IDLE;
 				end
 				default: begin
