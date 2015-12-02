@@ -11,6 +11,7 @@ entity cp0_reg is
         excepttype_i    : in     vl_logic_vector(31 downto 0);
         int_i           : in     vl_logic_vector(5 downto 0);
         current_inst_addr_i: in     vl_logic_vector(31 downto 0);
+        bad_v_addr_i    : in     vl_logic_vector(31 downto 0);
         is_in_delayslot_i: in     vl_logic;
         data_o          : out    vl_logic_vector(31 downto 0);
         index_o         : out    vl_logic_vector(31 downto 0);

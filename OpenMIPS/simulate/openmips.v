@@ -101,6 +101,7 @@ module openmips(
 	wire[31:0]				mem_excepttype_o;
 	wire					mem_is_in_delayslot_o;
 	wire[`RegBus]			mem_current_inst_address_o;
+	wire[`RegBus]			bad_v_addr_o;
 
 	//连接MEM/WB模块的输出与回写阶段的输入的变量
 	wire					wb_wreg_i;
@@ -495,7 +496,8 @@ module openmips(
 		.excepttype_o(mem_excepttype_o),
 		.cp0_epc_o(latest_epc),
 		.is_in_delayslot_o(mem_is_in_delayslot_o),
-		.current_inst_address_o(mem_current_inst_address_o)
+		.current_inst_address_o(mem_current_inst_address_o),
+		.bad_v_addr_o(bad_v_addr_o)
 	);
 
 	//MEM/WB模块例化
@@ -572,6 +574,7 @@ module openmips(
 		.excepttype_i(mem_excepttype_o),
 		.int_i(int_i),
 		.current_inst_addr_i(mem_current_inst_address_o),
+		.bad_v_addr_i(bad_v_addr_o),
 		.is_in_delayslot_i(mem_is_in_delayslot_o),
 
 		.data_o(cp0_data_o),

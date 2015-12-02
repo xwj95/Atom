@@ -26,6 +26,7 @@ module mem(
 	input		wire[`RegBus]			current_inst_address_i,
 
 	//CP0的各个寄存器的值，但不一定是最新的值，要防止回写阶段指令写CP0
+	input		wire[`RegBus]			cp0_bad_v_addr_i,
 	input		wire[`RegBus]			cp0_status_i,
 	input		wire[`RegBus]			cp0_cause_i,
 	input		wire[`RegBus]			cp0_epc_i,
@@ -43,8 +44,8 @@ module mem(
 	output		reg[`RegBus]			lo_o,
 	output		reg						whilo_o,
 
-	output		reg						cp0_reg_we_o, 
-	output		reg[4:0]				cp0_reg_write_addr_o, 
+	output		reg						cp0_reg_we_o,
+	output		reg[4:0]				cp0_reg_write_addr_o,
 	output		reg[`RegBus]			cp0_reg_data_o,
 
 	//送到外部数据存储器RAM的信息
@@ -54,15 +55,19 @@ module mem(
 	output		reg[`RegBus]			mem_data_o,
 	output		reg 					mem_ce_o,
 
+	//送到CP0寄存器的信息
 	output		reg[31:0]				excepttype_o,
 	output		wire[`RegBus]			cp0_epc_o,
 	output		wire					is_in_delayslot_o,
 
-	output		wire[`RegBus]			current_inst_address_o
+	output		wire[`RegBus]			current_inst_address_o,
+	output		reg[`RegBus]			bad_v_addr_o
 	);
 
 	wire[`RegBus] zero32;
 	reg mem_we;
+
+	reg[`RegBus] cp0_bad_v_addr;		//用来保存CP0中BadVAddr寄存器的最新值
 	reg[`RegBus] cp0_status;			//用来保存CP0中Status寄存器的最新值
 	reg[`RegBus] cp0_cause;				//用来保存CP0中Cause寄存器的最新值
 	reg[`RegBus] cp0_epc;				//用来保存CP0中EPC寄存器的最新值
@@ -106,6 +111,7 @@ module mem(
 			cp0_reg_we_o <= `WriteDisable;
 			cp0_reg_write_addr_o <= 5'b00000;
 			cp0_reg_data_o <= `ZeroWord;
+			bad_v_addr_o <= `ZeroWord;
 			excepttype_is_tlbm <= `False_v;
 			excepttype_is_tlbl <= `False_v;
 			excepttype_is_tlbs <= `False_v;
@@ -126,6 +132,7 @@ module mem(
 			cp0_reg_we_o <= cp0_reg_we_i;
 			cp0_reg_write_addr_o <= cp0_reg_write_addr_i;
 			cp0_reg_data_o <= cp0_reg_data_i;
+			bad_v_addr_o <= `ZeroWord;
 			excepttype_is_tlbm <= `False_v;			//默认没有发生内存修改异常
 			excepttype_is_tlbl <= `False_v;			//默认没有发生读未在TLB中映射的内存地址异常
 			excepttype_is_tlbs <= `False_v;			//默认没有发生写未在TLB中映射的内存地址异常
@@ -203,6 +210,7 @@ module mem(
 							mem_ce_o <= `ChipDisable;
 							wdata_o <= `ZeroWord;
 							excepttype_is_adel <= `True_v;
+							bad_v_addr_o <= mem_addr_i;
 						end
 					endcase
 				end
@@ -224,6 +232,7 @@ module mem(
 							mem_ce_o <= `ChipDisable;
 							wdata_o <= `ZeroWord;
 							excepttype_is_adel <= `True_v;
+							bad_v_addr_o <= mem_addr_i;
 						end
 					endcase
 				end
@@ -240,6 +249,7 @@ module mem(
 							mem_ce_o <= `ChipDisable;
 							wdata_o <= `ZeroWord;
 							excepttype_is_adel <= `True_v;
+							bad_v_addr_o <= mem_addr_i;
 						end
 					endcase
 				end
@@ -331,6 +341,7 @@ module mem(
 							mem_data_o <= `ZeroWord;
 							mem_sel_o <= 4'b0000;
 							excepttype_is_ades <= `True_v;
+							bad_v_addr_o <= mem_addr_i;
 						end
 					endcase
 				end
@@ -348,6 +359,7 @@ module mem(
 							mem_data_o <= `ZeroWord;
 							mem_sel_o <= 4'b0000;
 							excepttype_is_ades <= `True_v;
+							bad_v_addr_o <= mem_addr_i;
 						end
 					endcase
 				end
@@ -406,6 +418,19 @@ module mem(
 				default: begin
 				end
 			endcase
+		end
+	end
+
+	//得到CP0中BadVAddr寄存器的最新值
+	//判断当前处于回写阶段的指令是否要写CP0中的Status寄存器，如果要写，那么要写入的值就是BadVAddr寄存器的最新值，
+	//反之，从CP0模块通过cp0_bad_v_addr_i接口传入的数据就是Status寄存器的最新值
+	always @ (*) begin
+		if (rst == `RstEnable) begin
+			cp0_bad_v_addr <= `ZeroWord;
+		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_BADVADDR)) begin
+			cp0_bad_v_addr <= wb_cp0_reg_data;
+		end else begin
+			cp0_bad_v_addr <= cp0_bad_v_addr_i;
 		end
 	end
 

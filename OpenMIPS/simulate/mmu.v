@@ -82,7 +82,7 @@ module mmu(
 						if (mem_sel_i == 4'b1111) begin
 							memw_ack <= `False_v;
 							memr_ack <= `True_v;
-						end else begin
+						end else begin						//如果只写部分字节，需要先读后写
 							memw_ack <= `False_v;
 							memr_ack <= `False_v;
 						end
@@ -159,7 +159,7 @@ module mmu(
 				`MMU_IF0_MEMW0_MEMR0: begin					//取指未完成，写访存未完成，读访存未完成
 					if (mmu_ack_i == `True_v) begin
 						mem_data_o <= mmu_data_o;
-						if (mem_sel_i != 4'b1111) begin
+						if (mem_sel_i != 4'b1111) begin		//需要先读后写的指令，读访存完成后修改对应字节
 							if (mem_sel_i[3] == 1'b0) begin
 								mem_wdata[31:24] <= mem_data_o[31:24];
 							end

@@ -19,6 +19,7 @@ entity mem is
         excepttype_i    : in     vl_logic_vector(31 downto 0);
         is_in_delayslot_i: in     vl_logic;
         current_inst_address_i: in     vl_logic_vector(31 downto 0);
+        cp0_bad_v_addr_i: in     vl_logic_vector(31 downto 0);
         cp0_status_i    : in     vl_logic_vector(31 downto 0);
         cp0_cause_i     : in     vl_logic_vector(31 downto 0);
         cp0_epc_i       : in     vl_logic_vector(31 downto 0);
@@ -42,6 +43,7 @@ entity mem is
         excepttype_o    : out    vl_logic_vector(31 downto 0);
         cp0_epc_o       : out    vl_logic_vector(31 downto 0);
         is_in_delayslot_o: out    vl_logic;
-        current_inst_address_o: out    vl_logic_vector(31 downto 0)
+        current_inst_address_o: out    vl_logic_vector(31 downto 0);
+        bad_v_addr_o    : out    vl_logic_vector(31 downto 0)
     );
 end mem;

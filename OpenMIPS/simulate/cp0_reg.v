@@ -11,6 +11,7 @@ module cp0_reg(
 	input			wire[31:0]			excepttype_i,
 	input			wire[5:0]			int_i,
 	input			wire[`RegBus]		current_inst_addr_i,
+	input			wire[`RegBus]		bad_v_addr_i,
 	input			wire				is_in_delayslot_i,
 
 	output			reg[`RegBus]		data_o,
@@ -171,6 +172,7 @@ module cp0_reg(
 					end
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b00001;
+					bad_v_addr_o <= bad_v_addr_i;
 				end
 				32'h00000002: begin				//TLBL
 					if (status_o[1] == 1'b0) begin
@@ -184,6 +186,7 @@ module cp0_reg(
 					end
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b00010;
+					bad_v_addr_o <= bad_v_addr_i;
 				end
 				32'h00000003: begin				//TLBS
 					if (status_o[1] == 1'b0) begin
@@ -197,6 +200,7 @@ module cp0_reg(
 					end
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b00011;
+					bad_v_addr_o <= bad_v_addr_i;
 				end
 				32'h00000004: begin				//ADEL
 					if (status_o[1] == 1'b0) begin
@@ -210,6 +214,7 @@ module cp0_reg(
 					end
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b00100;
+					bad_v_addr_o <= bad_v_addr_i;
 				end
 				32'h00000005: begin				//ADES
 					if (status_o[1] == 1'b0) begin
@@ -223,6 +228,7 @@ module cp0_reg(
 					end
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b00101;
+					bad_v_addr_o <= bad_v_addr_i;
 				end
 				32'h00000008: begin				//Syscall
 					if (status_o[1] == 1'b0) begin						//EXL字段，0表示异常未发生
