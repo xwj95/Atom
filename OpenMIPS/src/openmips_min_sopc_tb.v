@@ -21,7 +21,7 @@ module openmips_min_sopc_tb();
 	end
 
 	//例化最小SOPC
-	openmips_min_sopc openmips_min_sopc0 (
+	openmips_min_sopc openmips_min_sopc0(
 		.clk(CLOCK_50),
 		.rst(rst)
 	);

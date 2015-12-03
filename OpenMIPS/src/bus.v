@@ -7,46 +7,46 @@ module bus(
 	//Wishbone侧的接口
 	input		wire[`RegBus]			wishbone_addr_i,
 	input		wire[`RegBus]			wishbone_data_i,
-	input		wire					wishbone_we_i, 		//1代表写，0代表�	
-	input		wire[3:0]				wishbone_sel_i, 	//数据总线选择信号
-	input		wire					wishbone_stb_i, 	//选通信�	
-	input		wire					wishbone_cyc_i, 	//总线周期信号
-	input 		wire[15:0] 				wishbone_select_i,
+	input		wire					wishbone_we_i,		//1代表写，0代表读
+	input		wire[3:0]				wishbone_sel_i,
+	input		wire					wishbone_stb_i,
+	input		wire					wishbone_cyc_i,
+	input		wire[15:0]				wishbone_select_i,
 
-	output 		reg[`RegBus] 			wishbone_data_o,
-	output 		reg 					wishbone_ack_o, 
+	output		reg[`RegBus]			wishbone_data_o,
+	output		reg						wishbone_ack_o,
 
 	//RAM侧的接口
-	output 		[19:0] 				ram_baseram_addr, 
-	inout 		[31:0] 				ram_baseram_data, 
-	output 		 					ram_baseram_ce, 
-	output 		 					ram_baseram_oe, 
-	output 		 					ram_baseram_we, 
-	output 		[19:0] 				ram_extram_addr, 
-	inout 		[31:0] 				ram_extram_data, 
-	output 		 					ram_extram_ce, 
-	output 		 					ram_extram_oe, 
-	output 		 					ram_extram_we, 
+	output		[19:0]					ram_baseram_addr,
+	inout		[31:0]					ram_baseram_data,
+	output								ram_baseram_ce,
+	output								ram_baseram_oe,
+	output								ram_baseram_we,
+	output		[19:0]					ram_extram_addr,
+	inout		[31:0]					ram_extram_data,
+	output								ram_extram_ce,
+	output								ram_extram_oe,
+	output								ram_extram_we,
 
 	//ROM侧的接口
-	output 		[31:0] 				rom_inst,
+	output		[31:0]					rom_inst,
 
 	//FLASH侧的接口
-	output 		 					flash_busy, 
-	output 		[22:0] 				flash_addr, 
-	inout 		[15:0] 				flash_data, 
-	output 		[7:0] 				flash_ctl,
+	output								flash_busy,
+	output		[22:0]					flash_addr,
+	inout		[15:0]					flash_data,
+	output		[7:0]					flash_ctl,
 
 	//VGA侧的接口
 
 	//UART侧的接口
-	output 		 					uart_TxD_busy,
-	output 		 					uart_RxD_data_ready, 
-	output 		 					uart_com_TxD, 
-	input 							uart_com_RxD, 
+	output								uart_TxD_busy,
+	output								uart_RxD_data_ready,
+	output								uart_com_TxD,
+	input								uart_com_RxD,
 
 	//segdisp侧的接口
-	output 		[0:6] 				digseg_seg1,
+	output		[0:6]					digseg_seg1,
 	output		[0:6]					digseg_seg0
 
 	//PS2侧的接口
@@ -187,7 +187,6 @@ module bus(
 	.ack(rom_ack)
 	);
 
-
 	flash flash0(
 	.clk(clk), 
 	.enable_read(flash_read_enable), 
@@ -221,10 +220,11 @@ module bus(
 	.seg(digseg_seg0), 
 	.ack(digseg_ack)
 	);
-	
+
 	digseg_driver digseg1(
 	.data(digseg_input_data1),
 	.seg(digseg_seg1),
 	.ack(digseg_ack)
 	);
+
 endmodule

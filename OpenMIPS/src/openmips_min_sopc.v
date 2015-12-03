@@ -1,7 +1,34 @@
 `include "defines.v"
 module openmips_min_sopc(
-	input		wire		clk,
-	input		wire		rst
+	input							clk,
+	input							rst,
+
+	//RAM
+	output		[19:0]				baseram_addr,
+	inout		[31:0]				baseram_data,
+	output							baseram_ce,
+	output							baseram_oe,
+	output							baseram_we,
+	output		[19:0]				extram_addr,
+	inout		[31:0]				extram_data,
+	output							extram_ce,
+	output							extram_oe,
+	output							extram_we,
+
+	//FLASH
+	output		[22:0]				flash_addr,
+	inout		[15:0]				flash_data,
+	output		[7:0]				flash_ctl,
+
+	//VGA
+
+	//UART
+	output							com_TxD,
+	input							com_RxD,
+
+	//segdisp
+	output		[0:6]				segdisp0,
+	output		[0:6]				segdisp1
 	);
 
 	//连接指令存储器
@@ -20,6 +47,15 @@ module openmips_min_sopc(
 	reg						clk_4;
 	reg[2:0]				clk_count;
 
+	wire[`RegBus]			wishbone_data_i;
+	wire					wishbone_ack_i;
+	reg[`RegBus]			wishbone_addr_o;
+	reg[`RegBus]			wishbone_data_o;
+	reg						wishbone_we_o;
+	reg[15:0]				wishbone_select_o;
+	reg						wishbone_stb_o;
+	reg						wishbone_cyc_o;
+
 	initial begin
 		clk_4 = 1'b0;
 		clk_count <= 3'b000;
@@ -37,40 +73,58 @@ module openmips_min_sopc(
 	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输入
 
 	//例化处理器OpenMIPS
-	openmips openmips0 (
+	openmips openmips0(
 		.clk(clk),
 		.rst(rst),
 		.clk_4(clk_4),
 		.count(clk_count[1:0]),
-		.rom_addr_o(inst_addr),
-		.rom_data_i(inst),
-		.rom_ce_o(rom_ce),
 		.int_i(int),						//中断输入
 
-		.ram_we_o(mem_we_i),
-		.ram_addr_o(mem_addr_i),
-		.ram_sel_o(mem_sel_i),
-		.ram_data_o(mem_data_i),
-		.ram_data_i(mem_data_o),
-		.ram_ce_o(mem_ce_i),
+		.wishbone_data_i(wishbone_data_i),
+		.wishbone_ack_i(wishbone_ack_i),
+		.wishbone_addr_o(wishbone_addr_o),
+		.wishbone_data_o(wishbone_data_o),
+		.wishbone_we_o(wishbone_we_o),
+		.wishbone_select_o(wishbone_select_o),
+		.wishbone_stb_o(wishbone_stb_o),
+		.wishbone_cyc_o(wishbone_cyc_o),
 
 		.timer_int_o(timer_int)				//时钟中断输出
 	);
 
-	//例化指令存储器ROM
-	inst_rom inst_rom0 (
-		.ce(rom_ce),
-		.addr(inst_addr),	.inst(inst)
-	);
-
-	data_ram data_ram0 (
+	//例化Wishbone总线
+	bus bus0 (
 		.clk(clk),
-		.we(mem_we_i),
-		.addr(mem_addr_i),
-		.sel(mem_sel_i),
-		.data_i(mem_data_i),
-		.data_o(mem_data_o),
-		.ce(mem_ce_i)
+		.rst(rst),
+		.wishbone_addr_i(wishbone_addr_o),
+		.wishbone_data_i(wishbone_data_o),
+		.wishbone_we_i(wishbone_we_o),
+		.wishbone_stb_i(wishbone_stb_o),
+		.wishbone_cyc_i(wishbone_cyc_o),
+		.wishbone_select_i(wishbone_select_o),
+		.wishbone_data_o(wishbone_data_i),
+		.wishbone_ack_o(wishbone_ack_i),
+		.ram_baseram_addr(baseram_addr),
+		.ram_baseram_data(baseram_data),
+		.ram_baseram_ce(baseram_ce),
+		.ram_baseram_oe(baseram_oe),
+		.ram_baseram_we(baseram_we),
+		.ram_extram_addr(extram_addr),
+		.ram_extram_data(extram_data),
+		.ram_extram_ce(extram_ce),
+		.ram_extram_oe(extram_oe),
+		.ram_extram_we(extram_we),
+		.rom_inst(),
+		.flash_busy(),
+		.flash_addr(flash_addr),
+		.flash_data(flash_data),
+		.flash_ctl(flash_ctl),
+		.uart_TxD_busy(),
+		.uart_RxD_data_ready(),
+		.uart_com_TxD(com_TxD),
+		.uart_com_RxD(com_RxD),
+		.digseg_seg0(segdisp0),
+		.digseg_seg1(segdisp1)
 	);
 
 endmodule
