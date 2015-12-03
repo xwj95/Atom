@@ -29,7 +29,7 @@ module bus_test (
 
 	//segdispä¾§çš„æŽ¥å�
 	output 		[0:6] 				segdisp0,
-	output 		[0:6]					segdisp1
+	output 		[0:6]				segdisp1
 );
 	wire[31:0] output_data;
 	wire output_ack;
@@ -40,7 +40,6 @@ module bus_test (
 	.wishbone_addr_i({24'b0, sw_dip[7:0]}), 
 	.wishbone_data_i({24'b0, sw_dip[15:8]}), 
 	.wishbone_we_i(sw_dip[31]), 
-	.wishbone_sel_i(), 
 	.wishbone_stb_i(), 
 	.wishbone_cyc_i(), 
 	.wishbone_select_i({8'b0, sw_dip[23:16]}), 

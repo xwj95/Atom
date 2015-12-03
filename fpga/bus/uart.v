@@ -7,6 +7,7 @@
 module uart(
 	input clk,
 	input rst,	// assert to reset the status of receiver
+	input enable, 
 	input [7:0] data_in,
 	output [7:0] data_out,
 	input TxD_start,
@@ -20,8 +21,10 @@ module uart(
 	localparam CLK_FREQ = 50000000,	// 50 MB
 			BAUD = 115200;
 
+
+
 	uart_async_transmitter #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u0
-	(.clk(clk), .TxD_start(!TxD_start), .TxD_data(data_in),
+	(.clk(clk), .TxD_start(!TxD_start & enable), .TxD_data(data_in),
 	.TxD(com_TxD), .TxD_busy(TxD_busy), .ack(ack_t));
 
 	uart_async_receiver #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u1
