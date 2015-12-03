@@ -61,7 +61,7 @@ module openmips_min_sopc(
 		clk_count <= 3'b000;
 	end
 
-	always @ (edge clk) begin
+	always @ (posedge clk or negedge clk) begin
 		if (clk_count[2] == 1'b1) begin
 			clk_4 <= ~clk_4;
 			clk_count <= 0;
