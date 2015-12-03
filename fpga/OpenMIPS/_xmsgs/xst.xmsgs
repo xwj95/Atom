@@ -5,17 +5,94 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FPGA_Key</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 570: Port <arg fmt="%s" index="1">stallreq_from_if</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SW_DIP&lt;31:14&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 212: Assignment to <arg fmt="%s" index="1">rom_ce_o</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CLK11M00592</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 215: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CLK50M</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 215: Assignment to <arg fmt="%s" index="1">rom_addr_o</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 224: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">if_inst</arg>&gt;. Formal port size is <arg fmt="%d" index="2">32</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\mem.v" Line 436: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\mem.v" Line 447: Assignment to <arg fmt="%s" index="1">cp0_bad_v_addr</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 482: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">cp0_entry_lo0_i</arg>&gt;. Formal port size is <arg fmt="%d" index="2">32</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 483: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">cp0_entry_lo1_i</arg>&gt;. Formal port size is <arg fmt="%d" index="2">32</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 519: Assignment to <arg fmt="%s" index="1">tlb_we</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 520: Assignment to <arg fmt="%s" index="1">tlb_index</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 521: Assignment to <arg fmt="%s" index="1">tlb_data</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 603: Assignment to <arg fmt="%s" index="1">cp0_entry_lo_0</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 604: Assignment to <arg fmt="%s" index="1">cp0_entry_lo_1</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 606: Assignment to <arg fmt="%s" index="1">cp0_count</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 608: Assignment to <arg fmt="%s" index="1">cp0_compare</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 612: Assignment to <arg fmt="%s" index="1">cp0_ebase</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 628: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">if_data_o</arg>&gt;. Formal port size is <arg fmt="%d" index="2">32</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 628: Assignment to <arg fmt="%s" index="1">inst_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 630: Assignment to <arg fmt="%s" index="1">stallreq_from_if</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 640: Assignment to <arg fmt="%s" index="1">stallreq_from_mem</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\tlb.v" Line 148: Result of <arg fmt="%d" index="1">64</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">16</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 677: Assignment to <arg fmt="%s" index="1">tlb_we</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 678: Assignment to <arg fmt="%s" index="1">tlb_index</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 679: Assignment to <arg fmt="%s" index="1">tlb_data</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 170: Net &lt;<arg fmt="%s" index="1">rom_ce</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 224: Net &lt;<arg fmt="%s" index="1">rom_data_i</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 482: Net &lt;<arg fmt="%s" index="1">cp0_entry_lo0</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 483: Net &lt;<arg fmt="%s" index="1">cp0_entry_lo1</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="552" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 570: Input port <arg fmt="%s" index="1">stallreq_from_if</arg> is not connected on this instance
 </msg>
 
 </messages>
-

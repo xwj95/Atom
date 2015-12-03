@@ -1,0 +1,273 @@
+Release 14.2 - xst P.28xd (nt)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: openmips_min_sopc.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "openmips_min_sopc.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "openmips_min_sopc"
+Output Format                      : NGC
+Target Device                      : xc6slx100-3-fgg676
+
+---- Source Options
+Top Module Name                    : openmips_min_sopc
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\Peripheral\uart_async.v" into library work
+Parsing module <uart_async_transmitter>.
+Parsing module <uart_async_receiver>.
+Parsing module <ASSERTION_ERROR>.
+Parsing module <BaudTickGen>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\Peripheral\ram_driver.v" into library work
+Parsing module <ram_driver>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\Peripheral\flash_driver.v" into library work
+Parsing module <flash_driver>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\wishbone_bus.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <wishbone_bus>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\tlb.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <tlb>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\regfile.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <regfile>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\Peripheral\uart.v" into library work
+Parsing module <uart>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\Peripheral\ram.v" into library work
+Parsing module <ram>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\Peripheral\flash.v" into library work
+Parsing module <flash>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\Peripheral\digseg_driver.v" into library work
+Parsing module <digseg_driver>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\pc_reg.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <pc_reg>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\mmu.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <mmu>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\mem_wb.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <mem_wb>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\mem.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <mem>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\inst_rom.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <inst_rom>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\if_id.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <if_id>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\id_ex.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <id_ex>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\id.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <id>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\hilo_reg.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <hilo_reg>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\ex_mem.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <ex_mem>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\ex.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <ex>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\ctrl.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <ctrl>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\cp0_reg.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <cp0_reg>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <openmips>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\bus.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <bus>.
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips_min_sopc.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <openmips_min_sopc>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <openmips_min_sopc>.
+WARNING:HDLCompiler:1016 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 570: Port stallreq_from_if is not connected to this instance
+
+Elaborating module <openmips>.
+
+Elaborating module <pc_reg>.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 212: Assignment to rom_ce_o ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 215: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 215: Assignment to rom_addr_o ignored, since the identifier is never used
+
+Elaborating module <if_id>.
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 224: Size mismatch in connection of port <if_inst>. Formal port size is 32-bit while actual signal size is 1-bit.
+
+Elaborating module <id>.
+
+Elaborating module <regfile>.
+
+Elaborating module <id_ex>.
+
+Elaborating module <ex>.
+
+Elaborating module <ex_mem>.
+
+Elaborating module <mem>.
+WARNING:HDLCompiler:413 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\mem.v" Line 436: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\mem.v" Line 447: Assignment to cp0_bad_v_addr ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 482: Size mismatch in connection of port <cp0_entry_lo0_i>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 483: Size mismatch in connection of port <cp0_entry_lo1_i>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 519: Assignment to tlb_we ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 520: Assignment to tlb_index ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 521: Assignment to tlb_data ignored, since the identifier is never used
+
+Elaborating module <mem_wb>.
+
+Elaborating module <hilo_reg>.
+
+Elaborating module <ctrl>.
+
+Elaborating module <cp0_reg>.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 603: Assignment to cp0_entry_lo_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 604: Assignment to cp0_entry_lo_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 606: Assignment to cp0_count ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 608: Assignment to cp0_compare ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 612: Assignment to cp0_ebase ignored, since the identifier is never used
+
+Elaborating module <mmu>.
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 628: Size mismatch in connection of port <if_data_o>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 628: Assignment to inst_i ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 630: Assignment to stallreq_from_if ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 640: Assignment to stallreq_from_mem ignored, since the identifier is never used
+
+Elaborating module <tlb>.
+WARNING:HDLCompiler:413 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\tlb.v" Line 148: Result of 64-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 677: Assignment to tlb_we ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 678: Assignment to tlb_index ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 679: Assignment to tlb_data ignored, since the identifier is never used
+
+Elaborating module <wishbone_bus>.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 170: Net <rom_ce> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 224: Net <rom_data_i> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 482: Net <cp0_entry_lo0> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 483: Net <cp0_entry_lo1> does not have a driver.
+WARNING:HDLCompiler:552 - "C:\Users\Administrator-\Documents\git\proj8\fpga\OpenMIPS\openmips.v" Line 570: Input port stallreq_from_if is not connected on this instance
+
+Elaborating module <bus>.
+
+Elaborating module <ram>.
+
+Elaborating module <ram_driver>.
+
+Elaborating module <inst_rom>.
+
+Elaborating module <flash>.
+
+Elaborating module <flash_driver>.
+
+Elaborating module <uart>.
+
+Elaborating module <uart_async_transmitter(ClkFrequency=50000000,Baud=115200)>.
+
+Elaborating module <BaudTickGen(ClkFrequency=50000000,Baud=115200)>.
+
+Elaborating module <uart_async_receiver(ClkFrequency=50000000,Baud=115200)>.
+
+Elaborating module <BaudTickGen(ClkFrequency=50000000,Baud=115200,Oversampling=8)>.
+
+Elaborating module <digseg_driver>.
