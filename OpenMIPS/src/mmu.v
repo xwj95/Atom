@@ -60,8 +60,6 @@ module mmu(
 
 	assign mmu_state = {if_ack, memw_ack, memr_ack};
 
-
-	/*********************		第一段：控制状态转化的时序电路		*********************/
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			mmu_ce_o <= `ChipEnable;
@@ -124,83 +122,7 @@ module mmu(
 					tlb_addr_o <= mem_addr_i;
 					stall_req_if <= `Stop;
 					stall_req_mem <= stall_req;
-					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
-					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
-					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
-				end
-				`MMU_IF0_MEMW0_MEMR1: begin					//取指未完成，写访存未完成，读访存已完成
-					mmu_ce_o <= `ChipEnable;
-					mmu_data_o <= mem_wdata;
-					mmu_addr_o <= tlb_addr_i;
-					mmu_we_o <= `WriteEnable;
-					mmu_select_o <= tlb_select_i;
-					tlb_ce <= `ChipEnable;
-					tlb_write_o <= `True_v;
-					tlb_addr_o <= mem_addr_i;
-					stall_req_if <= `Stop;
-					stall_req_mem <= stall_req;
-					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
-					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
-					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
-				end
-				`MMU_IF0_MEMW1_MEMR0: begin					//取指未完成，写访存已完成，读访存未完成
-					mmu_ce_o <= `ChipEnable;
-					mmu_data_o <= `ZeroWord;
-					mmu_addr_o <= tlb_addr_i;
-					mmu_we_o <= `WriteDisable;
-					mmu_select_o <= tlb_select_i;
-					tlb_ce <= `ChipEnable;
-					tlb_write_o <= `False_v;
-					tlb_addr_o <= mem_addr_i;
-					stall_req_if <= `Stop;
-					stall_req_mem <= stall_req;
-					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
-					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
-					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
-				end
-				`MMU_IF0_MEMW1_MEMR1: begin					//取指未完成，写访存已完成，读访存已完成
-					mmu_ce_o <= `ChipEnable;
-					mmu_data_o <= `ZeroWord;
-					mmu_addr_o <= tlb_addr_i;
-					mmu_we_o <= `WriteDisable;
-					mmu_select_o <= tlb_select_i;
-					tlb_ce <= `ChipEnable;
-					tlb_write_o <= `False_v;
-					tlb_addr_o <= if_addr_i;
-					stall_req_if <= stall_req;
-					stall_req_mem <= `NoStop;
-					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
-					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
-					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
-				end
-				`MMU_IF1_MEMW1_MEMR1: begin					//取指已完成，写访存已完成，读访存已完成
-					mmu_ce_o <= `ChipEnable;
-					mmu_data_o <= `ZeroWord;
-					mmu_addr_o <= `ZeroWord;
-					mmu_we_o <= `WriteDisable;
-					mmu_select_o <= `WB_SELECT_ZERO;
-					tlb_ce <= `ChipDisable;
-					tlb_write_o <= `False_v;
-					tlb_addr_o <= `ZeroWord;
-					stall_req_if <= `NoStop;
-					stall_req_mem <= `NoStop;
-				end
-				default: begin
-				end
-			endcase
-		end
-	end
-
-	/*********************		第二段：给处理器接口信号赋值的组合电路		*********************/
-	always @ (rst, mmu_ack_i) begin
-		if (rst == `RstEnable) begin
-			stall_req_if <= `NoStop;
-			if_data_o <= `ZeroWord;
-			stall_req_mem <= `NoStop;
-			mem_data_o <= `ZeroWord;
-		end else begin
-			case (mmu_state)
-				`MMU_IF0_MEMW0_MEMR0: begin					//取指未完成，写访存未完成，读访存未完成
+					memr_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
 						mem_data_o <= mmu_data_o;
 						if (mem_sel_i != 4'b1111) begin		//需要先读后写的指令，读访存完成后修改对应字节
@@ -217,27 +139,76 @@ module mmu(
 								mem_wdata[7:0] <= mem_data_o[7:0];
 							end
 						end
-						memr_ack <= `True_v;
 					end
+					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
+					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
+					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
 				end
 				`MMU_IF0_MEMW0_MEMR1: begin					//取指未完成，写访存未完成，读访存已完成
-					if (mmu_ack_i == `True_v) begin
-						memw_ack <= `True_v;
-					end
+					mmu_ce_o <= `ChipEnable;
+					mmu_data_o <= mem_wdata;
+					mmu_addr_o <= tlb_addr_i;
+					mmu_we_o <= `WriteEnable;
+					mmu_select_o <= tlb_select_i;
+					tlb_ce <= `ChipEnable;
+					tlb_write_o <= `True_v;
+					tlb_addr_o <= mem_addr_i;
+					stall_req_if <= `Stop;
+					stall_req_mem <= stall_req;
+					memw_ack <= mmu_ack_i;
+					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
+					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
+					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
 				end
 				`MMU_IF0_MEMW1_MEMR0: begin					//取指未完成，写访存已完成，读访存未完成
+					mmu_ce_o <= `ChipEnable;
+					mmu_data_o <= `ZeroWord;
+					mmu_addr_o <= tlb_addr_i;
+					mmu_we_o <= `WriteDisable;
+					mmu_select_o <= tlb_select_i;
+					tlb_ce <= `ChipEnable;
+					tlb_write_o <= `False_v;
+					tlb_addr_o <= mem_addr_i;
+					stall_req_if <= `Stop;
+					stall_req_mem <= stall_req;
+					memr_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
 						mem_data_o <= mmu_data_o;
-						memr_ack <= `True_v;
 					end
+					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
+					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
+					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
 				end
 				`MMU_IF0_MEMW1_MEMR1: begin					//取指未完成，写访存已完成，读访存已完成
+					mmu_ce_o <= `ChipEnable;
+					mmu_data_o <= `ZeroWord;
+					mmu_addr_o <= tlb_addr_i;
+					mmu_we_o <= `WriteDisable;
+					mmu_select_o <= tlb_select_i;
+					tlb_ce <= `ChipEnable;
+					tlb_write_o <= `False_v;
+					tlb_addr_o <= if_addr_i;
+					stall_req_if <= stall_req;
+					stall_req_mem <= `NoStop;
+					if_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
 						if_data_o <= mmu_data_o;
-						if_ack <= `True_v;
 					end
+					mmu_excepttype_is_tlbm_o <= mmu_excepttype_is_tlbm_o || tlb_excepttype_is_tlbm_i;
+					mmu_excepttype_is_tlbl_o <= mmu_excepttype_is_tlbl_o || tlb_excepttype_is_tlbl_i;
+					mmu_excepttype_is_tlbs_o <= mmu_excepttype_is_tlbs_o || tlb_excepttype_is_tlbs_i;
 				end
 				`MMU_IF1_MEMW1_MEMR1: begin					//取指已完成，写访存已完成，读访存已完成
+					mmu_ce_o <= `ChipEnable;
+					mmu_data_o <= `ZeroWord;
+					mmu_addr_o <= `ZeroWord;
+					mmu_we_o <= `WriteDisable;
+					mmu_select_o <= `WB_SELECT_ZERO;
+					tlb_ce <= `ChipDisable;
+					tlb_write_o <= `False_v;
+					tlb_addr_o <= `ZeroWord;
+					stall_req_if <= `NoStop;
+					stall_req_mem <= `NoStop;
 				end
 				default: begin
 				end

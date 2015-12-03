@@ -49,12 +49,12 @@ module openmips_min_sopc(
 
 	wire[`RegBus]			wishbone_data_o;
 	wire					wishbone_ack_i;
-	reg[`RegBus]			wishbone_addr_o;
-	reg[`RegBus]			wishbone_data_i;
-	reg						wishbone_we_o;
-	reg[15:0]				wishbone_select_o;
-	reg						wishbone_stb_o;
-	reg						wishbone_cyc_o;
+	wire[`RegBus]			wishbone_addr_o;
+	wire[`RegBus]			wishbone_data_i;
+	wire					wishbone_we_o;
+	wire[15:0]				wishbone_select_o;
+	wire					wishbone_stb_o;
+	wire					wishbone_cyc_o;
 
 	initial begin
 		clk_4 = 1'b0;

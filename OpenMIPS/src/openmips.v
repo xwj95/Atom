@@ -639,9 +639,9 @@ module openmips(
 
 		.stall_req_mem(stallreq_from_mem),
 
-		.mem_excepttype_is_tlbm_o(mmu_excepttype_is_tlbm),
-		.mem_excepttype_is_tlbl_o(mmu_excepttype_is_tlbl),
-		.mem_excepttype_is_tlbs_o(mmu_excepttype_is_tlbs),
+		.mmu_excepttype_is_tlbm_o(mmu_excepttype_is_tlbm),
+		.mmu_excepttype_is_tlbl_o(mmu_excepttype_is_tlbl),
+		.mmu_excepttype_is_tlbs_o(mmu_excepttype_is_tlbs),
 
 		//TLB模块的接口
 		.tlb_ce(tlb_ce),

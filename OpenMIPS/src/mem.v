@@ -97,7 +97,6 @@ module mem(
 
 	wire[31:0] excepttype;
 
-	assign mem_we_o = mem_we;			//外部数据存储器RAM的读、写信号
 	assign zero32 = `ZeroWord;
 
 	//访存阶段指令是否是延迟槽指令
