@@ -7,46 +7,45 @@ module bus(
 	//Wishbone侧的接口
 	input		wire[`RegBus]			wishbone_addr_i,
 	input		wire[`RegBus]			wishbone_data_i,
-	input		wire					wishbone_we_i,		//1代表写，0代表读
-	input		wire[3:0]				wishbone_sel_i,
-	input		wire					wishbone_stb_i,
+	input		wire					wishbone_we_i, 		//1代表写，0代表�	
+	input		wire					wishbone_stb_i,	
 	input		wire					wishbone_cyc_i,
-	input		wire[15:0]				wishbone_select_i,
+	input 		wire[15:0] 				wishbone_select_i,
 
-	output		reg[`RegBus]			wishbone_data_o,
-	output		reg						wishbone_ack_o,
+	output 		reg[`RegBus] 			wishbone_data_o,
+	output 		reg 					wishbone_ack_o, 
 
 	//RAM侧的接口
-	output		[19:0]					ram_baseram_addr,
-	inout		[31:0]					ram_baseram_data,
-	output								ram_baseram_ce,
-	output								ram_baseram_oe,
-	output								ram_baseram_we,
-	output		[19:0]					ram_extram_addr,
-	inout		[31:0]					ram_extram_data,
-	output								ram_extram_ce,
-	output								ram_extram_oe,
-	output								ram_extram_we,
+	output 		[19:0] 				ram_baseram_addr, 
+	inout 		[31:0] 				ram_baseram_data, 
+	output 		 					ram_baseram_ce, 
+	output 		 					ram_baseram_oe, 
+	output 		 					ram_baseram_we, 
+	output 		[19:0] 				ram_extram_addr, 
+	inout 		[31:0] 				ram_extram_data, 
+	output 		 					ram_extram_ce, 
+	output 		 					ram_extram_oe, 
+	output 		 					ram_extram_we, 
 
 	//ROM侧的接口
-	output		[31:0]					rom_inst,
+	output 		[31:0] 				rom_inst,
 
 	//FLASH侧的接口
-	output								flash_busy,
-	output		[22:0]					flash_addr,
-	inout		[15:0]					flash_data,
-	output		[7:0]					flash_ctl,
+	output 		 					flash_busy, 
+	output 		[22:0] 				flash_addr, 
+	inout 		[15:0] 				flash_data, 
+	output 		[7:0] 				flash_ctl,
 
 	//VGA侧的接口
 
 	//UART侧的接口
-	output								uart_TxD_busy,
-	output								uart_RxD_data_ready,
-	output								uart_com_TxD,
-	input								uart_com_RxD,
+	output 		 					uart_TxD_busy,
+	output 		 					uart_RxD_data_ready, 
+	output 		 					uart_com_TxD, 
+	input 							uart_com_RxD, 
 
 	//segdisp侧的接口
-	output		[0:6]					digseg_seg1,
+	output 		[0:6] 				digseg_seg1,
 	output		[0:6]					digseg_seg0
 
 	//PS2侧的接口
@@ -76,6 +75,7 @@ module bus(
 
 	reg[7:0] uart_input_data;
 	wire[7:0] uart_output_data;
+	reg uart_enable;
 	reg uart_TxD_start;
 	wire uart_ack_t;
 	wire uart_ack_r;
@@ -87,7 +87,7 @@ module bus(
 	initial wishbone_ack_o = 1'b0;
 
 	always @ (posedge clk) begin
-		ram_input_addr <= 0;
+		ram_input_addr <= 21'b0;
 		ram_input_data <= `ZeroWord;
 		ram_chip_enable <= `ChipDisable;
 		ram_read_enable <= `ReadDisable;
@@ -95,15 +95,37 @@ module bus(
 		rom_chip_enable <= `ChipDisable;
 		rom_input_addr <= `ZeroWord;
 		flash_read_enable <= `ReadDisable;
-		flash_erase_enable <= 0;
+		flash_erase_enable <= 1'b0;
 		flash_write_enable <= `WriteDisable;
-		flash_input_addr <= 0;
-		flash_input_data <= 0;
-		uart_input_data <= 0;
-		uart_TxD_start <= 0;
-		digseg_input_data1 <= 0;
-		digseg_input_data0 <= 0;
+		flash_input_addr <= 22'b0;
+		flash_input_data <= 16'b0;
+		uart_input_data <= 8'b0;
+		uart_TxD_start <= 1'b0;
+		uart_enable <= 1'b0;
+		digseg_input_data1 <= 4'b0;
+		digseg_input_data0 <= 4'b0;
 		case (wishbone_select_i)
+			`WB_SELECT_ZERO: begin		
+				ram_input_addr <= 21'b0;
+				ram_input_data <= `ZeroWord;
+				ram_chip_enable <= `ChipDisable;
+				ram_read_enable <= `ReadDisable;
+				ram_write_enable <= `WriteDisable;
+				rom_chip_enable <= `ChipDisable;
+				rom_input_addr <= `ZeroWord;
+				flash_read_enable <= `ReadDisable;
+				flash_erase_enable <= 1'b0;
+				flash_write_enable <= `WriteDisable;
+				flash_input_addr <= 22'b0;
+				flash_input_data <= 16'b0;
+				uart_input_data <= 8'b0;
+				uart_TxD_start <= 1'b0;
+				uart_enable <= 1'b0;
+				digseg_input_data1 <= 4'b0;
+				digseg_input_data0 <= 4'b0;
+				wishbone_data_o <= 32'b0;
+				wishbone_ack_o <= 1'b1;
+			end
 			`WB_SELECT_RAM: begin
 				ram_input_addr <= {wishbone_addr_i[19], wishbone_addr_i[19:0]};
 				ram_input_data <= wishbone_data_i;
@@ -116,11 +138,18 @@ module bus(
 			`WB_SELECT_ROM: begin
 				rom_chip_enable <= `ChipEnable;
 				rom_input_addr <= wishbone_addr_i;
-				wishbone_data_o <= rom_output_inst;
-				wishbone_ack_o <= ram_ack;
+				if (wishbone_we_i == 1'b1) begin
+					wishbone_data_o <= `ZeroWord;
+					wishbone_ack_o <= 1'b1;
+				end else begin
+					wishbone_data_o <= rom_output_inst;
+					wishbone_ack_o <= rom_ack;
+				end
 			end
 			`WB_SELECT_FLASH: begin
 				flash_read_enable <= ~wishbone_we_i;
+				flash_write_enable <= `WriteDisable;
+				flash_erase_enable <= 1'b0;
 				flash_input_addr <= wishbone_addr_i[21:0];
 				flash_input_data <= wishbone_data_i[15:0];
 				wishbone_data_o <= {16'b0, flash_output_data};
@@ -132,7 +161,8 @@ module bus(
 			`WB_SELECT_UART: begin
 				uart_input_data <= wishbone_data_i[7:0];
 				wishbone_data_o <= {24'b0, uart_output_data};
-				uart_TxD_start <= wishbone_we_i;
+				uart_TxD_start <= ~wishbone_we_i;
+				uart_enable <= 1'b1;
 				if (wishbone_we_i == 1'b1)
 					wishbone_ack_o <= uart_ack_t;
 				else
@@ -187,6 +217,7 @@ module bus(
 	.ack(rom_ack)
 	);
 
+
 	flash flash0(
 	.clk(clk), 
 	.enable_read(flash_read_enable), 
@@ -204,6 +235,7 @@ module bus(
 
 	uart uart0(
 	.clk(clk), .rst(rst), 
+	.enable(uart_enable), 
 	.data_in(uart_input_data),
 	.data_out(uart_output_data),
 	.TxD_start(uart_TxD_start), 
@@ -220,11 +252,10 @@ module bus(
 	.seg(digseg_seg0), 
 	.ack(digseg_ack)
 	);
-
+	
 	digseg_driver digseg1(
 	.data(digseg_input_data1),
 	.seg(digseg_seg1),
 	.ack(digseg_ack)
 	);
-
 endmodule

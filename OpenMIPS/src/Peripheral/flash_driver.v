@@ -60,71 +60,74 @@ module flash_driver (
 	always @ (posedge clk) begin
 		case (state)
 			IDLE: begin
-				ack <= 1'b0;
+				ack <= 1'b1;
 				addr_latch <= addr;
-				if (enable_write) begin
+				if (enable_write == 1'b1) begin
+					ack <= 1'b1;
 					data_in_latch <= data_in;
-					flash_we <= 0;
+					flash_we <= 1'b0;
 					data_to_write <= 16'h0040;
 					state <= WRITE1;
-					busy <= 1;
-				end else if (enable_erase) begin
-					flash_we <= 0;
+					busy <= 1'b1;
+				end else if (enable_erase == 1'b1) begin
+					ack <= 1'b1;
+					flash_we <= 1'b0;
 					data_to_write <= 16'h0020;
 					state <= ERASE1;
-					busy <= 1;
-				end else if (enable_read) begin
-					flash_we <= 0;
+					busy <= 1'b1;
+				end else if (enable_read == 1'b1) begin
+					ack <= 1'b0;
+					flash_we <= 1'b0;
 					data_to_write <= 16'h00ff;
 					state <= READ1;
-					busy <= 1;
+					busy <= 1'b1;
 				end else begin
-					flash_oe <= 1;
-					flash_we <= 1;
-					busy <= 0;
+					flash_oe <= 1'b1;
+					flash_we <= 1'b1;
+					busy <= 1'b0;
 				end
 			end
 			
 			WRITE1: begin
-				flash_we <= 1;
+				flash_we <= 1'b1;
 				state <= WRITE2;
 			end
 			WRITE2: begin
-				flash_we <= 0;
+				flash_we <= 1'b0;
 				data_to_write <= data_in_latch;
 				state <= WRITE3;
 			end
 			WRITE3: begin
-				flash_we <= 1;
+				flash_we <= 1'b1;
 				state <= SR1;
 			end
 
 			ERASE1: begin
-				flash_we <= 1;
+				flash_we <= 1'b1;
 				state <= ERASE2;
 			end
 			ERASE2: begin
-				flash_we <= 0;
+				flash_we <= 1'b0;
 				data_to_write <= 16'h00d0;
 				state <= ERASE3;
 			end
 			ERASE3: begin
-				flash_we <= 1;
+				flash_we <= 1'b1;
 				state <= SR1;
 			end
 
 			READ1: begin
-				flash_we <= 1;
+				flash_we <= 1'b1;
 				state <= READ2;
 			end
 			READ2: begin
-				flash_oe <= 0;
+				flash_oe <= 1'b0;
 				state <= READ3;
-				read_wait_cnt <= 0;
+				read_wait_cnt <= 3'b000;
 			end
 			READ3: begin
 				if (read_wait_cnt[2]) begin
-					busy <= 0;
+					busy <= 1'b0;
 					state <= READ4;
 				end else begin
 					read_wait_cnt <= read_wait_cnt + 1'b1;
@@ -133,30 +136,29 @@ module flash_driver (
 			READ4: begin
 				if (!enable_read) begin
 					state <= IDLE;
-					ack <= 1'b1;
 				end
 			end
 
 			//wait for sr[7] becomes 1
 			SR1: begin
-				flash_we <= 0;
+				flash_we <= 1'b0;
 				data_to_write <= 16'h0070;
 				state <= SR2;
 			end
 			SR2: begin
-				flash_we <= 1;
+				flash_we <= 1'b1;
 				state <= SR3;
 			end
 			SR3: begin
-				flash_oe <= 0;
+				flash_oe <= 1'b0;
 				state <= SR4;
 			end
 			SR4: begin
-				flash_oe <= 1;
+				flash_oe <= 1'b1;
 				if (flash_data[7]) begin
 					state <= IDLE;
 					ack <= 1'b1;
-					busy <= 0;
+					busy <= 1'b0;
 				end
 				else
 					state <= SR1;

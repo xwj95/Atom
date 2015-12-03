@@ -42,7 +42,6 @@ reg [3:0] TxD_state = 0;
 wire TxD_ready = (TxD_state==0);
 assign TxD_busy = ~TxD_ready;
 
-initial ack = 0;
 reg [7:0] TxD_shift = 0;
 always @(posedge clk)
 begin
@@ -53,8 +52,8 @@ begin
 		TxD_shift <= (TxD_shift >> 1);
 
 	case(TxD_state)
-		4'b0000: if(TxD_start) begin TxD_state <= 4'b0100; ack <= 1'b0; end
-		4'b0100: if(BitTick) TxD_state <= 4'b1000;  // start bit
+		4'b0000: if(TxD_start) begin TxD_state <= 4'b0100; ack <= 1'b1; end
+		4'b0100: if(BitTick) begin TxD_state <= 4'b1000; ack <= 1'b0; end  // start bit
 		4'b1000: if(BitTick) TxD_state <= 4'b1001;  // bit 0
 		4'b1001: if(BitTick) TxD_state <= 4'b1010;  // bit 1
 		4'b1010: if(BitTick) TxD_state <= 4'b1011;  // bit 2
@@ -64,8 +63,8 @@ begin
 		4'b1110: if(BitTick) TxD_state <= 4'b1111;  // bit 6
 		4'b1111: if(BitTick) TxD_state <= 4'b0010;  // bit 7
 		4'b0010: if(BitTick) TxD_state <= 4'b0011;  // stop1
-		4'b0011: if(BitTick) begin TxD_state <= 4'b0000; ack <= 1'b1; end // stop2
-		default: if(BitTick) begin TxD_state <= 4'b0000; ack <= 1'b0; end
+		4'b0011: if(BitTick) TxD_state <= 4'b0000; // stop2
+		default: if(BitTick) TxD_state <= 4'b0000;
 	endcase
 end
 
@@ -163,8 +162,8 @@ always @(posedge clk) begin
 		RxD_state <= 0;
 	else begin
 		case(RxD_state)
-			4'b0000: if(~RxD_bit) begin RxD_state <= `ifdef SIMULATION 4'b1000 `else 4'b0001 `endif; ack <= 1'b0; end  // start bit found?
-			4'b0001: if(sampleNow) RxD_state <= 4'b1000;  // sync start bit to sampleNow
+			4'b0000: if(~RxD_bit) begin RxD_state <= `ifdef SIMULATION 4'b1000 `else 4'b0001 `endif; ack <= 1'b1; end  // start bit found?
+			4'b0001: if(sampleNow) begin RxD_state <= 4'b1000; ack <= 1'b0; end  // sync start bit to sampleNow
 			4'b1000: if(sampleNow) RxD_state <= 4'b1001;  // bit 0
 			4'b1001: if(sampleNow) RxD_state <= 4'b1010;  // bit 1
 			4'b1010: if(sampleNow) RxD_state <= 4'b1011;  // bit 2
@@ -173,8 +172,8 @@ always @(posedge clk) begin
 			4'b1101: if(sampleNow) RxD_state <= 4'b1110;  // bit 5
 			4'b1110: if(sampleNow) RxD_state <= 4'b1111;  // bit 6
 			4'b1111: if(sampleNow) RxD_state <= 4'b0010;  // bit 7
-			4'b0010: if(sampleNow) begin RxD_state <= 4'b0000; ack <= 1'b1; end  // stop bit
-			default: begin RxD_state <= 4'b0000; ack <= 1'b0; end
+			4'b0010: if(sampleNow) RxD_state <= 4'b0000;  // stop bit
+			default: RxD_state <= 4'b0000;
 		endcase
 	end
 end
