@@ -49,26 +49,12 @@ module openmips_min_sopc(
 
 	wire[`RegBus]			wishbone_data_o;
 	wire					wishbone_ack_i;
-	reg[`RegBus]			wishbone_addr_o;
-	reg[`RegBus]			wishbone_data_i;
-	reg						wishbone_we_o;
-	reg[15:0]				wishbone_select_o;
-	reg						wishbone_stb_o;
-	reg						wishbone_cyc_o;
-
-	initial begin
-		clk_4 = 1'b0;
-		clk_count <= 3'b000;
-	end
-
-	always @ (edge clk) begin
-		if (clk_count[2] == 1'b1) begin
-			clk_4 <= ~clk_4;
-			clk_count <= 0;
-		end else begin
-			clk_count <= clk_count + 1'b1;
-		end
-	end
+	wire[`RegBus]			wishbone_addr_o;
+	wire[`RegBus]			wishbone_data_i;
+	wire					wishbone_we_o;
+	wire[15:0]				wishbone_select_o;
+	wire					wishbone_stb_o;
+	wire					wishbone_cyc_o;
 
 	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输入
 
@@ -76,8 +62,7 @@ module openmips_min_sopc(
 	openmips openmips0(
 		.clk(clk),
 		.rst(rst),
-		.clk_4(clk_4),
-		.count(clk_count[1:0]),
+		.clk_count(clk_count[1:0]),
 		.int_i(int),						//中断输入
 
 		.wishbone_data_i(wishbone_data_i),

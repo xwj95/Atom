@@ -13,7 +13,7 @@ module mem(
 	input		wire[`RegBus]			mem_addr_i,
 	input		wire[`RegBus]			reg2_i,
 
-	//来自外部数据存储器RAM的信息
+	//来自MMU模块的信息
 	input		wire[`RegBus]			mem_data_i,
 
 	input		wire					cp0_reg_we_i,
@@ -31,8 +31,8 @@ module mem(
 	input		wire[`RegBus]			cp0_cause_i,
 	input		wire[`RegBus]			cp0_epc_i,
 	input		wire[`RegBus]			cp0_index_i,
-	input		wire[`RegBus]			cp0_entry_lo0_i,
-	input		wire[`RegBus]			cp0_entry_lo1_i,
+	input		wire[`RegBus]			cp0_entry_lo_0_i,
+	input		wire[`RegBus]			cp0_entry_lo_1_i,
 	input		wire[`RegBus]			cp0_entry_hi_i,
 
 	//来自回写阶段的指令对CP0寄存器的写信息，用来检测数据相关
@@ -57,7 +57,7 @@ module mem(
 	output		reg[4:0]				cp0_reg_write_addr_o,
 	output		reg[`RegBus]			cp0_reg_data_o,
 
-	//送到外部数据存储器RAM的信息
+	//送到MMU的信息
 	output		reg[`RegBus]			mem_addr_o,
 	output		wire					mem_we_o,
 	output		reg[3:0]				mem_sel_o,
@@ -87,8 +87,8 @@ module mem(
 	reg[`RegBus] cp0_epc;				//用来保存CP0中EPC寄存器的最新值
 
 	reg[`RegBus] cp0_index;				//用来保存CP0中Index寄存器的最新值
-	reg[`RegBus] cp0_entry_lo0;			//用来保存CP0中EntryLo0寄存器的最新值
-	reg[`RegBus] cp0_entry_lo1;			//用来保存CP0中EntryLo1寄存器的最新值
+	reg[`RegBus] cp0_entry_lo_0;		//用来保存CP0中EntryLo0寄存器的最新值
+	reg[`RegBus] cp0_entry_lo_1;		//用来保存CP0中EntryLo1寄存器的最新值
 	reg[`RegBus] cp0_entry_hi;			//用来保存CP0中EntryHi寄存器的最新值
 
 	reg excepttype_is_adel;				//是否是读访问非对齐异常ADEL
@@ -143,6 +143,7 @@ module mem(
 			mem_we <= `WriteDisable;
 			mem_addr_o <= `ZeroWord;
 			mem_sel_o <= 4'b1111;
+			mem_data_o <= `ZeroWord;
 			mem_ce_o <= `ChipDisable;
 			cp0_reg_we_o <= cp0_reg_we_i;
 			cp0_reg_write_addr_o <= cp0_reg_write_addr_i;
@@ -432,25 +433,12 @@ module mem(
 				end
 				`EXE_TLBWI_OP: begin
 					tlb_we_o <= `WriteEnable;
-					tlb_data_o <= {1'b0, cp0_entry_hi[31:13], cp0_entry_lo1[25:6], cp0_entry_lo1[2:1], cp0_entry_lo0[25:6], cp0_entry_lo0[2:1]};
-					tlb_index_o <= cp0_index[`TLBIndexWidth:0];
+					tlb_data_o <= {1'b0, cp0_entry_hi[31:13], cp0_entry_lo_1[25:6], cp0_entry_lo_1[2:1], cp0_entry_lo_0[25:6], cp0_entry_lo_0[2:1]};
+					tlb_index_o <= cp0_index[`TLBIndexWidth-1:0];
 				end
 				default: begin
 				end
 			endcase
-		end
-	end
-
-	//得到CP0中BadVAddr寄存器的最新值
-	//判断当前处于回写阶段的指令是否要写CP0中的Status寄存器，如果要写，那么要写入的值就是BadVAddr寄存器的最新值，
-	//反之，从CP0模块通过cp0_bad_v_addr_i接口传入的数据就是Status寄存器的最新值
-	always @ (*) begin
-		if (rst == `RstEnable) begin
-			cp0_bad_v_addr <= `ZeroWord;
-		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_BADVADDR)) begin
-			cp0_bad_v_addr <= wb_cp0_reg_data;
-		end else begin
-			cp0_bad_v_addr <= cp0_bad_v_addr_i;
 		end
 	end
 
@@ -506,7 +494,7 @@ module mem(
 		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_INDEX)) begin
 			cp0_index <= wb_cp0_reg_data;
 		end else begin
-			cp0_index <= cp0_epc_i;
+			cp0_index <= cp0_index_i;
 		end
 	end
 
@@ -515,11 +503,11 @@ module mem(
 	//反之，从CP0模块通过cp0_reg_i接口传入的数据就是EntryLo0寄存器的最新值
 	always @ (*) begin
 		if (rst == `RstEnable) begin
-			cp0_entry_lo0 <= `ZeroWord;
+			cp0_entry_lo_0 <= `ZeroWord;
 		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_ENTRYLO0)) begin
-			cp0_entry_lo0 <= wb_cp0_reg_data;
+			cp0_entry_lo_0 <= wb_cp0_reg_data;
 		end else begin
-			cp0_entry_lo0 <= cp0_epc_i;
+			cp0_entry_lo_0 <= cp0_entry_lo_0_i;
 		end
 	end
 
@@ -528,11 +516,11 @@ module mem(
 	//反之，从CP0模块通过cp0_reg_i接口传入的数据就是EntryLo1寄存器的最新值
 	always @ (*) begin
 		if (rst == `RstEnable) begin
-			cp0_entry_lo1 <= `ZeroWord;
+			cp0_entry_lo_1 <= `ZeroWord;
 		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_ENTRYLO1)) begin
-			cp0_entry_lo1 <= wb_cp0_reg_data;
+			cp0_entry_lo_1 <= wb_cp0_reg_data;
 		end else begin
-			cp0_entry_lo1 <= cp0_epc_i;
+			cp0_entry_lo_1 <= cp0_entry_lo_1_i;
 		end
 	end
 
@@ -545,7 +533,7 @@ module mem(
 		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_ENTRYHI)) begin
 			cp0_entry_hi <= wb_cp0_reg_data;
 		end else begin
-			cp0_entry_hi <= cp0_epc_i;
+			cp0_entry_hi <= cp0_entry_hi_i;
 		end
 	end
 
@@ -559,27 +547,27 @@ module mem(
 				if (((cp0_cause[15:8] & (cp0_status[15:8])) != 8'h00) &&
 					(cp0_status[1] == 1'b0) &&
 					(cp0_status[0] == 1'b1)) begin
-					excepttype_o <= 32'h0000000f;					//Interrupt
+					excepttype_o <= `EXCEPTION_INTERRUPT;
 				end else if (excepttype[1] == 1'b1) begin
-					excepttype_o <= 32'h00000001;					//TLB Modified
+					excepttype_o <= `EXCEPTION_TLBM;
 				end else if (excepttype[2] == 1'b1) begin
-					excepttype_o <= 32'h00000002;					//TLBL
+					excepttype_o <= `EXCEPTION_TLBL;
 				end else if (excepttype[3] == 1'b1) begin
-					excepttype_o <= 32'h00000003;					//TLBS
+					excepttype_o <= `EXCEPTION_TLBS;
 				end else if (excepttype[4] == 1'b1) begin
-					excepttype_o <= 32'h00000004;					//ADEL
+					excepttype_o <= `EXCEPTION_ADEL;
 				end else if (excepttype[5] == 1'b1) begin
-					excepttype_o <= 32'h00000005;					//ADES
+					excepttype_o <= `EXCEPTION_ADES;
 				end else if (excepttype[8] == 1'b1) begin
-					excepttype_o <= 32'h00000008;					//Syscall
+					excepttype_o <= `EXCEPTION_SYSCALL;
 				end else if (excepttype[10] == 1'b1) begin
-					excepttype_o <= 32'h0000000a;					//RI
+					excepttype_o <= `EXCEPTION_RI;
 				end else if (excepttype[11] == 1'b1) begin
-					excepttype_o <= 32'h0000000b;					//Co-Processor Unavailable
+					excepttype_o <= `EXCEPTION_CPU;
 				end else if (excepttype[23] == 1'b1) begin
-					excepttype_o <= 32'h00000017;					//Watch
+					excepttype_o <= `EXCEPTION_WATCH;
 				end else if (excepttype[12] == 1'b1) begin
-					excepttype_o <= 32'h0000000e;					//eret
+					excepttype_o <= `EXCEPTION_ERET;
 				end
 			end
 		end

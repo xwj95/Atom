@@ -18,12 +18,13 @@ module ctrl(
 
 	always @ (*) begin
 		if (rst == `RstEnable) begin
-			stall <= 6'b000000;
 			flush <= 1'b0;
+			stall <= 6'b000000;
 			new_pc <= `ZeroWord;
 		end else if (excepttype_i != `ZeroWord) begin
 			flush <= 1'b1;
 			stall <= 6'b000000;
+			new_pc <= `ZeroWord;
 			case (excepttype_i)
 				32'h000000f: begin				//interrupt
 					new_pc <= 32'h00000020;
@@ -62,20 +63,20 @@ module ctrl(
 				end
 			endcase
 		end else if (stallreq_from_mem == `Stop) begin
+			flush <= 1'b0;
 			stall <= 6'b011111;
-			flush <= 1'b0;
 		end else if (stallreq_from_ex == `Stop) begin
+			flush <= 1'b0;
 			stall <= 6'b001111;
-			flush <= 1'b0;
 		end else if (stallreq_from_id == `Stop) begin
-			stall <= 6'b000111;
 			flush <= 1'b0;
+			stall <= 6'b000111;
 		end else if (stallreq_from_if == `Stop) begin
+			flush <= 1'b0;
 			stall <= 6'b000111;
-			flush <= 1'b0;
 		end else begin
-			stall <= 6'b000000;
 			flush <= 1'b0;
+			stall <= 6'b000000;
 			new_pc <= `ZeroWord;
 		end
 	end

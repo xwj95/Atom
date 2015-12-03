@@ -31,7 +31,7 @@ module openmips_min_sopc(
 	output		[0:6]				segdisp1
 	);
 
-	//连接指令存储�
+	//连接MMU
 	wire[`InstAddrBus]		inst_addr;
 	wire[`InstBus]			inst;
 	wire					rom_ce;
@@ -44,9 +44,6 @@ module openmips_min_sopc(
 	wire[5:0]				int;
 	wire					timer_int;
 
-	reg						clk_4;
-	reg[2:0]				clk_count;
-
 	wire[`RegBus]			wishbone_data_o;
 	wire					wishbone_ack_i;
 	wire[`RegBus]			wishbone_addr_o;
@@ -56,28 +53,12 @@ module openmips_min_sopc(
 	wire					wishbone_stb_o;
 	wire					wishbone_cyc_o;
 
-	initial begin
-		clk_4 = 1'b0;
-		clk_count <= 3'b000;
-	end
-
-	always @ (posedge clk or negedge clk) begin
-		if (clk_count[2] == 1'b1) begin
-			clk_4 <= ~clk_4;
-			clk_count <= 0;
-		end else begin
-			clk_count <= clk_count + 1'b1;
-		end
-	end
-
-	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输�
+	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输入
 
 	//例化处理器OpenMIPS
 	openmips openmips0(
 		.clk(clk),
 		.rst(rst),
-		.clk_4(clk_4),
-		.clk_count(clk_count[1:0]),
 		.int_i(int),						//中断输入
 
 		.wishbone_data_i(wishbone_data_i),

@@ -13,7 +13,7 @@ module mem(
 	input		wire[`RegBus]			mem_addr_i,
 	input		wire[`RegBus]			reg2_i,
 
-	//来自外部数据存储器RAM的信息
+	//来自MMU模块的信息
 	input		wire[`RegBus]			mem_data_i,
 
 	input		wire					cp0_reg_we_i,
@@ -57,7 +57,7 @@ module mem(
 	output		reg[4:0]				cp0_reg_write_addr_o,
 	output		reg[`RegBus]			cp0_reg_data_o,
 
-	//送到外部数据存储器RAM的信息
+	//送到MMU的信息
 	output		reg[`RegBus]			mem_addr_o,
 	output		wire					mem_we_o,
 	output		reg[3:0]				mem_sel_o,
@@ -97,7 +97,6 @@ module mem(
 
 	wire[31:0] excepttype;
 
-	assign mem_we_o = mem_we;			//外部数据存储器RAM的读、写信号
 	assign zero32 = `ZeroWord;
 
 	//访存阶段指令是否是延迟槽指令
