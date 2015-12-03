@@ -26,10 +26,10 @@ module id_ex(
 	output		reg[`RegBus]			ex_reg2,
 	output		reg[`RegAddrBus]		ex_wd,
 	output		reg						ex_wreg,
-	output		reg[`RegBus] 			ex_link_address,
+	output		reg[`RegBus]			ex_link_address,
 	output		reg						ex_is_in_delayslot,
-	output 		reg						is_in_delayslot_o,
-	output 		reg[`RegBus] 			ex_inst,
+	output		reg						is_in_delayslot_o,
+	output		reg[`RegBus]			ex_inst,
 	output		reg[`RegBus]			ex_current_inst_address,
 	output		reg[31:0]				ex_excepttype
 	);

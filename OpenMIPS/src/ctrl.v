@@ -11,7 +11,7 @@ module ctrl(
 	input		wire[`RegBus]			cp0_epc_i,
 
 	output		reg[`RegBus]			new_pc,
-	output		reg 					flush,
+	output		reg						flush,
 
 	output		reg[5:0]				stall
 	);

@@ -14,16 +14,16 @@ module ex_mem(
 	input		wire					ex_whilo,
 
 	//为实现加载、存储指令而添加的输入接口
-	input		wire[`AluOpBus]			ex_aluop, 
-	input		wire[`RegBus]			ex_mem_addr, 
+	input		wire[`AluOpBus]			ex_aluop,
+	input		wire[`RegBus]			ex_mem_addr,
 	input		wire[`RegBus]			ex_reg2,
 
 	input		wire[`DoubleRegBus]		hilo_i,
 	input		wire[1:0]				cnt_i,
 
 	input		wire					ex_cp0_reg_we,
-	input		wire[4:0]				ex_cp0_reg_write_addr, 
-	input		wire[`RegBus]			ex_cp0_reg_data, 
+	input		wire[4:0]				ex_cp0_reg_write_addr,
+	input		wire[`RegBus]			ex_cp0_reg_data,
 
 	input		wire[31:0]				ex_excepttype,
 	input		wire					ex_is_in_delayslot,
@@ -38,16 +38,16 @@ module ex_mem(
 	output		reg						mem_whilo,
 
 	//为实现加载、存储指令而添加的输出接口
-	output		reg[`AluOpBus]			mem_aluop, 
-	output		reg[`RegBus]			mem_mem_addr, 
+	output		reg[`AluOpBus]			mem_aluop,
+	output		reg[`RegBus]			mem_mem_addr,
 	output		reg[`RegBus]			mem_reg2,
 
-	output		reg 					mem_cp0_reg_we, 
-	output		reg[4:0]				mem_cp0_reg_write_addr, 
+	output		reg						mem_cp0_reg_we,
+	output		reg[4:0]				mem_cp0_reg_write_addr,
 	output		reg[`RegBus]			mem_cp0_reg_data,
 
 	output		reg[31:0]				mem_excepttype,
-	output		reg						mem_is_in_delayslot, 
+	output		reg						mem_is_in_delayslot,
 	output		reg[`RegBus]			mem_current_inst_address,
 
 	output		reg[`DoubleRegBus]		hilo_o,

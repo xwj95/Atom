@@ -18,7 +18,7 @@ module openmips_min_sopc(
 	wire					timer_int;
 
 	reg						clk_4;
-	reg[1:0]				clk_count;
+	reg[2:0]				clk_count;
 
 	initial begin
 		clk_4 = 1'b0;
@@ -63,7 +63,7 @@ module openmips_min_sopc(
 		.addr(inst_addr),	.inst(inst)
 	);
 
-	data_ram data_ram0(
+	data_ram data_ram0 (
 		.clk(clk),
 		.we(mem_we_i),
 		.addr(mem_addr_i),

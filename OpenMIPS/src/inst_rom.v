@@ -2,8 +2,8 @@
 module inst_rom(
 	input		wire						ce,
 	input		wire[`InstAddrBus]			addr,
-	output		reg[`InstBus]				inst, 
-	output 		reg 						ack
+	output		reg[`InstBus]				inst,
+	output		reg							ack
 	);
 
 	//定义一个数组，大小是InstMemNum，元素宽度是InstBus

@@ -9,20 +9,20 @@ module mem(
 	input		wire[`RegBus]			hi_i,
 	input		wire[`RegBus]			lo_i,
 	input		wire					whilo_i,
-	input		wire[`AluOpBus]			aluop_i, 
+	input		wire[`AluOpBus]			aluop_i,
 	input		wire[`RegBus]			mem_addr_i,
 	input		wire[`RegBus]			reg2_i,
 
 	//来自外部数据存储器RAM的信息
 	input		wire[`RegBus]			mem_data_i,
 
-	input		wire					cp0_reg_we_i, 
-	input		wire[4:0]				cp0_reg_write_addr_i, 
+	input		wire					cp0_reg_we_i,
+	input		wire[4:0]				cp0_reg_write_addr_i,
 	input		wire[`RegBus]			cp0_reg_data_i,
 
 	//来自执行阶段
-	input		wire[31:0]				excepttype_i, 
-	input		wire					is_in_delayslot_i, 
+	input		wire[31:0]				excepttype_i,
+	input		wire					is_in_delayslot_i,
 	input		wire[`RegBus]			current_inst_address_i,
 
 	//CP0的各个寄存器的值，但不一定是最新的值，要防止回写阶段指令写CP0
@@ -30,12 +30,21 @@ module mem(
 	input		wire[`RegBus]			cp0_status_i,
 	input		wire[`RegBus]			cp0_cause_i,
 	input		wire[`RegBus]			cp0_epc_i,
+	input		wire[`RegBus]			cp0_index_i,
+	input		wire[`RegBus]			cp0_entry_lo0_i,
+	input		wire[`RegBus]			cp0_entry_lo1_i,
+	input		wire[`RegBus]			cp0_entry_hi_i,
 
 	//来自回写阶段的指令对CP0寄存器的写信息，用来检测数据相关
 	input		wire					wb_cp0_reg_we,
 	input		wire[4:0]				wb_cp0_reg_write_addr,
 	input		wire[`RegBus]			wb_cp0_reg_data,
-	
+
+	//来自MMU模块的TLB异常信息
+	input		wire					excepttype_is_tlbm_i,
+	input		wire					excepttype_is_tlbl_i,
+	input		wire					excepttype_is_tlbs_i,
+
 	//访存阶段的结果
 	output		reg[`RegAddrBus]		wd_o,
 	output		reg						wreg_o,
@@ -53,7 +62,7 @@ module mem(
 	output		wire					mem_we_o,
 	output		reg[3:0]				mem_sel_o,
 	output		reg[`RegBus]			mem_data_o,
-	output		reg 					mem_ce_o,
+	output		reg						mem_ce_o,
 
 	//送到CP0寄存器的信息
 	output		reg[31:0]				excepttype_o,
@@ -61,7 +70,12 @@ module mem(
 	output		wire					is_in_delayslot_o,
 
 	output		wire[`RegBus]			current_inst_address_o,
-	output		reg[`RegBus]			bad_v_addr_o
+	output		reg[`RegBus]			bad_v_addr_o,
+
+	//送到TLB模块的信息
+	output		reg						tlb_we_o,
+	output		reg[`TLBIndexBus]		tlb_index_o,
+	output		reg[`TLBDataBus]		tlb_data_o
 	);
 
 	wire[`RegBus] zero32;
@@ -72,9 +86,11 @@ module mem(
 	reg[`RegBus] cp0_cause;				//用来保存CP0中Cause寄存器的最新值
 	reg[`RegBus] cp0_epc;				//用来保存CP0中EPC寄存器的最新值
 
-	reg excepttype_is_tlbm;				//是否是内存修改异常TLBM
-	reg excepttype_is_tlbl;				//是否是读未在TLB中映射的内存地址异常TLBL
-	reg excepttype_is_tlbs;				//是否是写未在TLB中映射的内存地址异常TLBS
+	reg[`RegBus] cp0_index;				//用来保存CP0中Index寄存器的最新值
+	reg[`RegBus] cp0_entry_lo0;			//用来保存CP0中EntryLo0寄存器的最新值
+	reg[`RegBus] cp0_entry_lo1;			//用来保存CP0中EntryLo1寄存器的最新值
+	reg[`RegBus] cp0_entry_hi;			//用来保存CP0中EntryHi寄存器的最新值
+
 	reg excepttype_is_adel;				//是否是读访问非对齐异常ADEL
 	reg excepttype_is_ades;				//是否是写访问非对齐异常ADES
 	reg excepttype_is_watch;			//是否是Watch监控异常Watch
@@ -90,7 +106,7 @@ module mem(
 
 	//excepttype_o的第1bit表示是否是内存修改异常，第2bit表示是否是读未在TLB中映射的内存地址异常，第3bit表示是否是写未在TLB中映射的内存地址异常，
 	//第4bit表示是否是读访问非对齐异常ADEL，第5bit表示是否是写访问非对齐异常，第23bit表示是否是Watch监控异常
-	assign excepttype = {excepttype_i[31:24], excepttype_is_watch, excepttype_i[22:6], excepttype_is_ades, excepttype_is_adel, excepttype_is_tlbs, excepttype_is_tlbl, excepttype_is_tlbm, excepttype_i[0]};
+	assign excepttype = {excepttype_i[31:24], excepttype_is_watch, excepttype_i[22:6], excepttype_is_ades, excepttype_is_adel, excepttype_is_tlbs_i, excepttype_is_tlbl_i, excepttype_is_tlbm_i, excepttype_i[0]};
 
 	//mem_we_o输出到数据存储器，表示是否是对数据存储器的写操作，如果发生了异常，那么需要取消对数据存储器的写操作
 	assign mem_we_o = mem_we & (~(|excepttype_o));
@@ -112,12 +128,12 @@ module mem(
 			cp0_reg_write_addr_o <= 5'b00000;
 			cp0_reg_data_o <= `ZeroWord;
 			bad_v_addr_o <= `ZeroWord;
-			excepttype_is_tlbm <= `False_v;
-			excepttype_is_tlbl <= `False_v;
-			excepttype_is_tlbs <= `False_v;
 			excepttype_is_adel <= `False_v;
 			excepttype_is_ades <= `False_v;
 			excepttype_is_watch <= `False_v;
+			tlb_we_o <= `WriteDisable;
+			tlb_data_o <= `ZeroWord;
+			tlb_index_o <= 4'b0000;
 		end else begin
 			wd_o <= wd_i;
 			wreg_o <= wreg_i;
@@ -133,12 +149,12 @@ module mem(
 			cp0_reg_write_addr_o <= cp0_reg_write_addr_i;
 			cp0_reg_data_o <= cp0_reg_data_i;
 			bad_v_addr_o <= `ZeroWord;
-			excepttype_is_tlbm <= `False_v;			//默认没有发生内存修改异常
-			excepttype_is_tlbl <= `False_v;			//默认没有发生读未在TLB中映射的内存地址异常
-			excepttype_is_tlbs <= `False_v;			//默认没有发生写未在TLB中映射的内存地址异常
 			excepttype_is_adel <= `False_v;			//默认没有发生读访问非对齐异常
 			excepttype_is_ades <= `False_v;			//默认没有发生写访问非对齐异常
 			excepttype_is_watch <= `False_v;		//默认没有发生Watch监控异常
+			tlb_we_o <= `WriteDisable;
+			tlb_data_o <= `ZeroWord;
+			tlb_index_o <= 4'b0000;
 			case (aluop_i)
 				`EXE_LB_OP: begin
 					mem_addr_o <= mem_addr_i;
@@ -415,6 +431,11 @@ module mem(
 						end
 					endcase
 				end
+				`EXE_TLBWI_OP: begin
+					tlb_we_o <= `WriteEnable;
+					tlb_data_o <= {1'b0, cp0_entry_hi[31:13], cp0_entry_lo1[25:6], cp0_entry_lo1[2:1], cp0_entry_lo0[25:6], cp0_entry_lo0[2:1]};
+					tlb_index_o <= cp0_index[`TLBIndexWidth:0];
+				end
 				default: begin
 				end
 			endcase
@@ -471,11 +492,61 @@ module mem(
 		if (rst == `RstEnable) begin
 			cp0_cause <= `ZeroWord;
 		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_CAUSE)) begin
-			cp0_cause[9:8] <= wb_cp0_reg_data[9:8];		//IP[1：0]字段可写
-			cp0_cause[22] <= wb_cp0_reg_data[22];		//WP字段可写
-			cp0_cause[23] <= wb_cp0_reg_data[23];		//IV字段可写
+			cp0_cause <= wb_cp0_reg_data;
 		end else begin
 			cp0_cause <= cp0_cause_i;
+		end
+	end
+
+	//得到CP0中Index寄存器的最新值
+	//判断当前处于会写阶段的指令是否要写CP0中Index寄存器，如果要写，那么要写入的值就是Index寄存器的最新值，
+	//反之，从CP0模块通过cp0_reg_i接口传入的数据就是Index寄存器的最新值
+	always @ (*) begin
+		if (rst == `RstEnable) begin
+			cp0_index <= `ZeroWord;
+		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_INDEX)) begin
+			cp0_index <= wb_cp0_reg_data;
+		end else begin
+			cp0_index <= cp0_epc_i;
+		end
+	end
+
+	//得到CP0中EntryLo0寄存器的最新值
+	//判断当前处于会写阶段的指令是否要写CP0中EntryLo0寄存器，如果要写，那么要写入的值就是EntryLo0寄存器的最新值，
+	//反之，从CP0模块通过cp0_reg_i接口传入的数据就是EntryLo0寄存器的最新值
+	always @ (*) begin
+		if (rst == `RstEnable) begin
+			cp0_entry_lo0 <= `ZeroWord;
+		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_ENTRYLO0)) begin
+			cp0_entry_lo0 <= wb_cp0_reg_data;
+		end else begin
+			cp0_entry_lo0 <= cp0_epc_i;
+		end
+	end
+
+	//得到CP0中EntryLo1寄存器的最新值
+	//判断当前处于会写阶段的指令是否要写CP0中EntryLo1寄存器，如果要写，那么要写入的值就是EntryLo1寄存器的最新值，
+	//反之，从CP0模块通过cp0_reg_i接口传入的数据就是EntryLo1寄存器的最新值
+	always @ (*) begin
+		if (rst == `RstEnable) begin
+			cp0_entry_lo1 <= `ZeroWord;
+		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_ENTRYLO1)) begin
+			cp0_entry_lo1 <= wb_cp0_reg_data;
+		end else begin
+			cp0_entry_lo1 <= cp0_epc_i;
+		end
+	end
+
+	//得到CP0中EntryHi寄存器的最新值
+	//判断当前处于会写阶段的指令是否要写CP0中EntryHi寄存器，如果要写，那么要写入的值就是EntryHi寄存器的最新值，
+	//反之，从CP0模块通过cp0_reg_i接口传入的数据就是EntryHi寄存器的最新值
+	always @ (*) begin
+		if (rst == `RstEnable) begin
+			cp0_entry_hi <= `ZeroWord;
+		end else if ((wb_cp0_reg_we == `WriteEnable) && (wb_cp0_reg_write_addr == `CP0_REG_ENTRYHI)) begin
+			cp0_entry_hi <= wb_cp0_reg_data;
+		end else begin
+			cp0_entry_hi <= cp0_epc_i;
 		end
 	end
 

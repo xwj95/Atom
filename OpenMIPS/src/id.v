@@ -21,7 +21,7 @@ module id(
 	input		wire[`RegAddrBus]		mem_wd_i,
 
 	//如果上一条指令是转移指令，那么下一条指令进入译码阶段的时候，输入变量is_in_delayslot_i为true，表示是延迟槽指令，反之为false
-	input		wire 					is_in_delayslot_i,
+	input		wire					is_in_delayslot_i,
 
 	//输出到Regfile的信息
 	output		reg						reg1_read_o,
@@ -39,14 +39,14 @@ module id(
 	output		reg[`RegAddrBus]		wd_o,
 	output		reg						wreg_o,
 
-	output		wire[`RegBus] 			inst_o,
+	output		wire[`RegBus]			inst_o,
 
-	output		reg 					next_inst_in_delayslot_o,
+	output		reg						next_inst_in_delayslot_o,
 
-	output		reg 					branch_flag_o, 
-	output		reg[`RegBus] 			branch_target_address_o,
-	output		reg[`RegBus] 			link_addr_o,
-	output		reg 					is_in_delayslot_o,
+	output		reg						branch_flag_o,
+	output		reg[`RegBus]			branch_target_address_o,
+	output		reg[`RegBus]			link_addr_o,
+	output		reg						is_in_delayslot_o,
 
 	output		wire[31:0]				excepttype_o,
 	output		wire[`RegBus]			current_inst_address_o,
@@ -93,7 +93,7 @@ module id(
 
 	//stallreq_for_reg1_loadrelate为Stop或者stallreq_for_reg2_loadrelate为Stop，都表示存在load相关，
 	//从而要求流水线暂停，设置stallreq为top
- 	assign stallreq = stallreq_for_reg1_loadrelate | stallreq_for_reg2_loadrelate;
+	assign stallreq = stallreq_for_reg1_loadrelate | stallreq_for_reg2_loadrelate;
 
 	//依据输入信号ex_aluop_i的值，判断上一条指令是否是加载指令，如果是加载指令，那么置pre_inst_is_load为1，反之置为0
 	assign pre_inst_is_load = ((ex_aluop_i == `EXE_LB_OP) ||
@@ -829,9 +829,16 @@ module id(
 					cp0_reg_addr != `CP0_REG_EPC && cp0_reg_addr != `CP0_REG_EBASE) begin
 					excepttype_is_cpu <= `True_v;	
 				end
+			end else if (inst_i == 32'b01000010000000000000000000000010) begin
+				aluop_o <= `EXE_TLBWI_OP;
+				alusel_o <= `EXE_RES_NOP;
+				wreg_o <= `WriteDisable;
+				instvalid <= `InstValid;
+				reg1_read_o <= 1'b0;
+				reg2_read_o <= 1'b0;
 			end
-		end		//if
-	end		//always
+		end
+	end
 
 /************			第二段：确定进行运算的源操作数2			************/
 	//给reg1_o赋值的过程增加了两种情况：
@@ -894,7 +901,6 @@ module id(
 		if (rst == `RstEnable) begin
 			is_in_delayslot_o <= `NotInDelaySlot;
 		end else begin
-			//直接等于is_in_delayslot_i
 			is_in_delayslot_o <= is_in_delayslot_i;
 		end
 	end

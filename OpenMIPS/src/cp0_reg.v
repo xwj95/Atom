@@ -1,7 +1,7 @@
 `include "defines.v"
 module cp0_reg(
 	input			wire				clk,
-	input			wire				rst, 
+	input			wire				rst,
 
 	input			wire				we_i,
 	input			wire[4:0]			waddr_i,
@@ -27,7 +27,7 @@ module cp0_reg(
 	output			reg[`RegBus]		epc_o,
 	output			reg[`RegBus]		ebase_o,
 
-	output			reg 				timer_int_o
+	output			reg					timer_int_o
 	);
 
 	/*********************		第一段：对CP0中寄存器的写操作		*********************/
