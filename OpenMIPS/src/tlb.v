@@ -22,43 +22,26 @@ module tlb(
 	reg[`TLBIndexBus] tlb_find;
 	reg[`TLBDataBus] tlb_item;
 
-	/*********************		第一段：TLB表项写操作		*********************/
-	always @ (*) begin
-		if (rst == `RstEnable) begin
-		end else begin
-			if (tlb_we == `WriteEnable) begin
-				tlb_reg[tlb_index] <= tlb_data;
-			end
-		end
-	end
-
-	/*********************		第二段：虚拟地址映射		*********************/
-	genvar i;
-	generate
-		for (i = 0; i < `TLBIndexNum; i = i + 1) begin: tlb_clear
-			always @ (*) begin
-				if (rst == `RstEnable) begin
-					tlb_reg[i] <= 64'h0000000000000000;
-				end
-			end
-		end
-	endgenerate
-
-	generate
-		for (i = 0; i < `TLBIndexNum; i = i + 1) begin: tlb_search
-			always @ (*) begin
-				tlb_item <= tlb_reg[i];
-				if (tlb_item[62:44] == mmu_addr[32:14]) begin
-					tlb_find <= i;
-				end
-			end
-		end
-	endgenerate
-
+	/*********************		第一段：虚拟地址映射		*********************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			tlb_addr <= `ZeroWord;
-			tlb_select <= 16'b0000000000000000;
+			tlb_reg[0] <= 64'h0000000000000000;
+			tlb_reg[1] <= 64'h0000000000000000;
+			tlb_reg[2] <= 64'h0000000000000000;
+			tlb_reg[3] <= 64'h0000000000000000;
+			tlb_reg[4] <= 64'h0000000000000000;
+			tlb_reg[5] <= 64'h0000000000000000;
+			tlb_reg[6] <= 64'h0000000000000000;
+			tlb_reg[7] <= 64'h0000000000000000;
+			tlb_reg[8] <= 64'h0000000000000000;
+			tlb_reg[9] <= 64'h0000000000000000;
+			tlb_reg[10] <= 64'h0000000000000000;
+			tlb_reg[11] <= 64'h0000000000000000;
+			tlb_reg[12] <= 64'h0000000000000000;
+			tlb_reg[13] <= 64'h0000000000000000;
+			tlb_reg[14] <= 64'h0000000000000000;
+			tlb_reg[15] <= 64'h0000000000000000;
 			excepttype_is_tlbm <= `False_v;
 			excepttype_is_tlbl <= `False_v;
 			excepttype_is_tlbs <= `False_v;
@@ -71,6 +54,72 @@ module tlb(
 				tlb_addr <= {2'b00, mmu_addr[29:0]};
 			end else begin
 				tlb_addr <= mmu_addr;
+
+				tlb_item <= tlb_reg[0];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0000;
+				end
+				tlb_item <= tlb_reg[1];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0001;
+				end
+				tlb_item <= tlb_reg[2];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0010;
+				end
+				tlb_item <= tlb_reg[3];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0011;
+				end
+				tlb_item <= tlb_reg[4];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0100;
+				end
+				tlb_item <= tlb_reg[5];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0101;
+				end
+				tlb_item <= tlb_reg[6];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0110;
+				end
+				tlb_item <= tlb_reg[7];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b0111;
+				end
+				tlb_item <= tlb_reg[8];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1000;
+				end
+				tlb_item <= tlb_reg[9];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1001;
+				end
+				tlb_item <= tlb_reg[10];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1010;
+				end
+				tlb_item <= tlb_reg[11];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1011;
+				end
+				tlb_item <= tlb_reg[12];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1100;
+				end
+				tlb_item <= tlb_reg[13];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1101;
+				end
+				tlb_item <= tlb_reg[14];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1110;
+				end
+				tlb_item <= tlb_reg[15];
+				if (tlb_item[62:44] == mmu_addr[31:13]) begin
+					tlb_find <= 4'b1111;
+				end
+
 				tlb_item <= tlb_reg[tlb_find];
 				if (tlb_item[62:44] == mmu_addr[31:13]) begin
 					tlb_addr[11:0] <= mmu_addr[11:0];
@@ -94,10 +143,14 @@ module tlb(
 					end
 				end
 			end
+
+			if (tlb_we == `WriteEnable) begin
+				tlb_reg[tlb_index] <= tlb_data;					//TLB表项操作
+			end
 		end
 	end
 
-	/*********************		第三段：物理地址划分		*********************/
+	/*********************		第二段：物理地址划分		*********************/
 	always @ (*) begin
 		tlb_select <= 16'b0000000000000000;
 		if ((tlb_addr >= 32'h00000000) && (tlb_addr <= 32'h007fffff)) begin
