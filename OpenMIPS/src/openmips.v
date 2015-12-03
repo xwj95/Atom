@@ -15,7 +15,7 @@ module openmips(
 	output wire							wishbone_we_o,
 	output wire[3:0]					wishbone_sel_o,
 	output wire							wishbone_stb_o,
-	output wire							wishbone_cyc_o, 
+	output wire							wishbone_cyc_o,
 
 	output		wire					timer_int_o
 	);
@@ -183,13 +183,21 @@ module openmips(
 	wire[15:0]				mmu_select_o;
 	wire[`RegBus]			mmu_data_i;
 	wire					mmu_ack_i;
+	wire					mmu_excepttype_is_tlbm;
+	wire					mmu_excepttype_is_tlbl;
+	wire					mmu_excepttype_is_tlbs;
 
-	wire[`RegBus]			tlb_if_addr_o;
-	wire[`RegBus]			tlb_mem_addr_o;
-	wire[`RegBus]			tlb_if_addr_i;
-	wire[`RegBus]			tlb_mem_addr_i;
-	wire[15:0]				tlb_if_select_i;
-	wire[15:0]				tlb_mem_select_i;
+	wire					tlb_ce;
+	wire					tlb_write;
+	wire[`RegBus]			tlb_addr_o;
+	wire[`RegBus]			tlb_addr_i;
+	wire[15:0]				tlb_select_i;
+	wire					tlb_we;
+	wire[`TLBIndexBus]		tlb_index;
+	wire[`TLBDataBus]		tlb_data;
+	wire					tlb_excepttype_is_tlbm;
+	wire					tlb_excepttype_is_tlbl;
+	wire					tlb_excepttype_is_tlbs;
 
 	//pc_reg例化
 	pc_reg pc_reg0(
@@ -415,6 +423,7 @@ module openmips(
 		.ex_current_inst_address(ex_current_inst_address_o),
 		.hilo_i(hilo_temp_o),
 		.cnt_i(cnt_o),
+
 		//送到访存阶段MEM模块的信息
 		.mem_wd(mem_wd_i),
 		.mem_wreg(mem_wreg_i),
@@ -457,7 +466,6 @@ module openmips(
 		//来自memory的信息
 		.mem_data_i(ram_data_i),
 
-
 		.cp0_reg_we_i(mem_cp0_reg_we_i),
 		.cp0_reg_write_addr_i(mem_cp0_reg_write_addr_i),
 		.cp0_reg_data_i(mem_cp0_reg_data_i),
@@ -466,15 +474,23 @@ module openmips(
 		.is_in_delayslot_i(mem_is_in_delayslot_i),
 		.current_inst_address_i(mem_current_inst_address_i),
 
+		.cp0_bad_v_addr_i(cp0_bad_v_addr),
 		.cp0_status_i(cp0_status),
 		.cp0_cause_i(cp0_cause),
 		.cp0_epc_i(cp0_epc),
+		.cp0_index_i(cp0_index),
+		.cp0_entry_lo0_i(cp0_entry_lo0),
+		.cp0_entry_lo1_i(cp0_entry_lo1),
+		.cp0_entry_hi_i(cp0_entry_hi),
 
 		//回写阶段的指令是否要写CP0，用来检测数据相关
 		.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),
 
+		.excepttype_is_tlbm_i(mmu_excepttype_is_tlbm),
+		.excepttype_is_tlbl_i(mmu_excepttype_is_tlbl),
+		.excepttype_is_tlbs_i(mmu_excepttype_is_tlbs),
 
 		.cp0_reg_we_o(mem_cp0_reg_we_o),
 		.cp0_reg_write_addr_o(mem_cp0_reg_write_addr_o),
@@ -492,12 +508,17 @@ module openmips(
 		.mem_sel_o(ram_sel_o),
 		.mem_data_o(ram_data_o),
 		.mem_ce_o(ram_ce_o),
-		
+
 		.excepttype_o(mem_excepttype_o),
 		.cp0_epc_o(latest_epc),
 		.is_in_delayslot_o(mem_is_in_delayslot_o),
 		.current_inst_address_o(mem_current_inst_address_o),
-		.bad_v_addr_o(bad_v_addr_o)
+		.bad_v_addr_o(bad_v_addr_o),
+
+		//送到TLB模块的信息
+		.tlb_we_o(tlb_we),
+		.tlb_index_o(tlb_index),
+		.tlb_data_o(tlb_data)
 	);
 
 	//MEM/WB模块例化
@@ -518,7 +539,7 @@ module openmips(
 		.mem_cp0_reg_we(mem_cp0_reg_we_o),
 		.mem_cp0_reg_write_addr(mem_cp0_reg_write_addr_o),
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),
-			
+
 		//送到回写阶段的信息
 		.wb_wd(wb_wd_i),
 		.wb_wreg(wb_wreg_i),
@@ -618,15 +639,21 @@ module openmips(
 
 		.stall_req_mem(stallreq_from_mem),
 
-		//TLB模块的接口
-		.tlb_if_addr_o(tlb_if_addr_o),
-		.tlb_mem_addr_o(tlb_mem_addr_o),
-		.tlb_if_addr_i(tlb_if_addr_i),
-		.tlb_mem_addr_i(tlb_mem_addr_i),
-		.tlb_if_select_i(tlb_if_select_i),
-		.tlb_mem_select_i(tlb_mem_select_i),
+		.mem_excepttype_is_tlbm_o(mmu_excepttype_is_tlbm),
+		.mem_excepttype_is_tlbl_o(mmu_excepttype_is_tlbl),
+		.mem_excepttype_is_tlbs_o(mmu_excepttype_is_tlbs),
 
-		//MMU侧的接口
+		//TLB模块的接口
+		.tlb_ce(tlb_ce),
+		.tlb_write_o(tlb_write),
+		.tlb_addr_o(tlb_addr_o),
+		.tlb_addr_i(tlb_addr_i),
+		.tlb_select_i(tlb_select_i),
+		.tlb_excepttype_is_tlbm_i(tlb_excepttype_is_tlbm),
+		.tlb_excepttype_is_tlbl_i(tlb_excepttype_is_tlbl),
+		.tlb_excepttype_is_tlbs_i(tlb_excepttype_is_tlbs),
+
+		//总线侧的接口
 		.mmu_ce_o(mmu_ce_o),
 		.mmu_data_o(mmu_data_o),
 		.mmu_addr_o(mmu_addr_o),
@@ -638,20 +665,22 @@ module openmips(
 		.stall_req(stallreq_from_wishbone)
 	);
 
-	tlb tlb_if0(
+	tlb tlb0(
 		.rst(rst),
 
-		.mmu_addr(tlb_if_addr_o),
-		.tlb_addr(tlb_if_addr_i),
-		.tlb_select(tlb_if_select_i)
-	);
+		.mmu_addr(tlb_addr_o),
+		.tlb_ce(tlb_ce),
+		.tlb_write(tlb_write),
+		.tlb_addr(tlb_addr_i),
+		.tlb_select(tlb_select_i),
 
-	tlb tlb_mem0(
-		.rst(rst),
+		.tlb_we(tlb_we),
+		.tlb_index(tlb_index),
+		.tlb_data(tlb_data),
 
-		.mmu_addr(tlb_mem_addr_o),
-		.tlb_addr(tlb_mem_addr_i),
-		.tlb_select(tlb_mem_select_i)
+		.excepttype_is_tlbm(tlb_excepttype_is_tlbm),
+		.excepttype_is_tlbl(tlb_excepttype_is_tlbl),
+		.excepttype_is_tlbs(tlb_excepttype_is_tlbs)
 	);
 
 	wishbone_bus wishbone_bus0(

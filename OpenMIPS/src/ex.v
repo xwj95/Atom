@@ -11,7 +11,7 @@ module ex(
 	input		wire					wreg_i,
 
 	//inst_i的值是当前处于执行阶段的指令
-	input		wire[`RegBus] 			inst_i,
+	input		wire[`RegBus]			inst_i,
 	input		wire[31:0]				excepttype_i,
 	input		wire[`RegBus]			current_inst_address_i,
 
@@ -37,7 +37,7 @@ module ex(
 	input		wire[`RegBus]			link_address_i,
 
 	//当前执行阶段的指令是否位于延迟槽
-	input		wire 					is_in_delayslot_i,
+	input		wire					is_in_delayslot_i,
 
 	//访存阶段的指令是否要写CP0中的寄存器，用来检测数据相关
 	input		wire					mem_cp0_reg_we,
@@ -54,7 +54,7 @@ module ex(
 	output		reg[4:0]				cp0_reg_read_addr_o,
 
 	//向流水线下一级传递，用于写CP0中的指定寄存器
-	output		reg 					cp0_reg_we_o,
+	output		reg						cp0_reg_we_o,
 	output		reg[4:0]				cp0_reg_write_addr_o,
 	output		reg[`RegBus]			cp0_reg_data_o,
 
@@ -70,14 +70,14 @@ module ex(
 	output		reg[1:0]				cnt_o,
 
 	output		wire[31:0]				excepttype_o,
-	output		wire					is_in_delayslot_o, 
+	output		wire					is_in_delayslot_o,
 	output		wire[`RegBus]			current_inst_address_o,
 
 	//为加载、存储指令准备的接口
 	output		wire[`AluOpBus]			aluop_o,
-	output		wire[`RegBus]			mem_addr_o, 
+	output		wire[`RegBus]			mem_addr_o,
 	output		wire[`RegBus]			reg2_o,
-	output		reg 					stallreq
+	output		reg						stallreq
 
 	);
 

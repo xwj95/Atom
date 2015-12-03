@@ -13,8 +13,8 @@ module mem_wb(
 	input		wire[`RegBus]			mem_lo,
 	input		wire					mem_whilo,
 
-	input		wire					mem_cp0_reg_we, 
-	input		wire[4:0]				mem_cp0_reg_write_addr, 
+	input		wire					mem_cp0_reg_we,
+	input		wire[4:0]				mem_cp0_reg_write_addr,
 	input		wire[`RegBus]			mem_cp0_reg_data,
 
 	//送到回写阶段的信息
@@ -24,8 +24,8 @@ module mem_wb(
 	output		reg[`RegBus]			wb_hi,
 	output		reg[`RegBus]			wb_lo,
 	output		reg						wb_whilo,
-	output		reg						wb_cp0_reg_we, 
-	output		reg[4:0]				wb_cp0_reg_write_addr, 
+	output		reg						wb_cp0_reg_we,
+	output		reg[4:0]				wb_cp0_reg_write_addr,
 	output		reg[`RegBus]			wb_cp0_reg_data
 	);
 
