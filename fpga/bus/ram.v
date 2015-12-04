@@ -24,7 +24,7 @@ module ram (
 	);
 
 	ram_driver ram_driver0(
-		bus_clk_i, bus_rst_i, 
+		clk, rst, 
 		bus_select_i, !bus_we_i, bus_we_i, 
 		{bus_addr_i[`DataMemNumLog2-2], bus_addr_i[`DataMemNumLog2-2:0]}, bus_data_i, bus_data_o,
 		baseram_addr, baseram_data, 
