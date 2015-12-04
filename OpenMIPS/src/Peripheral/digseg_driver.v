@@ -1,22 +1,19 @@
-/*
- * $File: digseg_driver.v
- * $Date: Fri Oct 25 15:53:01 2013 +0800
- * $Author: jiakai <jia.kai66@gmail.com>
- */
-
-/*
- * 4-bit (one hex digit) digit 7-segment display driver
- */
 module digseg_driver(
-	input [3:0] data,
-	output reg [0:6] seg,
-	output reg ack
+	input bus_clk_i,
+	input bus_rst_i,
+	input [31:0] bus_addr_i,
+	input [31:0] bus_data_i,
+	output reg[31:0] bus_data_o,
+	input bus_select_i,
+	input bus_we_i,
+	output bus_ack_o
 	);
 
-	initial ack = 1'b0;
+	reg[0:6] seg;
 
 	always @(*) begin
-		case (data)
+		bus_data_o <= {25'b0, seg};
+		case (bus_data_i[3:0])
 			4'b0000: seg = 7'b1111110;
 			4'b0001: seg = 7'b0110000;
 			4'b0010: seg = 7'b1101101;
@@ -34,7 +31,7 @@ module digseg_driver(
 			4'b1110: seg = 7'b1001111;
 			4'b1111: seg = 7'b1000111;
 		endcase
-		ack <= 1'b1;
+		bus_ack_o <= 1'b1;
 	end
 endmodule
 

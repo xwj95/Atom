@@ -10,13 +10,13 @@ module flash_driver (
 	input enable_erase, 
 	input enable_write, 
 
-	output reg busy, 
 	output [22:0] flash_addr, 
 	inout [15:0] flash_data, 
 	output [7:0] flash_ctl, 
 	output reg ack
 );
 
+	reg busy;
 	assign data_out = flash_data;
 	reg flash_oe, flash_we;
 

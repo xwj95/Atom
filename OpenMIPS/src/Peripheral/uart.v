@@ -1,9 +1,3 @@
-/*
- * $File: uart.v
- * $Date: Thu Oct 31 22:14:00 2013 +0800
- * $Author: jiakai <jia.kai66@gmail.com>
- */
-
 module uart(
 	input clk,
 	input rst,	// assert to reset the status of receiver
