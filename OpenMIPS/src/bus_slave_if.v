@@ -30,4 +30,16 @@ always @ (m_select_i) begin
 	bus_select_o = m_select_i;
 end
 
+always @ (m_data_i) begin
+	bus_data_o = m_data_i;
+end
+
+assign m_data_o = bus_data_i;
+
+always @ (m_we_i) begin
+	bus_we_o = m_we_i;
+end
+
+assign m_ack_o = wb_ack_i;
+
 endmodule
