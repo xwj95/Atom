@@ -44,3 +44,7 @@ xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst
 xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.syr" 
 xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.syr" 
 xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.syr" 
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.xst" -ofn "Z:/Documents/Project/fpga/OpenMIPS/openmips_min_sopc.syr" 

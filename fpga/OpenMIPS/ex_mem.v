@@ -116,7 +116,6 @@ module ex_mem(
 			mem_excepttype <= ex_excepttype;
 			mem_is_in_delayslot <= ex_is_in_delayslot;
 			mem_current_inst_address <= ex_current_inst_address;
-		end else begin
 		end
 	end
 

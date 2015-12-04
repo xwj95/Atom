@@ -1,0 +1,348 @@
+<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>
+<h3 align='center'>Equations</h3>
+<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>
+<tr><td>
+</td></tr><tr><td>
+********** Mapped Logic **********
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+</td></tr><tr><td>
+TxD <= pass_TxD;
+</td></tr><tr><td>
+</td></tr><tr><td>
+kbd_data(0) <= ((usp2/recv_data(4) AND NOT usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(0) AND usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+kbd_data(1) <= ((usp2/recv_data(1) AND usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(5) AND NOT usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+kbd_data(2) <= ((usp2/recv_data(2) AND usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(6) AND NOT usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+kbd_data(3) <= ((usp2/recv_data(3) AND usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(7) AND NOT usp2/state(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/state(1)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+kbd_enb_hi <= (NOT usp2/state(0) AND usp2/state(1));
+</td></tr><tr><td>
+</td></tr><tr><td>
+kbd_enb_lo <= (usp2/state(0) AND usp2/state(1));
+</td></tr><tr><td>
+</td></tr><tr><td>
+pass_RxD <= RxD;
+</td></tr><tr><td>
+</td></tr><tr><td>
+usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D <= NOT (usp2/recv_data(3)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 XOR 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D <= NOT (((NOT usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(6) AND usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(6) AND NOT usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(4) AND usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(6) AND NOT usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(4) AND usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(6) AND usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(4) AND usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(6) AND usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(4) AND usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(6) AND NOT usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(6) AND NOT usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(6) AND usp2/recv_data(7))));
+</td></tr><tr><td>
+FDCPE_usp2/ps2_clk1: FDCPE port map (usp2/ps2_clk1,ps2_clk,clk50M,'0','0');
+</td></tr><tr><td>
+FDCPE_usp2/ps2_clk2: FDCPE port map (usp2/ps2_clk2,usp2/ps2_clk1,clk50M,'0','0');
+</td></tr><tr><td>
+FTCPE_usp2/recv_cnt0: FTCPE port map (usp2/recv_cnt(0),usp2/recv_cnt_T(0),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_cnt_T(0) <= ((NOT ps2_data AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+</td></tr><tr><td>
+FTCPE_usp2/recv_cnt1: FTCPE port map (usp2/recv_cnt(1),usp2/recv_cnt_T(1),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_cnt_T(1) <= ((usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_cnt(1) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+</td></tr><tr><td>
+FTCPE_usp2/recv_cnt2: FTCPE port map (usp2/recv_cnt(2),usp2/recv_cnt_T(2),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_cnt_T(2) <= ((NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_cnt(2) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_cnt(1) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+</td></tr><tr><td>
+FTCPE_usp2/recv_cnt3: FTCPE port map (usp2/recv_cnt(3),usp2/recv_cnt_T(3),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_cnt_T(3) <= ((NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_cnt(3) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_cnt(1) AND usp2/recv_cnt(2) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data0: FTCPE port map (usp2/recv_data(0),usp2/recv_data_T(0),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(0) <= ((NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data1: FTCPE port map (usp2/recv_data(1),usp2/recv_data_T(1),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(1) <= ((NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data2: FTCPE port map (usp2/recv_data(2),usp2/recv_data_T(2),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(2) <= ((NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(2) AND usp2/recv_data(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(2) AND NOT usp2/recv_data(3)));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data3: FTCPE port map (usp2/recv_data(3),usp2/recv_data_T(3),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(3) <= ((usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(3) AND usp2/recv_data(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(3) AND NOT usp2/recv_data(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data4: FTCPE port map (usp2/recv_data(4),usp2/recv_data_T(4),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(4) <= ((usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(4) AND usp2/recv_data(5))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(4) AND NOT usp2/recv_data(5))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data5: FTCPE port map (usp2/recv_data(5),usp2/recv_data_T(5),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(5) <= ((NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(5) AND NOT usp2/recv_data(6))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(5) AND usp2/recv_data(6)));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data6: FTCPE port map (usp2/recv_data(6),usp2/recv_data_T(6),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(6) <= ((usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(6) AND usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(6) AND NOT usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+</td></tr><tr><td>
+FTCPE_usp2/recv_data7: FTCPE port map (usp2/recv_data(7),usp2/recv_data_T(7),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/recv_data_T(7) <= ((NOT usp2/state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/ps2_clk1)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (ps2_data AND usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ps2_data AND NOT usp2/recv_data(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+</td></tr><tr><td>
+FTCPE_usp2/state0: FTCPE port map (usp2/state(0),usp2/state_T(0),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/state_T(0) <= ((EXP15_.EXP)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D));
+</td></tr><tr><td>
+FDCPE_usp2/state1: FDCPE port map (usp2/state(1),usp2/state_D(1),clk50M,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usp2/state_D(1) <= ((usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (EXP14_.EXP)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/state(0) AND usp2/state(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D));
+</td></tr><tr><td>
+Register Legend:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDCP  (Q,D,G,CLR,PRE); 
+</td></tr><tr><td>
+</td></tr>
+</table>
+<form><span class="pgRef"><table width="90%" align="center"><tr>
+<td align="left"><input type="button" onclick="javascript:parent.leftnav.showTop()" onmouseover="window.status='goto top of page'; return true;" onmouseout="window.status=''" value="back to top"></td>
+<td align="right"><input type="button" onclick="window.print()" onmouseover="window.status='print page'; return true;" onmouseout="window.status=''" value="print page"></td>
+</tr></table></span></form>
+</body></html>

@@ -297,6 +297,7 @@ module cp0_reg(
 		if (rst == `RstEnable) begin
 			data_o <= `ZeroWord;
 		end else begin
+			data_o <= `ZeroWord;
 			case (raddr_i)
 				`CP0_REG_INDEX: begin			//读Index寄存器
 					data_o <= index_o;

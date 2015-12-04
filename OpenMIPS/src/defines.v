@@ -260,6 +260,7 @@
 `define TLBIndexWidth		4					//TLB索引宽度
 `define TLBIndexNum			16					//TLB索引项数
 `define TLBIndexBus			3:0					//TLB索引总线
+`define TLBDataWidth		64					//TLB数据宽度
 `define TLBDataBus			63:0				//TLB数据总线
 
 //*****************			与外设有关的宏定义		******************

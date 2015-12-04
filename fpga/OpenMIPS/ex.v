@@ -211,6 +211,7 @@ module ex(
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			moveres <= `ZeroWord;
+			cp0_reg_read_addr_o <= 5'b00000;
 		end else begin
 			moveres <= `ZeroWord;
 			cp0_reg_read_addr_o <= 5'b00000;

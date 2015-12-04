@@ -12,8 +12,6 @@ module openmips(
 	output		wire[`RegBus]			wishbone_data_o,
 	output		wire					wishbone_we_o,
 	output		wire[15:0]				wishbone_select_o,
-	output		wire					wishbone_stb_o,
-	output		wire					wishbone_cyc_o,
 
 	output		wire					timer_int_o
 	);
@@ -686,8 +684,6 @@ module openmips(
 		.wishbone_data_o(wishbone_data_o),
 		.wishbone_we_o(wishbone_we_o),
 		.wishbone_select_o(wishbone_select_o),
-		.wishbone_stb_o(wishbone_stb_o),
-		.wishbone_cyc_o(wishbone_cyc_o),
 
 		.stallreq(stallreq_from_wishbone)
 	);

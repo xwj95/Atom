@@ -67,8 +67,6 @@ module openmips_min_sopc(
 		.wishbone_data_o(wishbone_data_o),
 		.wishbone_we_o(wishbone_we_o),
 		.wishbone_select_o(wishbone_select_o),
-		.wishbone_stb_o(wishbone_stb_o),
-		.wishbone_cyc_o(wishbone_cyc_o),
 
 		.timer_int_o(timer_int)				//时钟中断输出
 	);
@@ -80,8 +78,6 @@ module openmips_min_sopc(
 		.wishbone_addr_i(wishbone_addr_o),
 		.wishbone_data_i(wishbone_data_o),
 		.wishbone_we_i(wishbone_we_o),
-		.wishbone_stb_i(wishbone_stb_o),
-		.wishbone_cyc_i(wishbone_cyc_o),
 		.wishbone_select_i(wishbone_select_o),
 		.wishbone_data_o(wishbone_data_i),
 		.wishbone_ack_o(wishbone_ack_i),

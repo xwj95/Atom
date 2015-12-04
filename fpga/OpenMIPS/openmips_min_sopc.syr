@@ -4,7 +4,7 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -183,6 +183,7 @@ Parsing module <openmips_min_sopc>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" Line 75: Port wishbone_stb_i is not connected to this instance
 
 Elaborating module <openmips_min_sopc>.
 
@@ -211,9 +212,9 @@ Elaborating module <hilo_reg>.
 Elaborating module <ctrl>.
 
 Elaborating module <cp0_reg>.
-WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 593: Assignment to cp0_count ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 595: Assignment to cp0_compare ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 599: Assignment to cp0_ebase ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 591: Assignment to cp0_count ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 593: Assignment to cp0_compare ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 597: Assignment to cp0_ebase ignored, since the identifier is never used
 
 Elaborating module <mmu>.
 
@@ -244,6 +245,7 @@ Elaborating module <uart_async_receiver(ClkFrequency=50000000,Baud=115200)>.
 Elaborating module <BaudTickGen(ClkFrequency=50000000,Baud=115200,Oversampling=8)>.
 
 Elaborating module <digseg_driver>.
+WARNING:HDLCompiler:552 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" Line 75: Input port wishbone_stb_i is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -251,19 +253,21 @@ Elaborating module <digseg_driver>.
 
 Synthesizing Unit <openmips_min_sopc>.
     Related source file is "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v".
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 77: Output port <rom_inst> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 77: Output port <flash_busy> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 77: Output port <uart_TxD_busy> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 77: Output port <uart_RxD_data_ready> of the instance <bus0> is unconnected or connected to loadless signal.
+WARNING:Xst:2898 - Port 'wishbone_stb_i', unconnected in block instance 'bus0', is tied to GND.
+WARNING:Xst:2898 - Port 'wishbone_cyc_i', unconnected in block instance 'bus0', is tied to GND.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 75: Output port <rom_inst> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 75: Output port <flash_busy> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 75: Output port <uart_TxD_busy> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.v" line 75: Output port <uart_RxD_data_ready> of the instance <bus0> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <openmips_min_sopc> synthesized.
 
 Synthesizing Unit <openmips>.
     Related source file is "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v".
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 573: Output port <count_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 573: Output port <compare_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 573: Output port <ebase_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 571: Output port <count_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 571: Output port <compare_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 571: Output port <ebase_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <openmips> synthesized.
@@ -347,28 +351,22 @@ WARNING:Xst:653 - Signal <stallreq> is used but never assigned. This sourceless 
     Found 32-bit adder for signal <mem_addr_o> created at line 101.
     Found 32-bit adder for signal <reg2_i[31]_GND_8_o_add_35_OUT> created at line 167.
     Found 32-bit adder for signal <result_sum> created at line 174.
-    Found 32-bit adder for signal <reg1_i[31]_GND_8_o_add_149_OUT> created at line 332.
-    Found 64-bit adder for signal <hilo_temp[63]_GND_8_o_add_163_OUT> created at line 351.
+    Found 32-bit adder for signal <reg1_i[31]_GND_8_o_add_149_OUT> created at line 333.
+    Found 64-bit adder for signal <hilo_temp[63]_GND_8_o_add_163_OUT> created at line 352.
     Found 32-bit shifter logical left for signal <reg2_i[31]_reg1_i[4]_shift_left_19_OUT> created at line 147
     Found 32-bit shifter logical right for signal <reg2_i[31]_reg1_i[4]_shift_right_20_OUT> created at line 150
     Found 32-bit shifter logical left for signal <reg2_i[31]_PWR_8_o_shift_left_22_OUT> created at line 153
-    Found 32x32-bit multiplier for signal <hilo_temp> created at line 339.
-    Found 32-bit 8-to-1 multiplexer for signal <wdata_o> created at line 370.
-    Found 32-bit 4-to-1 multiplexer for signal <_n0401> created at line 121.
-WARNING:Xst:737 - Found 1-bit latch for signal <cp0_reg_read_addr_o<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <cp0_reg_read_addr_o<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <cp0_reg_read_addr_o<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <cp0_reg_read_addr_o<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <cp0_reg_read_addr_o<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 32x32-bit multiplier for signal <hilo_temp> created at line 340.
+    Found 32-bit 8-to-1 multiplexer for signal <wdata_o> created at line 371.
+    Found 32-bit 4-to-1 multiplexer for signal <_n0396> created at line 121.
     Found 32-bit comparator greater for signal <reg1_i[31]_reg2_i[31]_LessThan_40_o> created at line 192
-    Found 5-bit comparator equal for signal <mem_cp0_reg_write_addr[4]_inst_i[15]_equal_53_o> created at line 242
-    Found 5-bit comparator equal for signal <wb_cp0_reg_write_addr[4]_inst_i[15]_equal_55_o> created at line 244
+    Found 5-bit comparator equal for signal <mem_cp0_reg_write_addr[4]_inst_i[15]_equal_53_o> created at line 243
+    Found 5-bit comparator equal for signal <wb_cp0_reg_write_addr[4]_inst_i[15]_equal_55_o> created at line 245
     Summary:
 	inferred   1 Multiplier(s).
 	inferred   6 Adder/Subtractor(s).
-	inferred   5 Latch(s).
 	inferred   3 Comparator(s).
-	inferred 103 Multiplexer(s).
+	inferred 104 Multiplexer(s).
 	inferred   3 Combinational logic shifter(s).
 Unit <ex> synthesized.
 
@@ -402,7 +400,7 @@ WARNING:Xst:647 - Input <excepttype_i<5:1>> is never used. This port will be pre
 WARNING:Xst:647 - Input <excepttype_i<23:23>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <cp0_bad_v_addr_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 32-bit 4-to-1 multiplexer for signal <mem_addr_i[1]_mem_data_i[7]_wide_mux_5_OUT> created at line 163.
-    Found 32-bit 4-to-1 multiplexer for signal <mem_addr_i[1]_GND_17_o_wide_mux_7_OUT> created at line 189.
+    Found 32-bit 4-to-1 multiplexer for signal <mem_addr_i[1]_GND_12_o_wide_mux_7_OUT> created at line 189.
     Found 32-bit 4-to-1 multiplexer for signal <mem_addr_i[1]_mem_data_i[7]_wide_mux_24_OUT> created at line 277.
     Found 32-bit 4-to-1 multiplexer for signal <mem_addr_i[1]_mem_data_i[31]_wide_mux_25_OUT> created at line 300.
     Found 32-bit 4-to-1 multiplexer for signal <mem_addr_i[1]_zero32[23]_wide_mux_38_OUT> created at line 386.
@@ -676,47 +674,14 @@ Synthesizing Unit <cp0_reg>.
     Found 1-bit register for signal <ebase_o<0>>.
     Found 1-bit register for signal <timer_int_o>.
     Found 1-bit register for signal <index_o<31>>.
-    Found 32-bit subtractor for signal <current_inst_addr_i[31]_GND_53_o_sub_149_OUT> created at line 155.
-    Found 32-bit adder for signal <count_o[31]_GND_53_o_add_2_OUT> created at line 74.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<31>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<30>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<29>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<28>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<27>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<26>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<25>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<24>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<23>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<22>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<21>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<20>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<19>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<18>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<17>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<16>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<14>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<13>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <data_o<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 32-bit subtractor for signal <current_inst_addr_i[31]_GND_48_o_sub_149_OUT> created at line 155.
+    Found 32-bit adder for signal <count_o[31]_GND_48_o_add_2_OUT> created at line 74.
     Found 32-bit comparator equal for signal <count_o[31]_compare_o[31]_equal_5_o> created at line 78
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred 353 D-type flip-flop(s).
-	inferred  32 Latch(s).
 	inferred   1 Comparator(s).
-	inferred  10 Multiplexer(s).
+	inferred  11 Multiplexer(s).
 Unit <cp0_reg> synthesized.
 
 Synthesizing Unit <mmu>.
@@ -736,7 +701,7 @@ WARNING:Xst:647 - Input <if_we_i> is never used. This port will be preserved and
     Found 1-bit register for signal <tlb_write_o>.
     Found 32-bit register for signal <tlb_addr_o>.
     Found 3-bit register for signal <mmu_state>.
-    Found 8x3-bit Read Only RAM for signal <_n0379>
+    Found 8x3-bit Read Only RAM for signal <_n0388>
 WARNING:Xst:737 - Found 1-bit latch for signal <memw_ack>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <memr_ack>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <mmu_state_next<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -852,49 +817,49 @@ WARNING:Xst:647 - Input <tlb_data<0:0>> is never used. This port will be preserv
 WARNING:Xst:647 - Input <tlb_data<22:22>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <tlb_data<63:63>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <tlb_ce> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 19-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][62]_wide_mux_34_OUT> created at line 106.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][23]_Mux_38_o> created at line 110.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][1]_Mux_42_o> created at line 115.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<19>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<18>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<17>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<16>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<15>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<14>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<13>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<12>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<11>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<10>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<9>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<8>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<7>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<6>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<5>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<4>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<3>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<2>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<1>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_37_OUT<0>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<19>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<18>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<17>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<16>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<15>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<14>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<13>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<12>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<11>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<10>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<9>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<8>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<7>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<6>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<5>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<4>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<3>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<2>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<1>> created at line 113.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_41_OUT<0>> created at line 113.
+    Found 19-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][62]_wide_mux_55_OUT> created at line 115.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][23]_Mux_59_o> created at line 119.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][1]_Mux_63_o> created at line 124.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<19>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<18>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<17>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<16>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<15>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<14>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<13>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<12>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<11>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<10>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<9>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<8>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<7>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<6>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<5>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<4>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<3>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<2>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<1>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_58_OUT<0>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<19>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<18>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<17>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<16>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<15>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<14>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<13>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<12>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<11>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<10>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<9>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<8>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<7>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<6>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<5>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<4>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<3>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<2>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<1>> created at line 122.
+    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_62_OUT<0>> created at line 122.
 WARNING:Xst:737 - Found 1-bit latch for signal <tlb_reg<0><62>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <tlb_reg<0><61>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <tlb_reg<0><60>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1875,34 +1840,34 @@ WARNING:Xst:737 - Found 1-bit latch for signal <tlb_find<3>>. Latches may be gen
 WARNING:Xst:737 - Found 1-bit latch for signal <tlb_find<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <tlb_find<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <tlb_find<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 19-bit comparator equal for signal <tlb_reg[0][62]_mmu_addr[31]_equal_3_o> created at line 57
-    Found 19-bit comparator equal for signal <tlb_reg[1][62]_mmu_addr[31]_equal_5_o> created at line 60
-    Found 19-bit comparator equal for signal <tlb_reg[2][62]_mmu_addr[31]_equal_7_o> created at line 63
-    Found 19-bit comparator equal for signal <tlb_reg[3][62]_mmu_addr[31]_equal_9_o> created at line 66
-    Found 19-bit comparator equal for signal <tlb_reg[4][62]_mmu_addr[31]_equal_11_o> created at line 69
-    Found 19-bit comparator equal for signal <tlb_reg[5][62]_mmu_addr[31]_equal_13_o> created at line 72
-    Found 19-bit comparator equal for signal <tlb_reg[6][62]_mmu_addr[31]_equal_15_o> created at line 75
-    Found 19-bit comparator equal for signal <tlb_reg[7][62]_mmu_addr[31]_equal_17_o> created at line 78
-    Found 19-bit comparator equal for signal <tlb_reg[8][62]_mmu_addr[31]_equal_19_o> created at line 81
-    Found 19-bit comparator equal for signal <tlb_reg[9][62]_mmu_addr[31]_equal_21_o> created at line 84
-    Found 19-bit comparator equal for signal <tlb_reg[10][62]_mmu_addr[31]_equal_23_o> created at line 87
-    Found 19-bit comparator equal for signal <tlb_reg[11][62]_mmu_addr[31]_equal_25_o> created at line 90
-    Found 19-bit comparator equal for signal <tlb_reg[12][62]_mmu_addr[31]_equal_27_o> created at line 93
-    Found 19-bit comparator equal for signal <tlb_reg[13][62]_mmu_addr[31]_equal_29_o> created at line 96
-    Found 19-bit comparator equal for signal <tlb_reg[14][62]_mmu_addr[31]_equal_31_o> created at line 99
-    Found 19-bit comparator equal for signal <tlb_reg[15][62]_mmu_addr[31]_equal_33_o> created at line 102
-    Found 19-bit comparator equal for signal <tlb_find[3]_mmu_addr[31]_equal_36_o> created at line 106
-    Found 32-bit comparator lessequal for signal <n1096> created at line 138
-    Found 32-bit comparator lessequal for signal <n1098> created at line 140
-    Found 32-bit comparator lessequal for signal <n1100> created at line 140
-    Found 32-bit comparator lessequal for signal <n1103> created at line 142
-    Found 32-bit comparator lessequal for signal <n1105> created at line 142
-    Found 32-bit comparator lessequal for signal <n1108> created at line 144
-    Found 32-bit comparator lessequal for signal <n1110> created at line 144
+    Found 19-bit comparator equal for signal <tlb_reg[0][62]_mmu_addr[31]_equal_24_o> created at line 66
+    Found 19-bit comparator equal for signal <tlb_reg[1][62]_mmu_addr[31]_equal_26_o> created at line 69
+    Found 19-bit comparator equal for signal <tlb_reg[2][62]_mmu_addr[31]_equal_28_o> created at line 72
+    Found 19-bit comparator equal for signal <tlb_reg[3][62]_mmu_addr[31]_equal_30_o> created at line 75
+    Found 19-bit comparator equal for signal <tlb_reg[4][62]_mmu_addr[31]_equal_32_o> created at line 78
+    Found 19-bit comparator equal for signal <tlb_reg[5][62]_mmu_addr[31]_equal_34_o> created at line 81
+    Found 19-bit comparator equal for signal <tlb_reg[6][62]_mmu_addr[31]_equal_36_o> created at line 84
+    Found 19-bit comparator equal for signal <tlb_reg[7][62]_mmu_addr[31]_equal_38_o> created at line 87
+    Found 19-bit comparator equal for signal <tlb_reg[8][62]_mmu_addr[31]_equal_40_o> created at line 90
+    Found 19-bit comparator equal for signal <tlb_reg[9][62]_mmu_addr[31]_equal_42_o> created at line 93
+    Found 19-bit comparator equal for signal <tlb_reg[10][62]_mmu_addr[31]_equal_44_o> created at line 96
+    Found 19-bit comparator equal for signal <tlb_reg[11][62]_mmu_addr[31]_equal_46_o> created at line 99
+    Found 19-bit comparator equal for signal <tlb_reg[12][62]_mmu_addr[31]_equal_48_o> created at line 102
+    Found 19-bit comparator equal for signal <tlb_reg[13][62]_mmu_addr[31]_equal_50_o> created at line 105
+    Found 19-bit comparator equal for signal <tlb_reg[14][62]_mmu_addr[31]_equal_52_o> created at line 108
+    Found 19-bit comparator equal for signal <tlb_reg[15][62]_mmu_addr[31]_equal_54_o> created at line 111
+    Found 19-bit comparator equal for signal <tlb_find[3]_mmu_addr[31]_equal_57_o> created at line 115
+    Found 32-bit comparator lessequal for signal <n1096> created at line 145
+    Found 32-bit comparator lessequal for signal <n1098> created at line 147
+    Found 32-bit comparator lessequal for signal <n1100> created at line 147
+    Found 32-bit comparator lessequal for signal <n1103> created at line 149
+    Found 32-bit comparator lessequal for signal <n1105> created at line 149
+    Found 32-bit comparator lessequal for signal <n1108> created at line 151
+    Found 32-bit comparator lessequal for signal <n1110> created at line 151
     Summary:
 	inferred 980 Latch(s).
 	inferred  24 Comparator(s).
-	inferred 115 Multiplexer(s).
+	inferred 116 Multiplexer(s).
 Unit <tlb> synthesized.
 
 Synthesizing Unit <wishbone_bus>.
@@ -1911,8 +1876,6 @@ Synthesizing Unit <wishbone_bus>.
     Found 32-bit register for signal <wishbone_data_o>.
     Found 1-bit register for signal <wishbone_we_o>.
     Found 16-bit register for signal <wishbone_select_o>.
-    Found 1-bit register for signal <wishbone_stb_o>.
-    Found 1-bit register for signal <wishbone_cyc_o>.
     Found 32-bit register for signal <rd_buf>.
     Found 2-bit register for signal <wishbone_state>.
     Found finite state machine <FSM_0> for signal <wishbone_state>.
@@ -1920,7 +1883,7 @@ Synthesizing Unit <wishbone_bus>.
     | States             | 3                                              |
     | Transitions        | 9                                              |
     | Inputs             | 4                                              |
-    | Outputs            | 4                                              |
+    | Outputs            | 2                                              |
     | Clock              | clk (rising_edge)                              |
     | Reset              | rst (positive)                                 |
     | Reset type         | synchronous                                    |
@@ -1928,39 +1891,39 @@ Synthesizing Unit <wishbone_bus>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_GND_1219_o_Mux_52_o> created at line 106.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<31>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<30>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<29>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<28>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<27>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<26>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<25>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<24>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<23>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<22>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<21>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<20>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<19>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<18>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<17>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<16>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<15>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<14>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<13>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<12>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<11>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<10>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<9>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<8>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<7>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<6>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<5>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<4>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<3>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<2>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<1>> created at line 98.
-    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_53_OUT<0>> created at line 98.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_GND_1182_o_Mux_50_o> created at line 96.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<31>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<30>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<29>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<28>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<27>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<26>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<25>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<24>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<23>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<22>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<21>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<20>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<19>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<18>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<17>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<16>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<15>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<14>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<13>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<12>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<11>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<10>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<9>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<8>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<7>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<6>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<5>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<4>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<3>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<2>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<1>> created at line 88.
+    Found 1-bit 3-to-1 multiplexer for signal <wishbone_state[1]_rd_buf[31]_wide_mux_51_OUT<0>> created at line 88.
 WARNING:Xst:737 - Found 1-bit latch for signal <mmu_data_o<31>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <mmu_data_o<30>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <mmu_data_o<29>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1994,7 +1957,7 @@ WARNING:Xst:737 - Found 1-bit latch for signal <mmu_data_o<2>>. Latches may be g
 WARNING:Xst:737 - Found 1-bit latch for signal <mmu_data_o<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <mmu_data_o<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Summary:
-	inferred 115 D-type flip-flop(s).
+	inferred 113 D-type flip-flop(s).
 	inferred  32 Latch(s).
 	inferred 103 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
@@ -2151,7 +2114,7 @@ Synthesizing Unit <flash_driver>.
     Found 22-bit register for signal <addr_latch>.
     Found 16-bit register for signal <data_in_latch>.
     Found 4-bit register for signal <state>.
-    Found 3-bit adder for signal <read_wait_cnt[2]_GND_1321_o_add_15_OUT> created at line 133.
+    Found 3-bit adder for signal <read_wait_cnt[2]_GND_1284_o_add_15_OUT> created at line 133.
     Found 1-bit tristate buffer for signal <flash_data<15>> created at line 29
     Found 1-bit tristate buffer for signal <flash_data<14>> created at line 29
     Found 1-bit tristate buffer for signal <flash_data<13>> created at line 29
@@ -2237,7 +2200,7 @@ Synthesizing Unit <uart_async_receiver>.
     | States             | 11                                             |
     | Transitions        | 32                                             |
     | Inputs             | 3                                              |
-    | Outputs            | 8                                              |
+    | Outputs            | 7                                              |
     | Clock              | clk (rising_edge)                              |
     | Reset              | rst (positive)                                 |
     | Reset type         | synchronous                                    |
@@ -2246,9 +2209,9 @@ Synthesizing Unit <uart_async_receiver>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 2-bit subtractor for signal <Filter_cnt[1]_GND_1341_o_sub_7_OUT> created at line 134.
-    Found 2-bit adder for signal <Filter_cnt[1]_GND_1341_o_add_3_OUT> created at line 132.
-    Found 3-bit adder for signal <OversamplingCnt[2]_GND_1341_o_add_19_OUT> created at line 150.
+    Found 2-bit subtractor for signal <Filter_cnt[1]_GND_1304_o_sub_7_OUT> created at line 134.
+    Found 2-bit adder for signal <Filter_cnt[1]_GND_1304_o_add_3_OUT> created at line 132.
+    Found 3-bit adder for signal <OversamplingCnt[2]_GND_1304_o_add_19_OUT> created at line 150.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  17 D-type flip-flop(s).
@@ -2262,7 +2225,7 @@ Synthesizing Unit <BaudTickGen_2>.
         Baud = 115200
         Oversampling = 8
     Found 18-bit register for signal <Acc>.
-    Found 18-bit adder for signal <GND_1342_o_BUS_0793_mux_2_OUT> created at line 230.
+    Found 18-bit adder for signal <GND_1305_o_BUS_0793_mux_2_OUT> created at line 230.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  18 D-type flip-flop(s).
@@ -2293,8 +2256,8 @@ Macro Statistics
  32-bit subtractor                                     : 1
  6-bit subtractor                                      : 1
  64-bit adder                                          : 1
-# Registers                                            : 309
- 1-bit register                                        : 235
+# Registers                                            : 307
+ 1-bit register                                        : 233
  12-bit register                                       : 1
  16-bit register                                       : 5
  18-bit register                                       : 2
@@ -2307,29 +2270,29 @@ Macro Statistics
  4-bit register                                        : 3
  5-bit register                                        : 5
  8-bit register                                        : 5
-# Latches                                              : 1183
- 1-bit latch                                           : 1183
+# Latches                                              : 1146
+ 1-bit latch                                           : 1146
 # Comparators                                          : 35
  19-bit comparator equal                               : 17
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 1
  32-bit comparator lessequal                           : 7
  5-bit comparator equal                                : 8
-# Multiplexers                                         : 957
+# Multiplexers                                         : 960
  1-bit 16-to-1 multiplexer                             : 42
  1-bit 2-to-1 multiplexer                              : 571
  1-bit 3-to-1 multiplexer                              : 33
  1-bit 4-to-1 multiplexer                              : 1
- 16-bit 2-to-1 multiplexer                             : 13
+ 16-bit 2-to-1 multiplexer                             : 14
  18-bit 2-to-1 multiplexer                             : 1
  19-bit 16-to-1 multiplexer                            : 1
  22-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 21
- 32-bit 2-to-1 multiplexer                             : 203
+ 32-bit 2-to-1 multiplexer                             : 204
  32-bit 4-to-1 multiplexer                             : 7
  32-bit 8-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 18
- 5-bit 2-to-1 multiplexer                              : 25
+ 5-bit 2-to-1 multiplexer                              : 26
  6-bit 2-to-1 multiplexer                              : 5
  64-bit 2-to-1 multiplexer                             : 4
  8-bit 2-to-1 multiplexer                              : 10
@@ -2352,71 +2315,71 @@ Macro Statistics
 INFO:Xst:2261 - The FF/Latch <ram_input_addr_19> in Unit <bus0> is equivalent to the following FF/Latch, which will be removed : <ram_input_addr_20> 
 WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_28> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_27> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <entry_hi_o_12> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_26> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_hi_o_11> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <entry_hi_o_12> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <entry_hi_o_8> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_hi_o_10> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_hi_o_9> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <entry_hi_o_8> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cause_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_29> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cause_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_28> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_27> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_26> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_25> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cause_o_20> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_24> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cause_o_19> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_31> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ebase_o_10> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ebase_o_11> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ebase_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_0> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ebase_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_1> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_7> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_11> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_12> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cause_o_13> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_14> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_15> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cause_o_13> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_16> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_17> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_18> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cause_o_20> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cause_o_19> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_21> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <index_o_14> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_15> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_16> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <index_o_17> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <index_o_14> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_18> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_19> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <index_o_17> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_20> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_21> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_22> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_23> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <index_o_24> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_25> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_26> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <index_o_24> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_27> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_28> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_29> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_29> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_31> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_26> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_27> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_28> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_29> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_27> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_31> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_6> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_30> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <index_o_7> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_8> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_9> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <index_o_7> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_10> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <index_o_11> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_12> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <index_o_13> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <index_o_11> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <wishbone_addr_o_22> of sequential type is unconnected in block <wishbone_bus0>.
 WARNING:Xst:2677 - Node <wishbone_addr_o_23> of sequential type is unconnected in block <wishbone_bus0>.
 WARNING:Xst:2677 - Node <wishbone_addr_o_24> of sequential type is unconnected in block <wishbone_bus0>.
@@ -2491,7 +2454,7 @@ The following registers are absorbed into counter <read_wait_cnt>: 1 register on
 Unit <flash_driver> synthesized (advanced).
 
 Synthesizing (advanced) Unit <mmu>.
-INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0379> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0388> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -2563,28 +2526,28 @@ Macro Statistics
 # Counters                                             : 3
  2-bit updown counter                                  : 1
  3-bit up counter                                      : 2
-# Registers                                            : 1839
- Flip-Flops                                            : 1839
+# Registers                                            : 1837
+ Flip-Flops                                            : 1837
 # Comparators                                          : 35
  19-bit comparator equal                               : 17
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 1
  32-bit comparator lessequal                           : 7
  5-bit comparator equal                                : 8
-# Multiplexers                                         : 972
+# Multiplexers                                         : 975
  1-bit 16-to-1 multiplexer                             : 61
  1-bit 2-to-1 multiplexer                              : 570
  1-bit 3-to-1 multiplexer                              : 33
  1-bit 4-to-1 multiplexer                              : 1
- 16-bit 2-to-1 multiplexer                             : 13
+ 16-bit 2-to-1 multiplexer                             : 14
  18-bit 2-to-1 multiplexer                             : 1
  22-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 19
- 32-bit 2-to-1 multiplexer                             : 203
+ 32-bit 2-to-1 multiplexer                             : 204
  32-bit 4-to-1 multiplexer                             : 7
  32-bit 8-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 18
- 5-bit 2-to-1 multiplexer                              : 25
+ 5-bit 2-to-1 multiplexer                              : 26
  6-bit 2-to-1 multiplexer                              : 5
  64-bit 2-to-1 multiplexer                             : 4
  8-bit 2-to-1 multiplexer                              : 10
@@ -2601,34 +2564,34 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <entry_lo_1_o_31> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_1_o_30> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <entry_lo_0_o_26> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_1_o_31> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_1_o_29> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_1_o_28> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_1_o_27> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_hi_o_12> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_1_o_26> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_hi_o_11> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_hi_o_12> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_hi_o_8> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_hi_o_10> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_hi_o_9> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_hi_o_8> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_30> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_29> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_30> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_28> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_27> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_26> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_25> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_24> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_19> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_21> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_20> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_24> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_21> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_19> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_18> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_17> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_16> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_7> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_1> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_0> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ebase_o_30> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cause_o_0> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ebase_o_11> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ebase_o_10> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_31> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
@@ -2636,36 +2599,36 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_30> (withou
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_29> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_28> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_27> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_24> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_26> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_25> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_24> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_23> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_22> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_21> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_20> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_17> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_19> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_18> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_17> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_14> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_16> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_15> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_14> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_11> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_13> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_12> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_11> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_10> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_7> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_9> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_8> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_7> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_30> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <index_o_6> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_31> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_30> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_27> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_29> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_28> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_27> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_0_o_26> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <entry_lo_1_o_30> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <ram_input_addr_19> in Unit <bus> is equivalent to the following FF/Latch, which will be removed : <ram_input_addr_20> 
-INFO:Xst:2261 - The FF/Latch <cause_o_15> in Unit <cp0_reg> is equivalent to the following 4 FFs/Latches, which will be removed : <cause_o_14> <cause_o_13> <cause_o_12> <cause_o_11> 
-WARNING:Xst:1710 - FF/Latch <cause_o_15> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <cause_o_13> in Unit <cp0_reg> is equivalent to the following 4 FFs/Latches, which will be removed : <cause_o_15> <cause_o_14> <cause_o_12> <cause_o_11> 
+WARNING:Xst:1710 - FF/Latch <cause_o_13> (without init value) has a constant value of 0 in block <cp0_reg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <rom_input_addr_0> of sequential type is unconnected in block <bus>.
 WARNING:Xst:2677 - Node <rom_input_addr_1> of sequential type is unconnected in block <bus>.
 WARNING:Xst:2677 - Node <rom_input_addr_2> of sequential type is unconnected in block <bus>.
@@ -2751,7 +2714,6 @@ WARNING:Xst:2677 - Node <Acc_0> of sequential type is unconnected in block <Baud
 WARNING:Xst:2677 - Node <Acc_1> of sequential type is unconnected in block <BaudTickGen_2>.
 WARNING:Xst:2677 - Node <Acc_2> of sequential type is unconnected in block <BaudTickGen_2>.
 WARNING:Xst:2677 - Node <Acc_3> of sequential type is unconnected in block <BaudTickGen_2>.
-INFO:Xst:2261 - The FF/Latch <wishbone_stb_o> in Unit <wishbone_bus> is equivalent to the following FF/Latch, which will be removed : <wishbone_cyc_o> 
 INFO:Xst:2261 - The FF/Latch <mmu_we_o> in Unit <mmu> is equivalent to the following FF/Latch, which will be removed : <tlb_write_o> 
 INFO:Xst:2261 - The FF/Latch <data_to_write_0> in Unit <flash_driver> is equivalent to the following 3 FFs/Latches, which will be removed : <data_to_write_1> <data_to_write_2> <data_to_write_3> 
 INFO:Xst:2261 - The FF/Latch <data_to_write_4> in Unit <flash_driver> is equivalent to the following FF/Latch, which will be removed : <data_to_write_6> 
@@ -2933,29 +2895,29 @@ WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_0> of sequential typ
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_1> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_2> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_3> of sequential type is unconnected in block <openmips_min_sopc>.
-WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_4> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_5> of sequential type is unconnected in block <openmips_min_sopc>.
+WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_6> of sequential type is unconnected in block <openmips_min_sopc>.
+WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_4> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_7> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_8> of sequential type is unconnected in block <openmips_min_sopc>.
-WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_6> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_9> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_10> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_11> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_12> of sequential type is unconnected in block <openmips_min_sopc>.
-WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_13> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_14> of sequential type is unconnected in block <openmips_min_sopc>.
+WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_15> of sequential type is unconnected in block <openmips_min_sopc>.
+WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_13> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_16> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_17> of sequential type is unconnected in block <openmips_min_sopc>.
-WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_15> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_18> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_19> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_20> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_21> of sequential type is unconnected in block <openmips_min_sopc>.
-WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_22> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_23> of sequential type is unconnected in block <openmips_min_sopc>.
+WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_24> of sequential type is unconnected in block <openmips_min_sopc>.
+WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_22> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_25> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_26> of sequential type is unconnected in block <openmips_min_sopc>.
-WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_24> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_27> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_28> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/mmu_data_o_29> of sequential type is unconnected in block <openmips_min_sopc>.
@@ -2971,7 +2933,6 @@ WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/wishbone_addr_o_25> of sequenti
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/wishbone_addr_o_24> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/wishbone_addr_o_23> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/wishbone_addr_o_22> of sequential type is unconnected in block <openmips_min_sopc>.
-WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/wishbone_stb_o> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/rd_buf_31> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/rd_buf_30> of sequential type is unconnected in block <openmips_min_sopc>.
 WARNING:Xst:2677 - Node <openmips0/wishbone_bus0/rd_buf_29> of sequential type is unconnected in block <openmips_min_sopc>.
@@ -3143,21 +3104,21 @@ Top Level Output File Name         : openmips_min_sopc.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 5189
+# BELS                             : 5202
 #      GND                         : 1
 #      INV                         : 176
 #      LUT1                        : 140
-#      LUT2                        : 277
-#      LUT3                        : 313
-#      LUT4                        : 533
-#      LUT5                        : 622
-#      LUT6                        : 1942
+#      LUT2                        : 267
+#      LUT3                        : 244
+#      LUT4                        : 568
+#      LUT5                        : 656
+#      LUT6                        : 1955
 #      MUXCY                       : 554
-#      MUXF7                       : 167
+#      MUXF7                       : 177
 #      MUXF8                       : 61
 #      VCC                         : 1
 #      XORCY                       : 402
-# FlipFlops/Latches                : 2640
+# FlipFlops/Latches                : 2603
 #      FD                          : 53
 #      FDE                         : 152
 #      FDR                         : 201
@@ -3165,16 +3126,15 @@ Primitive and Black Box Usage:
 #      FDS                         : 4
 #      FDSE                        : 5
 #      LD                          : 4
-#      LD_1                        : 5
-#      LDC                         : 64
+#      LDC                         : 32
 #      LDCE                        : 976
 #      LDE_1                       : 96
 #      LDP                         : 6
 # RAMS                             : 14
 #      RAM32M                      : 10
 #      RAM32X1D                    : 4
-# Clock Buffers                    : 5
-#      BUFG                        : 4
+# Clock Buffers                    : 4
+#      BUFG                        : 3
 #      BUFGP                       : 1
 # IO Buffers                       : 174
 #      IBUF                        : 2
@@ -3191,25 +3151,25 @@ Selected Device : 6slx100fgg676-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            2640  out of  126576     2%  
- Number of Slice LUTs:                 4051  out of  63288     6%  
-    Number used as Logic:              4003  out of  63288     6%  
+ Number of Slice Registers:            2603  out of  126576     2%  
+ Number of Slice LUTs:                 4054  out of  63288     6%  
+    Number used as Logic:              4006  out of  63288     6%  
     Number used as Memory:               48  out of  15616     0%  
        Number used as RAM:               48
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   5400
-   Number with an unused Flip Flop:    2760  out of   5400    51%  
-   Number with an unused LUT:          1349  out of   5400    24%  
-   Number of fully used LUT-FF pairs:  1291  out of   5400    23%  
-   Number of unique control sets:        64
+ Number of LUT Flip Flop pairs used:   5536
+   Number with an unused Flip Flop:    2933  out of   5536    52%  
+   Number with an unused LUT:          1482  out of   5536    26%  
+   Number of fully used LUT-FF pairs:  1121  out of   5536    20%  
+   Number of unique control sets:        62
 
 IO Utilization: 
  Number of IOs:                         175
  Number of bonded IOBs:                 175  out of    480    36%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                5  out of     16    31%  
+ Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
  Number of DSP48A1s:                      4  out of    180     2%  
 
 ---------------------------
@@ -3234,17 +3194,16 @@ Clock Information:
 Clock Signal                                                                                                               | Clock buffer(FF name)                   | Load  |
 ---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+-------+
 clk                                                                                                                        | BUFGP                                   | 1503  |
-openmips0/cp0_reg0/_n0834(openmips0/cp0_reg0/out1:O)                                                                       | BUFG(*)(openmips0/cp0_reg0/data_o_0)    | 32    |
-rst                                                                                                                        | IBUF+BUFG                               | 101   |
-openmips0/mmu0/mmu_state[2]_PWR_53_o_Mux_61_o(openmips0/mmu0/Mmux_mmu_state[2]_PWR_53_o_Mux_61_o11:O)                      | NONE(*)(openmips0/mmu0/mmu_state_next_1)| 3     |
-openmips0/mmu0/Mram__n0379(openmips0/mmu0/Mram__n03791:O)                                                                  | NONE(*)(openmips0/mmu0/memr_ack)        | 1     |
-openmips0/mmu0/Mram__n03791(openmips0/mmu0/Mram__n0379111:O)                                                               | NONE(*)(openmips0/mmu0/memw_ack)        | 1     |
-openmips0/mmu0/Mram__n03792(openmips0/mmu0/Mram__n037921:O)                                                                | NONE(*)(openmips0/mmu0/if_ack)          | 1     |
+rst                                                                                                                        | IBUF+BUFG                               | 96    |
+openmips0/mmu0/mmu_state[2]_PWR_21_o_Mux_61_o(openmips0/mmu0/Mmux_mmu_state[2]_PWR_21_o_Mux_61_o11:O)                      | NONE(*)(openmips0/mmu0/mmu_state_next_1)| 3     |
+openmips0/mmu0/Mram__n0388(openmips0/mmu0/Mram__n03881:O)                                                                  | NONE(*)(openmips0/mmu0/memr_ack)        | 1     |
+openmips0/mmu0/Mram__n03881(openmips0/mmu0/Mram__n0388111:O)                                                               | NONE(*)(openmips0/mmu0/memw_ack)        | 1     |
+openmips0/mmu0/Mram__n03882(openmips0/mmu0/Mram__n038821:O)                                                                | NONE(*)(openmips0/mmu0/if_ack)          | 1     |
 openmips0/ctrl0/excepttype_i[31]_stallreq_from_mem_OR_704_o(openmips0/ctrl0/excepttype_i[31]_stallreq_from_mem_OR_704_o1:O)| BUFG(*)(openmips0/ctrl0/new_pc_31)      | 32    |
 openmips0/tlb0/rst_mmu_addr[31]_AND_2605_o(openmips0/tlb0/rst_mmu_addr[31]_AND_2605_o:O)                                   | NONE(*)(openmips0/tlb0/tlb_find_0)      | 4     |
 openmips0/tlb_we(openmips0/mem0/Mmux_tlb_we_o11:O)                                                                         | BUFG(*)(openmips0/tlb0/tlb_reg<15>_1)   | 976   |
 ---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+-------+
-(*) These 8 clock signal(s) are generated by combinatorial logic,
+(*) These 7 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -3258,7 +3217,7 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 22.643ns (Maximum Frequency: 44.163MHz)
-   Minimum input arrival time before clock: 19.502ns
+   Minimum input arrival time before clock: 20.472ns
    Maximum output required time after clock: 5.337ns
    Maximum combinational path delay: No path found
 
@@ -3269,7 +3228,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 22.643ns (frequency: 44.163MHz)
-  Total number of paths / destination ports: 132679321122 / 3472
+  Total number of paths / destination ports: 132682734197 / 3472
 -------------------------------------------------------------------------
 Delay:               22.643ns (Levels of Logic = 25)
   Source:            openmips0/id_ex0/ex_aluop_2 (FF)
@@ -3288,7 +3247,7 @@ Delay:               22.643ns (Levels of Logic = 25)
      DSP48A1:A0->P47      18   4.560   1.049  openmips0/ex0/Mmult_hilo_temp (openmips0/ex0/Mmult_hilo_temp_P47_to_Mmult_hilo_temp1)
      DSP48A1:C30->PCOUT47    1   2.689   0.000  openmips0/ex0/Mmult_hilo_temp1 (openmips0/ex0/Mmult_hilo_temp1_PCOUT_to_Mmult_hilo_temp2_PCIN_47)
      DSP48A1:PCIN47->P2    8   2.264   0.802  openmips0/ex0/Mmult_hilo_temp2 (openmips0/ex0/hilo_temp<19>)
-     INV:I->O              1   0.206   0.000  openmips0/ex0/n0374<19>1_INV_0 (openmips0/ex0/n0374<19>)
+     INV:I->O              1   0.206   0.000  openmips0/ex0/n0369<19>1_INV_0 (openmips0/ex0/n0369<19>)
      MUXCY:S->O            1   0.172   0.000  openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<19> (openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<19>)
      MUXCY:CI->O           1   0.019   0.000  openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<20> (openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<20>)
      MUXCY:CI->O           1   0.019   0.000  openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<21> (openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<21>)
@@ -3302,8 +3261,8 @@ Delay:               22.643ns (Levels of Logic = 25)
      MUXCY:CI->O           1   0.019   0.000  openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<29> (openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<29>)
      XORCY:CI->O           4   0.180   0.684  openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_xor<30> (openmips0/ex0/hilo_temp[63]_GND_8_o_add_163_OUT<30>)
      LUT6:I5->O            6   0.205   0.849  openmips0/id0/Mmux_GND_5_o_imm[31]_mux_269_OUT1661 (openmips0/id_reg1_o<30>)
-     LUT5:I3->O            1   0.203   0.808  openmips0/id0/n01117_SW1 (N548)
-     LUT6:I3->O            2   0.205   0.617  openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N475)
+     LUT5:I3->O            1   0.203   0.808  openmips0/id0/n01117_SW1 (N550)
+     LUT6:I3->O            2   0.205   0.617  openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N477)
      LUT6:I5->O           16   0.205   1.005  openmips0/id0/Mmux_branch_target_address_o10111 (openmips0/id0/Mmux_branch_target_address_o1011)
      LUT4:I3->O            2   0.205   0.617  openmips0/id0/Mmux_branch_target_address_o1111 (openmips0/id0/Mmux_branch_target_address_o111)
      LUT6:I5->O            1   0.205   0.000  openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT1 (openmips0/pc_reg0/pc[31]_new_pc[31]_mux_10_OUT<0>)
@@ -3335,9 +3294,9 @@ Delay:               1.364ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 811409 / 2451
+  Total number of paths / destination ports: 1156767 / 2451
 -------------------------------------------------------------------------
-Offset:              19.502ns (Levels of Logic = 17)
+Offset:              20.472ns (Levels of Logic = 18)
   Source:            rst (PAD)
   Destination:       openmips0/pc_reg0/pc_1 (FF)
   Destination Clock: clk rising
@@ -3346,52 +3305,34 @@ Offset:              19.502ns (Levels of Logic = 17)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.598  rst_IBUF (rst_IBUF)
-     LUT2:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_cp0_reg_write_addr_o11 (openmips0/mem_cp0_reg_write_addr_o<0>)
-     LUT6:I1->O            1   0.203   0.924  openmips0/ex0/mem_cp0_reg_we_mem_cp0_reg_write_addr[4]_AND_157_o_SW0 (N194)
-     LUT6:I1->O           32   0.203   1.636  openmips0/ex0/mem_cp0_reg_we_mem_cp0_reg_write_addr[4]_AND_157_o (openmips0/ex0/mem_cp0_reg_we_mem_cp0_reg_write_addr[4]_AND_157_o)
-     LUT6:I1->O            1   0.203   0.827  openmips0/ex0/Mmux_wdata_o123 (openmips0/ex0/Mmux_wdata_o122)
-     LUT6:I2->O            1   0.203   0.808  openmips0/ex0/Mmux_wdata_o1210 (openmips0/ex0/Mmux_wdata_o129)
-     LUT6:I3->O            1   0.205   0.684  openmips0/ex0/Mmux_wdata_o1241 (openmips0/ex0/Mmux_wdata_o1240)
-     LUT6:I4->O            4   0.203   0.684  openmips0/ex0/Mmux_wdata_o1242 (openmips0/ex_wdata_o<1>)
-     LUT6:I5->O            3   0.205   0.651  openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o114 (openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o_mmx_out1)
-     LUT2:I1->O            2   0.205   0.617  openmips0/id0/Mmux_GND_5_o_imm[31]_mux_269_OUT1541 (openmips0/id_reg1_o<1>)
-     LUT6:I5->O            1   0.205   0.580  openmips0/id0/n01112_SW0 (N683)
+     IBUF:I->O          2658   1.222   2.949  rst_IBUF (rst_IBUF)
+     LUT5:I0->O           61   0.203   1.849  openmips0/ex0/Mmux_cp0_reg_read_addr_o41 (openmips0/cp0_raddr_i<3>)
+     LUT5:I2->O           23   0.205   1.258  openmips0/cp0_reg0/raddr_i[4]_index_o[31]_select_255_OUT<30>31 (openmips0/cp0_reg0/raddr_i[4]_index_o[31]_select_255_OUT<30>3)
+     LUT4:I2->O            1   0.203   0.580  openmips0/ex0/Mmux_wdata_o117 (openmips0/ex0/Mmux_wdata_o19)
+     LUT6:I5->O            1   0.205   0.580  openmips0/ex0/Mmux_wdata_o131 (openmips0/ex0/Mmux_wdata_o120)
+     LUT5:I4->O            1   0.205   0.580  openmips0/ex0/Mmux_wdata_o132_SW0 (N949)
+     LUT6:I5->O            1   0.205   0.580  openmips0/ex0/Mmux_wdata_o132 (openmips0/ex0/Mmux_wdata_o130)
+     LUT6:I5->O            1   0.205   0.684  openmips0/ex0/Mmux_wdata_o150 (openmips0/ex0/Mmux_wdata_o148)
+     LUT6:I4->O            4   0.203   0.684  openmips0/ex0/Mmux_wdata_o151 (openmips0/ex_wdata_o<0>)
+     LUT6:I5->O            3   0.205   0.651  openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o14 (openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o_mmx_out)
+     LUT2:I1->O            2   0.205   0.721  openmips0/id0/Mmux_GND_5_o_imm[31]_mux_269_OUT1431 (openmips0/id_reg1_o<0>)
+     LUT6:I4->O            1   0.203   0.580  openmips0/id0/n01112_SW0 (N685)
      LUT6:I5->O            1   0.205   0.808  openmips0/id0/n01113 (openmips0/id0/n01113)
      LUT5:I2->O            4   0.205   0.931  openmips0/id0/n01115 (openmips0/id0/n01115)
-     LUT6:I2->O            2   0.203   0.617  openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N475)
+     LUT6:I2->O            2   0.203   0.617  openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N477)
      LUT6:I5->O           16   0.205   1.005  openmips0/id0/Mmux_branch_target_address_o10111 (openmips0/id0/Mmux_branch_target_address_o1011)
      LUT4:I3->O            2   0.205   0.617  openmips0/id0/Mmux_branch_target_address_o1111 (openmips0/id0/Mmux_branch_target_address_o111)
      LUT6:I5->O            1   0.205   0.000  openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT1 (openmips0/pc_reg0/pc[31]_new_pc[31]_mux_10_OUT<0>)
      FDRE:D                    0.102          openmips0/pc_reg0/pc_0
     ----------------------------------------
-    Total                     19.502ns (4.592ns logic, 14.910ns route)
-                                       (23.5% logic, 76.5% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/cp0_reg0/_n0834'
-  Total number of paths / destination ports: 32 / 32
--------------------------------------------------------------------------
-Offset:              4.249ns (Levels of Logic = 1)
-  Source:            rst (PAD)
-  Destination:       openmips0/cp0_reg0/data_o_0 (LATCH)
-  Destination Clock: openmips0/cp0_reg0/_n0834 falling
-
-  Data Path: rst to openmips0/cp0_reg0/data_o_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.597  rst_IBUF (rst_IBUF)
-     LDC:CLR                   0.430          openmips0/cp0_reg0/data_o_31
-    ----------------------------------------
-    Total                      4.249ns (1.652ns logic, 2.597ns route)
-                                       (38.9% logic, 61.1% route)
+    Total                     20.472ns (4.799ns logic, 15.673ns route)
+                                       (23.4% logic, 76.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'rst'
   Total number of paths / destination ports: 1088 / 96
 -------------------------------------------------------------------------
-Offset:              12.046ns (Levels of Logic = 8)
+Offset:              12.054ns (Levels of Logic = 8)
   Source:            rst (PAD)
   Destination:       openmips0/mmu0/mem_wdata_0 (LATCH)
   Destination Clock: rst rising
@@ -3400,114 +3341,114 @@ Offset:              12.046ns (Levels of Logic = 8)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.826  rst_IBUF (rst_IBUF)
-     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N202)
+     IBUF:I->O          2658   1.222   2.833  rst_IBUF (rst_IBUF)
+     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N204)
      LUT6:I1->O            4   0.203   1.048  openmips0/mem0/Mmux_excepttype_is_adel1 (openmips0/mem0/excepttype_is_adel)
-     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N208)
+     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N210)
      LUT6:I4->O           21   0.203   1.458  openmips0/mem0/Mmux_excepttype_is_ades11 (openmips0/mem_excepttype_o<0>)
      LUT5:I0->O            3   0.203   0.651  openmips0/mem0/mem_we_o3 (openmips0/ram_we_o)
      LUT5:I4->O            4   0.205   0.684  openmips0/mmu0/mmu_state[2]_mem_ce_i_Mux_64_o11 (openmips0/mmu0/mmu_state[2]_mem_ce_i_Mux_64_o_bdd0)
      LUT6:I5->O            8   0.205   0.802  openmips0/mmu0/mmu_state[2]_mem_ce_i_Mux_64_o1 (openmips0/mmu0/mmu_state[2]_mem_ce_i_Mux_64_o)
      LDE_1:GE                  0.322          openmips0/mmu0/mem_wdata_31
     ----------------------------------------
-    Total                     12.046ns (2.971ns logic, 9.075ns route)
-                                       (24.7% logic, 75.3% route)
+    Total                     12.054ns (2.971ns logic, 9.083ns route)
+                                       (24.6% logic, 75.4% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/mmu_state[2]_PWR_53_o_Mux_61_o'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/mmu_state[2]_PWR_21_o_Mux_61_o'
   Total number of paths / destination ports: 3 / 3
 -------------------------------------------------------------------------
-Offset:              4.249ns (Levels of Logic = 1)
+Offset:              4.256ns (Levels of Logic = 1)
   Source:            rst (PAD)
   Destination:       openmips0/mmu0/mmu_state_next_1 (LATCH)
-  Destination Clock: openmips0/mmu0/mmu_state[2]_PWR_53_o_Mux_61_o falling
+  Destination Clock: openmips0/mmu0/mmu_state[2]_PWR_21_o_Mux_61_o falling
 
   Data Path: rst to openmips0/mmu0/mmu_state_next_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.597  rst_IBUF (rst_IBUF)
+     IBUF:I->O          2658   1.222   2.604  rst_IBUF (rst_IBUF)
      LDP:PRE                   0.430          openmips0/mmu0/mmu_state_next_2
     ----------------------------------------
-    Total                      4.249ns (1.652ns logic, 2.597ns route)
-                                       (38.9% logic, 61.1% route)
+    Total                      4.256ns (1.652ns logic, 2.604ns route)
+                                       (38.8% logic, 61.2% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/Mram__n0379'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/Mram__n0388'
   Total number of paths / destination ports: 34 / 2
 -------------------------------------------------------------------------
-Offset:              11.426ns (Levels of Logic = 8)
+Offset:              11.433ns (Levels of Logic = 8)
   Source:            rst (PAD)
   Destination:       openmips0/mmu0/memr_ack (LATCH)
-  Destination Clock: openmips0/mmu0/Mram__n0379 falling
+  Destination Clock: openmips0/mmu0/Mram__n0388 falling
 
   Data Path: rst to openmips0/mmu0/memr_ack
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.826  rst_IBUF (rst_IBUF)
-     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N202)
+     IBUF:I->O          2658   1.222   2.833  rst_IBUF (rst_IBUF)
+     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N204)
      LUT6:I1->O            4   0.203   1.048  openmips0/mem0/Mmux_excepttype_is_adel1 (openmips0/mem0/excepttype_is_adel)
-     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N208)
+     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N210)
      LUT6:I4->O           21   0.203   1.458  openmips0/mem0/Mmux_excepttype_is_ades11 (openmips0/mem_excepttype_o<0>)
      LUT5:I0->O            3   0.203   0.995  openmips0/mem0/mem_we_o3 (openmips0/ram_we_o)
-     LUT5:I0->O            1   0.203   0.808  openmips0/mmu0/Mmux_mmu_state[2]_PWR_49_o_Mux_50_o1_SW1 (N945)
-     LUT6:I3->O            1   0.205   0.000  openmips0/mmu0/Mmux_mmu_state[2]_PWR_49_o_Mux_50_o1 (openmips0/mmu0/mmu_state[2]_PWR_49_o_Mux_50_o)
+     LUT5:I0->O            1   0.203   0.808  openmips0/mmu0/Mmux_mmu_state[2]_PWR_17_o_Mux_50_o1_SW1 (N939)
+     LUT6:I3->O            1   0.205   0.000  openmips0/mmu0/Mmux_mmu_state[2]_PWR_17_o_Mux_50_o1 (openmips0/mmu0/mmu_state[2]_PWR_17_o_Mux_50_o)
      LDP:D                     0.037          openmips0/mmu0/memr_ack
     ----------------------------------------
-    Total                     11.426ns (2.684ns logic, 8.742ns route)
+    Total                     11.433ns (2.684ns logic, 8.749ns route)
                                        (23.5% logic, 76.5% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/Mram__n03791'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/Mram__n03881'
   Total number of paths / destination ports: 31 / 2
 -------------------------------------------------------------------------
-Offset:              10.299ns (Levels of Logic = 7)
+Offset:              10.307ns (Levels of Logic = 7)
   Source:            rst (PAD)
   Destination:       openmips0/mmu0/memw_ack (LATCH)
-  Destination Clock: openmips0/mmu0/Mram__n03791 falling
+  Destination Clock: openmips0/mmu0/Mram__n03881 falling
 
   Data Path: rst to openmips0/mmu0/memw_ack
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.826  rst_IBUF (rst_IBUF)
-     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N202)
+     IBUF:I->O          2658   1.222   2.833  rst_IBUF (rst_IBUF)
+     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N204)
      LUT6:I1->O            4   0.203   1.048  openmips0/mem0/Mmux_excepttype_is_adel1 (openmips0/mem0/excepttype_is_adel)
-     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N208)
+     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N210)
      LUT6:I4->O           21   0.203   1.458  openmips0/mem0/Mmux_excepttype_is_ades11 (openmips0/mem_excepttype_o<0>)
      LUT5:I0->O            3   0.203   0.879  openmips0/mem0/mem_we_o3 (openmips0/ram_we_o)
-     LUT5:I2->O            1   0.205   0.000  openmips0/mmu0/Mmux_mmu_state[2]_PWR_49_o_Mux_49_o11 (openmips0/mmu0/mmu_state[2]_PWR_49_o_Mux_49_o)
+     LUT5:I2->O            1   0.205   0.000  openmips0/mmu0/Mmux_mmu_state[2]_PWR_17_o_Mux_49_o11 (openmips0/mmu0/mmu_state[2]_PWR_17_o_Mux_49_o)
      LDP:D                     0.037          openmips0/mmu0/memw_ack
     ----------------------------------------
-    Total                     10.299ns (2.481ns logic, 7.818ns route)
+    Total                     10.307ns (2.481ns logic, 7.826ns route)
                                        (24.1% logic, 75.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/Mram__n03792'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/mmu0/Mram__n03882'
   Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
-Offset:              4.290ns (Levels of Logic = 2)
+Offset:              4.297ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       openmips0/mmu0/if_ack (LATCH)
-  Destination Clock: openmips0/mmu0/Mram__n03792 falling
+  Destination Clock: openmips0/mmu0/Mram__n03882 falling
 
   Data Path: rst to openmips0/mmu0/if_ack
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.826  rst_IBUF (rst_IBUF)
+     IBUF:I->O          2658   1.222   2.833  rst_IBUF (rst_IBUF)
      LUT4:I1->O            1   0.205   0.000  openmips0/mmu0/Mmux_mmu_state[2]_if_ce_i_Mux_47_o11 (openmips0/mmu0/mmu_state[2]_if_ce_i_Mux_47_o)
      LDP:D                     0.037          openmips0/mmu0/if_ack
     ----------------------------------------
-    Total                      4.290ns (1.464ns logic, 2.826ns route)
+    Total                      4.297ns (1.464ns logic, 2.833ns route)
                                        (34.1% logic, 65.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/ctrl0/excepttype_i[31]_stallreq_from_mem_OR_704_o'
   Total number of paths / destination ports: 1800 / 64
 -------------------------------------------------------------------------
-Offset:              11.739ns (Levels of Logic = 7)
+Offset:              11.746ns (Levels of Logic = 7)
   Source:            rst (PAD)
   Destination:       openmips0/ctrl0/new_pc_31 (LATCH)
   Destination Clock: openmips0/ctrl0/excepttype_i[31]_stallreq_from_mem_OR_704_o falling
@@ -3516,23 +3457,23 @@ Offset:              11.739ns (Levels of Logic = 7)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.826  rst_IBUF (rst_IBUF)
-     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N202)
+     IBUF:I->O          2658   1.222   2.833  rst_IBUF (rst_IBUF)
+     LUT4:I1->O            1   0.205   0.924  openmips0/mem0/Mmux_excepttype_is_adel1_SW0 (N204)
      LUT6:I1->O            4   0.203   1.048  openmips0/mem0/Mmux_excepttype_is_adel1 (openmips0/mem0/excepttype_is_adel)
-     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N208)
+     LUT6:I0->O            1   0.203   0.684  openmips0/mem0/Mmux_excepttype_is_ades11_SW0 (N210)
      LUT6:I4->O           21   0.203   1.361  openmips0/mem0/Mmux_excepttype_is_ades11 (openmips0/mem_excepttype_o<0>)
      LUT4:I0->O          330   0.203   2.418  openmips0/ctrl0/n0001<31>1 (openmips0/ctrl0/n0001)
-     LUT6:I1->O            1   0.203   0.000  openmips0/ctrl0/Mmux_GND_20_o_excepttype_i[31]_mux_28_OUT<0>11 (openmips0/ctrl0/GND_20_o_excepttype_i[31]_mux_28_OUT<0>)
+     LUT6:I1->O            1   0.203   0.000  openmips0/ctrl0/Mmux_GND_15_o_excepttype_i[31]_mux_28_OUT<0>11 (openmips0/ctrl0/GND_15_o_excepttype_i[31]_mux_28_OUT<0>)
      LDC:D                     0.037          openmips0/ctrl0/new_pc_0
     ----------------------------------------
-    Total                     11.739ns (2.479ns logic, 9.260ns route)
+    Total                     11.746ns (2.479ns logic, 9.267ns route)
                                        (21.1% logic, 78.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'openmips0/tlb_we'
   Total number of paths / destination ports: 5856 / 2928
 -------------------------------------------------------------------------
-Offset:              7.666ns (Levels of Logic = 3)
+Offset:              7.674ns (Levels of Logic = 3)
   Source:            rst (PAD)
   Destination:       openmips0/tlb0/tlb_reg<15>_1 (LATCH)
   Destination Clock: openmips0/tlb_we falling
@@ -3541,12 +3482,12 @@ Offset:              7.666ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2626   1.222   2.845  rst_IBUF (rst_IBUF)
+     IBUF:I->O          2658   1.222   2.852  rst_IBUF (rst_IBUF)
      LUT5:I1->O           16   0.203   1.252  openmips0/mem0/Mmux_tlb_index_o41 (openmips0/tlb_index<3>)
-     LUT4:I0->O           61   0.203   1.620  openmips0/tlb0/tlb_index[3]_Decoder_50_OUT<13><3>1 (openmips0/tlb0/tlb_index[3]_Decoder_50_OUT<13>)
+     LUT4:I0->O           61   0.203   1.620  openmips0/tlb0/tlb_index[3]_Decoder_2_OUT<13><3>1 (openmips0/tlb0/tlb_index[3]_Decoder_2_OUT<13>)
      LDCE:GE                   0.322          openmips0/tlb0/tlb_reg<13>_62
     ----------------------------------------
-    Total                      7.666ns (1.950ns logic, 5.716ns route)
+    Total                      7.674ns (1.950ns logic, 5.724ns route)
                                        (25.4% logic, 74.6% route)
 
 =========================================================================
@@ -3580,22 +3521,12 @@ Clock to Setup on destination clock clk
 Source Clock                                               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------------------------+---------+---------+---------+---------+
 clk                                                        |   22.643|         |         |         |
-openmips0/cp0_reg0/_n0834                                  |         |   12.769|         |         |
 openmips0/ctrl0/excepttype_i[31]_stallreq_from_mem_OR_704_o|         |    1.747|         |         |
-openmips0/mmu0/mmu_state[2]_PWR_53_o_Mux_61_o              |         |    1.179|         |         |
+openmips0/mmu0/mmu_state[2]_PWR_21_o_Mux_61_o              |         |    1.179|         |         |
 openmips0/tlb0/rst_mmu_addr[31]_AND_2605_o                 |         |   16.199|         |         |
 openmips0/tlb_we                                           |         |   14.634|         |         |
-rst                                                        |   13.789|         |         |         |
+rst                                                        |   14.252|         |         |         |
 -----------------------------------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock openmips0/cp0_reg0/_n0834
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    4.110|         |
-rst            |         |         |    5.492|         |
----------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock openmips0/ctrl0/excepttype_i[31]_stallreq_from_mem_OR_704_o
 ------------------------------------------+---------+---------+---------+---------+
@@ -3607,7 +3538,7 @@ openmips0/tlb0/rst_mmu_addr[31]_AND_2605_o|         |         |   13.664|       
 openmips0/tlb_we                          |         |         |   12.099|         |
 ------------------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock openmips0/mmu0/Mram__n0379
+Clock to Setup on destination clock openmips0/mmu0/Mram__n0388
 ------------------------------------------+---------+---------+---------+---------+
                                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
@@ -3617,7 +3548,7 @@ openmips0/tlb0/rst_mmu_addr[31]_AND_2605_o|         |         |   13.128|       
 openmips0/tlb_we                          |         |         |   11.563|         |
 ------------------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock openmips0/mmu0/Mram__n03791
+Clock to Setup on destination clock openmips0/mmu0/Mram__n03881
 ------------------------------------------+---------+---------+---------+---------+
                                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
@@ -3627,7 +3558,7 @@ openmips0/tlb0/rst_mmu_addr[31]_AND_2605_o|         |         |   12.001|       
 openmips0/tlb_we                          |         |         |   10.436|         |
 ------------------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock openmips0/mmu0/Mram__n03792
+Clock to Setup on destination clock openmips0/mmu0/Mram__n03882
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
@@ -3635,15 +3566,15 @@ Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 clk            |         |         |    2.846|         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock openmips0/mmu0/mmu_state[2]_PWR_53_o_Mux_61_o
+Clock to Setup on destination clock openmips0/mmu0/mmu_state[2]_PWR_21_o_Mux_61_o
 ---------------------------+---------+---------+---------+---------+
                            | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------------------+---------+---------+---------+---------+
 clk                        |         |         |    2.846|         |
-openmips0/mmu0/Mram__n0379 |         |         |    1.320|         |
-openmips0/mmu0/Mram__n03791|         |         |    1.320|         |
-openmips0/mmu0/Mram__n03792|         |         |    1.548|         |
+openmips0/mmu0/Mram__n0388 |         |         |    1.320|         |
+openmips0/mmu0/Mram__n03881|         |         |    1.320|         |
+openmips0/mmu0/Mram__n03882|         |         |    1.548|         |
 ---------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock openmips0/tlb0/rst_mmu_addr[31]_AND_2605_o
@@ -3678,13 +3609,13 @@ rst                                       |    1.364|         |         |       
 
 
 Total REAL time to Xst completion: 47.00 secs
-Total CPU time to Xst completion: 47.88 secs
+Total CPU time to Xst completion: 46.68 secs
  
 --> 
 
-Total memory usage is 341800 kilobytes
+Total memory usage is 338728 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1740 (   0 filtered)
-Number of infos    :   20 (   0 filtered)
+Number of warnings : 1706 (   0 filtered)
+Number of infos    :   19 (   0 filtered)
 
