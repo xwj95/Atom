@@ -1,128 +1,15 @@
-Release 14.2 - par P.28xd (nt64)
+Release 14.2 - par P.28xd (nt)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Sat Dec 05 01:30:03 2015
+Sat Dec 05 01:53:04 2015
 
 All signals are completely routed.
 
-WARNING:ParHelpers:362 - There are 46 sourceless signals in this design. This design will not pass the DRC check run by
-   Bitgen.
-
-   baseram_addr<0>_OBUF
-   baseram_addr<10>_OBUF
-   baseram_addr<11>_OBUF
-   baseram_addr<12>_OBUF
-   baseram_addr<13>_OBUF
-   baseram_addr<14>_OBUF
-   baseram_addr<15>_OBUF
-   baseram_addr<16>_OBUF
-   baseram_addr<17>_OBUF
-   baseram_addr<18>_OBUF
-   baseram_addr<19>_OBUF
-   baseram_addr<1>_OBUF
-   baseram_addr<2>_OBUF
-   baseram_addr<3>_OBUF
-   baseram_addr<4>_OBUF
-   baseram_addr<5>_OBUF
-   baseram_addr<6>_OBUF
-   baseram_addr<7>_OBUF
-   baseram_addr<8>_OBUF
-   baseram_addr<9>_OBUF
-   baseram_ce_OBUF
-   baseram_oe_OBUF
-   baseram_we_OBUF
-   extram_addr<0>_OBUF
-   extram_addr<10>_OBUF
-   extram_addr<11>_OBUF
-   extram_addr<12>_OBUF
-   extram_addr<13>_OBUF
-   extram_addr<14>_OBUF
-   extram_addr<15>_OBUF
-   extram_addr<16>_OBUF
-   extram_addr<17>_OBUF
-   extram_addr<18>_OBUF
-   extram_addr<19>_OBUF
-   extram_addr<1>_OBUF
-   extram_addr<2>_OBUF
-   extram_addr<3>_OBUF
-   extram_addr<4>_OBUF
-   extram_addr<5>_OBUF
-   extram_addr<6>_OBUF
-   extram_addr<7>_OBUF
-   extram_addr<8>_OBUF
-   extram_addr<9>_OBUF
-   extram_ce_OBUF
-   extram_oe_OBUF
-   extram_we_OBUF
-WARNING:ParHelpers:361 - There are 99 loadless signals in this design. This design will cause Bitgen to issue DRC
+WARNING:ParHelpers:361 - There are 35 loadless signals in this design. This design will cause Bitgen to issue DRC
    warnings.
 
-   baseram_data<0>_IBUF
-   baseram_data<10>_IBUF
-   baseram_data<11>_IBUF
-   baseram_data<12>_IBUF
-   baseram_data<13>_IBUF
-   baseram_data<14>_IBUF
-   baseram_data<15>_IBUF
-   baseram_data<16>_IBUF
-   baseram_data<17>_IBUF
-   baseram_data<18>_IBUF
-   baseram_data<19>_IBUF
-   baseram_data<1>_IBUF
-   baseram_data<20>_IBUF
-   baseram_data<21>_IBUF
-   baseram_data<22>_IBUF
-   baseram_data<23>_IBUF
-   baseram_data<24>_IBUF
-   baseram_data<25>_IBUF
-   baseram_data<26>_IBUF
-   baseram_data<27>_IBUF
-   baseram_data<28>_IBUF
-   baseram_data<29>_IBUF
-   baseram_data<2>_IBUF
-   baseram_data<30>_IBUF
-   baseram_data<31>_IBUF
-   baseram_data<3>_IBUF
-   baseram_data<4>_IBUF
-   baseram_data<5>_IBUF
-   baseram_data<6>_IBUF
-   baseram_data<7>_IBUF
-   baseram_data<8>_IBUF
-   baseram_data<9>_IBUF
    clk_IBUF
    com_RxD_IBUF
-   extram_data<0>_IBUF
-   extram_data<10>_IBUF
-   extram_data<11>_IBUF
-   extram_data<12>_IBUF
-   extram_data<13>_IBUF
-   extram_data<14>_IBUF
-   extram_data<15>_IBUF
-   extram_data<16>_IBUF
-   extram_data<17>_IBUF
-   extram_data<18>_IBUF
-   extram_data<19>_IBUF
-   extram_data<1>_IBUF
-   extram_data<20>_IBUF
-   extram_data<21>_IBUF
-   extram_data<22>_IBUF
-   extram_data<23>_IBUF
-   extram_data<24>_IBUF
-   extram_data<25>_IBUF
-   extram_data<26>_IBUF
-   extram_data<27>_IBUF
-   extram_data<28>_IBUF
-   extram_data<29>_IBUF
-   extram_data<2>_IBUF
-   extram_data<30>_IBUF
-   extram_data<31>_IBUF
-   extram_data<3>_IBUF
-   extram_data<4>_IBUF
-   extram_data<5>_IBUF
-   extram_data<6>_IBUF
-   extram_data<7>_IBUF
-   extram_data<8>_IBUF
-   extram_data<9>_IBUF
    rst_IBUF
    sw_dip<0>_IBUF
    sw_dip<10>_IBUF

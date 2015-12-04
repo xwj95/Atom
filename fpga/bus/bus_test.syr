@@ -1,16 +1,16 @@
-Release 14.2 - xst P.28xd (nt64)
+Release 14.2 - xst P.28xd (nt)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.47 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.47 secs
  
 --> Reading design: bus_test.prj
 
@@ -105,46 +105,46 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\uart_driver.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart_driver.v" into library work
 Parsing verilog file "defines.v" included at line 14.
 Parsing module <uart_driver_transmitter>.
 Parsing module <uart_driver_receiver>.
 Parsing module <ASSERTION_ERROR>.
 Parsing module <BaudTickGen>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\rom_driver.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\rom_driver.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <rom_driver>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\ram_driver.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\ram_driver.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <ram_driver>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\flash_driver.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\flash_driver.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <flash_driver>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\digseg_driver.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\digseg_driver.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <digseg_driver>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\uart.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <uart>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\rom.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\rom.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <rom>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\ram.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\ram.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <ram>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\flash.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\flash.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <flash>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\digseg.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\digseg.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <digseg>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\bus.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <bus>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" into library work
 Parsing verilog file "defines.v" included at line 1.
 Parsing module <bus_top>.
-Analyzing Verilog file "E:\course\GitRepository\proj8\fpga\bus\bus_test.v" into library work
+Analyzing Verilog file "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_test.v" into library work
 Parsing module <bus_test>.
 
 =========================================================================
@@ -154,49 +154,37 @@ Parsing module <bus_test>.
 Elaborating module <bus_test>.
 
 Elaborating module <bus_top>.
-WARNING:HDLCompiler:872 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 53: Using initial value of s3_data_i since it is never assigned
-WARNING:HDLCompiler:872 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 54: Using initial value of s3_ack_i since it is never assigned
-WARNING:HDLCompiler:872 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 61: Using initial value of s5_data_i since it is never assigned
-WARNING:HDLCompiler:872 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 62: Using initial value of s5_ack_i since it is never assigned
-WARNING:HDLCompiler:872 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 69: Using initial value of s7_data_i since it is never assigned
-WARNING:HDLCompiler:872 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 70: Using initial value of s7_ack_i since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 53: Using initial value of s3_data_i since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 54: Using initial value of s3_ack_i since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 61: Using initial value of s5_data_i since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 62: Using initial value of s5_ack_i since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 69: Using initial value of s7_data_i since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 70: Using initial value of s7_ack_i since it is never assigned
 
 Elaborating module <bus>.
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 108: Size mismatch in connection of port <m_data_i>. Formal port size is 32-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 109: Size mismatch in connection of port <m_addr_i>. Formal port size is 32-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 111: Size mismatch in connection of port <m_select_i>. Formal port size is 16-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 112: Size mismatch in connection of port <m_data_o>. Formal port size is 32-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 112: Assignment to bus_data_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 113: Assignment to bus_ack_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 132: Assignment to s3_data_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 133: Assignment to s3_addr_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 134: Assignment to s3_we_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 135: Assignment to s3_select_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 144: Assignment to s5_data_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 145: Assignment to s5_addr_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 146: Assignment to s5_we_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 147: Assignment to s5_select_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 156: Assignment to s7_data_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 157: Assignment to s7_addr_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 158: Assignment to s7_we_o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 159: Assignment to s7_select_o ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 108: Size mismatch in connection of port <m_data_i>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 109: Size mismatch in connection of port <m_addr_i>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 111: Size mismatch in connection of port <m_select_i>. Formal port size is 16-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 112: Size mismatch in connection of port <m_data_o>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 112: Assignment to bus_data_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 113: Assignment to bus_ack_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 132: Assignment to s3_data_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 133: Assignment to s3_addr_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 134: Assignment to s3_we_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 135: Assignment to s3_select_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 144: Assignment to s5_data_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 145: Assignment to s5_addr_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 146: Assignment to s5_we_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 147: Assignment to s5_select_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 156: Assignment to s7_data_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 157: Assignment to s7_addr_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 158: Assignment to s7_we_o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 159: Assignment to s7_select_o ignored, since the identifier is never used
 
 Elaborating module <ram>.
 
 Elaborating module <ram_driver>.
-WARNING:HDLCompiler:634 - "E:\course\GitRepository\proj8\fpga\bus\ram.v" Line 27: Net <bus_clk_i> does not have a driver.
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 173: Size mismatch in connection of port <baseram_addr>. Formal port size is 20-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 173: Assignment to baseram_addr ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 174: Size mismatch in connection of port <baseram_data>. Formal port size is 32-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 175: Assignment to baseram_ce ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 176: Assignment to baseram_oe ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 177: Assignment to baseram_we ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 178: Size mismatch in connection of port <extram_addr>. Formal port size is 20-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 178: Assignment to extram_addr ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 179: Size mismatch in connection of port <extram_data>. Formal port size is 32-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 180: Assignment to extram_ce ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 181: Assignment to extram_oe ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 182: Assignment to extram_we ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\ram.v" Line 27: Net <bus_clk_i> does not have a driver.
 
 Elaborating module <rom>.
 
@@ -205,8 +193,8 @@ Elaborating module <rom_driver>.
 Elaborating module <flash>.
 
 Elaborating module <flash_driver>.
-WARNING:HDLCompiler:1127 - "E:\course\GitRepository\proj8\fpga\bus\flash_driver.v" Line 59: Assignment to busy ignored, since the identifier is never used
-WARNING:HDLCompiler:634 - "E:\course\GitRepository\proj8\fpga\bus\flash.v" Line 23: Net <bus_clk_i> does not have a driver.
+WARNING:HDLCompiler:1127 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\flash_driver.v" Line 59: Assignment to busy ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\flash.v" Line 23: Net <bus_clk_i> does not have a driver.
 
 Elaborating module <uart>.
 
@@ -221,50 +209,42 @@ Elaborating module <BaudTickGen(ClkFrequency=50000000,Baud=115200,Oversampling=8
 Elaborating module <digseg>.
 
 Elaborating module <digseg_driver>.
-WARNING:HDLCompiler:634 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 108: Net <bus_data_i> does not have a driver.
-WARNING:HDLCompiler:634 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 109: Net <bus_addr_i> does not have a driver.
-WARNING:HDLCompiler:634 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 110: Net <bus_we_i> does not have a driver.
-WARNING:HDLCompiler:634 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" Line 111: Net <bus_select_i> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 108: Net <bus_data_i> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 109: Net <bus_addr_i> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 110: Net <bus_we_i> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 111: Net <bus_select_i> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <bus_test>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\bus_test.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_test.v".
 WARNING:Xst:647 - Input <sw_dip<30:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Summary:
 	no macro.
 Unit <bus_test> synthesized.
 
 Synthesizing Unit <bus_top>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\bus_top.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v".
 WARNING:Xst:647 - Input <wishbone_addr_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <wishbone_data_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <wishbone_select_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <wishbone_we_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <m_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_addr_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_addr_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_addr_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <m_ack_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_we_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_select_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_we_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_select_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_we_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_select_o> of the instance <bus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <baseram_addr> of the instance <ram0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <extram_addr> of the instance <ram0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <baseram_ce> of the instance <ram0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <baseram_oe> of the instance <ram0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <baseram_we> of the instance <ram0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <extram_ce> of the instance <ram0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <extram_oe> of the instance <ram0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\bus_top.v" line 164: Output port <extram_we> of the instance <ram0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <m_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_addr_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_addr_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_data_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_addr_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <m_ack_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_we_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s3_select_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_we_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s5_select_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_we_o> of the instance <bus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" line 107: Output port <s7_select_o> of the instance <bus0> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <wishbone_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <wishbone_ack_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <bus_data_i> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -276,7 +256,7 @@ WARNING:Xst:653 - Signal <bus_select_i> is used but never assigned. This sourcel
 Unit <bus_top> synthesized.
 
 Synthesizing Unit <bus>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\bus.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus.v".
 WARNING:Xst:647 - Input <s1_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <s2_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <s3_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -322,7 +302,7 @@ WARNING:Xst:737 - Found 1-bit latch for signal <m_data_o<31>>. Latches may be ge
 Unit <bus> synthesized.
 
 Synthesizing Unit <ram>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\ram.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\ram.v".
 WARNING:Xst:647 - Input <bus_addr_i<31:20>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -333,7 +313,7 @@ WARNING:Xst:653 - Signal <bus_rst_i> is used but never assigned. This sourceless
 Unit <ram> synthesized.
 
 Synthesizing Unit <ram_driver>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\ram_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\ram_driver.v".
     Found 1-bit register for signal <baseram_ce>.
     Found 1-bit register for signal <baseram_we>.
     Found 1-bit register for signal <baseram_oe>.
@@ -426,7 +406,7 @@ Synthesizing Unit <ram_driver>.
 Unit <ram_driver> synthesized.
 
 Synthesizing Unit <rom>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\rom.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\rom.v".
 WARNING:Xst:647 - Input <bus_addr_i<31:12>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <bus_data_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -437,14 +417,14 @@ WARNING:Xst:647 - Input <bus_we_i> is never used. This port will be preserved an
 Unit <rom> synthesized.
 
 Synthesizing Unit <rom_driver>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\rom_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\rom_driver.v".
 WARNING:Xst:647 - Input <addr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Summary:
 	no macro.
 Unit <rom_driver> synthesized.
 
 Synthesizing Unit <flash>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\flash.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\flash.v".
 WARNING:Xst:647 - Input <bus_addr_i<31:22>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <bus_data_i<31:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -456,7 +436,7 @@ WARNING:Xst:653 - Signal <bus_clk_i> is used but never assigned. This sourceless
 Unit <flash> synthesized.
 
 Synthesizing Unit <flash_driver>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\flash_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\flash_driver.v".
     Found 1-bit register for signal <flash_we>.
     Found 16-bit register for signal <data_to_write>.
     Found 3-bit register for signal <read_wait_cnt>.
@@ -491,18 +471,18 @@ Synthesizing Unit <flash_driver>.
 Unit <flash_driver> synthesized.
 
 Synthesizing Unit <uart>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\uart.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart.v".
 WARNING:Xst:647 - Input <bus_addr_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <bus_data_i<31:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\uart.v" line 29: Output port <TxD_busy> of the instance <u0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\uart.v" line 33: Output port <RxD_data_ready> of the instance <u1> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\course\GitRepository\proj8\fpga\bus\uart.v" line 33: Output port <RxD_waiting_data> of the instance <u1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart.v" line 29: Output port <TxD_busy> of the instance <u0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart.v" line 33: Output port <RxD_data_ready> of the instance <u1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart.v" line 33: Output port <RxD_waiting_data> of the instance <u1> is unconnected or connected to loadless signal.
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <uart> synthesized.
 
 Synthesizing Unit <uart_driver_transmitter>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\uart_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart_driver.v".
         ClkFrequency = 50000000
         Baud = 115200
     Found 4-bit register for signal <TxD_state>.
@@ -526,7 +506,7 @@ Synthesizing Unit <uart_driver_transmitter>.
 Unit <uart_driver_transmitter> synthesized.
 
 Synthesizing Unit <BaudTickGen_1>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\uart_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart_driver.v".
         ClkFrequency = 50000000
         Baud = 115200
         Oversampling = 1
@@ -539,7 +519,7 @@ Synthesizing Unit <BaudTickGen_1>.
 Unit <BaudTickGen_1> synthesized.
 
 Synthesizing Unit <uart_driver_receiver>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\uart_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart_driver.v".
         ClkFrequency = 50000000
         Baud = 115200
         Oversampling = 8
@@ -575,7 +555,7 @@ Synthesizing Unit <uart_driver_receiver>.
 Unit <uart_driver_receiver> synthesized.
 
 Synthesizing Unit <BaudTickGen_2>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\uart_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\uart_driver.v".
         ClkFrequency = 50000000
         Baud = 115200
         Oversampling = 8
@@ -587,7 +567,7 @@ Synthesizing Unit <BaudTickGen_2>.
 Unit <BaudTickGen_2> synthesized.
 
 Synthesizing Unit <digseg>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\digseg.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\digseg.v".
 WARNING:Xst:647 - Input <bus_addr_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <bus_data_i<31:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -599,7 +579,7 @@ WARNING:Xst:647 - Input <bus_we_i> is never used. This port will be preserved an
 Unit <digseg> synthesized.
 
 Synthesizing Unit <digseg_driver>.
-    Related source file is "E:\course\GitRepository\proj8\fpga\bus\digseg_driver.v".
+    Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\digseg_driver.v".
     Found 16x7-bit Read Only RAM for signal <seg_o>
     Summary:
 	inferred   1 RAM(s).
@@ -648,21 +628,54 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:1290 - Hierarchical block <ram0> is unconnected in block <bus_top0>.
-   It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <rom0> is unconnected in block <bus_top0>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <u1> is unconnected in block <uart0>.
    It will be removed from the design.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_6> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_7> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_8> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_9> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_10> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_11> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_12> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_13> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_in_latch_14> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extram_oe> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extram_we> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_ce> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_ce> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_0> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_1> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_2> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_3> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_4> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_5> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_6> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_7> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_8> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_9> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_10> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_11> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_12> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_13> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_14> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_15> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_16> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_latch_17> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_0> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_1> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_2> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_3> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_4> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_5> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_6> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_7> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_8> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_9> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_10> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_11> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_12> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_13> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_14> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_15> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_16> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_17> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_18> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extram_addr_19> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <baseram_oe> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <baseram_we> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_in_latch_15> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <read_wait_cnt_0> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <read_wait_cnt_1> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
@@ -685,24 +698,6 @@ WARNING:Xst:1710 - FF/Latch <data_to_write_13> (without init value) has a consta
 WARNING:Xst:1710 - FF/Latch <data_to_write_14> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_to_write_15> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <flash_we> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_0> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_1> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_2> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_3> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_4> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_5> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_6> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_7> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_8> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_9> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_10> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_11> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_12> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_13> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_14> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_15> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_16> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_latch_17> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <addr_latch_18> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <addr_latch_19> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <addr_latch_20> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
@@ -717,6 +712,105 @@ WARNING:Xst:1710 - FF/Latch <data_in_latch_2> (without init value) has a constan
 WARNING:Xst:1710 - FF/Latch <data_in_latch_3> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_in_latch_4> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_in_latch_5> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_6> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_7> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_8> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_9> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_10> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_11> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_12> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_13> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_in_latch_14> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_23> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_24> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_25> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_26> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_27> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_28> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_29> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_30> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_31> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_0> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_1> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_2> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_3> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_4> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_5> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_6> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_7> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_8> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_9> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_10> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_11> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_12> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_0> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_1> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_2> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_3> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_4> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_5> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_6> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_7> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_8> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_9> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_10> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_11> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_12> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_13> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_14> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_15> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_16> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_17> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_18> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_19> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_20> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_21> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <base_data_latch_22> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <base_state_1> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <base_state_2> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_0> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_1> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_2> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_3> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_4> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_5> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_6> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_7> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_8> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_9> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_10> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_11> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_12> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_13> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_14> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_15> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_16> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_17> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_18> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baseram_addr_19> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_13> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_14> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_15> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_16> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_17> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_18> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_19> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_20> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_21> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_22> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_23> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_24> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_25> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_26> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_27> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_28> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_29> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_30> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <extra_data_latch_31> has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extra_state_0> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extra_state_1> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <extra_state_2> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <base_state_0> (without init value) has a constant value of 0 in block <ram_driver0>. This FF/Latch will be trimmed during the optimization process.
 
 Synthesizing (advanced) Unit <digseg_driver>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_seg_o> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
@@ -1120,13 +1214,10 @@ WARNING:Xst:2677 - Node <Acc_0> of sequential type is unconnected in block <Baud
 WARNING:Xst:2677 - Node <Acc_1> of sequential type is unconnected in block <BaudTickGen_2>.
 WARNING:Xst:2677 - Node <Acc_2> of sequential type is unconnected in block <BaudTickGen_2>.
 WARNING:Xst:2677 - Node <Acc_3> of sequential type is unconnected in block <BaudTickGen_2>.
-WARNING:Xst:2042 - Unit ram_driver: 64 internal tristates are replaced by logic (pull-up yes): baseram_data<0>, baseram_data<10>, baseram_data<11>, baseram_data<12>, baseram_data<13>, baseram_data<14>, baseram_data<15>, baseram_data<16>, baseram_data<17>, baseram_data<18>, baseram_data<19>, baseram_data<1>, baseram_data<20>, baseram_data<21>, baseram_data<22>, baseram_data<23>, baseram_data<24>, baseram_data<25>, baseram_data<26>, baseram_data<27>, baseram_data<28>, baseram_data<29>, baseram_data<2>, baseram_data<30>, baseram_data<31>, baseram_data<3>, baseram_data<4>, baseram_data<5>, baseram_data<6>, baseram_data<7>, baseram_data<8>, baseram_data<9>, extram_data<0>, extram_data<10>, extram_data<11>, extram_data<12>, extram_data<13>, extram_data<14>, extram_data<15>, extram_data<16>, extram_data<17>, extram_data<18>, extram_data<19>, extram_data<1>, extram_data<20>, extram_data<21>, extram_data<22>, extram_data<23>, extram_data<24>, extram_data<25>, extram_data<26>, extram_data<27>, extram_data<28>, extram_data<29>, extram_data<2>, extram_data<30>, extram_data<31>, extram_data<3>, extram_data<4>, extram_data<5>, extram_data<6>, extram_data<7>, extram_data<8>, extram_data<9>.
 
 Optimizing unit <bus_test> ...
 
 Optimizing unit <BaudTickGen_2> ...
-
-Optimizing unit <ram_driver> ...
 
 Optimizing unit <uart_driver_transmitter> ...
 
@@ -1134,7 +1225,7 @@ Optimizing unit <BaudTickGen_1> ...
 
 Optimizing unit <uart_driver_receiver> ...
 WARNING:Xst:2677 - Node <bus_top0/uart0/u0/ack> of sequential type is unconnected in block <bus_test>.
-WARNING:Xst - Edge baseram_data<31> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<30> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<29> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<28> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<27> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<26> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<25> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<24> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<23> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<22> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<21> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<20> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<19> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<18> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<17> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<16> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<15> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<14> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<13> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<12> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<11> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<10> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<9> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<8> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<7> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<6> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<5> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<4> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<3> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<2> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<1> has no source ports and will not be translated to ABC.WARNING:Xst - Edge baseram_data<0> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<31> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<30> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<29> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<28> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<27> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<26> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<25> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<24> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<23> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<22> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<21> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<20> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<19> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<18> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<17> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<16> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<15> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<14> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<13> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<12> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<11> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<10> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<9> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<8> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<7> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<6> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<5> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<4> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<3> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<2> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<1> has no source ports and will not be translated to ABC.WARNING:Xst - Edge extram_data<0> has no source ports and will not be translated to ABC.WARNING:Xst:1293 - FF/Latch <bus_top0/uart0/u0/TxD_state_FSM_FFd2> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <bus_top0/uart0/u0/TxD_state_FSM_FFd2> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_state_FSM_FFd3> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_state_FSM_FFd1> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_state_FSM_FFd4> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
@@ -1190,9 +1281,9 @@ Primitive and Black Box Usage:
 # BELS                             : 2
 #      GND                         : 1
 #      VCC                         : 1
-# IO Buffers                       : 78
-#      OBUF                        : 62
-#      OBUFT                       : 16
+# IO Buffers                       : 188
+#      OBUF                        : 108
+#      OBUFT                       : 80
 
 Device utilization summary:
 ---------------------------
@@ -1211,7 +1302,7 @@ Slice Logic Distribution:
 
 IO Utilization: 
  Number of IOs:                         223
- Number of bonded IOBs:                  78  out of    480    16%  
+ Number of bonded IOBs:                 188  out of    480    39%  
 
 Specific Feature Utilization:
 
@@ -1260,14 +1351,14 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.07 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.22 secs
  
 --> 
 
-Total memory usage is 260012 kilobytes
+Total memory usage is 188516 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  560 (   0 filtered)
-Number of infos    :   28 (   0 filtered)
+Number of warnings :  598 (   0 filtered)
+Number of infos    :   20 (   0 filtered)
 

@@ -1,4 +1,4 @@
-Release 14.2 Map P.28xd (nt64)
+Release 14.2 Map P.28xd (nt)
 Xilinx Mapping Report File for Design 'bus_test'
 
 Design Information
@@ -10,12 +10,12 @@ Target Device  : xc6slx100
 Target Package : fgg676
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sat Dec 05 01:28:48 2015
+Mapped Date    : Sat Dec 05 01:50:51 2015
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:   62
+Number of warnings:   80
 Slice Logic Utilization:
   Number of Slice Registers:                     0 out of 126,576    0%
   Number of Slice LUTs:                          0 out of  63,288    0%
@@ -26,8 +26,8 @@ Slice Logic Distribution:
   Number of LUT Flip Flop pairs used:            0
 
 IO Utilization:
-  Number of bonded IOBs:                       207 out of     480   43%
-    Number of LOCed IOBs:                      207 out of     207  100%
+  Number of bonded IOBs:                       143 out of     480   29%
+    Number of LOCed IOBs:                      143 out of     143  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of     268    0%
@@ -54,9 +54,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                0.00
 
-Peak Memory Usage:  490 MB
-Total REAL time to MAP completion:  9 secs 
-Total CPU time to MAP completion:   9 secs 
+Peak Memory Usage:  368 MB
+Total REAL time to MAP completion:  17 secs 
+Total CPU time to MAP completion:   11 secs 
 
 Table of Contents
 -----------------
@@ -79,6 +79,134 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:MapLib:701 - Signal baseram_data<31> connected to top level port
+   baseram_data<31> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<30> connected to top level port
+   baseram_data<30> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<29> connected to top level port
+   baseram_data<29> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<28> connected to top level port
+   baseram_data<28> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<27> connected to top level port
+   baseram_data<27> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<26> connected to top level port
+   baseram_data<26> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<25> connected to top level port
+   baseram_data<25> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<24> connected to top level port
+   baseram_data<24> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<23> connected to top level port
+   baseram_data<23> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<22> connected to top level port
+   baseram_data<22> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<21> connected to top level port
+   baseram_data<21> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<20> connected to top level port
+   baseram_data<20> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<19> connected to top level port
+   baseram_data<19> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<18> connected to top level port
+   baseram_data<18> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<17> connected to top level port
+   baseram_data<17> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<16> connected to top level port
+   baseram_data<16> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<15> connected to top level port
+   baseram_data<15> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<14> connected to top level port
+   baseram_data<14> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<13> connected to top level port
+   baseram_data<13> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<12> connected to top level port
+   baseram_data<12> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<11> connected to top level port
+   baseram_data<11> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<10> connected to top level port
+   baseram_data<10> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<9> connected to top level port
+   baseram_data<9> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<8> connected to top level port
+   baseram_data<8> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<7> connected to top level port
+   baseram_data<7> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<6> connected to top level port
+   baseram_data<6> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<5> connected to top level port
+   baseram_data<5> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<4> connected to top level port
+   baseram_data<4> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<3> connected to top level port
+   baseram_data<3> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<2> connected to top level port
+   baseram_data<2> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<1> connected to top level port
+   baseram_data<1> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<0> connected to top level port
+   baseram_data<0> has been removed.
+WARNING:MapLib:701 - Signal extram_data<31> connected to top level port
+   extram_data<31> has been removed.
+WARNING:MapLib:701 - Signal extram_data<30> connected to top level port
+   extram_data<30> has been removed.
+WARNING:MapLib:701 - Signal extram_data<29> connected to top level port
+   extram_data<29> has been removed.
+WARNING:MapLib:701 - Signal extram_data<28> connected to top level port
+   extram_data<28> has been removed.
+WARNING:MapLib:701 - Signal extram_data<27> connected to top level port
+   extram_data<27> has been removed.
+WARNING:MapLib:701 - Signal extram_data<26> connected to top level port
+   extram_data<26> has been removed.
+WARNING:MapLib:701 - Signal extram_data<25> connected to top level port
+   extram_data<25> has been removed.
+WARNING:MapLib:701 - Signal extram_data<24> connected to top level port
+   extram_data<24> has been removed.
+WARNING:MapLib:701 - Signal extram_data<23> connected to top level port
+   extram_data<23> has been removed.
+WARNING:MapLib:701 - Signal extram_data<22> connected to top level port
+   extram_data<22> has been removed.
+WARNING:MapLib:701 - Signal extram_data<21> connected to top level port
+   extram_data<21> has been removed.
+WARNING:MapLib:701 - Signal extram_data<20> connected to top level port
+   extram_data<20> has been removed.
+WARNING:MapLib:701 - Signal extram_data<19> connected to top level port
+   extram_data<19> has been removed.
+WARNING:MapLib:701 - Signal extram_data<18> connected to top level port
+   extram_data<18> has been removed.
+WARNING:MapLib:701 - Signal extram_data<17> connected to top level port
+   extram_data<17> has been removed.
+WARNING:MapLib:701 - Signal extram_data<16> connected to top level port
+   extram_data<16> has been removed.
+WARNING:MapLib:701 - Signal extram_data<15> connected to top level port
+   extram_data<15> has been removed.
+WARNING:MapLib:701 - Signal extram_data<14> connected to top level port
+   extram_data<14> has been removed.
+WARNING:MapLib:701 - Signal extram_data<13> connected to top level port
+   extram_data<13> has been removed.
+WARNING:MapLib:701 - Signal extram_data<12> connected to top level port
+   extram_data<12> has been removed.
+WARNING:MapLib:701 - Signal extram_data<11> connected to top level port
+   extram_data<11> has been removed.
+WARNING:MapLib:701 - Signal extram_data<10> connected to top level port
+   extram_data<10> has been removed.
+WARNING:MapLib:701 - Signal extram_data<9> connected to top level port
+   extram_data<9> has been removed.
+WARNING:MapLib:701 - Signal extram_data<8> connected to top level port
+   extram_data<8> has been removed.
+WARNING:MapLib:701 - Signal extram_data<7> connected to top level port
+   extram_data<7> has been removed.
+WARNING:MapLib:701 - Signal extram_data<6> connected to top level port
+   extram_data<6> has been removed.
+WARNING:MapLib:701 - Signal extram_data<5> connected to top level port
+   extram_data<5> has been removed.
+WARNING:MapLib:701 - Signal extram_data<4> connected to top level port
+   extram_data<4> has been removed.
+WARNING:MapLib:701 - Signal extram_data<3> connected to top level port
+   extram_data<3> has been removed.
+WARNING:MapLib:701 - Signal extram_data<2> connected to top level port
+   extram_data<2> has been removed.
+WARNING:MapLib:701 - Signal extram_data<1> connected to top level port
+   extram_data<1> has been removed.
+WARNING:MapLib:701 - Signal extram_data<0> connected to top level port
+   extram_data<0> has been removed.
 WARNING:MapLib:701 - Signal flash_data<15> connected to top level port
    flash_data<15> has been removed.
 WARNING:MapLib:701 - Signal flash_data<14> connected to top level port
@@ -111,103 +239,11 @@ WARNING:MapLib:701 - Signal flash_data<1> connected to top level port
    flash_data<1> has been removed.
 WARNING:MapLib:701 - Signal flash_data<0> connected to top level port
    flash_data<0> has been removed.
-WARNING:PhysDesignRules:368 - The signal <baseram_oe_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_we_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_oe_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_we_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<0>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<0>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<1>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<1>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<2>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<2>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<3>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<3>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<4>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<4>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<5>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<5>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<6>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<6>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<7>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<7>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<8>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<8>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<9>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<9>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<10>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<11>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<10>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<12>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<11>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<13>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<12>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<14>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<13>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<15>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<14>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<16>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<15>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<17>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<16>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<18>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<17>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<19>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_ce_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<18>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<19>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_ce_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
 
 Section 3 - Informational
 -------------------------
 INFO:LIT:243 - Logical network sw_dip<31>_IBUF has no load.
-INFO:LIT:395 - The above info message is repeated 98 more times for the
+INFO:LIT:395 - The above info message is repeated 34 more times for the
    following (max. 5 shown):
    sw_dip<30>_IBUF,
    sw_dip<29>_IBUF,
@@ -229,9 +265,9 @@ INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-  32 block(s) removed
+ 160 block(s) removed
    2 block(s) optimized away
-  16 signal(s) removed
+  80 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -241,6 +277,134 @@ The trimmed logic reported below is either:
    2. part of disabled logic
    3. a side-effect of other trimmed logic
 
+The signal "baseram_data<31>" is unused and has been removed.
+ Unused block "baseram_data_31_OBUFT" (TRI) removed.
+The signal "baseram_data<30>" is unused and has been removed.
+ Unused block "baseram_data_30_OBUFT" (TRI) removed.
+The signal "baseram_data<29>" is unused and has been removed.
+ Unused block "baseram_data_29_OBUFT" (TRI) removed.
+The signal "baseram_data<28>" is unused and has been removed.
+ Unused block "baseram_data_28_OBUFT" (TRI) removed.
+The signal "baseram_data<27>" is unused and has been removed.
+ Unused block "baseram_data_27_OBUFT" (TRI) removed.
+The signal "baseram_data<26>" is unused and has been removed.
+ Unused block "baseram_data_26_OBUFT" (TRI) removed.
+The signal "baseram_data<25>" is unused and has been removed.
+ Unused block "baseram_data_25_OBUFT" (TRI) removed.
+The signal "baseram_data<24>" is unused and has been removed.
+ Unused block "baseram_data_24_OBUFT" (TRI) removed.
+The signal "baseram_data<23>" is unused and has been removed.
+ Unused block "baseram_data_23_OBUFT" (TRI) removed.
+The signal "baseram_data<22>" is unused and has been removed.
+ Unused block "baseram_data_22_OBUFT" (TRI) removed.
+The signal "baseram_data<21>" is unused and has been removed.
+ Unused block "baseram_data_21_OBUFT" (TRI) removed.
+The signal "baseram_data<20>" is unused and has been removed.
+ Unused block "baseram_data_20_OBUFT" (TRI) removed.
+The signal "baseram_data<19>" is unused and has been removed.
+ Unused block "baseram_data_19_OBUFT" (TRI) removed.
+The signal "baseram_data<18>" is unused and has been removed.
+ Unused block "baseram_data_18_OBUFT" (TRI) removed.
+The signal "baseram_data<17>" is unused and has been removed.
+ Unused block "baseram_data_17_OBUFT" (TRI) removed.
+The signal "baseram_data<16>" is unused and has been removed.
+ Unused block "baseram_data_16_OBUFT" (TRI) removed.
+The signal "baseram_data<15>" is unused and has been removed.
+ Unused block "baseram_data_15_OBUFT" (TRI) removed.
+The signal "baseram_data<14>" is unused and has been removed.
+ Unused block "baseram_data_14_OBUFT" (TRI) removed.
+The signal "baseram_data<13>" is unused and has been removed.
+ Unused block "baseram_data_13_OBUFT" (TRI) removed.
+The signal "baseram_data<12>" is unused and has been removed.
+ Unused block "baseram_data_12_OBUFT" (TRI) removed.
+The signal "baseram_data<11>" is unused and has been removed.
+ Unused block "baseram_data_11_OBUFT" (TRI) removed.
+The signal "baseram_data<10>" is unused and has been removed.
+ Unused block "baseram_data_10_OBUFT" (TRI) removed.
+The signal "baseram_data<9>" is unused and has been removed.
+ Unused block "baseram_data_9_OBUFT" (TRI) removed.
+The signal "baseram_data<8>" is unused and has been removed.
+ Unused block "baseram_data_8_OBUFT" (TRI) removed.
+The signal "baseram_data<7>" is unused and has been removed.
+ Unused block "baseram_data_7_OBUFT" (TRI) removed.
+The signal "baseram_data<6>" is unused and has been removed.
+ Unused block "baseram_data_6_OBUFT" (TRI) removed.
+The signal "baseram_data<5>" is unused and has been removed.
+ Unused block "baseram_data_5_OBUFT" (TRI) removed.
+The signal "baseram_data<4>" is unused and has been removed.
+ Unused block "baseram_data_4_OBUFT" (TRI) removed.
+The signal "baseram_data<3>" is unused and has been removed.
+ Unused block "baseram_data_3_OBUFT" (TRI) removed.
+The signal "baseram_data<2>" is unused and has been removed.
+ Unused block "baseram_data_2_OBUFT" (TRI) removed.
+The signal "baseram_data<1>" is unused and has been removed.
+ Unused block "baseram_data_1_OBUFT" (TRI) removed.
+The signal "baseram_data<0>" is unused and has been removed.
+ Unused block "baseram_data_0_OBUFT" (TRI) removed.
+The signal "extram_data<31>" is unused and has been removed.
+ Unused block "extram_data_31_OBUFT" (TRI) removed.
+The signal "extram_data<30>" is unused and has been removed.
+ Unused block "extram_data_30_OBUFT" (TRI) removed.
+The signal "extram_data<29>" is unused and has been removed.
+ Unused block "extram_data_29_OBUFT" (TRI) removed.
+The signal "extram_data<28>" is unused and has been removed.
+ Unused block "extram_data_28_OBUFT" (TRI) removed.
+The signal "extram_data<27>" is unused and has been removed.
+ Unused block "extram_data_27_OBUFT" (TRI) removed.
+The signal "extram_data<26>" is unused and has been removed.
+ Unused block "extram_data_26_OBUFT" (TRI) removed.
+The signal "extram_data<25>" is unused and has been removed.
+ Unused block "extram_data_25_OBUFT" (TRI) removed.
+The signal "extram_data<24>" is unused and has been removed.
+ Unused block "extram_data_24_OBUFT" (TRI) removed.
+The signal "extram_data<23>" is unused and has been removed.
+ Unused block "extram_data_23_OBUFT" (TRI) removed.
+The signal "extram_data<22>" is unused and has been removed.
+ Unused block "extram_data_22_OBUFT" (TRI) removed.
+The signal "extram_data<21>" is unused and has been removed.
+ Unused block "extram_data_21_OBUFT" (TRI) removed.
+The signal "extram_data<20>" is unused and has been removed.
+ Unused block "extram_data_20_OBUFT" (TRI) removed.
+The signal "extram_data<19>" is unused and has been removed.
+ Unused block "extram_data_19_OBUFT" (TRI) removed.
+The signal "extram_data<18>" is unused and has been removed.
+ Unused block "extram_data_18_OBUFT" (TRI) removed.
+The signal "extram_data<17>" is unused and has been removed.
+ Unused block "extram_data_17_OBUFT" (TRI) removed.
+The signal "extram_data<16>" is unused and has been removed.
+ Unused block "extram_data_16_OBUFT" (TRI) removed.
+The signal "extram_data<15>" is unused and has been removed.
+ Unused block "extram_data_15_OBUFT" (TRI) removed.
+The signal "extram_data<14>" is unused and has been removed.
+ Unused block "extram_data_14_OBUFT" (TRI) removed.
+The signal "extram_data<13>" is unused and has been removed.
+ Unused block "extram_data_13_OBUFT" (TRI) removed.
+The signal "extram_data<12>" is unused and has been removed.
+ Unused block "extram_data_12_OBUFT" (TRI) removed.
+The signal "extram_data<11>" is unused and has been removed.
+ Unused block "extram_data_11_OBUFT" (TRI) removed.
+The signal "extram_data<10>" is unused and has been removed.
+ Unused block "extram_data_10_OBUFT" (TRI) removed.
+The signal "extram_data<9>" is unused and has been removed.
+ Unused block "extram_data_9_OBUFT" (TRI) removed.
+The signal "extram_data<8>" is unused and has been removed.
+ Unused block "extram_data_8_OBUFT" (TRI) removed.
+The signal "extram_data<7>" is unused and has been removed.
+ Unused block "extram_data_7_OBUFT" (TRI) removed.
+The signal "extram_data<6>" is unused and has been removed.
+ Unused block "extram_data_6_OBUFT" (TRI) removed.
+The signal "extram_data<5>" is unused and has been removed.
+ Unused block "extram_data_5_OBUFT" (TRI) removed.
+The signal "extram_data<4>" is unused and has been removed.
+ Unused block "extram_data_4_OBUFT" (TRI) removed.
+The signal "extram_data<3>" is unused and has been removed.
+ Unused block "extram_data_3_OBUFT" (TRI) removed.
+The signal "extram_data<2>" is unused and has been removed.
+ Unused block "extram_data_2_OBUFT" (TRI) removed.
+The signal "extram_data<1>" is unused and has been removed.
+ Unused block "extram_data_1_OBUFT" (TRI) removed.
+The signal "extram_data<0>" is unused and has been removed.
+ Unused block "extram_data_0_OBUFT" (TRI) removed.
 The signal "flash_data<15>" is unused and has been removed.
  Unused block "flash_data_15_OBUFT" (TRI) removed.
 The signal "flash_data<14>" is unused and has been removed.
@@ -273,6 +437,70 @@ The signal "flash_data<1>" is unused and has been removed.
  Unused block "flash_data_1_OBUFT" (TRI) removed.
 The signal "flash_data<0>" is unused and has been removed.
  Unused block "flash_data_0_OBUFT" (TRI) removed.
+Unused block "baseram_data<0>" (PAD) removed.
+Unused block "baseram_data<10>" (PAD) removed.
+Unused block "baseram_data<11>" (PAD) removed.
+Unused block "baseram_data<12>" (PAD) removed.
+Unused block "baseram_data<13>" (PAD) removed.
+Unused block "baseram_data<14>" (PAD) removed.
+Unused block "baseram_data<15>" (PAD) removed.
+Unused block "baseram_data<16>" (PAD) removed.
+Unused block "baseram_data<17>" (PAD) removed.
+Unused block "baseram_data<18>" (PAD) removed.
+Unused block "baseram_data<19>" (PAD) removed.
+Unused block "baseram_data<1>" (PAD) removed.
+Unused block "baseram_data<20>" (PAD) removed.
+Unused block "baseram_data<21>" (PAD) removed.
+Unused block "baseram_data<22>" (PAD) removed.
+Unused block "baseram_data<23>" (PAD) removed.
+Unused block "baseram_data<24>" (PAD) removed.
+Unused block "baseram_data<25>" (PAD) removed.
+Unused block "baseram_data<26>" (PAD) removed.
+Unused block "baseram_data<27>" (PAD) removed.
+Unused block "baseram_data<28>" (PAD) removed.
+Unused block "baseram_data<29>" (PAD) removed.
+Unused block "baseram_data<2>" (PAD) removed.
+Unused block "baseram_data<30>" (PAD) removed.
+Unused block "baseram_data<31>" (PAD) removed.
+Unused block "baseram_data<3>" (PAD) removed.
+Unused block "baseram_data<4>" (PAD) removed.
+Unused block "baseram_data<5>" (PAD) removed.
+Unused block "baseram_data<6>" (PAD) removed.
+Unused block "baseram_data<7>" (PAD) removed.
+Unused block "baseram_data<8>" (PAD) removed.
+Unused block "baseram_data<9>" (PAD) removed.
+Unused block "extram_data<0>" (PAD) removed.
+Unused block "extram_data<10>" (PAD) removed.
+Unused block "extram_data<11>" (PAD) removed.
+Unused block "extram_data<12>" (PAD) removed.
+Unused block "extram_data<13>" (PAD) removed.
+Unused block "extram_data<14>" (PAD) removed.
+Unused block "extram_data<15>" (PAD) removed.
+Unused block "extram_data<16>" (PAD) removed.
+Unused block "extram_data<17>" (PAD) removed.
+Unused block "extram_data<18>" (PAD) removed.
+Unused block "extram_data<19>" (PAD) removed.
+Unused block "extram_data<1>" (PAD) removed.
+Unused block "extram_data<20>" (PAD) removed.
+Unused block "extram_data<21>" (PAD) removed.
+Unused block "extram_data<22>" (PAD) removed.
+Unused block "extram_data<23>" (PAD) removed.
+Unused block "extram_data<24>" (PAD) removed.
+Unused block "extram_data<25>" (PAD) removed.
+Unused block "extram_data<26>" (PAD) removed.
+Unused block "extram_data<27>" (PAD) removed.
+Unused block "extram_data<28>" (PAD) removed.
+Unused block "extram_data<29>" (PAD) removed.
+Unused block "extram_data<2>" (PAD) removed.
+Unused block "extram_data<30>" (PAD) removed.
+Unused block "extram_data<31>" (PAD) removed.
+Unused block "extram_data<3>" (PAD) removed.
+Unused block "extram_data<4>" (PAD) removed.
+Unused block "extram_data<5>" (PAD) removed.
+Unused block "extram_data<6>" (PAD) removed.
+Unused block "extram_data<7>" (PAD) removed.
+Unused block "extram_data<8>" (PAD) removed.
+Unused block "extram_data<9>" (PAD) removed.
 Unused block "flash_data<0>" (PAD) removed.
 Unused block "flash_data<10>" (PAD) removed.
 Unused block "flash_data<11>" (PAD) removed.
@@ -323,38 +551,6 @@ Section 6 - IOB Properties
 | baseram_addr<18>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | baseram_addr<19>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | baseram_ce                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| baseram_data<0>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<1>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<2>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<3>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<4>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<5>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<6>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<7>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<8>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<9>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<10>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<11>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<12>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<13>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<14>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<15>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<16>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<17>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<18>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<19>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<20>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<21>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<22>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<23>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<24>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<25>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<26>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<27>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<28>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<29>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<30>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| baseram_data<31>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | baseram_oe                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | baseram_we                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | clk                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
@@ -381,38 +577,6 @@ Section 6 - IOB Properties
 | extram_addr<18>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | extram_addr<19>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | extram_ce                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| extram_data<0>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<1>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<2>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<3>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<4>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<5>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<6>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<7>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<8>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<9>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<10>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<11>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<12>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<13>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<14>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<15>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<16>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<17>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<18>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<19>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<20>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<21>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<22>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<23>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<24>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<25>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<26>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<27>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<28>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<29>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<30>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| extram_data<31>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | extram_oe                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | extram_we                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | flash_addr<0>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |

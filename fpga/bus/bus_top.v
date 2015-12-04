@@ -170,16 +170,16 @@ module bus_top(
 		.bus_select_i(ram_select_o),
 		.bus_we_i(ram_we_o),
 		.bus_ack_o(ram_ack_i),
-		.baseram_addr(baseram_addr),
-		.baseram_data(baseram_data),
-		.baseram_ce(baseram_ce),
-		.baseram_oe(baseram_oe),
-		.baseram_we(baseram_we),
-		.extram_addr(extram_addr),
-		.extram_data(extram_data),
-		.extram_ce(extram_ce),
-		.extram_oe(extram_oe),
-		.extram_we(extram_we)
+		.baseram_addr(ram_baseram_addr),
+		.baseram_data(ram_baseram_data),
+		.baseram_ce(ram_baseram_ce),
+		.baseram_oe(ram_baseram_oe),
+		.baseram_we(ram_baseram_we),
+		.extram_addr(ram_extram_addr),
+		.extram_data(ram_extram_data),
+		.extram_ce(ram_extram_ce),
+		.extram_oe(ram_extram_oe),
+		.extram_we(ram_extram_we)
 	);	
 
 	rom rom0(

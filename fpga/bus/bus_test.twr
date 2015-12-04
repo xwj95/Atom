@@ -1,11 +1,11 @@
 --------------------------------------------------------------------------------
-Release 14.2 Trace  (nt64)
+Release 14.2 Trace  (nt)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-E:\programming\ISE\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle
-ise -v 3 -s 3 -n 3 -fastpaths -xml bus_test.twx bus_test.ncd -o bus_test.twr
-bus_test.pcf -ucf segdisp.ucf -ucf ram.ucf -ucf key.ucf -ucf flash.ucf -ucf
-com.ucf -ucf led.ucf -ucf bus.ucf
+D:\Xilinx\14.2\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml bus_test.twx bus_test.ncd -o bus_test.twr bus_test.pcf -ucf
+ram.ucf -ucf segdisp.ucf -ucf led.ucf -ucf key.ucf -ucf flash.ucf -ucf com.ucf
+-ucf bus.ucf
 
 Design file:              bus_test.ncd
 Physical constraint file: bus_test.pcf
@@ -35,14 +35,14 @@ No constraints were found to generate data for the Data Sheet Report section.
 Use the Advanced Analysis (-a) option or generate global constraints for each
 clock, its pad to setup and clock to pad paths, and a pad to pad constraint.
 
-Analysis completed Sat Dec 05 01:30:11 2015 
+Analysis completed Sat Dec 05 01:53:13 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 331 MB
+Peak Memory Usage: 261 MB
 
 
 

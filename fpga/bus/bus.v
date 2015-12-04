@@ -15,7 +15,7 @@ module bus(
 	output		wire				s0_we_o,
 	output		wire				s0_select_o,
 	input		wire[`WB_DataBus]	s0_data_i,
-	input		wire					s0_ack_i,
+	input		wire				s0_ack_i,
 
 	//slave 1 interface
 	output		wire[`WB_DataBus]	s1_data_o,
@@ -23,7 +23,7 @@ module bus(
 	output		wire				s1_we_o,
 	output		wire				s1_select_o,
 	input		wire[`WB_DataBus]	s1_data_i,
-	input		wire					s1_ack_i,
+	input		wire				s1_ack_i,
 
 	//slave 2 interface
 	output		wire[`WB_DataBus]	s2_data_o,
@@ -31,7 +31,7 @@ module bus(
 	output		wire				s2_we_o,
 	output		wire				s2_select_o,
 	input		wire[`WB_DataBus]	s2_data_i,
-	input		wire					s2_ack_i,
+	input		wire				s2_ack_i,
 
 	//slave 3 interface
 	output		wire[`WB_DataBus]	s3_data_o,
@@ -39,7 +39,7 @@ module bus(
 	output		wire				s3_we_o,
 	output		wire				s3_select_o,
 	input		wire[`WB_DataBus]	s3_data_i,
-	input		wire					s3_ack_i,
+	input		wire				s3_ack_i,
 
 	//slave 4 interface
 	output		wire[`WB_DataBus]	s4_data_o,
@@ -47,7 +47,7 @@ module bus(
 	output		wire				s4_we_o,
 	output		wire				s4_select_o,
 	input		wire[`WB_DataBus]	s4_data_i,
-	input		wire					s4_ack_i,
+	input		wire				s4_ack_i,
 
 	//slave 5 interface
 	output		wire[`WB_DataBus]	s5_data_o,
@@ -55,7 +55,7 @@ module bus(
 	output		wire				s5_we_o,
 	output		wire				s5_select_o,
 	input		wire[`WB_DataBus]	s5_data_i,
-	input		wire					s5_ack_i,
+	input		wire				s5_ack_i,
 
 	//slave 6 interface
 	output		wire[`WB_DataBus]	s6_data_o,
@@ -63,7 +63,7 @@ module bus(
 	output		wire				s6_we_o,
 	output		wire				s6_select_o,
 	input		wire[`WB_DataBus]	s6_data_i,
-	input		wire					s6_ack_i,
+	input		wire				s6_ack_i,
 
 	//slave 7 interface
 	output		wire[`WB_DataBus]	s7_data_o,
@@ -71,7 +71,7 @@ module bus(
 	output		wire				s7_we_o,
 	output		wire				s7_select_o,
 	input		wire[`WB_DataBus]	s7_data_i,
-	input		wire					s7_ack_i
+	input		wire				s7_ack_i
 );
 
 //address & data pass

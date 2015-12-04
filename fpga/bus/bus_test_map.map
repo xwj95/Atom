@@ -1,4 +1,4 @@
-Release 14.2 Map P.28xd (nt64)
+Release 14.2 Map P.28xd (nt)
 Xilinx Map Application Log File for Design 'bus_test'
 
 Design Information
@@ -10,9 +10,137 @@ Target Device  : xc6slx100
 Target Package : fgg676
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sat Dec 05 01:28:48 2015
+Mapped Date    : Sat Dec 05 01:50:51 2015
 
 Mapping design into LUTs...
+WARNING:MapLib:701 - Signal baseram_data<31> connected to top level port
+   baseram_data<31> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<30> connected to top level port
+   baseram_data<30> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<29> connected to top level port
+   baseram_data<29> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<28> connected to top level port
+   baseram_data<28> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<27> connected to top level port
+   baseram_data<27> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<26> connected to top level port
+   baseram_data<26> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<25> connected to top level port
+   baseram_data<25> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<24> connected to top level port
+   baseram_data<24> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<23> connected to top level port
+   baseram_data<23> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<22> connected to top level port
+   baseram_data<22> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<21> connected to top level port
+   baseram_data<21> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<20> connected to top level port
+   baseram_data<20> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<19> connected to top level port
+   baseram_data<19> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<18> connected to top level port
+   baseram_data<18> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<17> connected to top level port
+   baseram_data<17> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<16> connected to top level port
+   baseram_data<16> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<15> connected to top level port
+   baseram_data<15> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<14> connected to top level port
+   baseram_data<14> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<13> connected to top level port
+   baseram_data<13> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<12> connected to top level port
+   baseram_data<12> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<11> connected to top level port
+   baseram_data<11> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<10> connected to top level port
+   baseram_data<10> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<9> connected to top level port
+   baseram_data<9> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<8> connected to top level port
+   baseram_data<8> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<7> connected to top level port
+   baseram_data<7> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<6> connected to top level port
+   baseram_data<6> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<5> connected to top level port
+   baseram_data<5> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<4> connected to top level port
+   baseram_data<4> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<3> connected to top level port
+   baseram_data<3> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<2> connected to top level port
+   baseram_data<2> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<1> connected to top level port
+   baseram_data<1> has been removed.
+WARNING:MapLib:701 - Signal baseram_data<0> connected to top level port
+   baseram_data<0> has been removed.
+WARNING:MapLib:701 - Signal extram_data<31> connected to top level port
+   extram_data<31> has been removed.
+WARNING:MapLib:701 - Signal extram_data<30> connected to top level port
+   extram_data<30> has been removed.
+WARNING:MapLib:701 - Signal extram_data<29> connected to top level port
+   extram_data<29> has been removed.
+WARNING:MapLib:701 - Signal extram_data<28> connected to top level port
+   extram_data<28> has been removed.
+WARNING:MapLib:701 - Signal extram_data<27> connected to top level port
+   extram_data<27> has been removed.
+WARNING:MapLib:701 - Signal extram_data<26> connected to top level port
+   extram_data<26> has been removed.
+WARNING:MapLib:701 - Signal extram_data<25> connected to top level port
+   extram_data<25> has been removed.
+WARNING:MapLib:701 - Signal extram_data<24> connected to top level port
+   extram_data<24> has been removed.
+WARNING:MapLib:701 - Signal extram_data<23> connected to top level port
+   extram_data<23> has been removed.
+WARNING:MapLib:701 - Signal extram_data<22> connected to top level port
+   extram_data<22> has been removed.
+WARNING:MapLib:701 - Signal extram_data<21> connected to top level port
+   extram_data<21> has been removed.
+WARNING:MapLib:701 - Signal extram_data<20> connected to top level port
+   extram_data<20> has been removed.
+WARNING:MapLib:701 - Signal extram_data<19> connected to top level port
+   extram_data<19> has been removed.
+WARNING:MapLib:701 - Signal extram_data<18> connected to top level port
+   extram_data<18> has been removed.
+WARNING:MapLib:701 - Signal extram_data<17> connected to top level port
+   extram_data<17> has been removed.
+WARNING:MapLib:701 - Signal extram_data<16> connected to top level port
+   extram_data<16> has been removed.
+WARNING:MapLib:701 - Signal extram_data<15> connected to top level port
+   extram_data<15> has been removed.
+WARNING:MapLib:701 - Signal extram_data<14> connected to top level port
+   extram_data<14> has been removed.
+WARNING:MapLib:701 - Signal extram_data<13> connected to top level port
+   extram_data<13> has been removed.
+WARNING:MapLib:701 - Signal extram_data<12> connected to top level port
+   extram_data<12> has been removed.
+WARNING:MapLib:701 - Signal extram_data<11> connected to top level port
+   extram_data<11> has been removed.
+WARNING:MapLib:701 - Signal extram_data<10> connected to top level port
+   extram_data<10> has been removed.
+WARNING:MapLib:701 - Signal extram_data<9> connected to top level port
+   extram_data<9> has been removed.
+WARNING:MapLib:701 - Signal extram_data<8> connected to top level port
+   extram_data<8> has been removed.
+WARNING:MapLib:701 - Signal extram_data<7> connected to top level port
+   extram_data<7> has been removed.
+WARNING:MapLib:701 - Signal extram_data<6> connected to top level port
+   extram_data<6> has been removed.
+WARNING:MapLib:701 - Signal extram_data<5> connected to top level port
+   extram_data<5> has been removed.
+WARNING:MapLib:701 - Signal extram_data<4> connected to top level port
+   extram_data<4> has been removed.
+WARNING:MapLib:701 - Signal extram_data<3> connected to top level port
+   extram_data<3> has been removed.
+WARNING:MapLib:701 - Signal extram_data<2> connected to top level port
+   extram_data<2> has been removed.
+WARNING:MapLib:701 - Signal extram_data<1> connected to top level port
+   extram_data<1> has been removed.
+WARNING:MapLib:701 - Signal extram_data<0> connected to top level port
+   extram_data<0> has been removed.
 WARNING:MapLib:701 - Signal flash_data<15> connected to top level port
    flash_data<15> has been removed.
 WARNING:MapLib:701 - Signal flash_data<14> connected to top level port
@@ -51,152 +179,60 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 6 secs 
-Total CPU  time at the beginning of Placer: 6 secs 
+Total REAL time at the beginning of Placer: 11 secs 
+Total CPU  time at the beginning of Placer: 8 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:10b90b84) REAL time: 7 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:4ed37230) REAL time: 14 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:10b90b84) REAL time: 7 secs 
+Phase 2.7  Design Feasibility Check (Checksum:4ed37230) REAL time: 14 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:10b90b84) REAL time: 7 secs 
+Phase 3.31  Local Placement Optimization (Checksum:4ed37230) REAL time: 14 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:10b90b84) REAL time: 8 secs 
+(Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 5.36  Local Placement Optimization
-Phase 5.36  Local Placement Optimization (Checksum:10b90b84) REAL time: 8 secs 
+Phase 5.36  Local Placement Optimization (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 6.30  Global Clock Region Assignment
-Phase 6.30  Global Clock Region Assignment (Checksum:10b90b84) REAL time: 8 secs 
+Phase 6.30  Global Clock Region Assignment (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 7.3  Local Placement Optimization
-Phase 7.3  Local Placement Optimization (Checksum:10b90b84) REAL time: 8 secs 
+Phase 7.3  Local Placement Optimization (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:10b90b84) REAL time: 8 secs 
+Phase 8.5  Local Placement Optimization (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 9.8  Global Placement
-Phase 9.8  Global Placement (Checksum:10b90b84) REAL time: 8 secs 
+Phase 9.8  Global Placement (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:10b90b84) REAL time: 8 secs 
+Phase 10.5  Local Placement Optimization (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:10b90b84) REAL time: 8 secs 
+Phase 11.18  Placement Optimization (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:10b90b84) REAL time: 9 secs 
+Phase 12.5  Local Placement Optimization (Checksum:4ed37230) REAL time: 16 secs 
 
 Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:10b90b84) REAL time: 9 secs 
+Phase 13.34  Placement Validation (Checksum:4ed37230) REAL time: 16 secs 
 
-Total REAL time to Placer completion: 9 secs 
-Total CPU  time to Placer completion: 9 secs 
+Total REAL time to Placer completion: 16 secs 
+Total CPU  time to Placer completion: 11 secs 
 Running post-placement packing...
 Writing output files...
-WARNING:PhysDesignRules:368 - The signal <baseram_oe_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_we_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_oe_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_we_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<0>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<0>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<1>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<1>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<2>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<2>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<3>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<3>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<4>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<4>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<5>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<5>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<6>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<6>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<7>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<7>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<8>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<8>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<9>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<9>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<10>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<11>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<10>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<12>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<11>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<13>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<12>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<14>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<13>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<15>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<14>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<16>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<15>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<17>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<16>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<18>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<17>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_addr<19>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <baseram_ce_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<18>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_addr<19>_OBUF> is incomplete.
-   The signal is not driven by any source pin in the design.
-WARNING:PhysDesignRules:368 - The signal <extram_ce_OBUF> is incomplete. The
-   signal is not driven by any source pin in the design.
 
 Design Summary
 --------------
 
 Design Summary:
 Number of errors:      0
-Number of warnings:   62
+Number of warnings:   80
 Slice Logic Utilization:
   Number of Slice Registers:                     0 out of 126,576    0%
   Number of Slice LUTs:                          0 out of  63,288    0%
@@ -207,8 +243,8 @@ Slice Logic Distribution:
   Number of LUT Flip Flop pairs used:            0
 
 IO Utilization:
-  Number of bonded IOBs:                       207 out of     480   43%
-    Number of LOCed IOBs:                      207 out of     207  100%
+  Number of bonded IOBs:                       143 out of     480   29%
+    Number of LOCed IOBs:                      143 out of     143  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of     268    0%
@@ -235,9 +271,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                0.00
 
-Peak Memory Usage:  490 MB
-Total REAL time to MAP completion:  9 secs 
-Total CPU time to MAP completion:   9 secs 
+Peak Memory Usage:  368 MB
+Total REAL time to MAP completion:  17 secs 
+Total CPU time to MAP completion:   11 secs 
 
 Mapping completed.
 See MAP report file "bus_test_map.mrp" for details.
