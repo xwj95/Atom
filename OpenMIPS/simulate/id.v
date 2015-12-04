@@ -221,8 +221,8 @@ module id(
 									wreg_o <= `WriteEnable;
 									aluop_o <= `EXE_SLL_OP;
 									alusel_o <= `EXE_RES_SHIFT;
-									reg1_read_o <= 0'b1;
-									reg2_read_o <= 0'b1;
+									reg1_read_o <= 1'b0;
+									reg2_read_o <= 1'b0;
 									imm <= `ZeroWord;
 									instvalid <= `InstValid;
 								end

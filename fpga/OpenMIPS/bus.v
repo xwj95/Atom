@@ -4,51 +4,51 @@ module bus(
 	input		wire					clk,
 	input		wire					rst,
 
-	//Wishbone侧的接口
+	//Wishbone侧接口
 	input		wire[`RegBus]			wishbone_addr_i,
 	input		wire[`RegBus]			wishbone_data_i,
-	input		wire					wishbone_we_i, 		//1代表写，0代表�	
-	input		wire					wishbone_stb_i,	
+	input		wire					wishbone_we_i,
+	input		wire					wishbone_stb_i,
 	input		wire					wishbone_cyc_i,
-	input 		wire[15:0] 				wishbone_select_i,
+	input		wire[15:0]				wishbone_select_i,
 
-	output 		reg[`RegBus] 			wishbone_data_o,
-	output 		reg 					wishbone_ack_o, 
+	output		reg[`RegBus]			wishbone_data_o,
+	output		reg 					wishbone_ack_o,
 
-	//RAM侧的接口
-	output 		[19:0] 				ram_baseram_addr, 
-	inout 		[31:0] 				ram_baseram_data, 
-	output 		 					ram_baseram_ce, 
-	output 		 					ram_baseram_oe, 
-	output 		 					ram_baseram_we, 
-	output 		[19:0] 				ram_extram_addr, 
-	inout 		[31:0] 				ram_extram_data, 
-	output 		 					ram_extram_ce, 
-	output 		 					ram_extram_oe, 
-	output 		 					ram_extram_we, 
+	//RAM侧接口
+	output		[19:0]					ram_baseram_addr,
+	inout		[31:0]					ram_baseram_data,
+	output								ram_baseram_ce,
+	output								ram_baseram_oe,
+	output								ram_baseram_we,
+	output		[19:0]					ram_extram_addr,
+	inout 		[31:0]					ram_extram_data,
+	output								ram_extram_ce,
+	output								ram_extram_oe,
+	output								ram_extram_we,
 
-	//ROM侧的接口
-	output 		[31:0] 				rom_inst,
+	//ROM侧接口
+	output		[31:0]					rom_inst,
 
-	//FLASH侧的接口
-	output 		 					flash_busy, 
-	output 		[22:0] 				flash_addr, 
-	inout 		[15:0] 				flash_data, 
-	output 		[7:0] 				flash_ctl,
+	//FLASH侧接口
+	output								flash_busy,
+	output		[22:0]					flash_addr,
+	inout		[15:0]					flash_data,
+	output		[7:0]					flash_ctl,
 
-	//VGA侧的接口
+	//VGA侧接口
 
-	//UART侧的接口
-	output 		 					uart_TxD_busy,
-	output 		 					uart_RxD_data_ready, 
-	output 		 					uart_com_TxD, 
-	input 							uart_com_RxD, 
+	//UART侧接口
+	output								uart_TxD_busy,
+	output								uart_RxD_data_ready,
+	output								uart_com_TxD,
+	input								uart_com_RxD,
 
-	//segdisp侧的接口
-	output 		[0:6] 				digseg_seg1,
+	//segdisp侧接口
+	output		[0:6]					digseg_seg1,
 	output		[0:6]					digseg_seg0
 
-	//PS2侧的接口
+	//PS2侧接口
 
 	);
 
@@ -137,7 +137,7 @@ module bus(
 			end
 			`WB_SELECT_ROM: begin
 				rom_chip_enable <= `ChipEnable;
-				rom_input_addr <= wishbone_addr_i;
+				rom_input_addr <= wishbone_addr_i[11:0];
 				if (wishbone_we_i == 1'b1) begin
 					wishbone_data_o <= `ZeroWord;
 					wishbone_ack_o <= 1'b1;
@@ -190,72 +190,74 @@ module bus(
 	end
 
 	ram ram0(
-	.clk(clk), .rst(rst), 
-	.input_addr(ram_input_addr),
-	.input_data(ram_input_data), 
-	.chip_enable(ram_chip_enable), 
-	.read_enable(ram_read_enable),
-	.write_enable(ram_write_enable), 
-	.output_data(ram_output_data), 
-	.baseram_addr(ram_baseram_addr), 
-	.baseram_data(ram_baseram_data), 
-	.baseram_ce(ram_baseram_ce), 
-	.baseram_oe(ram_baseram_oe), 
-	.baseram_we(ram_baseram_we), 
-	.extram_addr(ram_extram_addr), 
-	.extram_data(ram_extram_data), 
-	.extram_ce(ram_extram_ce), 
-	.extram_oe(ram_extram_oe), 
-	.extram_we(ram_extram_we), 
-	.ack(ram_ack)
-	);	
-
-	inst_rom rom0(
-	.ce(rom_chip_enable), 
-	.addr(rom_input_addr), 
-	.inst(rom_output_inst), 
-	.ack(rom_ack)
+		.clk(clk),
+		.rst(rst),
+		.input_addr(ram_input_addr),
+		.input_data(ram_input_data),
+		.chip_enable(ram_chip_enable),
+		.read_enable(ram_read_enable),
+		.write_enable(ram_write_enable),
+		.output_data(ram_output_data),
+		.baseram_addr(ram_baseram_addr),
+		.baseram_data(ram_baseram_data),
+		.baseram_ce(ram_baseram_ce),
+		.baseram_oe(ram_baseram_oe),
+		.baseram_we(ram_baseram_we),
+		.extram_addr(ram_extram_addr),
+		.extram_data(ram_extram_data),
+		.extram_ce(ram_extram_ce),
+		.extram_oe(ram_extram_oe),
+		.extram_we(ram_extram_we),
+		.ack(ram_ack)
 	);
 
+	inst_rom rom0(
+		.ce(rom_chip_enable),
+		.addr(rom_input_addr),
+		.inst(rom_output_inst),
+		.ack(rom_ack)
+	);
 
 	flash flash0(
-	.clk(clk), 
-	.enable_read(flash_read_enable), 
-	.enable_erase(flash_erase_enable),
-	.enable_write(flash_write_enable), 
-	.input_addr(flash_input_addr), 
-	.input_data(flash_input_data), 
-	.output_data(flash_output_data), 
-	.flash_busy(flash_busy), 
-	.flash_addr(flash_addr), 
-	.flash_data(flash_data), 
-	.flash_ctl(flash_ctl), 
-	.ack(flash_ack)
+		.clk(clk),
+		.enable_read(flash_read_enable),
+		.enable_erase(flash_erase_enable),
+		.enable_write(flash_write_enable),
+		.input_addr(flash_input_addr),
+		.input_data(flash_input_data),
+		.output_data(flash_output_data),
+		.flash_busy(flash_busy),
+		.flash_addr(flash_addr),
+		.flash_data(flash_data),
+		.flash_ctl(flash_ctl),
+		.ack(flash_ack)
 	);
 
 	uart uart0(
-	.clk(clk), .rst(rst), 
-	.enable(uart_enable), 
-	.data_in(uart_input_data),
-	.data_out(uart_output_data),
-	.TxD_start(uart_TxD_start), 
-	.TxD_busy(uart_TxD_busy), 
-	.RxD_data_ready(uart_RxD_data_ready), 
-	.com_TxD(uart_com_TxD), 
-	.com_RxD(uart_com_RxD), 
-	.ack_t(uart_ack_t), 
-	.ack_r(uart_ack_r)
+		.clk(clk),
+		.rst(rst),
+		.enable(uart_enable),
+		.data_in(uart_input_data),
+		.data_out(uart_output_data),
+		.TxD_start(uart_TxD_start),
+		.TxD_busy(uart_TxD_busy),
+		.RxD_data_ready(uart_RxD_data_ready),
+		.com_TxD(uart_com_TxD),
+		.com_RxD(uart_com_RxD),
+		.ack_t(uart_ack_t),
+		.ack_r(uart_ack_r)
 	);
 
 	digseg_driver digseg0(
-	.data(digseg_input_data0), 
-	.seg(digseg_seg0), 
-	.ack(digseg_ack)
+		.data(digseg_input_data0),
+		.seg(digseg_seg0),
+		.ack(digseg_ack)
 	);
 	
 	digseg_driver digseg1(
-	.data(digseg_input_data1),
-	.seg(digseg_seg1),
-	.ack(digseg_ack)
+		.data(digseg_input_data1),
+		.seg(digseg_seg1),
+		.ack(digseg_ack)
 	);
+
 endmodule

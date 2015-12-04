@@ -231,6 +231,19 @@
 `define CP0_REG_EPC			5'b10000
 `define CP0_REG_EBASE		5'b10010
 
+//*****************			与异常中断有关的宏定义		*****************
+`define EXCEPTION_INTERRUPT	32'h0000000f
+`define EXCEPTION_TLBM		32'h00000001
+`define EXCEPTION_TLBL		32'h00000002
+`define EXCEPTION_TLBS		32'h00000003
+`define EXCEPTION_ADEL		32'h00000004
+`define EXCEPTION_ADES		32'h00000005
+`define EXCEPTION_SYSCALL	32'h00000008
+`define EXCEPTION_RI		32'h0000000a
+`define EXCEPTION_CPU		32'h0000000b
+`define EXCEPTION_WATCH		32'h00000017
+`define EXCEPTION_ERET		32'h0000000e
+
 //*****************			与Wishbone总线有关的宏定义		*****************
 `define WB_IDLE				2'b00				//空闲状态
 `define WB_BUSY				2'b01				//忙状态
@@ -247,6 +260,7 @@
 `define TLBIndexWidth		4					//TLB索引宽度
 `define TLBIndexNum			16					//TLB索引项数
 `define TLBIndexBus			3:0					//TLB索引总线
+`define TLBDataWidth		64					//TLB数据宽度
 `define TLBDataBus			63:0				//TLB数据总线
 
 //*****************			与外设有关的宏定义		******************

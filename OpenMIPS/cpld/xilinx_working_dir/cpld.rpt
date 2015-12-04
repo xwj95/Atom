@@ -1,0 +1,853 @@
+ 
+cpldfit:  version P.28xd                            Xilinx Inc.
+                                  Fitter Report
+Design Name: cpld                                Date: 11-27-2015, 12:46PM
+Device Used: XC95144XL-5-TQ100
+Fitting Status: Successful
+
+*************************  Mapped Resource Summary  **************************
+
+Macrocells     Product Terms    Function Block   Registers      Pins           
+Used/Tot       Used/Tot         Inps Used/Tot    Used/Tot       Used/Tot       
+25 /144 ( 17%) 141 /720  ( 20%) 67 /432 ( 15%)   16 /144 ( 11%) 13 /81  ( 16%)
+
+** Function Block Resources **
+
+Function    Mcells      FB Inps     Pterms      IO          
+Block       Used/Tot    Used/Tot    Used/Tot    Used/Tot    
+FB1           6/18       12/54       19/90       3/11
+FB2           6/18       14/54       21/90       6/10
+FB3           2/18       14/54       37/90       0/10
+FB4           3/18       13/54       24/90       0/10
+FB5           0/18        0/54        0/90       0/10
+FB6           0/18        0/54        0/90       0/10
+FB7           8/18       14/54       40/90       2/10
+FB8           0/18        0/54        0/90       2/10
+             -----       -----       -----      -----    
+             25/144      67/432     141/720     13/81 
+
+* - Resource is exhausted
+
+** Global Control Resources **
+
+Global clock net(s) unused.
+Global output enable net(s) unused.
+Global set/reset net(s) unused.
+
+** Pin Resources **
+
+Signal Type    Required     Mapped  |  Pin Type            Used    Total 
+------------------------------------|------------------------------------
+Input         :    5           5    |  I/O              :    12      73
+Output        :    8           8    |  GCK/IO           :     0       3
+Bidirectional :    0           0    |  GTS/IO           :     1       4
+GCK           :    0           0    |  GSR/IO           :     0       1
+GTS           :    0           0    |
+GSR           :    0           0    |
+                 ----        ----
+        Total     13          13
+
+** Power Data **
+
+There are 25 macrocells in high performance mode (MCHP).
+There are 0 macrocells in low power mode (MCLP).
+End of Mapped Resource Summary
+**************************  Errors and Warnings  ***************************
+
+WARNING:Cpld - Unable to retrieve the path to the iSE Project Repository. Will
+   use the default filename of 'cpld.ise'.
+*************************  Summary of Mapped Logic  ************************
+
+** 8 Outputs **
+
+Signal                                                               Total Total Loc     Pin  Pin     Pin     Pwr  Slew Reg Init
+Name                                                                 Pts   Inps          No.  Type    Use     Mode Rate State
+kbd_data<1>                                                          2     4     FB1_2   11   I/O     O       STD  FAST 
+kbd_data<2>                                                          2     4     FB1_3   12   I/O     O       STD  FAST 
+kbd_data<3>                                                          2     4     FB1_5   13   I/O     O       STD  FAST 
+pass_RxD                                                             1     1     FB2_12  7    I/O     O       STD  FAST 
+kbd_enb_hi                                                           1     2     FB2_14  8    I/O     O       STD  FAST 
+kbd_enb_lo                                                           1     2     FB2_15  9    I/O     O       STD  FAST 
+kbd_data<0>                                                          2     4     FB2_17  10   I/O     O       STD  FAST 
+TxD                                                                  1     1     FB7_8   54   I/O     O       STD  FAST 
+
+** 17 Buried Nodes **
+
+Signal                                                               Total Total Loc     Pwr  Reg Init
+Name                                                                 Pts   Inps          Mode State
+usp2/ps2_clk2                                                        2     2     FB1_16  STD  RESET
+usp2/ps2_clk1                                                        2     2     FB1_17  STD  RESET
+usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D  9     5     FB1_18  STD  
+usp2/recv_data<1>                                                    8     11    FB2_16  STD  RESET
+usp2/recv_data<0>                                                    8     11    FB2_18  STD  RESET
+usp2/state<1>                                                        18    14    FB3_2   STD  RESET
+usp2/state<0>                                                        19    14    FB3_17  STD  RESET
+usp2/recv_data<4>                                                    8     11    FB4_1   STD  RESET
+usp2/recv_data<3>                                                    8     11    FB4_17  STD  RESET
+usp2/recv_data<2>                                                    8     11    FB4_18  STD  RESET
+usp2/recv_cnt<1>                                                     3     8     FB7_1   STD  RESET
+usp2/recv_cnt<3>                                                     3     10    FB7_2   STD  RESET
+usp2/recv_cnt<2>                                                     3     9     FB7_12  STD  RESET
+usp2/recv_cnt<0>                                                     6     10    FB7_14  STD  RESET
+usp2/recv_data<7>                                                    8     11    FB7_15  STD  RESET
+usp2/recv_data<6>                                                    8     11    FB7_17  STD  RESET
+usp2/recv_data<5>                                                    8     11    FB7_18  STD  RESET
+
+** 5 Inputs **
+
+Signal                                                               Loc     Pin  Pin     Pin     
+Name                                                                         No.  Type    Use     
+clk50M                                                               FB2_5   1    GTS/I/O I
+pass_TxD                                                             FB2_11  6    I/O     I
+RxD                                                                  FB7_12  58   I/O     I
+ps2_data                                                             FB8_12  70   I/O     I
+ps2_clk                                                              FB8_14  71   I/O     I
+
+Legend:
+Pin No. - ~ - User Assigned
+**************************  Function Block Details  ************************
+Legend:
+Total Pt     - Total product terms used by the macrocell signal
+Imp Pt       - Product terms imported from other macrocells
+Exp Pt       - Product terms exported to other macrocells
+               in direction shown
+Unused Pt    - Unused local product terms remaining in macrocell
+Loc          - Location where logic was mapped in device
+Pin Type/Use - I  - Input             GCK - Global Clock
+               O  - Output            GTS - Global Output Enable
+              (b) - Buried macrocell  GSR - Global Set/Reset
+X            - Signal used as input to the macrocell logic.
+Pin No.      - ~  - User Assigned
+*********************************** FB1  ***********************************
+Number of function block inputs used/remaining:               12/42
+Number of signals used by logic mapping into function block:  12
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0   /\2   3     FB1_1         (b)     (b)
+kbd_data<1>           2       0     0   3     FB1_2   11    I/O     O
+kbd_data<2>           2       0     0   3     FB1_3   12    I/O     O
+(unused)              0       0     0   5     FB1_4         (b)     
+kbd_data<3>           2       0     0   3     FB1_5   13    I/O     O
+(unused)              0       0     0   5     FB1_6   14    I/O     
+(unused)              0       0     0   5     FB1_7         (b)     
+(unused)              0       0     0   5     FB1_8   15    I/O     
+(unused)              0       0     0   5     FB1_9   16    I/O     
+(unused)              0       0     0   5     FB1_10        (b)     
+(unused)              0       0     0   5     FB1_11  17    I/O     
+(unused)              0       0     0   5     FB1_12  18    I/O     
+(unused)              0       0     0   5     FB1_13        (b)     
+(unused)              0       0     0   5     FB1_14  19    I/O     
+(unused)              0       0     0   5     FB1_15  20    I/O     
+usp2/ps2_clk2         2       0     0   3     FB1_16        (b)     (b)
+usp2/ps2_clk1         2       0   \/2   1     FB1_17  22    GCK/I/O (b)
+usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D
+                      9       4<-   0   0     FB1_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: clk50M              5: usp2/recv_data<2>   9: usp2/recv_data<6> 
+  2: ps2_clk             6: usp2/recv_data<3>  10: usp2/recv_data<7> 
+  3: usp2/ps2_clk1       7: usp2/recv_data<4>  11: usp2/state<0> 
+  4: usp2/recv_data<1>   8: usp2/recv_data<5>  12: usp2/state<1> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+kbd_data<1>          ...X...X..XX............................ 4
+kbd_data<2>          ....X...X.XX............................ 4
+kbd_data<3>          .....X...XXX............................ 4
+usp2/ps2_clk2        X.X..................................... 2
+usp2/ps2_clk1        XX...................................... 2
+usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D 
+                     .....XXXXX.............................. 5
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB2  ***********************************
+Number of function block inputs used/remaining:               14/40
+Number of signals used by logic mapping into function block:  14
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0   /\3   2     FB2_1         (b)     (b)
+(unused)              0       0     0   5     FB2_2   99    GSR/I/O 
+(unused)              0       0     0   5     FB2_3         (b)     
+(unused)              0       0     0   5     FB2_4         (b)     
+(unused)              0       0     0   5     FB2_5   1     GTS/I/O I
+(unused)              0       0     0   5     FB2_6   2     GTS/I/O 
+(unused)              0       0     0   5     FB2_7         (b)     
+(unused)              0       0     0   5     FB2_8   3     GTS/I/O 
+(unused)              0       0     0   5     FB2_9   4     GTS/I/O 
+(unused)              0       0     0   5     FB2_10        (b)     
+(unused)              0       0     0   5     FB2_11  6     I/O     I
+pass_RxD              1       0     0   4     FB2_12  7     I/O     O
+(unused)              0       0     0   5     FB2_13        (b)     
+kbd_enb_hi            1       0     0   4     FB2_14  8     I/O     O
+kbd_enb_lo            1       0   \/2   2     FB2_15  9     I/O     O
+usp2/recv_data<1>     8       3<-   0   0     FB2_16        (b)     (b)
+kbd_data<0>           2       0   /\1   2     FB2_17  10    I/O     O
+usp2/recv_data<0>     8       3<-   0   0     FB2_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: clk50M             6: usp2/recv_cnt<1>   11: usp2/recv_data<2> 
+  2: RxD                7: usp2/recv_cnt<2>   12: usp2/recv_data<4> 
+  3: usp2/ps2_clk1      8: usp2/recv_cnt<3>   13: usp2/state<0> 
+  4: usp2/ps2_clk2      9: usp2/recv_data<0>  14: usp2/state<1> 
+  5: usp2/recv_cnt<0>  10: usp2/recv_data<1> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+pass_RxD             .X...................................... 1
+kbd_enb_hi           ............XX.......................... 2
+kbd_enb_lo           ............XX.......................... 2
+usp2/recv_data<1>    X.XXXXXX.XX.XX.......................... 11
+kbd_data<0>          ........X..XXX.......................... 4
+usp2/recv_data<0>    X.XXXXXXXX..XX.......................... 11
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB3  ***********************************
+Number of function block inputs used/remaining:               14/40
+Number of signals used by logic mapping into function block:  14
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0   \/5   0     FB3_1         (b)     (b)
+usp2/state<1>        18      13<-   0   0     FB3_2   23    GCK/I/O (b)
+(unused)              0       0   /\5   0     FB3_3         (b)     (b)
+(unused)              0       0   /\3   2     FB3_4         (b)     (b)
+(unused)              0       0     0   5     FB3_5   24    I/O     
+(unused)              0       0     0   5     FB3_6   25    I/O     
+(unused)              0       0     0   5     FB3_7         (b)     
+(unused)              0       0     0   5     FB3_8   27    GCK/I/O 
+(unused)              0       0     0   5     FB3_9   28    I/O     
+(unused)              0       0     0   5     FB3_10        (b)     
+(unused)              0       0     0   5     FB3_11  29    I/O     
+(unused)              0       0     0   5     FB3_12  30    I/O     
+(unused)              0       0     0   5     FB3_13        (b)     
+(unused)              0       0     0   5     FB3_14  32    I/O     
+(unused)              0       0   \/4   1     FB3_15  33    I/O     (b)
+(unused)              0       0   \/5   0     FB3_16        (b)     (b)
+usp2/state<0>        19      14<-   0   0     FB3_17  34    I/O     (b)
+(unused)              0       0   /\5   0     FB3_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: clk50M                                                                6: usp2/recv_cnt<0>   11: usp2/recv_data<1> 
+  2: ps2_data                                                              7: usp2/recv_cnt<1>   12: usp2/recv_data<2> 
+  3: usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D   8: usp2/recv_cnt<2>   13: usp2/state<0> 
+  4: usp2/ps2_clk1                                                         9: usp2/recv_cnt<3>   14: usp2/state<1> 
+  5: usp2/ps2_clk2                                                        10: usp2/recv_data<0> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+usp2/state<1>        XXXXXXXXXXXXXX.......................... 14
+usp2/state<0>        XXXXXXXXXXXXXX.......................... 14
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB4  ***********************************
+Number of function block inputs used/remaining:               13/41
+Number of signals used by logic mapping into function block:  13
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+usp2/recv_data<4>     8       4<- /\1   0     FB4_1         (b)     (b)
+(unused)              0       0   /\4   1     FB4_2   87    I/O     (b)
+(unused)              0       0     0   5     FB4_3         (b)     
+(unused)              0       0     0   5     FB4_4         (b)     
+(unused)              0       0     0   5     FB4_5   89    I/O     
+(unused)              0       0     0   5     FB4_6   90    I/O     
+(unused)              0       0     0   5     FB4_7         (b)     
+(unused)              0       0     0   5     FB4_8   91    I/O     
+(unused)              0       0     0   5     FB4_9   92    I/O     
+(unused)              0       0     0   5     FB4_10        (b)     
+(unused)              0       0     0   5     FB4_11  93    I/O     
+(unused)              0       0     0   5     FB4_12  94    I/O     
+(unused)              0       0     0   5     FB4_13        (b)     
+(unused)              0       0     0   5     FB4_14  95    I/O     
+(unused)              0       0     0   5     FB4_15  96    I/O     
+(unused)              0       0   \/5   0     FB4_16        (b)     (b)
+usp2/recv_data<3>     8       5<- \/2   0     FB4_17  97    I/O     (b)
+usp2/recv_data<2>     8       3<-   0   0     FB4_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: clk50M             6: usp2/recv_cnt<2>   10: usp2/recv_data<4> 
+  2: usp2/ps2_clk1      7: usp2/recv_cnt<3>   11: usp2/recv_data<5> 
+  3: usp2/ps2_clk2      8: usp2/recv_data<2>  12: usp2/state<0> 
+  4: usp2/recv_cnt<0>   9: usp2/recv_data<3>  13: usp2/state<1> 
+  5: usp2/recv_cnt<1> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+usp2/recv_data<4>    XXXXXXX..XXXX........................... 11
+usp2/recv_data<3>    XXXXXXX.XX.XX........................... 11
+usp2/recv_data<2>    XXXXXXXXX..XX........................... 11
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB5  ***********************************
+Number of function block inputs used/remaining:               0/54
+Number of signals used by logic mapping into function block:  0
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0     0   5     FB5_1         (b)     
+(unused)              0       0     0   5     FB5_2   35    I/O     
+(unused)              0       0     0   5     FB5_3         (b)     
+(unused)              0       0     0   5     FB5_4         (b)     
+(unused)              0       0     0   5     FB5_5   36    I/O     
+(unused)              0       0     0   5     FB5_6   37    I/O     
+(unused)              0       0     0   5     FB5_7         (b)     
+(unused)              0       0     0   5     FB5_8   39    I/O     
+(unused)              0       0     0   5     FB5_9   40    I/O     
+(unused)              0       0     0   5     FB5_10        (b)     
+(unused)              0       0     0   5     FB5_11  41    I/O     
+(unused)              0       0     0   5     FB5_12  42    I/O     
+(unused)              0       0     0   5     FB5_13        (b)     
+(unused)              0       0     0   5     FB5_14  43    I/O     
+(unused)              0       0     0   5     FB5_15  46    I/O     
+(unused)              0       0     0   5     FB5_16        (b)     
+(unused)              0       0     0   5     FB5_17  49    I/O     
+(unused)              0       0     0   5     FB5_18        (b)     
+*********************************** FB6  ***********************************
+Number of function block inputs used/remaining:               0/54
+Number of signals used by logic mapping into function block:  0
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0     0   5     FB6_1         (b)     
+(unused)              0       0     0   5     FB6_2   74    I/O     
+(unused)              0       0     0   5     FB6_3         (b)     
+(unused)              0       0     0   5     FB6_4         (b)     
+(unused)              0       0     0   5     FB6_5   76    I/O     
+(unused)              0       0     0   5     FB6_6   77    I/O     
+(unused)              0       0     0   5     FB6_7         (b)     
+(unused)              0       0     0   5     FB6_8   78    I/O     
+(unused)              0       0     0   5     FB6_9   79    I/O     
+(unused)              0       0     0   5     FB6_10        (b)     
+(unused)              0       0     0   5     FB6_11  80    I/O     
+(unused)              0       0     0   5     FB6_12  81    I/O     
+(unused)              0       0     0   5     FB6_13        (b)     
+(unused)              0       0     0   5     FB6_14  82    I/O     
+(unused)              0       0     0   5     FB6_15  85    I/O     
+(unused)              0       0     0   5     FB6_16        (b)     
+(unused)              0       0     0   5     FB6_17  86    I/O     
+(unused)              0       0     0   5     FB6_18        (b)     
+*********************************** FB7  ***********************************
+Number of function block inputs used/remaining:               14/40
+Number of signals used by logic mapping into function block:  14
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+usp2/recv_cnt<1>      3       0   /\2   0     FB7_1         (b)     (b)
+usp2/recv_cnt<3>      3       0     0   2     FB7_2   50    I/O     (b)
+(unused)              0       0     0   5     FB7_3         (b)     
+(unused)              0       0     0   5     FB7_4         (b)     
+(unused)              0       0     0   5     FB7_5   52    I/O     
+(unused)              0       0     0   5     FB7_6   53    I/O     
+(unused)              0       0     0   5     FB7_7         (b)     
+TxD                   1       0     0   4     FB7_8   54    I/O     O
+(unused)              0       0     0   5     FB7_9   55    I/O     
+(unused)              0       0     0   5     FB7_10        (b)     
+(unused)              0       0     0   5     FB7_11  56    I/O     
+usp2/recv_cnt<2>      3       0     0   2     FB7_12  58    I/O     I
+(unused)              0       0   \/4   1     FB7_13        (b)     (b)
+usp2/recv_cnt<0>      6       4<- \/3   0     FB7_14  59    I/O     (b)
+usp2/recv_data<7>     8       3<-   0   0     FB7_15  60    I/O     (b)
+(unused)              0       0   \/4   1     FB7_16        (b)     (b)
+usp2/recv_data<6>     8       4<- \/1   0     FB7_17  61    I/O     (b)
+usp2/recv_data<5>     8       3<-   0   0     FB7_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: pass_TxD           6: usp2/recv_cnt<0>   11: usp2/recv_data<6> 
+  2: clk50M             7: usp2/recv_cnt<1>   12: usp2/recv_data<7> 
+  3: ps2_data           8: usp2/recv_cnt<2>   13: usp2/state<0> 
+  4: usp2/ps2_clk1      9: usp2/recv_cnt<3>   14: usp2/state<1> 
+  5: usp2/ps2_clk2     10: usp2/recv_data<5> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+usp2/recv_cnt<1>     .XXXXXX.....XX.......................... 8
+usp2/recv_cnt<3>     .XXXXXXXX...XX.......................... 10
+TxD                  X....................................... 1
+usp2/recv_cnt<2>     .XXXXXXX....XX.......................... 9
+usp2/recv_cnt<0>     .XXXXXXXX...XX.......................... 10
+usp2/recv_data<7>    .XXXXXXXX..XXX.......................... 11
+usp2/recv_data<6>    .X.XXXXXX.XXXX.......................... 11
+usp2/recv_data<5>    .X.XXXXXXXX.XX.......................... 11
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB8  ***********************************
+Number of function block inputs used/remaining:               0/54
+Number of signals used by logic mapping into function block:  0
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0     0   5     FB8_1         (b)     
+(unused)              0       0     0   5     FB8_2   63    I/O     
+(unused)              0       0     0   5     FB8_3         (b)     
+(unused)              0       0     0   5     FB8_4         (b)     
+(unused)              0       0     0   5     FB8_5   64    I/O     
+(unused)              0       0     0   5     FB8_6   65    I/O     
+(unused)              0       0     0   5     FB8_7         (b)     
+(unused)              0       0     0   5     FB8_8   66    I/O     
+(unused)              0       0     0   5     FB8_9   67    I/O     
+(unused)              0       0     0   5     FB8_10        (b)     
+(unused)              0       0     0   5     FB8_11  68    I/O     
+(unused)              0       0     0   5     FB8_12  70    I/O     I
+(unused)              0       0     0   5     FB8_13        (b)     
+(unused)              0       0     0   5     FB8_14  71    I/O     I
+(unused)              0       0     0   5     FB8_15  72    I/O     
+(unused)              0       0     0   5     FB8_16        (b)     
+(unused)              0       0     0   5     FB8_17  73    I/O     
+(unused)              0       0     0   5     FB8_18        (b)     
+*******************************  Equations  ********************************
+
+********** Mapped Logic **********
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TxD <= pass_TxD;
+
+
+kbd_data(0) <= ((usp2/recv_data(4) AND NOT usp2/state(0) AND 
+	usp2/state(1))
+	OR (usp2/recv_data(0) AND usp2/state(0) AND 
+	usp2/state(1)));
+
+
+kbd_data(1) <= ((usp2/recv_data(1) AND usp2/state(0) AND 
+	usp2/state(1))
+	OR (usp2/recv_data(5) AND NOT usp2/state(0) AND 
+	usp2/state(1)));
+
+
+kbd_data(2) <= ((usp2/recv_data(2) AND usp2/state(0) AND 
+	usp2/state(1))
+	OR (usp2/recv_data(6) AND NOT usp2/state(0) AND 
+	usp2/state(1)));
+
+
+kbd_data(3) <= ((usp2/recv_data(3) AND usp2/state(0) AND 
+	usp2/state(1))
+	OR (usp2/recv_data(7) AND NOT usp2/state(0) AND 
+	usp2/state(1)));
+
+
+kbd_enb_hi <= (NOT usp2/state(0) AND usp2/state(1));
+
+
+kbd_enb_lo <= (usp2/state(0) AND usp2/state(1));
+
+
+pass_RxD <= RxD;
+
+
+usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D <= NOT (usp2/recv_data(3)
+	 XOR 
+usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D <= NOT (((NOT usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+	usp2/recv_data(6) AND usp2/recv_data(7))
+	OR (NOT usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+	NOT usp2/recv_data(6) AND NOT usp2/recv_data(7))
+	OR (NOT usp2/recv_data(4) AND usp2/recv_data(5) AND 
+	usp2/recv_data(6) AND NOT usp2/recv_data(7))
+	OR (NOT usp2/recv_data(4) AND usp2/recv_data(5) AND 
+	NOT usp2/recv_data(6) AND usp2/recv_data(7))
+	OR (usp2/recv_data(4) AND usp2/recv_data(5) AND 
+	usp2/recv_data(6) AND usp2/recv_data(7))
+	OR (usp2/recv_data(4) AND usp2/recv_data(5) AND 
+	NOT usp2/recv_data(6) AND NOT usp2/recv_data(7))
+	OR (usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+	usp2/recv_data(6) AND NOT usp2/recv_data(7))
+	OR (usp2/recv_data(4) AND NOT usp2/recv_data(5) AND 
+	NOT usp2/recv_data(6) AND usp2/recv_data(7))));
+
+FDCPE_usp2/ps2_clk1: FDCPE port map (usp2/ps2_clk1,ps2_clk,clk50M,'0','0');
+
+FDCPE_usp2/ps2_clk2: FDCPE port map (usp2/ps2_clk2,usp2/ps2_clk1,clk50M,'0','0');
+
+FTCPE_usp2/recv_cnt0: FTCPE port map (usp2/recv_cnt(0),usp2/recv_cnt_T(0),clk50M,'0','0');
+usp2/recv_cnt_T(0) <= ((NOT ps2_data AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(2) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (usp2/state(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(1) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+
+FTCPE_usp2/recv_cnt1: FTCPE port map (usp2/recv_cnt(1),usp2/recv_cnt_T(1),clk50M,'0','0');
+usp2/recv_cnt_T(1) <= ((usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+	usp2/recv_cnt(1) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+
+FTCPE_usp2/recv_cnt2: FTCPE port map (usp2/recv_cnt(2),usp2/recv_cnt_T(2),clk50M,'0','0');
+usp2/recv_cnt_T(2) <= ((NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+	usp2/recv_cnt(2) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+	usp2/recv_cnt(1) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+
+FTCPE_usp2/recv_cnt3: FTCPE port map (usp2/recv_cnt(3),usp2/recv_cnt_T(3),clk50M,'0','0');
+usp2/recv_cnt_T(3) <= ((NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+	usp2/recv_cnt(3) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (usp2/state(0) AND NOT usp2/state(1) AND usp2/recv_cnt(0) AND 
+	usp2/recv_cnt(1) AND usp2/recv_cnt(2) AND NOT usp2/ps2_clk1 AND usp2/ps2_clk2));
+
+FTCPE_usp2/recv_data0: FTCPE port map (usp2/recv_data(0),usp2/recv_data_T(0),clk50M,'0','0');
+usp2/recv_data_T(0) <= ((NOT usp2/state(0))
+	OR (usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/ps2_clk2)
+	OR (usp2/recv_data(1) AND usp2/recv_data(0))
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(0))
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+
+FTCPE_usp2/recv_data1: FTCPE port map (usp2/recv_data(1),usp2/recv_data_T(1),clk50M,'0','0');
+usp2/recv_data_T(1) <= ((NOT usp2/state(0))
+	OR (usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/ps2_clk2)
+	OR (usp2/recv_data(1) AND usp2/recv_data(2))
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2))
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+
+FTCPE_usp2/recv_data2: FTCPE port map (usp2/recv_data(2),usp2/recv_data_T(2),clk50M,'0','0');
+usp2/recv_data_T(2) <= ((NOT usp2/state(0))
+	OR (usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/ps2_clk2)
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3))
+	OR (usp2/recv_data(2) AND usp2/recv_data(3))
+	OR (NOT usp2/recv_data(2) AND NOT usp2/recv_data(3)));
+
+FTCPE_usp2/recv_data3: FTCPE port map (usp2/recv_data(3),usp2/recv_data_T(3),clk50M,'0','0');
+usp2/recv_data_T(3) <= ((usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/state(0))
+	OR (NOT usp2/ps2_clk2)
+	OR (usp2/recv_data(3) AND usp2/recv_data(4))
+	OR (NOT usp2/recv_data(3) AND NOT usp2/recv_data(4))
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+
+FTCPE_usp2/recv_data4: FTCPE port map (usp2/recv_data(4),usp2/recv_data_T(4),clk50M,'0','0');
+usp2/recv_data_T(4) <= ((usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/ps2_clk2)
+	OR (NOT usp2/state(0))
+	OR (usp2/recv_data(4) AND usp2/recv_data(5))
+	OR (NOT usp2/recv_data(4) AND NOT usp2/recv_data(5))
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+
+FTCPE_usp2/recv_data5: FTCPE port map (usp2/recv_data(5),usp2/recv_data_T(5),clk50M,'0','0');
+usp2/recv_data_T(5) <= ((NOT usp2/state(0))
+	OR (usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/ps2_clk2)
+	OR (NOT usp2/recv_data(5) AND NOT usp2/recv_data(6))
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3))
+	OR (usp2/recv_data(5) AND usp2/recv_data(6)));
+
+FTCPE_usp2/recv_data6: FTCPE port map (usp2/recv_data(6),usp2/recv_data_T(6),clk50M,'0','0');
+usp2/recv_data_T(6) <= ((usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/ps2_clk2)
+	OR (NOT usp2/state(0))
+	OR (usp2/recv_data(6) AND usp2/recv_data(7))
+	OR (NOT usp2/recv_data(6) AND NOT usp2/recv_data(7))
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+
+FTCPE_usp2/recv_data7: FTCPE port map (usp2/recv_data(7),usp2/recv_data_T(7),clk50M,'0','0');
+usp2/recv_data_T(7) <= ((NOT usp2/state(0))
+	OR (usp2/state(1))
+	OR (usp2/ps2_clk1)
+	OR (NOT usp2/ps2_clk2)
+	OR (ps2_data AND usp2/recv_data(7))
+	OR (NOT ps2_data AND NOT usp2/recv_data(7))
+	OR (NOT usp2/recv_cnt(0) AND NOT usp2/recv_cnt(1) AND 
+	NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3)));
+
+FTCPE_usp2/state0: FTCPE port map (usp2/state(0),usp2/state_T(0),clk50M,'0','0');
+usp2/state_T(0) <= ((EXP15_.EXP)
+	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND NOT usp2/state(1) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/state(0) AND usp2/state(1))
+	OR (NOT ps2_data AND NOT usp2/state(0) AND NOT usp2/state(1) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2)
+	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D));
+
+FDCPE_usp2/state1: FDCPE port map (usp2/state(1),usp2/state_D(1),clk50M,'0','0');
+usp2/state_D(1) <= ((usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND NOT ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (EXP14_.EXP)
+	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND NOT ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	NOT usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/state(0) AND usp2/state(1))
+	OR (usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (usp2/recv_data(1) AND NOT usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D)
+	OR (NOT usp2/recv_data(1) AND usp2/recv_data(2) AND ps2_data AND 
+	usp2/recv_data(0) AND usp2/state(0) AND NOT usp2/recv_cnt(0) AND 
+	NOT usp2/recv_cnt(1) AND NOT usp2/recv_cnt(2) AND usp2/recv_cnt(3) AND 
+	NOT usp2/ps2_clk1 AND usp2/ps2_clk2 AND 
+	NOT usp2/Mxor_state_xor0001__xor0001/usp2/Mxor_state_xor0001__xor0001_D));
+
+Register Legend:
+ FDCPE (Q,D,C,CLR,PRE,CE); 
+ FTCPE (Q,D,C,CLR,PRE,CE); 
+ LDCP  (Q,D,G,CLR,PRE); 
+
+******************************  Device Pin Out *****************************
+
+Device : XC95144XL-5-TQ100
+
+
+   --------------------------------------------------  
+  /100 98  96  94  92  90  88  86  84  82  80  78  76  \
+ |   99  97  95  93  91  89  87  85  83  81  79  77    |
+ | 1                                               75  | 
+ | 2                                               74  | 
+ | 3                                               73  | 
+ | 4                                               72  | 
+ | 5                                               71  | 
+ | 6                                               70  | 
+ | 7                                               69  | 
+ | 8                                               68  | 
+ | 9                                               67  | 
+ | 10                                              66  | 
+ | 11                                              65  | 
+ | 12                                              64  | 
+ | 13               XC95144XL-5-TQ100              63  | 
+ | 14                                              62  | 
+ | 15                                              61  | 
+ | 16                                              60  | 
+ | 17                                              59  | 
+ | 18                                              58  | 
+ | 19                                              57  | 
+ | 20                                              56  | 
+ | 21                                              55  | 
+ | 22                                              54  | 
+ | 23                                              53  | 
+ | 24                                              52  | 
+ | 25                                              51  | 
+ |   27  29  31  33  35  37  39  41  43  45  47  49    |
+  \26  28  30  32  34  36  38  40  42  44  46  48  50  /
+   --------------------------------------------------  
+
+
+Pin Signal                         Pin Signal                        
+No. Name                           No. Name                          
+  1 clk50M                           51 VCC                           
+  2 TIE                              52 TIE                           
+  3 TIE                              53 TIE                           
+  4 TIE                              54 TxD                           
+  5 VCC                              55 TIE                           
+  6 pass_TxD                         56 TIE                           
+  7 pass_RxD                         57 VCC                           
+  8 kbd_enb_hi                       58 RxD                           
+  9 kbd_enb_lo                       59 TIE                           
+ 10 kbd_data<0>                      60 TIE                           
+ 11 kbd_data<1>                      61 TIE                           
+ 12 kbd_data<2>                      62 GND                           
+ 13 kbd_data<3>                      63 TIE                           
+ 14 TIE                              64 TIE                           
+ 15 TIE                              65 TIE                           
+ 16 TIE                              66 TIE                           
+ 17 TIE                              67 TIE                           
+ 18 TIE                              68 TIE                           
+ 19 TIE                              69 GND                           
+ 20 TIE                              70 ps2_data                      
+ 21 GND                              71 ps2_clk                       
+ 22 TIE                              72 TIE                           
+ 23 TIE                              73 TIE                           
+ 24 TIE                              74 TIE                           
+ 25 TIE                              75 GND                           
+ 26 VCC                              76 TIE                           
+ 27 TIE                              77 TIE                           
+ 28 TIE                              78 TIE                           
+ 29 TIE                              79 TIE                           
+ 30 TIE                              80 TIE                           
+ 31 GND                              81 TIE                           
+ 32 TIE                              82 TIE                           
+ 33 TIE                              83 TDO                           
+ 34 TIE                              84 GND                           
+ 35 TIE                              85 TIE                           
+ 36 TIE                              86 TIE                           
+ 37 TIE                              87 TIE                           
+ 38 VCC                              88 VCC                           
+ 39 TIE                              89 TIE                           
+ 40 TIE                              90 TIE                           
+ 41 TIE                              91 TIE                           
+ 42 TIE                              92 TIE                           
+ 43 TIE                              93 TIE                           
+ 44 GND                              94 TIE                           
+ 45 TDI                              95 TIE                           
+ 46 TIE                              96 TIE                           
+ 47 TMS                              97 TIE                           
+ 48 TCK                              98 VCC                           
+ 49 TIE                              99 TIE                           
+ 50 TIE                             100 GND                           
+
+
+Legend :  NC  = Not Connected, unbonded pin
+         PGND = Unused I/O configured as additional Ground pin
+         TIE  = Unused I/O floating -- must tie to VCC, GND or other signal
+         KPR  = Unused I/O with weak keeper (leave unconnected)
+         VCC  = Dedicated Power Pin
+         GND  = Dedicated Ground Pin
+         TDI  = Test Data In, JTAG pin
+         TDO  = Test Data Out, JTAG pin
+         TCK  = Test Clock, JTAG pin
+         TMS  = Test Mode Select, JTAG pin
+  PROHIBITED  = User reserved pin
+****************************  Compiler Options  ****************************
+
+Following is a list of all global compiler options used by the fitter run.
+
+Device(s) Specified                         : xc95144xl-5-TQ100
+Optimization Method                         : SPEED
+Multi-Level Logic Optimization              : ON
+Ignore Timing Specifications                : OFF
+Default Register Power Up Value             : LOW
+Keep User Location Constraints              : ON
+What-You-See-Is-What-You-Get                : OFF
+Exhaustive Fitting                          : OFF
+Keep Unused Inputs                          : OFF
+Slew Rate                                   : FAST
+Power Mode                                  : STD
+Ground on Unused IOs                        : OFF
+Set I/O Pin Termination                     : FLOAT
+Global Clock Optimization                   : ON
+Global Set/Reset Optimization               : ON
+Global Ouput Enable Optimization            : ON
+Input Limit                                 : 54
+Pterm Limit                                 : 25

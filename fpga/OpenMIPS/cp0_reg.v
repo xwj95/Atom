@@ -148,8 +148,9 @@ module cp0_reg(
 					end
 				endcase
 			end
+
 			case (excepttype_i)
-				32'h0000000f: begin				//Interrupt
+				`EXCEPTION_INTERRUPT: begin
 					if (is_in_delayslot_i == `InDelaySlot) begin
 						epc_o <= current_inst_addr_i - 4;
 						cause_o[31] <= 1'b1;	//Cause的Branch Delayslot
@@ -160,7 +161,7 @@ module cp0_reg(
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b00000;
 				end
-				32'h00000001: begin				//TLB Modified
+				`EXCEPTION_TLBM: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -174,7 +175,7 @@ module cp0_reg(
 					cause_o[6:2] <= 5'b00001;
 					bad_v_addr_o <= bad_v_addr_i;
 				end
-				32'h00000002: begin				//TLBL
+				`EXCEPTION_TLBL: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -188,7 +189,7 @@ module cp0_reg(
 					cause_o[6:2] <= 5'b00010;
 					bad_v_addr_o <= bad_v_addr_i;
 				end
-				32'h00000003: begin				//TLBS
+				`EXCEPTION_TLBS: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -202,7 +203,7 @@ module cp0_reg(
 					cause_o[6:2] <= 5'b00011;
 					bad_v_addr_o <= bad_v_addr_i;
 				end
-				32'h00000004: begin				//ADEL
+				`EXCEPTION_ADEL: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -216,7 +217,7 @@ module cp0_reg(
 					cause_o[6:2] <= 5'b00100;
 					bad_v_addr_o <= bad_v_addr_i;
 				end
-				32'h00000005: begin				//ADES
+				`EXCEPTION_ADES: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -230,7 +231,7 @@ module cp0_reg(
 					cause_o[6:2] <= 5'b00101;
 					bad_v_addr_o <= bad_v_addr_i;
 				end
-				32'h00000008: begin				//Syscall
+				`EXCEPTION_SYSCALL: begin
 					if (status_o[1] == 1'b0) begin						//EXL字段，0表示异常未发生
 						if (is_in_delayslot_i == `InDelaySlot) begin	//如果当前指令在延迟槽中
 							epc_o <= current_inst_addr_i - 4;
@@ -243,7 +244,7 @@ module cp0_reg(
 					status_o[1] <= 1'b1;								//EXL字段，1表示异常发生
 					cause_o[6:2] <= 5'b01000;
 				end
-				32'h0000000a: begin				//RI
+				`EXCEPTION_RI: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -256,7 +257,7 @@ module cp0_reg(
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b01010;
 				end
-				32'h0000000b: begin				//Co-Processor Unavailabel
+				`EXCEPTION_CPU: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -269,7 +270,7 @@ module cp0_reg(
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b01011;
 				end
-				32'h00000017: begin				//Watch
+				`EXCEPTION_WATCH: begin
 					if (status_o[1] == 1'b0) begin
 						if (is_in_delayslot_i == `InDelaySlot) begin
 							epc_o <= current_inst_addr_i - 4;
@@ -282,7 +283,7 @@ module cp0_reg(
 					status_o[1] <= 1'b1;
 					cause_o[6:2] <= 5'b10111;
 				end
-				32'h0000000e: begin				//eret
+				`EXCEPTION_ERET: begin				//eret
 					status_o[1] <= 1'b0;
 				end
 				default: begin
@@ -296,6 +297,7 @@ module cp0_reg(
 		if (rst == `RstEnable) begin
 			data_o <= `ZeroWord;
 		end else begin
+			data_o <= `ZeroWord;
 			case (raddr_i)
 				`CP0_REG_INDEX: begin			//读Index寄存器
 					data_o <= index_o;

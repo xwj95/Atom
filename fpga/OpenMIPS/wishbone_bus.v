@@ -24,8 +24,6 @@ module wishbone_bus(
 	output		reg[`RegBus]			wishbone_data_o,
 	output		reg						wishbone_we_o,
 	output		reg[15:0]				wishbone_select_o,
-	output		reg						wishbone_stb_o,
-	output		reg						wishbone_cyc_o,
 
 	output		reg						stallreq
 	);
@@ -41,15 +39,11 @@ module wishbone_bus(
 			wishbone_data_o <= `ZeroWord;
 			wishbone_we_o <= `WriteDisable;
 			wishbone_select_o <= 4'b0000;
-			wishbone_stb_o <= 1'b0;
-			wishbone_cyc_o <= 1'b0;
 			rd_buf <= `ZeroWord;
 		end else begin
 			case (wishbone_state)
 				`WB_IDLE: begin								//WB_IDLE状态
 					if ((mmu_ce_i == 1'b1) && (flush_i == `False_v)) begin
-						wishbone_stb_o <= 1'b1;
-						wishbone_cyc_o <= 1'b1;
 						wishbone_addr_o <= mmu_addr_i;
 						wishbone_data_o <= mmu_data_i;
 						wishbone_we_o <= mmu_we_i;
@@ -59,8 +53,6 @@ module wishbone_bus(
 				end
 				`WB_BUSY: begin								//WB_BUSY状态
 					if (wishbone_ack_i == 1'b1) begin
-						wishbone_stb_o <= 1'b0;
-						wishbone_cyc_o <= 1'b0;
 						wishbone_addr_o <= `ZeroWord;
 						wishbone_data_o <= `ZeroWord;
 						wishbone_we_o <= `WriteDisable;
@@ -73,8 +65,6 @@ module wishbone_bus(
 							wishbone_state <= `WB_WAIT_FOR_STALL;
 						end
 					end else if (flush_i == `True_v) begin
-						wishbone_stb_o <= 1'b0;
-						wishbone_cyc_o <= 1'b0;
 						wishbone_addr_o <= `ZeroWord;
 						wishbone_data_o <= `ZeroWord;
 						wishbone_we_o <= `WriteDisable;
