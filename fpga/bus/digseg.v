@@ -27,6 +27,6 @@ module digseg(
 		ack1, bus_select_i
 	);
 
-	assign bus_data_o = {24'b0, seg1, seg0};
+	assign bus_data_o = {18'b0, seg1, seg0};
 
 endmodule

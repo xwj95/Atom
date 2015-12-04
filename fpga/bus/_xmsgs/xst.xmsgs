@@ -5,58 +5,58 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 53: Using initial value of <arg fmt="%s" index="1">s3_data_o</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 53: Using initial value of <arg fmt="%s" index="1">s3_data_o</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 54: Using initial value of <arg fmt="%s" index="1">s3_ack_o</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 54: Using initial value of <arg fmt="%s" index="1">s3_ack_o</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 61: Using initial value of <arg fmt="%s" index="1">s5_data_o</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 61: Using initial value of <arg fmt="%s" index="1">s5_data_o</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 62: Using initial value of <arg fmt="%s" index="1">s5_ack_o</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 62: Using initial value of <arg fmt="%s" index="1">s5_ack_o</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 69: Using initial value of <arg fmt="%s" index="1">s7_data_o</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 69: Using initial value of <arg fmt="%s" index="1">s7_data_o</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 70: Using initial value of <arg fmt="%s" index="1">s7_ack_o</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 70: Using initial value of <arg fmt="%s" index="1">s7_ack_o</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 132: Assignment to <arg fmt="%s" index="1">s3_data_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 132: Assignment to <arg fmt="%s" index="1">s3_data_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 133: Assignment to <arg fmt="%s" index="1">s3_addr_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 133: Assignment to <arg fmt="%s" index="1">s3_addr_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 134: Assignment to <arg fmt="%s" index="1">s3_we_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 134: Assignment to <arg fmt="%s" index="1">s3_we_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 135: Assignment to <arg fmt="%s" index="1">s3_select_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 135: Assignment to <arg fmt="%s" index="1">s3_select_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 144: Assignment to <arg fmt="%s" index="1">s5_data_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 144: Assignment to <arg fmt="%s" index="1">s5_data_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 145: Assignment to <arg fmt="%s" index="1">s5_addr_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 145: Assignment to <arg fmt="%s" index="1">s5_addr_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 146: Assignment to <arg fmt="%s" index="1">s5_we_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 146: Assignment to <arg fmt="%s" index="1">s5_we_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 147: Assignment to <arg fmt="%s" index="1">s5_select_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 147: Assignment to <arg fmt="%s" index="1">s5_select_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 156: Assignment to <arg fmt="%s" index="1">s7_data_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 156: Assignment to <arg fmt="%s" index="1">s7_data_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 157: Assignment to <arg fmt="%s" index="1">s7_addr_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 157: Assignment to <arg fmt="%s" index="1">s7_addr_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 158: Assignment to <arg fmt="%s" index="1">s7_we_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 158: Assignment to <arg fmt="%s" index="1">s7_we_i</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 159: Assignment to <arg fmt="%s" index="1">s7_select_i</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v" Line 159: Assignment to <arg fmt="%s" index="1">s7_select_i</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="634" delta="old" >"C:\Users\Administrator-\Documents\git\proj8\fpga\bus\ram.v" Line 27: Net &lt;<arg fmt="%s" index="1">bus_clk_i</arg>&gt; does not have a driver.
@@ -105,54 +105,6 @@
 </msg>
 
 <msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus_top.v</arg>&quot; line <arg fmt="%s" index="2">107</arg>: Output port &lt;<arg fmt="%s" index="3">s7_select_o</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bus0</arg>&gt; is unconnected or connected to loadless signal.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">m_data_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">s1_ack_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">s2_ack_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">s3_ack_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">s4_ack_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">s5_ack_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">s6_ack_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">s7_ack_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s0_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s1_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s2_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s3_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s4_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s5_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s6_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">s7_data_o</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="737" delta="old" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">m_data_o&lt;30&gt;</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -540,6 +492,9 @@
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">data_in_latch_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">flash_driver0</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">ack</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">flash_driver0</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">read_wait_cnt_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">flash_driver0</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -1817,34 +1772,13 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Acc_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">BaudTickGen_2</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_1</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/TxD_shift_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">bus_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
@@ -1853,13 +1787,13 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
@@ -1868,13 +1802,13 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
@@ -1883,19 +1817,10 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/bus0/m_data_o_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/uart0/u0/ack</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bus_top0/uart0/u1/ack</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">bus_test</arg>&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.

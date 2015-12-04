@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: bus_test.prj
 
@@ -235,22 +235,6 @@ Unit <bus_top> synthesized.
 
 Synthesizing Unit <bus>.
     Related source file is "C:\Users\Administrator-\Documents\git\proj8\fpga\bus\bus.v".
-WARNING:Xst:647 - Input <m_data_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <s1_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <s2_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <s3_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <s4_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <s5_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <s6_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <s7_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <s0_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <s1_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <s2_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <s3_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <s4_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <s5_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <s6_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <s7_data_o> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:737 - Found 1-bit latch for signal <m_data_o<30>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <m_data_o<29>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <m_data_o<28>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -285,7 +269,6 @@ WARNING:Xst:737 - Found 1-bit latch for signal <m_data_o<0>>. Latches may be gen
 WARNING:Xst:737 - Found 1-bit latch for signal <m_data_o<31>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Summary:
 	inferred  32 Latch(s).
-	inferred   9 Multiplexer(s).
 Unit <bus> synthesized.
 
 Synthesizing Unit <ram>.
@@ -593,8 +576,8 @@ Macro Statistics
  8-bit register                                        : 2
 # Latches                                              : 32
  1-bit latch                                           : 32
-# Multiplexers                                         : 45
- 1-bit 2-to-1 multiplexer                              : 29
+# Multiplexers                                         : 36
+ 1-bit 2-to-1 multiplexer                              : 20
  16-bit 2-to-1 multiplexer                             : 3
  18-bit 2-to-1 multiplexer                             : 1
  22-bit 2-to-1 multiplexer                             : 1
@@ -683,6 +666,7 @@ WARNING:Xst:1710 - FF/Latch <data_in_latch_12> (without init value) has a consta
 WARNING:Xst:1710 - FF/Latch <data_in_latch_13> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_in_latch_14> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_in_latch_15> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ack> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <read_wait_cnt_0> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <read_wait_cnt_1> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <read_wait_cnt_2> (without init value) has a constant value of 0 in block <flash_driver0>. This FF/Latch will be trimmed during the optimization process.
@@ -906,8 +890,8 @@ Macro Statistics
  3-bit up counter                                      : 2
 # Registers                                            : 300
  Flip-Flops                                            : 300
-# Multiplexers                                         : 42
- 1-bit 2-to-1 multiplexer                              : 28
+# Multiplexers                                         : 33
+ 1-bit 2-to-1 multiplexer                              : 19
  16-bit 2-to-1 multiplexer                             : 3
  18-bit 2-to-1 multiplexer                             : 1
  22-bit 2-to-1 multiplexer                             : 1
@@ -1218,37 +1202,30 @@ Optimizing unit <uart_driver_transmitter> ...
 Optimizing unit <BaudTickGen_1> ...
 
 Optimizing unit <uart_driver_receiver> ...
-WARNING:Xst:1293 - FF/Latch <bus_top0/uart0/u0/TxD_shift_7> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_shift_6> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_shift_5> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_shift_4> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_shift_3> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_shift_2> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_shift_1> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bus_top0/uart0/u0/TxD_shift_0> has a constant value of 0 in block <bus_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_31> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_15> of sequential type is unconnected in block <bus_test>.
+WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_16> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_17> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_18> of sequential type is unconnected in block <bus_test>.
-WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_16> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_19> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_20> of sequential type is unconnected in block <bus_test>.
+WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_21> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_22> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_23> of sequential type is unconnected in block <bus_test>.
-WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_21> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_24> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_25> of sequential type is unconnected in block <bus_test>.
+WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_26> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_27> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_28> of sequential type is unconnected in block <bus_test>.
-WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_26> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_29> of sequential type is unconnected in block <bus_test>.
 WARNING:Xst:2677 - Node <bus_top0/bus0/m_data_o_30> of sequential type is unconnected in block <bus_test>.
-WARNING:Xst:2677 - Node <bus_top0/uart0/u0/ack> of sequential type is unconnected in block <bus_test>.
-WARNING:Xst:2677 - Node <bus_top0/uart0/u1/ack> of sequential type is unconnected in block <bus_test>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block bus_test, actual ratio is 0.
+FlipFlop bus_top0/uart0/u0/TxD_state_FSM_FFd1 has been replicated 1 time(s)
+FlipFlop bus_top0/uart0/u0/TxD_state_FSM_FFd2 has been replicated 2 time(s)
+FlipFlop bus_top0/uart0/u0/TxD_state_FSM_FFd3 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -1256,8 +1233,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 55
- Flip-Flops                                            : 55
+# Registers                                            : 69
+ Flip-Flops                                            : 69
 
 =========================================================================
 
@@ -1280,28 +1257,30 @@ Top Level Output File Name         : bus_test.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 166
+# BELS                             : 197
 #      GND                         : 1
-#      INV                         : 13
+#      INV                         : 12
 #      LUT1                        : 19
-#      LUT2                        : 7
-#      LUT3                        : 17
-#      LUT4                        : 24
-#      LUT5                        : 9
-#      LUT6                        : 16
+#      LUT2                        : 11
+#      LUT3                        : 18
+#      LUT4                        : 28
+#      LUT5                        : 26
+#      LUT6                        : 21
 #      MUXCY                       : 30
+#      MUXF7                       : 1
 #      VCC                         : 1
 #      XORCY                       : 29
-# FlipFlops/Latches                : 70
-#      FD                          : 36
+# FlipFlops/Latches                : 84
+#      FD                          : 42
+#      FDE                         : 8
 #      FDR                         : 4
 #      FDRE                        : 11
 #      FDSE                        : 4
 #      LD                          : 15
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 207
-#      IBUF                        : 19
+# IO Buffers                       : 215
+#      IBUF                        : 27
 #      IOBUF                       : 15
 #      OBUF                        : 108
 #      OBUFT                       : 65
@@ -1313,20 +1292,20 @@ Selected Device : 6slx100fgg676-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              55  out of  126576     0%  
- Number of Slice LUTs:                  105  out of  63288     0%  
-    Number used as Logic:               105  out of  63288     0%  
+ Number of Slice Registers:              69  out of  126576     0%  
+ Number of Slice LUTs:                  135  out of  63288     0%  
+    Number used as Logic:               135  out of  63288     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    108
-   Number with an unused Flip Flop:      53  out of    108    49%  
-   Number with an unused LUT:             3  out of    108     2%  
-   Number of fully used LUT-FF pairs:    52  out of    108    48%  
-   Number of unique control sets:         6
+ Number of LUT Flip Flop pairs used:    141
+   Number with an unused Flip Flop:      72  out of    141    51%  
+   Number with an unused LUT:             6  out of    141     4%  
+   Number of fully used LUT-FF pairs:    63  out of    141    44%  
+   Number of unique control sets:         7
 
 IO Utilization: 
  Number of IOs:                         223
- Number of bonded IOBs:                 208  out of    480    43%  
+ Number of bonded IOBs:                 216  out of    480    45%  
     IOB Flip Flops/Latches:              15
 
 Specific Feature Utilization:
@@ -1353,8 +1332,8 @@ Clock Information:
 -----------------------------------------+----------------------------------+-------+
 Clock Signal                             | Clock buffer(FF name)            | Load  |
 -----------------------------------------+----------------------------------+-------+
-bus_top0/bus0/_n0077(bus_top0/bus0/out:O)| NONE(*)(bus_top0/bus0/m_data_o_0)| 15    |
-clk                                      | BUFGP                            | 55    |
+bus_top0/bus0/_n0072(bus_top0/bus0/out:O)| NONE(*)(bus_top0/bus0/m_data_o_0)| 15    |
+clk                                      | BUFGP                            | 69    |
 -----------------------------------------+----------------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
@@ -1370,9 +1349,9 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 2.769ns (Maximum Frequency: 361.167MHz)
-   Minimum input arrival time before clock: 5.717ns
-   Maximum output required time after clock: 5.164ns
-   Maximum combinational path delay: 5.864ns
+   Minimum input arrival time before clock: 5.188ns
+   Maximum output required time after clock: 5.534ns
+   Maximum combinational path delay: 8.054ns
 
 Timing Details:
 ---------------
@@ -1381,7 +1360,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 2.769ns (frequency: 361.167MHz)
-  Total number of paths / destination ports: 442 / 69
+  Total number of paths / destination ports: 553 / 91
 -------------------------------------------------------------------------
 Delay:               2.769ns (Levels of Logic = 1)
   Source:            bus_top0/uart0/u1/OversamplingCnt_2 (FF)
@@ -1401,57 +1380,76 @@ Delay:               2.769ns (Levels of Logic = 1)
                                        (35.1% logic, 64.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'bus_top0/bus0/_n0077'
-  Total number of paths / destination ports: 303 / 15
+Timing constraint: Default OFFSET IN BEFORE for Clock 'bus_top0/bus0/_n0072'
+  Total number of paths / destination ports: 413 / 15
 -------------------------------------------------------------------------
-Offset:              5.717ns (Levels of Logic = 5)
+Offset:              5.188ns (Levels of Logic = 4)
   Source:            sw_dip<16> (PAD)
   Destination:       bus_top0/bus0/m_data_o_0 (LATCH)
-  Destination Clock: bus_top0/bus0/_n0077 falling
+  Destination Clock: bus_top0/bus0/_n0072 falling
 
   Data Path: sw_dip<16> to bus_top0/bus0/m_data_o_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   1.222   1.111  sw_dip_16_IBUF (sw_dip_16_IBUF)
-     LUT3:I0->O            1   0.205   0.580  bus_top0/bus0/m_select_i[15]_GND_3_o_equal_11_o<15>_SW0 (N2)
-     LUT6:I5->O           16   0.205   1.005  bus_top0/bus0/m_select_i[15]_GND_3_o_equal_11_o<15> (bus_top0/bus0/m_select_i[15]_GND_3_o_equal_11_o)
-     LUT2:I1->O            1   0.205   0.944  bus_top0/bus0/m_select_i[15]_s0_data_i[31]_select_17_OUT<0>_SW0 (N4)
+     IBUF:I->O            12   1.222   1.013  sw_dip_16_IBUF (sw_dip_16_IBUF)
+     LUT3:I1->O            2   0.203   0.961  bus_top0/bus0/out21 (bus_top0/bus0/out2)
+     LUT6:I1->O           15   0.203   1.346  bus_top0/bus0/m_select_i[15]_GND_3_o_equal_15_o<15>1 (bus_top0/bus0/m_select_i[15]_GND_3_o_equal_15_o)
      LUT6:I0->O            1   0.203   0.000  bus_top0/bus0/m_select_i[15]_s0_data_i[31]_select_17_OUT<0> (bus_top0/bus0/m_select_i[15]_s0_data_i[31]_select_17_OUT<0>)
      LD:D                      0.037          bus_top0/bus0/m_data_o_0
     ----------------------------------------
-    Total                      5.717ns (2.077ns logic, 3.640ns route)
-                                       (36.3% logic, 63.7% route)
+    Total                      5.188ns (1.868ns logic, 3.320ns route)
+                                       (36.0% logic, 64.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 23 / 22
+  Total number of paths / destination ports: 70 / 42
 -------------------------------------------------------------------------
-Offset:              3.608ns (Levels of Logic = 3)
-  Source:            sw_dip<31> (PAD)
-  Destination:       bus_top0/uart0/u0/TxD_state_FSM_FFd2 (FF)
+Offset:              3.917ns (Levels of Logic = 2)
+  Source:            sw_dip<20> (PAD)
+  Destination:       bus_top0/uart0/u0/TxD_shift_7 (FF)
   Destination Clock: clk rising
 
-  Data Path: sw_dip<31> to bus_top0/uart0/u0/TxD_state_FSM_FFd2
+  Data Path: sw_dip<20> to bus_top0/uart0/u0/TxD_shift_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             9   1.222   0.934  sw_dip_31_IBUF (sw_dip_31_IBUF)
-     LUT2:I0->O            1   0.203   0.944  bus_top0/uart0/u0/TxD_state_FSM_FFd2-In_SW0 (N18)
-     LUT6:I0->O            1   0.203   0.000  bus_top0/uart0/u0/TxD_state_FSM_FFd2-In (bus_top0/uart0/u0/TxD_state_FSM_FFd2-In)
-     FD:D                      0.102          bus_top0/uart0/u0/TxD_state_FSM_FFd2
+     IBUF:I->O            16   1.222   1.369  sw_dip_20_IBUF (sw_dip_20_IBUF)
+     LUT6:I0->O            8   0.203   0.802  bus_top0/uart0/u0/_n0080_inv1 (bus_top0/uart0/u0/_n0080_inv)
+     FDE:CE                    0.322          bus_top0/uart0/u0/TxD_shift_0
     ----------------------------------------
-    Total                      3.608ns (1.730ns logic, 1.878ns route)
-                                       (48.0% logic, 52.0% route)
+    Total                      3.917ns (1.747ns logic, 2.170ns route)
+                                       (44.6% logic, 55.4% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'bus_top0/bus0/_n0077'
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 7 / 2
+-------------------------------------------------------------------------
+Offset:              5.534ns (Levels of Logic = 3)
+  Source:            bus_top0/uart0/u1/ack (FF)
+  Destination:       led<15> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: bus_top0/uart0/u1/ack to led<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.845  bus_top0/uart0/u1/ack (bus_top0/uart0/u1/ack)
+     LUT3:I0->O            1   0.205   0.684  bus_top0/bus0/m_ack_o_SW0 (N4)
+     LUT6:I4->O            1   0.203   0.579  bus_top0/bus0/m_ack_o (led_15_OBUF)
+     OBUF:I->O                 2.571          led_15_OBUF (led<15>)
+    ----------------------------------------
+    Total                      5.534ns (3.426ns logic, 2.108ns route)
+                                       (61.9% logic, 38.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'bus_top0/bus0/_n0072'
   Total number of paths / destination ports: 15 / 15
 -------------------------------------------------------------------------
 Offset:              3.648ns (Levels of Logic = 1)
   Source:            bus_top0/bus0/m_data_o_14 (LATCH)
   Destination:       led<14> (PAD)
-  Source Clock:      bus_top0/bus0/_n0077 falling
+  Source Clock:      bus_top0/bus0/_n0072 falling
 
   Data Path: bus_top0/bus0/m_data_o_14 to led<14>
                                 Gate     Net
@@ -1464,55 +1462,37 @@ Offset:              3.648ns (Levels of Logic = 1)
                                        (84.1% logic, 15.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 4 / 1
--------------------------------------------------------------------------
-Offset:              5.164ns (Levels of Logic = 2)
-  Source:            bus_top0/uart0/u0/TxD_state_FSM_FFd3 (FF)
-  Destination:       com_TxD (PAD)
-  Source Clock:      clk rising
-
-  Data Path: bus_top0/uart0/u0/TxD_state_FSM_FFd3 to com_TxD
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q              22   0.447   1.362  bus_top0/uart0/u0/TxD_state_FSM_FFd3 (bus_top0/uart0/u0/TxD_state_FSM_FFd3)
-     LUT4:I1->O            1   0.205   0.579  bus_top0/uart0/u0/TxD1 (com_TxD_OBUF)
-     OBUF:I->O                 2.571          com_TxD_OBUF (com_TxD)
-    ----------------------------------------
-    Total                      5.164ns (3.223ns logic, 1.941ns route)
-                                       (62.4% logic, 37.6% route)
-
-=========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 36 / 20
+  Total number of paths / destination ports: 111 / 23
 -------------------------------------------------------------------------
-Delay:               5.864ns (Levels of Logic = 3)
-  Source:            sw_dip<22> (PAD)
-  Destination:       segdisp0<0> (PAD)
+Delay:               8.054ns (Levels of Logic = 5)
+  Source:            sw_dip<16> (PAD)
+  Destination:       led<15> (PAD)
 
-  Data Path: sw_dip<22> to segdisp0<0>
+  Data Path: sw_dip<16> to led<15>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            14   1.222   0.957  sw_dip_22_IBUF (sw_dip_22_IBUF)
-     INV:I->O             12   0.206   0.908  bus_top0/digseg0/digseg_driver1/Mmux_seg_o51_INV_0 (bus_top0/digseg_data_o<10>)
-     OBUF:I->O                 2.571          segdisp1_3_OBUF (segdisp1<3>)
+     IBUF:I->O            12   1.222   1.013  sw_dip_16_IBUF (sw_dip_16_IBUF)
+     LUT3:I1->O            2   0.203   0.981  bus_top0/bus0/out21 (bus_top0/bus0/out2)
+     LUT6:I0->O            5   0.203   1.079  bus_top0/bus0/_n0076<0>1 (bus_top0/bus0/_n0076<0>)
+     LUT6:I0->O            1   0.203   0.579  bus_top0/bus0/m_ack_o (led_15_OBUF)
+     OBUF:I->O                 2.571          led_15_OBUF (led<15>)
     ----------------------------------------
-    Total                      5.864ns (3.999ns logic, 1.865ns route)
-                                       (68.2% logic, 31.8% route)
+    Total                      8.054ns (4.402ns logic, 3.652ns route)
+                                       (54.7% logic, 45.3% route)
 
 =========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
-Clock to Setup on destination clock bus_top0/bus0/_n0077
+Clock to Setup on destination clock bus_top0/bus0/_n0072
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |         |         |    2.681|         |
+clk            |         |         |    2.547|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk
@@ -1526,14 +1506,14 @@ clk            |    2.769|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 10.19 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.44 secs
  
 --> 
 
-Total memory usage is 189476 kilobytes
+Total memory usage is 189028 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  614 (   0 filtered)
+Number of warnings :  589 (   0 filtered)
 Number of infos    :   18 (   0 filtered)
 

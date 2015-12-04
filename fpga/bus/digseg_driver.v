@@ -8,9 +8,9 @@ module digseg_driver(
 
 	assign ack = 1'b1;
 	always @ (*) begin
-		if (ce == 1'b0)
+		if (ce == 1'b0) begin
 			seg_o <= 7'b1111110;
-		else
+		end else begin
 			case (data_i)
 				4'b0000: seg_o <= 7'b1111110;
 				4'b0001: seg_o <= 7'b0110000;
@@ -29,6 +29,7 @@ module digseg_driver(
 				4'b1110: seg_o <= 7'b1001111;
 				4'b1111: seg_o <= 7'b1000111;
 			endcase
+		end
 	end
 
 endmodule

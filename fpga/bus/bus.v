@@ -106,6 +106,15 @@ always @ (*) begin
 	endcase
 end
 
+assign s0_data_o = m_data_i;
+assign s1_data_o = m_data_i;
+assign s2_data_o = m_data_i;
+assign s3_data_o = m_data_i;
+assign s4_data_o = m_data_i;
+assign s5_data_o = m_data_i;
+assign s6_data_o = m_data_i;
+assign s7_data_o = m_data_i;
+
 assign s0_we_o = m_we_i;
 assign s1_we_o = m_we_i;
 assign s2_we_o = m_we_i;
