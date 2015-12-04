@@ -92,6 +92,7 @@ module wishbone_bus(
 			mmu_ack_o <= 1'b1;
 		end else begin
 			stallreq <= `NoStop;
+			mmu_data_o <= `ZeroWord;
 			mmu_ack_o <= wishbone_ack_i;
 			case (wishbone_state)
 				`WB_IDLE: begin								//WB_IDLE状态

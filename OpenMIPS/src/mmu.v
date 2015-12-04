@@ -139,24 +139,35 @@ module mmu(
 			memw_ack <= `True_v;
 			memr_ack <= `True_v;
 			mmu_state_next <= `MMU_IF1_MEMW1_MEMR1;
+			mem_wdata <= `ZeroWord;
+			if_data_o <= `ZeroWord;
+			mem_data_o <= `ZeroWord;
 		end else begin
+			if_ack <= `True_v;
+			memw_ack <= `True_v;
+			memr_ack <= `True_v;
+			mmu_state_next <= `MMU_IF1_MEMW1_MEMR1;
+			mem_wdata <= `ZeroWord;
+			if_data_o <= `ZeroWord;
+			mem_data_o <= `ZeroWord;
 			case (mmu_state)
 				`MMU_IF0_MEMW0_MEMR0: begin						//取指未完成，写访存未完成，读访存未完成
 					memr_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
-						mem_data_o <= mmu_data_o;
+						mem_data_o <= mmu_data_i;
+						mem_wdata <= mem_data_i; 
 						if (mem_sel_i != 4'b1111) begin			//需要先读后写的指令，读访存完成后修改对应字节
 							if (mem_sel_i[3] == 1'b0) begin
-								mem_wdata[31:24] <= mem_data_o[31:24];
+								mem_wdata[31:24] <= mmu_data_o[31:24];
 							end
 							if (mem_sel_i[2] == 1'b0) begin
-								mem_wdata[23:16] <= mem_data_o[23:16];
+								mem_wdata[23:16] <= mmu_data_o[23:16];
 							end
 							if (mem_sel_i[1] == 1'b0) begin
-								mem_wdata[15:8] <= mem_data_o[15:8];
+								mem_wdata[15:8] <= mmu_data_o[15:8];
 							end
 							if (mem_sel_i[0] == 1'b0) begin
-								mem_wdata[7:0] <= mem_data_o[7:0];
+								mem_wdata[7:0] <= mmu_data_o[7:0];
 							end
 						end
 						mmu_state_next <= `MMU_IF0_MEMW0_MEMR1;
@@ -171,14 +182,14 @@ module mmu(
 				`MMU_IF0_MEMW1_MEMR0: begin						//取指未完成，写访存已完成，读访存未完成
 					memr_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
-						mem_data_o <= mmu_data_o;
+						mem_data_o <= mmu_data_i;
 						mmu_state_next <= `MMU_IF0_MEMW1_MEMR1;
 					end
 				end
 				`MMU_IF0_MEMW1_MEMR1: begin						//取指未完成，写访存已完成，读访存已完成
 					if_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
-						if_data_o <= mmu_data_o;
+						if_data_o <= mmu_data_i;
 						mmu_state_next <= `MMU_IF1_MEMW1_MEMR1;
 					end
 				end
