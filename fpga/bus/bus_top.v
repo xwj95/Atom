@@ -9,8 +9,8 @@ module bus_top(
 	input		wire[`WB_DataBus]		wishbone_data_i,
 	input		wire					wishbone_we_i,		//1代表写，0代表�
 	input		wire[`WB_SelectBus]		wishbone_select_i,
-	output		reg[`WB_DataBus]		wishbone_data_o,
-	output		reg						wishbone_ack_o,
+	output		wire[`WB_DataBus]		wishbone_data_o,
+	output		wire						wishbone_ack_o,
 
 	//RAM侧的接口
 	output		[`DataMemNumLog2-2:0]	ram_baseram_addr,
@@ -105,12 +105,12 @@ module bus_top(
 	wire digseg_ack_i;
 
 	bus bus0(
-		.m_data_i(bus_data_i),
-		.m_addr_i(bus_addr_i),
-		.m_we_i(bus_we_i),
-		.m_select_i(bus_select_i),
-		.m_data_o(bus_data_o),
-		.m_ack_o(bus_ack_o),
+		.m_data_i(wishbone_data_i),
+		.m_addr_i(wishbone_addr_i),
+		.m_we_i(wishbone_we_i),
+		.m_select_i(wishbone_select_i),
+		.m_data_o(wishbone_data_o),
+		.m_ack_o(wishbone_ack_o),
 		.s0_data_o(ram_data_o),
 		.s0_addr_o(ram_addr_o),
 		.s0_we_o(ram_we_o),

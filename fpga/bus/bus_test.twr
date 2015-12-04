@@ -4,7 +4,7 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 D:\Xilinx\14.2\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 3 -n
 3 -fastpaths -xml bus_test.twx bus_test.ncd -o bus_test.twr bus_test.pcf -ucf
-ram.ucf -ucf segdisp.ucf -ucf led.ucf -ucf key.ucf -ucf flash.ucf -ucf com.ucf
+segdisp.ucf -ucf ram.ucf -ucf led.ucf -ucf key.ucf -ucf flash.ucf -ucf com.ucf
 -ucf bus.ucf
 
 Design file:              bus_test.ncd
@@ -31,18 +31,674 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 
 Data Sheet report:
 -----------------
-No constraints were found to generate data for the Data Sheet Report section.
-Use the Advanced Analysis (-a) option or generate global constraints for each
-clock, its pad to setup and clock to pad paths, and a pad to pad constraint.
+All values displayed in nanoseconds (ns)
 
-Analysis completed Sat Dec 05 01:53:13 2015 
+Setup/Hold to clock clk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+com_RxD     |    2.156(R)|      SLOW  |   -1.436(R)|      FAST  |clk_BUFGP         |   0.000|
+rst         |    4.413(R)|      SLOW  |   -1.674(R)|      FAST  |clk_BUFGP         |   0.000|
+sw_dip<8>   |    3.100(R)|      SLOW  |   -1.936(R)|      FAST  |clk_BUFGP         |   0.000|
+sw_dip<9>   |    1.730(R)|      SLOW  |   -1.083(R)|      SLOW  |clk_BUFGP         |   0.000|
+sw_dip<10>  |    1.589(R)|      SLOW  |   -0.949(R)|      SLOW  |clk_BUFGP         |   0.000|
+sw_dip<11>  |    1.507(R)|      SLOW  |   -0.874(R)|      SLOW  |clk_BUFGP         |   0.000|
+sw_dip<12>  |    2.056(R)|      SLOW  |   -1.310(R)|      FAST  |clk_BUFGP         |   0.000|
+sw_dip<13>  |    2.361(R)|      SLOW  |   -1.446(R)|      FAST  |clk_BUFGP         |   0.000|
+sw_dip<14>  |    5.911(R)|      SLOW  |   -3.650(R)|      FAST  |clk_BUFGP         |   0.000|
+sw_dip<15>  |    3.445(R)|      SLOW  |   -2.180(R)|      FAST  |clk_BUFGP         |   0.000|
+sw_dip<31>  |    3.348(R)|      SLOW  |   -1.443(R)|      FAST  |clk_BUFGP         |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock sw_dip<16>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |   -0.499(F)|      FAST  |    3.210(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |   -0.839(F)|      FAST  |    3.906(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -1.170(F)|      FAST  |    4.313(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |   -0.384(F)|      FAST  |    3.007(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |   -0.403(F)|      FAST  |    3.275(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |    0.290(F)|      SLOW  |    2.018(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -1.819(F)|      FAST  |    5.411(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |   -0.276(F)|      FAST  |    2.948(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |   -0.495(F)|      FAST  |    3.340(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -2.369(F)|      FAST  |    6.467(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -1.235(F)|      FAST  |    4.471(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|   -0.786(F)|      FAST  |    3.742(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -1.915(F)|      FAST  |    5.511(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -1.893(F)|      FAST  |    5.545(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -1.923(F)|      FAST  |    5.616(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    2.132(F)|      SLOW  |    2.952(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |    0.384(F)|      SLOW  |    4.404(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |    0.840(F)|      SLOW  |    4.063(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |    0.333(F)|      SLOW  |    4.191(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    2.048(F)|      SLOW  |    4.788(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    1.886(F)|      SLOW  |    4.942(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    7.069(F)|      SLOW  |    0.034(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    4.838(F)|      SLOW  |    2.145(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock sw_dip<17>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |   -0.542(F)|      FAST  |    3.637(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |   -0.882(F)|      FAST  |    4.333(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -1.213(F)|      FAST  |    4.740(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |   -0.427(F)|      FAST  |    3.434(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |   -0.446(F)|      FAST  |    3.702(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |    0.157(F)|      FAST  |    2.445(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -1.862(F)|      FAST  |    5.838(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |   -0.319(F)|      FAST  |    3.375(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |   -0.538(F)|      FAST  |    3.767(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -2.412(F)|      FAST  |    6.894(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -1.278(F)|      FAST  |    4.898(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|   -0.829(F)|      FAST  |    4.169(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -1.958(F)|      FAST  |    5.938(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -1.936(F)|      FAST  |    5.972(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -1.966(F)|      FAST  |    6.043(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    1.977(F)|      SLOW  |    3.379(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |    0.246(F)|      FAST  |    4.831(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |    0.685(F)|      SLOW  |    4.490(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |    0.223(F)|      FAST  |    4.618(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    1.893(F)|      SLOW  |    5.215(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    1.731(F)|      SLOW  |    5.369(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    6.914(F)|      SLOW  |    0.461(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    4.683(F)|      SLOW  |    2.572(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock sw_dip<18>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |   -0.977(F)|      FAST  |    4.913(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |   -1.317(F)|      FAST  |    5.609(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -1.648(F)|      FAST  |    6.016(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |   -0.862(F)|      FAST  |    4.710(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |   -0.881(F)|      FAST  |    4.978(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |   -0.278(F)|      FAST  |    3.721(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -2.297(F)|      FAST  |    7.114(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |   -0.754(F)|      FAST  |    4.651(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |   -0.973(F)|      FAST  |    5.043(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -2.847(F)|      FAST  |    8.170(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -1.713(F)|      FAST  |    6.174(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|   -1.264(F)|      FAST  |    5.445(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -2.393(F)|      FAST  |    7.214(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -2.371(F)|      FAST  |    7.248(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -2.401(F)|      FAST  |    7.319(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    1.304(F)|      SLOW  |    4.655(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |   -0.189(F)|      FAST  |    6.107(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |    0.074(F)|      FAST  |    5.766(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |   -0.212(F)|      FAST  |    5.894(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    1.220(F)|      SLOW  |    6.491(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    1.058(F)|      SLOW  |    6.645(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    6.241(F)|      SLOW  |    1.737(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    4.010(F)|      SLOW  |    3.848(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock sw_dip<19>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |   -1.505(F)|      FAST  |    4.286(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |   -1.845(F)|      FAST  |    4.982(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -2.176(F)|      FAST  |    5.389(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |   -1.390(F)|      FAST  |    4.083(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |   -1.409(F)|      FAST  |    4.351(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |   -0.806(F)|      FAST  |    3.094(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -2.825(F)|      FAST  |    6.487(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |   -1.282(F)|      FAST  |    4.024(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |   -1.501(F)|      FAST  |    4.416(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -3.375(F)|      FAST  |    7.543(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -2.241(F)|      FAST  |    5.547(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|   -1.792(F)|      FAST  |    4.818(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -2.921(F)|      FAST  |    6.587(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -2.899(F)|      FAST  |    6.621(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -2.929(F)|      FAST  |    6.692(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    0.444(F)|      SLOW  |    4.028(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |   -0.717(F)|      FAST  |    5.480(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |   -0.454(F)|      FAST  |    5.139(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |   -0.740(F)|      FAST  |    5.267(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    0.459(F)|      FAST  |    5.864(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    0.318(F)|      FAST  |    6.018(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    5.381(F)|      SLOW  |    1.110(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    3.150(F)|      SLOW  |    3.221(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock sw_dip<20>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |   -1.136(F)|      FAST  |    4.235(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |   -1.476(F)|      FAST  |    4.931(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -1.807(F)|      FAST  |    5.338(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |   -1.021(F)|      FAST  |    4.032(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |   -1.040(F)|      FAST  |    4.300(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |   -0.437(F)|      FAST  |    3.043(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -2.456(F)|      FAST  |    6.436(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |   -0.913(F)|      FAST  |    3.973(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |   -1.132(F)|      FAST  |    4.365(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -3.006(F)|      FAST  |    7.492(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -1.872(F)|      FAST  |    5.496(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|   -1.423(F)|      FAST  |    4.767(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -2.552(F)|      FAST  |    6.536(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -2.530(F)|      FAST  |    6.570(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -2.560(F)|      FAST  |    6.641(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    1.013(F)|      SLOW  |    3.977(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |   -0.348(F)|      FAST  |    5.429(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |   -0.085(F)|      FAST  |    5.088(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |   -0.371(F)|      FAST  |    5.216(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    0.929(F)|      SLOW  |    5.813(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    0.767(F)|      SLOW  |    5.967(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    5.950(F)|      SLOW  |    1.059(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    3.719(F)|      SLOW  |    3.170(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock sw_dip<21>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |   -0.237(F)|      FAST  |    2.495(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |   -0.577(F)|      FAST  |    3.191(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -0.908(F)|      FAST  |    3.598(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |   -0.122(F)|      FAST  |    2.292(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |   -0.141(F)|      FAST  |    2.560(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |    0.584(F)|      SLOW  |    1.303(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -1.557(F)|      FAST  |    4.696(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |   -0.014(F)|      FAST  |    2.233(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |   -0.233(F)|      FAST  |    2.625(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -2.107(F)|      FAST  |    5.752(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -0.973(F)|      FAST  |    3.756(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|   -0.524(F)|      FAST  |    3.027(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -1.653(F)|      FAST  |    4.796(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -1.631(F)|      FAST  |    4.830(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -1.661(F)|      FAST  |    4.901(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    2.426(F)|      SLOW  |    2.237(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |    0.678(F)|      SLOW  |    3.689(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |    1.134(F)|      SLOW  |    3.348(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |    0.627(F)|      SLOW  |    3.476(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    2.342(F)|      SLOW  |    4.073(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    2.180(F)|      SLOW  |    4.227(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    7.363(F)|      SLOW  |   -0.647(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    5.132(F)|      SLOW  |    1.430(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock sw_dip<22>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |   -0.187(F)|      FAST  |    2.112(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |   -0.527(F)|      FAST  |    2.808(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -0.858(F)|      FAST  |    3.215(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |   -0.072(F)|      FAST  |    1.909(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |   -0.091(F)|      FAST  |    2.177(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |    0.659(F)|      SLOW  |    0.920(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -1.507(F)|      FAST  |    4.313(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |    0.036(F)|      FAST  |    1.850(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |   -0.183(F)|      FAST  |    2.242(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -2.057(F)|      FAST  |    5.369(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -0.923(F)|      FAST  |    3.373(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|   -0.474(F)|      FAST  |    2.644(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -1.603(F)|      FAST  |    4.413(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -1.581(F)|      FAST  |    4.447(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -1.611(F)|      FAST  |    4.518(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    2.501(F)|      SLOW  |    1.854(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |    0.753(F)|      SLOW  |    3.306(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |    1.209(F)|      SLOW  |    2.965(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |    0.702(F)|      SLOW  |    3.093(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    2.417(F)|      SLOW  |    3.690(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    2.255(F)|      SLOW  |    3.844(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    7.438(F)|      SLOW  |   -0.850(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    5.207(F)|      SLOW  |    1.047(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock sw_dip<23>
+--------------+------------+------------+------------+------------+--------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+--------------+------------+------------+------------+------------+--------------------+--------+
+flash_data<0> |    0.518(F)|      FAST  |    1.554(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<1> |    0.178(F)|      FAST  |    2.250(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<2> |   -0.153(F)|      FAST  |    2.657(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<3> |    0.708(F)|      SLOW  |    1.351(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<4> |    0.614(F)|      FAST  |    1.619(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<5> |    1.666(F)|      SLOW  |    0.362(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<6> |   -0.802(F)|      FAST  |    3.755(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<7> |    0.741(F)|      FAST  |    1.292(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<8> |    0.558(F)|      SLOW  |    1.684(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<9> |   -1.352(F)|      FAST  |    4.811(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<10>|   -0.218(F)|      FAST  |    2.815(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<11>|    0.231(F)|      FAST  |    2.086(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<12>|   -0.898(F)|      FAST  |    3.855(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<13>|   -0.876(F)|      FAST  |    3.889(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+flash_data<14>|   -0.906(F)|      FAST  |    3.960(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<8>     |    3.508(F)|      SLOW  |    1.296(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<9>     |    1.760(F)|      SLOW  |    2.748(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<10>    |    2.216(F)|      SLOW  |    2.407(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<11>    |    1.709(F)|      SLOW  |    2.535(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<12>    |    3.424(F)|      SLOW  |    3.132(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<13>    |    3.262(F)|      SLOW  |    3.286(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<14>    |    8.445(F)|      SLOW  |   -1.212(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+sw_dip<15>    |    6.214(F)|      SLOW  |    0.489(F)|      SLOW  |bus_top0/bus0/_n0072|   0.000|
+--------------+------------+------------+------------+------------+--------------------+--------+
+
+Clock clk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+com_TxD     |        11.648(R)|      SLOW  |         6.265(R)|      FAST  |clk_BUFGP         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock sw_dip<16> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        14.314(F)|      SLOW  |         8.077(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        14.904(F)|      SLOW  |         8.429(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        14.580(F)|      SLOW  |         8.259(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        14.580(F)|      SLOW  |         8.259(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        15.635(F)|      SLOW  |         8.880(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        13.732(F)|      SLOW  |         7.773(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        15.635(F)|      SLOW  |         8.880(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        13.852(F)|      SLOW  |         7.798(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        16.339(F)|      SLOW  |         9.358(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        17.449(F)|      SLOW  |         9.951(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        15.278(F)|      SLOW  |         8.663(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        15.278(F)|      SLOW  |         8.663(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        15.893(F)|      SLOW  |         9.090(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        15.684(F)|      SLOW  |         8.898(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        15.684(F)|      SLOW  |         8.898(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock sw_dip<17> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        14.741(F)|      SLOW  |         8.120(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        15.331(F)|      SLOW  |         8.472(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        15.007(F)|      SLOW  |         8.302(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        15.007(F)|      SLOW  |         8.302(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        16.062(F)|      SLOW  |         8.923(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        14.159(F)|      SLOW  |         7.816(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        16.062(F)|      SLOW  |         8.923(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        14.279(F)|      SLOW  |         7.841(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        16.766(F)|      SLOW  |         9.401(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        17.876(F)|      SLOW  |         9.994(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        15.705(F)|      SLOW  |         8.706(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        15.705(F)|      SLOW  |         8.706(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        16.320(F)|      SLOW  |         9.133(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        16.111(F)|      SLOW  |         8.941(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        16.111(F)|      SLOW  |         8.941(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock sw_dip<18> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        16.017(F)|      SLOW  |         8.555(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        16.607(F)|      SLOW  |         8.907(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        16.283(F)|      SLOW  |         8.737(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        16.283(F)|      SLOW  |         8.737(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        17.338(F)|      SLOW  |         9.358(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        15.435(F)|      SLOW  |         8.251(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        17.338(F)|      SLOW  |         9.358(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        15.555(F)|      SLOW  |         8.276(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        18.042(F)|      SLOW  |         9.836(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        19.152(F)|      SLOW  |        10.429(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        16.981(F)|      SLOW  |         9.141(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        16.981(F)|      SLOW  |         9.141(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        17.596(F)|      SLOW  |         9.568(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        17.387(F)|      SLOW  |         9.376(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        17.387(F)|      SLOW  |         9.376(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock sw_dip<19> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        15.390(F)|      SLOW  |         9.083(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        15.980(F)|      SLOW  |         9.435(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        15.656(F)|      SLOW  |         9.265(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        15.656(F)|      SLOW  |         9.265(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        16.711(F)|      SLOW  |         9.886(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        14.808(F)|      SLOW  |         8.779(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        16.711(F)|      SLOW  |         9.886(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        14.928(F)|      SLOW  |         8.804(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        17.415(F)|      SLOW  |        10.364(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        18.525(F)|      SLOW  |        10.957(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        16.354(F)|      SLOW  |         9.669(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        16.354(F)|      SLOW  |         9.669(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        16.969(F)|      SLOW  |        10.096(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        16.760(F)|      SLOW  |         9.904(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        16.760(F)|      SLOW  |         9.904(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock sw_dip<20> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        15.339(F)|      SLOW  |         8.714(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        15.929(F)|      SLOW  |         9.066(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        15.605(F)|      SLOW  |         8.896(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        15.605(F)|      SLOW  |         8.896(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        16.660(F)|      SLOW  |         9.517(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        14.757(F)|      SLOW  |         8.410(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        16.660(F)|      SLOW  |         9.517(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        14.877(F)|      SLOW  |         8.435(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        17.364(F)|      SLOW  |         9.995(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        18.474(F)|      SLOW  |        10.588(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        16.303(F)|      SLOW  |         9.300(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        16.303(F)|      SLOW  |         9.300(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        16.918(F)|      SLOW  |         9.727(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        16.709(F)|      SLOW  |         9.535(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        16.709(F)|      SLOW  |         9.535(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock sw_dip<21> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        13.599(F)|      SLOW  |         7.815(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        14.189(F)|      SLOW  |         8.167(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        13.865(F)|      SLOW  |         7.997(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        13.865(F)|      SLOW  |         7.997(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        14.920(F)|      SLOW  |         8.618(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        13.017(F)|      SLOW  |         7.511(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        14.920(F)|      SLOW  |         8.618(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        13.137(F)|      SLOW  |         7.536(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        15.624(F)|      SLOW  |         9.096(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        16.734(F)|      SLOW  |         9.689(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        14.563(F)|      SLOW  |         8.401(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        14.563(F)|      SLOW  |         8.401(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        15.178(F)|      SLOW  |         8.828(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        14.969(F)|      SLOW  |         8.636(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        14.969(F)|      SLOW  |         8.636(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock sw_dip<22> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        13.216(F)|      SLOW  |         7.765(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        13.806(F)|      SLOW  |         8.117(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        13.482(F)|      SLOW  |         7.947(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        13.482(F)|      SLOW  |         7.947(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        14.537(F)|      SLOW  |         8.568(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        12.634(F)|      SLOW  |         7.461(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        14.537(F)|      SLOW  |         8.568(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        12.754(F)|      SLOW  |         7.486(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        15.241(F)|      SLOW  |         9.046(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        16.351(F)|      SLOW  |         9.639(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        14.180(F)|      SLOW  |         8.351(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        14.180(F)|      SLOW  |         8.351(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        14.795(F)|      SLOW  |         8.778(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        14.586(F)|      SLOW  |         8.586(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        14.586(F)|      SLOW  |         8.586(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock sw_dip<23> to Pad
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+led<0>      |        12.658(F)|      SLOW  |         7.060(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<1>      |        13.248(F)|      SLOW  |         7.412(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<2>      |        12.924(F)|      SLOW  |         7.242(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<3>      |        12.924(F)|      SLOW  |         7.242(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<4>      |        13.979(F)|      SLOW  |         7.863(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<5>      |        12.076(F)|      SLOW  |         6.756(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<6>      |        13.979(F)|      SLOW  |         7.863(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<7>      |        12.196(F)|      SLOW  |         6.781(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<8>      |        14.683(F)|      SLOW  |         8.341(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<9>      |        15.793(F)|      SLOW  |         8.934(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<10>     |        13.622(F)|      SLOW  |         7.646(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<11>     |        13.622(F)|      SLOW  |         7.646(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<12>     |        14.237(F)|      SLOW  |         8.073(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<13>     |        14.028(F)|      SLOW  |         7.881(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+led<14>     |        14.028(F)|      SLOW  |         7.881(F)|      FAST  |bus_top0/bus0/_n0072|   0.000|
+------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    2.961|         |         |         |
+sw_dip<20>     |    6.462|    6.462|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<16>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    3.755|    3.755|
+sw_dip<17>     |         |         |    4.182|    4.182|
+sw_dip<18>     |         |         |    5.458|    5.458|
+sw_dip<19>     |         |         |    4.839|    4.839|
+sw_dip<20>     |         |         |    4.856|    4.856|
+sw_dip<21>     |         |         |    3.040|    3.040|
+sw_dip<22>     |         |         |    2.665|    2.665|
+sw_dip<23>     |         |         |    2.099|    2.099|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<17>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    3.600|    3.600|
+sw_dip<17>     |         |         |    4.027|    4.027|
+sw_dip<18>     |         |         |    5.303|    5.303|
+sw_dip<19>     |         |         |    4.684|    4.684|
+sw_dip<20>     |         |         |    4.701|    4.701|
+sw_dip<21>     |         |         |    2.885|    2.885|
+sw_dip<22>     |         |         |    2.510|    2.510|
+sw_dip<23>     |         |         |    1.944|    1.944|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<18>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    2.927|    2.927|
+sw_dip<17>     |         |         |    3.354|    3.354|
+sw_dip<18>     |         |         |    4.630|    4.630|
+sw_dip<19>     |         |         |    4.011|    4.011|
+sw_dip<20>     |         |         |    4.028|    4.028|
+sw_dip<21>     |         |         |    2.212|    2.212|
+sw_dip<22>     |         |         |    1.837|    1.837|
+sw_dip<23>     |         |         |    1.271|    1.271|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<19>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    2.067|    2.067|
+sw_dip<17>     |         |         |    2.494|    2.494|
+sw_dip<18>     |         |         |    3.770|    3.770|
+sw_dip<19>     |         |         |    3.151|    3.151|
+sw_dip<20>     |         |         |    3.168|    3.168|
+sw_dip<21>     |         |         |    1.352|    1.352|
+sw_dip<22>     |         |         |    0.977|    0.977|
+sw_dip<23>     |         |         |    0.411|    0.411|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<20>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    2.636|    2.636|
+sw_dip<17>     |         |         |    3.063|    3.063|
+sw_dip<18>     |         |         |    4.339|    4.339|
+sw_dip<19>     |         |         |    3.720|    3.720|
+sw_dip<20>     |         |         |    3.737|    3.737|
+sw_dip<21>     |         |         |    1.921|    1.921|
+sw_dip<22>     |         |         |    1.546|    1.546|
+sw_dip<23>     |         |         |    0.980|    0.980|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<21>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    4.049|    4.049|
+sw_dip<17>     |         |         |    4.476|    4.476|
+sw_dip<18>     |         |         |    5.752|    5.752|
+sw_dip<19>     |         |         |    5.133|    5.133|
+sw_dip<20>     |         |         |    5.150|    5.150|
+sw_dip<21>     |         |         |    3.334|    3.334|
+sw_dip<22>     |         |         |    2.959|    2.959|
+sw_dip<23>     |         |         |    2.393|    2.393|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<22>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    4.124|    4.124|
+sw_dip<17>     |         |         |    4.551|    4.551|
+sw_dip<18>     |         |         |    5.827|    5.827|
+sw_dip<19>     |         |         |    5.208|    5.208|
+sw_dip<20>     |         |         |    5.225|    5.225|
+sw_dip<21>     |         |         |    3.409|    3.409|
+sw_dip<22>     |         |         |    3.034|    3.034|
+sw_dip<23>     |         |         |    2.468|    2.468|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw_dip<23>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |   -0.318|         |
+sw_dip<16>     |         |         |    5.131|    5.131|
+sw_dip<17>     |         |         |    5.558|    5.558|
+sw_dip<18>     |         |         |    6.834|    6.834|
+sw_dip<19>     |         |         |    6.215|    6.215|
+sw_dip<20>     |         |         |    6.232|    6.232|
+sw_dip<21>     |         |         |    4.416|    4.416|
+sw_dip<22>     |         |         |    4.041|    4.041|
+sw_dip<23>     |         |         |    3.475|    3.475|
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+sw_dip<0>      |flash_addr<1>  |   14.891|
+sw_dip<1>      |flash_addr<2>  |   13.107|
+sw_dip<2>      |flash_addr<3>  |   12.882|
+sw_dip<3>      |flash_addr<4>  |   12.454|
+sw_dip<4>      |flash_addr<5>  |   11.882|
+sw_dip<5>      |flash_addr<6>  |   12.140|
+sw_dip<6>      |flash_addr<7>  |   12.013|
+sw_dip<7>      |flash_addr<8>  |   12.104|
+sw_dip<8>      |segdisp0<0>    |   14.286|
+sw_dip<8>      |segdisp0<1>    |   13.969|
+sw_dip<8>      |segdisp0<2>    |   13.491|
+sw_dip<8>      |segdisp0<3>    |   14.473|
+sw_dip<8>      |segdisp0<4>    |   14.099|
+sw_dip<8>      |segdisp0<5>    |   14.042|
+sw_dip<8>      |segdisp0<6>    |   13.618|
+sw_dip<9>      |segdisp0<0>    |   12.736|
+sw_dip<9>      |segdisp0<1>    |   12.221|
+sw_dip<9>      |segdisp0<2>    |   11.961|
+sw_dip<9>      |segdisp0<3>    |   12.923|
+sw_dip<9>      |segdisp0<4>    |   12.817|
+sw_dip<9>      |segdisp0<5>    |   12.760|
+sw_dip<9>      |segdisp0<6>    |   12.088|
+sw_dip<10>     |segdisp0<0>    |   13.145|
+sw_dip<10>     |segdisp0<1>    |   12.677|
+sw_dip<10>     |segdisp0<2>    |   12.324|
+sw_dip<10>     |segdisp0<3>    |   13.332|
+sw_dip<10>     |segdisp0<4>    |   12.846|
+sw_dip<10>     |segdisp0<5>    |   12.789|
+sw_dip<10>     |segdisp0<6>    |   12.451|
+sw_dip<11>     |segdisp0<0>    |   12.578|
+sw_dip<11>     |segdisp0<1>    |   12.170|
+sw_dip<11>     |segdisp0<2>    |   12.184|
+sw_dip<11>     |segdisp0<3>    |   12.765|
+sw_dip<11>     |segdisp0<4>    |   12.628|
+sw_dip<11>     |segdisp0<5>    |   12.571|
+sw_dip<11>     |segdisp0<6>    |   12.311|
+sw_dip<12>     |segdisp1<0>    |   13.408|
+sw_dip<12>     |segdisp1<1>    |   13.590|
+sw_dip<12>     |segdisp1<2>    |   13.557|
+sw_dip<12>     |segdisp1<3>    |   13.983|
+sw_dip<12>     |segdisp1<4>    |   13.684|
+sw_dip<12>     |segdisp1<5>    |   13.607|
+sw_dip<12>     |segdisp1<6>    |   12.212|
+sw_dip<13>     |segdisp1<0>    |   13.443|
+sw_dip<13>     |segdisp1<1>    |   12.994|
+sw_dip<13>     |segdisp1<2>    |   13.645|
+sw_dip<13>     |segdisp1<3>    |   14.018|
+sw_dip<13>     |segdisp1<4>    |   13.522|
+sw_dip<13>     |segdisp1<5>    |   13.445|
+sw_dip<13>     |segdisp1<6>    |   12.300|
+sw_dip<14>     |segdisp1<0>    |   18.126|
+sw_dip<14>     |segdisp1<1>    |   17.797|
+sw_dip<14>     |segdisp1<2>    |   18.243|
+sw_dip<14>     |segdisp1<3>    |   18.701|
+sw_dip<14>     |segdisp1<4>    |   18.705|
+sw_dip<14>     |segdisp1<5>    |   18.628|
+sw_dip<14>     |segdisp1<6>    |   16.898|
+sw_dip<15>     |segdisp1<0>    |   16.315|
+sw_dip<15>     |segdisp1<1>    |   15.624|
+sw_dip<15>     |segdisp1<2>    |   16.429|
+sw_dip<15>     |segdisp1<3>    |   16.890|
+sw_dip<15>     |segdisp1<4>    |   16.474|
+sw_dip<15>     |segdisp1<5>    |   16.397|
+sw_dip<15>     |segdisp1<6>    |   15.084|
+sw_dip<31>     |flash_addr<1>  |   11.069|
+sw_dip<31>     |flash_addr<2>  |   10.999|
+sw_dip<31>     |flash_addr<3>  |   10.786|
+sw_dip<31>     |flash_addr<4>  |   10.871|
+sw_dip<31>     |flash_addr<5>  |   10.893|
+sw_dip<31>     |flash_addr<6>  |   10.837|
+sw_dip<31>     |flash_addr<7>  |   11.005|
+sw_dip<31>     |flash_addr<8>  |   11.191|
+---------------+---------------+---------+
+
+
+Analysis completed Sat Dec 05 02:18:02 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 261 MB
+Peak Memory Usage: 262 MB
 
 
 
