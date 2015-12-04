@@ -106,25 +106,25 @@ always @ (*) begin
 	endcase
 end
 
-assign s0_we_o = s0_select_o ? m_we_i : 1'b0;
-assign s1_we_o = s1_select_o ? m_we_i : 1'b0;
-assign s2_we_o = s2_select_o ? m_we_i : 1'b0;
-assign s3_we_o = s3_select_o ? m_we_i : 1'b0;
-assign s4_we_o = s4_select_o ? m_we_i : 1'b0;
-assign s5_we_o = s5_select_o ? m_we_i : 1'b0;
-assign s6_we_o = s6_select_o ? m_we_i : 1'b0;
-assign s7_we_o = s7_select_o ? m_we_i : 1'b0;
+assign s0_we_o = m_we_i;
+assign s1_we_o = m_we_i;
+assign s2_we_o = m_we_i;
+assign s3_we_o = m_we_i;
+assign s4_we_o = m_we_i;
+assign s5_we_o = m_we_i;
+assign s6_we_o = m_we_i;
+assign s7_we_o = m_we_i;
 
 always @ (*) begin
 	case(m_select_i)
 		16'h0001:	m_ack_o <= s0_ack_i;
-		16'h0002:	m_ack_o <= s0_ack_i;
-		16'h0004:	m_ack_o <= s0_ack_i;
-		16'h0008:	m_ack_o <= s0_ack_i;
-		16'h0010:	m_ack_o <= s0_ack_i;
-		16'h0020:	m_ack_o <= s0_ack_i;
-		16'h0040:	m_ack_o <= s0_ack_i;
-		16'h0080:	m_ack_o <= s0_ack_i;
+		16'h0002:	m_ack_o <= s1_ack_i;
+		16'h0004:	m_ack_o <= s2_ack_i;
+		16'h0008:	m_ack_o <= s3_ack_i;
+		16'h0010:	m_ack_o <= s4_ack_i;
+		16'h0020:	m_ack_o <= s5_ack_i;
+		16'h0040:	m_ack_o <= s6_ack_i;
+		16'h0080:	m_ack_o <= s7_ack_i;
 		default:	m_ack_o <= 1'b0;
 	endcase
 end

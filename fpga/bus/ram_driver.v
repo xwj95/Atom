@@ -1,14 +1,14 @@
 `include "defines.v"
 module ram_driver (
 	input clk,    // Clock
-	input rst, 
-	input enable, 
-	input read_enable, 
-	input write_enable, 
+	input rst,
+	input enable,
+	input read_enable,
+	input write_enable,
 	
-	input [`DataMemNumLog2-1:0] addr, 
-	input [`DataBus] data_in, 
-	output [`DataBus] data_out, 
+	input [`DataMemNumLog2-1:0] addr,
+	input [`DataBus] data_in,
+	output [`DataBus] data_out,
 
 	output reg[`DataMemNumLog2-2:0] baseram_addr,
 	inout [`DataBus] baseram_data,
@@ -19,7 +19,7 @@ module ram_driver (
 	inout [`DataBus] extram_data,
 	output reg extram_ce,
 	output reg extram_oe,
-	output reg extram_we, 
+	output reg extram_we,
 	output wire ack
 );
 

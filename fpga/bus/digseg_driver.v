@@ -8,8 +8,8 @@ module digseg_driver(
 
 	assign ack = 1'b1;
 	always @ (*) begin
-		if (ce)
-			seg_o <= 0;
+		if (ce == 1'b0)
+			seg_o <= 7'b1111110;
 		else
 			case (data_i)
 				4'b0000: seg_o <= 7'b1111110;
