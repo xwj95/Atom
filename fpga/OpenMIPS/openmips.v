@@ -643,6 +643,7 @@ module openmips(
 	);
 
 	tlb tlb0(
+		.clk(clk),
 		.rst(rst),
 
 		.mmu_addr(tlb_addr_o),

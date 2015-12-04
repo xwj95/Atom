@@ -1,20 +1,19 @@
-`timescale 1ns/1ps
-
+`include "defines.v"
 module flash_driver (
 	input clk,    
-	input [21:0] addr, 
-	input [15:0] data_in, 
-	output [15:0] data_out, 
+	input [`FlashAddrBusWord] addr, 
+	input [`FlashDataBus] data_in, 
+	output [`FlashDataBus] data_out, 
 
 	input enable_read, 
 	input enable_erase, 
 	input enable_write, 
 
-	output [22:0] flash_addr, 
-	inout [15:0] flash_data, 
-	output [7:0] flash_ctl, 
+	output [`FlashAddrBus] flash_addr, 
+	inout [`FlashDataBus] flash_data, 
+	output [`FlashCtrlBus] flash_ctl, 
 	output reg ack
-);
+	);
 
 	reg busy;
 	assign data_out = flash_data;
@@ -22,9 +21,9 @@ module flash_driver (
 
 	wire flash_byte = 1, flash_vpen = 1, flash_ce = 0, flash_rp = 1;
 
-	reg [21:0] addr_latch;
+	reg [`FlashAddrBusWord] addr_latch;
 	assign flash_addr = {enable_read ? addr : addr_latch, 1'b0};
-	reg [15:0] data_to_write, data_in_latch;
+	reg [`FlashDataBus] data_to_write, data_in_latch;
 
 	assign flash_data = flash_oe ? data_to_write : {16{1'bz}};
 

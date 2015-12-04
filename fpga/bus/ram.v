@@ -1,38 +1,36 @@
+`include "defines.v"
 module ram (
-	input clk,    // Clock
+	input clk,
 	input rst,
 
-	input [20:0] input_addr,
-	input [31:0] input_data,
+	input [`WB_AddrBus] bus_addr_i,
+	input [`WB_DataBus] bus_data_i,
+	output reg[`WB_DataBus] bus_data_o,
+	input bus_select_i,
+	input bus_we_i,
+	output bus_ack_o,
 
-	input chip_enable,
-	input read_enable, 
-	input write_enable,
-
-	output [31:0] output_data,
-
-	output [19:0] baseram_addr,
-	inout [31:0] baseram_data,
+	output [`DataMemNumLog2-2:0] baseram_addr,
+	inout [`DataBus] baseram_data,
 	output baseram_ce,
 	output baseram_oe,
 	output baseram_we,
 
-	output [19:0] extram_addr,
-	inout [31:0] extram_data,
+	output [`DataMemNumLog2-2:0] extram_addr,
+	inout [`DataBus] extram_data,
 	output extram_ce,
 	output extram_oe,
-	output extram_we, 
-	output ack
+	output extram_we
 	);
 
-	ram_driver ram_driver_inst (
-		clk, rst, 
-		chip_enable, read_enable, write_enable, 
-		input_addr, input_data, output_data,
+	ram_driver ram_driver0(
+		bus_clk_i, bus_rst_i, 
+		bus_select_i, !bus_we_i, bus_we_i, 
+		{bus_addr_i[`DataMemNumLog2-2], bus_addr_i[`DataMemNumLog2-2:0]}, bus_data_i, bus_data_o,
 		baseram_addr, baseram_data, 
 		baseram_ce, baseram_oe, baseram_we, 
 		extram_addr, extram_data, 
-		extram_ce, extram_oe, extram_we, ack
+		extram_ce, extram_oe, extram_we, bus_ack_o
 	);
 
 endmodule

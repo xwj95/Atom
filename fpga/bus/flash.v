@@ -1,28 +1,30 @@
+`include "defines.v"
 module flash (
 	input clk,
+	input rst,
 
-	input enable_read, 
-	input enable_erase, 
-	input enable_write, 
-	
-	input [21:0] input_addr, 
-	input [15:0] input_data,
-	
-	output [15:0] output_data,
-	output flash_busy,
-	output [22:0] flash_addr, 
-	inout [15:0] flash_data, 
-	output [7:0] flash_ctl, 
-	output ack
-);
+	input [`WB_AddrBus] bus_addr_i,
+	input [`WB_DataBus] bus_data_i,
+	output [`WB_DataBus] bus_data_o,
+	input bus_select_i,
+	input bus_we_i,
+	output bus_ack_o,
 
-	flash_driver u0 (
-		.clk(clk), .addr(input_addr), .data_in(input_data), 
-		.data_out(output_data), .enable_erase(enable_erase), 
-		.enable_read(enable_read), .enable_write(enable_write),
-		.busy(flash_busy), .flash_ctl(flash_ctl),
-		.flash_addr(flash_addr), .flash_data(flash_data), 
-		.ack(ack)
-		);
-		
+	output [`FlashAddrBus] flash_addr, 
+	inout [`FlashDataBus] flash_data, 
+	output [`FlashCtrlBus] flash_ctl
+	);
+
+	wire[`FlashDataBus] output_data;
+
+	assign bus_data_o = {{16{1'b0}}, output_data};
+
+	flash_driver flash_driver0(
+		.clk(bus_clk_i), .addr(bus_addr_i[`FlashAddrBusWord]), .data_in(bus_data_i[`FlashDataBus]), 
+		.data_out(output_data), .enable_erase(1'b0), 
+		.enable_read(!bus_we_i), .enable_write(1'b0),
+		.flash_ctl(flash_ctl), .flash_addr(flash_addr), .flash_data(flash_data), 
+		.ack(bus_ack_o)
+	);
+
 endmodule

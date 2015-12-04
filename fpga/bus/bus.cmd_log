@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "Z:/Documents/Project/fpga/bus/bus.xst" -ofn "Z:/Documents/Project/fpga/bus/bus.syr" 

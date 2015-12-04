@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_test.v" Line 38: Port <arg fmt="%s" index="1">wishbone_stb_i</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 87: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">m_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 88: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">m_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 89: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">m_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 90: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">m_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 91: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">m_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 92: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">m_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 93: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s0_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 94: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s0_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 95: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s0_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 96: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s0_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 97: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s0_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 98: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s0_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 99: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s1_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 100: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s1_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 101: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s1_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 102: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s1_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 103: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s1_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 104: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s1_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 105: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s2_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 106: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s2_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 107: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s2_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 108: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s2_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 109: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s2_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 110: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s2_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 111: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s3_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 112: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s3_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 113: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s3_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 114: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s3_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 115: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s3_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 116: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s3_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 117: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s4_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 118: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s4_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 119: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s4_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 120: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s4_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 121: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s4_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 122: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s4_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 123: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s5_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 124: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s5_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 125: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s5_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 126: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s5_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 127: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s5_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 128: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s5_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 129: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s6_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 130: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s6_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 131: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s6_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 132: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s6_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 133: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s6_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 134: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s6_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 135: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s7_data_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 136: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s7_addr_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 137: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s7_we_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 138: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s7_select_i</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 139: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s7_data_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 140: Module &lt;<arg fmt="%s" index="1">bus</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">s7_ack_o</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 86: Port <arg fmt="%s" index="1">clk</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 145: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_addr</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 146: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 147: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">chip_enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 148: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">read_enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 149: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">write_enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 150: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">output_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 161: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 143: Port <arg fmt="%s" index="1">bus_addr_i</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 165: Module &lt;<arg fmt="%s" index="1">rom</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ce</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 166: Module &lt;<arg fmt="%s" index="1">rom</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">addr</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 167: Module &lt;<arg fmt="%s" index="1">rom</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">inst</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 168: Module &lt;<arg fmt="%s" index="1">rom</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 164: Port <arg fmt="%s" index="1">clk</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 173: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable_read</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 174: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable_erase</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 175: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable_write</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 176: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_addr</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 177: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 178: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">output_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 179: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">flash_busy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 183: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 171: Port <arg fmt="%s" index="1">rst</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 188: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 189: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">data_in</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 190: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">data_out</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 191: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">TxD_start</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 192: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">TxD_busy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 193: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">RxD_data_ready</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 196: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack_t</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 197: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack_r</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 186: Port <arg fmt="%s" index="1">bus_addr_i</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 207: Module &lt;<arg fmt="%s" index="1">digseg_driver</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 208: Module &lt;<arg fmt="%s" index="1">digseg_driver</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">seg</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 206: Port <arg fmt="%s" index="1">data_i</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 194: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_addr</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 195: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 196: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">chip_enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 197: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">read_enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 198: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">write_enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 199: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">output_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 210: Module &lt;<arg fmt="%s" index="1">ram</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 192: Port <arg fmt="%s" index="1">bus_addr_i</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 223: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable_read</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 224: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable_erase</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 225: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable_write</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 226: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_addr</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 227: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">input_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 228: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">output_data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 229: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">flash_busy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 233: Module &lt;<arg fmt="%s" index="1">flash</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 221: Port <arg fmt="%s" index="1">rst</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 238: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">enable</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 239: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">data_in</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 240: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">data_out</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 241: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">TxD_start</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 242: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">TxD_busy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 243: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">RxD_data_ready</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 246: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack_t</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 247: Module &lt;<arg fmt="%s" index="1">uart</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">ack_r</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 236: Port <arg fmt="%s" index="1">bus_addr_i</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 251: Module &lt;<arg fmt="%s" index="1">digseg_driver</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 252: Module &lt;<arg fmt="%s" index="1">digseg_driver</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">seg</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 250: Port <arg fmt="%s" index="1">data_i</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 257: Module &lt;<arg fmt="%s" index="1">digseg_driver</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">data</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 258: Module &lt;<arg fmt="%s" index="1">digseg_driver</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">seg</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 256: Port <arg fmt="%s" index="1">data_i</arg> is not connected to this instance
+</msg>
+
+<msg type="error" file="HDLCompiler" num="329" delta="new" >"\\psf\home\Documents\Project\fpga\bus\ram.v" Line 29: Target &lt;<arg fmt="%s" index="1">bus_data_o</arg>&gt; of concurrent assignment or output port connection should be a net type.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1499" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus.v" Line 3: Empty module &lt;<arg fmt="%s" index="1">bus</arg>&gt; remains a black box.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 87: Cannot find port <arg fmt="%s" index="1">m_data_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 88: Cannot find port <arg fmt="%s" index="1">m_addr_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 89: Cannot find port <arg fmt="%s" index="1">m_we_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 90: Cannot find port <arg fmt="%s" index="1">m_select_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 91: Cannot find port <arg fmt="%s" index="1">m_data_o</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 92: Cannot find port <arg fmt="%s" index="1">m_ack_o</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 93: Cannot find port <arg fmt="%s" index="1">s0_data_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 94: Cannot find port <arg fmt="%s" index="1">s0_addr_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 95: Cannot find port <arg fmt="%s" index="1">s0_we_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 96: Cannot find port <arg fmt="%s" index="1">s0_select_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 97: Cannot find port <arg fmt="%s" index="1">s0_data_o</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 98: Cannot find port <arg fmt="%s" index="1">s0_ack_o</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 99: Cannot find port <arg fmt="%s" index="1">s1_data_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 100: Cannot find port <arg fmt="%s" index="1">s1_addr_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 101: Cannot find port <arg fmt="%s" index="1">s1_we_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 102: Cannot find port <arg fmt="%s" index="1">s1_select_i</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 103: Cannot find port <arg fmt="%s" index="1">s1_data_o</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 104: Cannot find port <arg fmt="%s" index="1">s1_ack_o</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="267" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 105: Cannot find port <arg fmt="%s" index="1">s2_data_i</arg> on this module
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1499" delta="new" >"\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 3: Empty module &lt;<arg fmt="%s" index="1">bus_top</arg>&gt; remains a black box.
+</msg>
+
+</messages>
+

@@ -35,13 +35,11 @@ module bus_test (
 	wire output_ack;
 	assign led = {output_ack, output_data[14:0]};
 
-	bus bus0 (
+	bus_top bus_top0 (
 	.clk(clk), .rst(rst), 
 	.wishbone_addr_i({24'b0, sw_dip[7:0]}), 
 	.wishbone_data_i({24'b0, sw_dip[15:8]}), 
 	.wishbone_we_i(sw_dip[31]), 
-	.wishbone_stb_i(), 
-	.wishbone_cyc_i(), 
 	.wishbone_select_i({8'b0, sw_dip[23:16]}), 
 	.wishbone_data_o(output_data), 
 	.wishbone_ack_o(output_ack),
@@ -55,13 +53,9 @@ module bus_test (
 	.ram_extram_ce(extram_ce), 
 	.ram_extram_oe(extram_oe), 
 	.ram_extram_we(extram_we), 
-	.rom_inst(), 
-	.flash_busy(), 
 	.flash_addr(flash_addr), 
 	.flash_data(flash_data), 
 	.flash_ctl(flash_ctl), 
-	.uart_TxD_busy(), 
-	.uart_RxD_data_ready(), 
 	.uart_com_TxD(com_TxD), 
 	.uart_com_RxD(com_RxD), 
 	.digseg_seg0(segdisp0),

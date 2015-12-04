@@ -1,0 +1,311 @@
+Release 14.2 - xst P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: bus_test.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "bus_test.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "bus_test"
+Output Format                      : NGC
+Target Device                      : xc6slx100-3-fgg676
+
+---- Source Options
+Top Module Name                    : bus_test
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\uart_async.v" into library work
+Parsing module <uart_async_transmitter>.
+Parsing module <uart_async_receiver>.
+Parsing module <ASSERTION_ERROR>.
+Parsing module <BaudTickGen>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\ram_driver.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <ram_driver>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\flash_driver.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <flash_driver>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\uart.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <uart>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\rom_driver.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <rom_driver>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\ram.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <ram>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\inst_rom.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <inst_rom>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\flash.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <flash>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\digseg_driver.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <digseg_driver>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\rom.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <rom>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\bus.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <bus>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\bus_top.v" into library work
+Parsing verilog file "defines.v" included at line 1.
+Parsing module <bus_top>.
+Analyzing Verilog file "\\psf\home\Documents\Project\fpga\bus\bus_test.v" into library work
+Parsing module <bus_test>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus_test.v" Line 38: Port wishbone_stb_i is not connected to this instance
+
+Elaborating module <bus_test>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 87: Module <bus> does not have a port named <m_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 88: Module <bus> does not have a port named <m_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 89: Module <bus> does not have a port named <m_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 90: Module <bus> does not have a port named <m_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 91: Module <bus> does not have a port named <m_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 92: Module <bus> does not have a port named <m_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 93: Module <bus> does not have a port named <s0_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 94: Module <bus> does not have a port named <s0_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 95: Module <bus> does not have a port named <s0_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 96: Module <bus> does not have a port named <s0_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 97: Module <bus> does not have a port named <s0_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 98: Module <bus> does not have a port named <s0_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 99: Module <bus> does not have a port named <s1_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 100: Module <bus> does not have a port named <s1_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 101: Module <bus> does not have a port named <s1_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 102: Module <bus> does not have a port named <s1_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 103: Module <bus> does not have a port named <s1_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 104: Module <bus> does not have a port named <s1_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 105: Module <bus> does not have a port named <s2_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 106: Module <bus> does not have a port named <s2_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 107: Module <bus> does not have a port named <s2_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 108: Module <bus> does not have a port named <s2_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 109: Module <bus> does not have a port named <s2_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 110: Module <bus> does not have a port named <s2_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 111: Module <bus> does not have a port named <s3_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 112: Module <bus> does not have a port named <s3_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 113: Module <bus> does not have a port named <s3_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 114: Module <bus> does not have a port named <s3_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 115: Module <bus> does not have a port named <s3_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 116: Module <bus> does not have a port named <s3_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 117: Module <bus> does not have a port named <s4_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 118: Module <bus> does not have a port named <s4_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 119: Module <bus> does not have a port named <s4_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 120: Module <bus> does not have a port named <s4_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 121: Module <bus> does not have a port named <s4_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 122: Module <bus> does not have a port named <s4_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 123: Module <bus> does not have a port named <s5_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 124: Module <bus> does not have a port named <s5_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 125: Module <bus> does not have a port named <s5_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 126: Module <bus> does not have a port named <s5_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 127: Module <bus> does not have a port named <s5_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 128: Module <bus> does not have a port named <s5_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 129: Module <bus> does not have a port named <s6_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 130: Module <bus> does not have a port named <s6_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 131: Module <bus> does not have a port named <s6_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 132: Module <bus> does not have a port named <s6_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 133: Module <bus> does not have a port named <s6_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 134: Module <bus> does not have a port named <s6_ack_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 135: Module <bus> does not have a port named <s7_data_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 136: Module <bus> does not have a port named <s7_addr_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 137: Module <bus> does not have a port named <s7_we_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 138: Module <bus> does not have a port named <s7_select_i>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 139: Module <bus> does not have a port named <s7_data_o>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 140: Module <bus> does not have a port named <s7_ack_o>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 86: Port clk is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 145: Module <ram> does not have a port named <input_addr>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 146: Module <ram> does not have a port named <input_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 147: Module <ram> does not have a port named <chip_enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 148: Module <ram> does not have a port named <read_enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 149: Module <ram> does not have a port named <write_enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 150: Module <ram> does not have a port named <output_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 161: Module <ram> does not have a port named <ack>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 143: Port bus_addr_i is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 165: Module <rom> does not have a port named <ce>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 166: Module <rom> does not have a port named <addr>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 167: Module <rom> does not have a port named <inst>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 168: Module <rom> does not have a port named <ack>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 164: Port clk is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 173: Module <flash> does not have a port named <enable_read>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 174: Module <flash> does not have a port named <enable_erase>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 175: Module <flash> does not have a port named <enable_write>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 176: Module <flash> does not have a port named <input_addr>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 177: Module <flash> does not have a port named <input_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 178: Module <flash> does not have a port named <output_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 179: Module <flash> does not have a port named <flash_busy>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 183: Module <flash> does not have a port named <ack>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 171: Port rst is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 188: Module <uart> does not have a port named <enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 189: Module <uart> does not have a port named <data_in>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 190: Module <uart> does not have a port named <data_out>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 191: Module <uart> does not have a port named <TxD_start>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 192: Module <uart> does not have a port named <TxD_busy>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 193: Module <uart> does not have a port named <RxD_data_ready>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 196: Module <uart> does not have a port named <ack_t>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 197: Module <uart> does not have a port named <ack_r>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 186: Port bus_addr_i is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 207: Module <digseg_driver> does not have a port named <data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 208: Module <digseg_driver> does not have a port named <seg>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 206: Port data_i is not connected to this instance
+
+Elaborating module <bus_top>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 194: Module <ram> does not have a port named <input_addr>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 195: Module <ram> does not have a port named <input_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 196: Module <ram> does not have a port named <chip_enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 197: Module <ram> does not have a port named <read_enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 198: Module <ram> does not have a port named <write_enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 199: Module <ram> does not have a port named <output_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 210: Module <ram> does not have a port named <ack>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 192: Port bus_addr_i is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 223: Module <flash> does not have a port named <enable_read>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 224: Module <flash> does not have a port named <enable_erase>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 225: Module <flash> does not have a port named <enable_write>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 226: Module <flash> does not have a port named <input_addr>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 227: Module <flash> does not have a port named <input_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 228: Module <flash> does not have a port named <output_data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 229: Module <flash> does not have a port named <flash_busy>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 233: Module <flash> does not have a port named <ack>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 221: Port rst is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 238: Module <uart> does not have a port named <enable>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 239: Module <uart> does not have a port named <data_in>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 240: Module <uart> does not have a port named <data_out>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 241: Module <uart> does not have a port named <TxD_start>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 242: Module <uart> does not have a port named <TxD_busy>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 243: Module <uart> does not have a port named <RxD_data_ready>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 246: Module <uart> does not have a port named <ack_t>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 247: Module <uart> does not have a port named <ack_r>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 236: Port bus_addr_i is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 251: Module <digseg_driver> does not have a port named <data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 252: Module <digseg_driver> does not have a port named <seg>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 250: Port data_i is not connected to this instance
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 257: Module <digseg_driver> does not have a port named <data>.
+WARNING:HDLCompiler:25 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 258: Module <digseg_driver> does not have a port named <seg>.
+WARNING:HDLCompiler:1016 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 256: Port data_i is not connected to this instance
+
+Elaborating module <bus>.
+ERROR:HDLCompiler:329 - "\\psf\home\Documents\Project\fpga\bus\ram.v" Line 29: Target <bus_data_o> of concurrent assignment or output port connection should be a net type.
+Module bus remains a blackbox, due to errors in its contents
+WARNING:HDLCompiler:1499 - "\\psf\home\Documents\Project\fpga\bus\bus.v" Line 3: Empty module <bus> remains a black box.
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 87: Cannot find port m_data_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 88: Cannot find port m_addr_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 89: Cannot find port m_we_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 90: Cannot find port m_select_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 91: Cannot find port m_data_o on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 92: Cannot find port m_ack_o on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 93: Cannot find port s0_data_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 94: Cannot find port s0_addr_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 95: Cannot find port s0_we_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 96: Cannot find port s0_select_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 97: Cannot find port s0_data_o on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 98: Cannot find port s0_ack_o on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 99: Cannot find port s1_data_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 100: Cannot find port s1_addr_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 101: Cannot find port s1_we_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 102: Cannot find port s1_select_i on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 103: Cannot find port s1_data_o on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 104: Cannot find port s1_ack_o on this module
+ERROR:HDLCompiler:267 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 105: Cannot find port s2_data_i on this module
+Sorry, too many errors..
+WARNING:HDLCompiler:1499 - "\\psf\home\Documents\Project\fpga\bus\bus_top.v" Line 3: Empty module <bus_top> remains a black box.
+--> 
+
+Total memory usage is 205100 kilobytes
+
+Number of errors   :   20 (   0 filtered)
+Number of warnings :  124 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

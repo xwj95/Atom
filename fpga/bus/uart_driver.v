@@ -11,6 +11,7 @@
                        // and RX receives one bit per clock cycle (for fast simulations)
 
 ////////////////////////////////////////////////////////
+`include "defines.v"
 module uart_async_transmitter(
 	input clk,
 	input TxD_start,
