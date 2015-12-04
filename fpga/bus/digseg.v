@@ -1,5 +1,5 @@
 `include "defines.v"
-module digseg_driver(
+module digseg(
 	input clk,
 	input rst,
 
@@ -10,14 +10,23 @@ module digseg_driver(
 	input bus_we_i,
 	output bus_ack_o,
 
-	output [`DigSegDataBus] seg
+	output [`DigSegDataBus] seg0,
+	output [`DigSegDataBus] seg1
 	);
+
+	wire ack1, ack0;
+	assign bus_ack_o = ack1 & ack0;
 
 	digseg_driver digseg_driver0(
-		bus_addr_i[`DigSegAddrBus], seg, 
-		bus_ack_o
+		bus_data_i[`DigSegAddrBus], seg0, 
+		ack0
 	);
 
-	assign bus_data_o = {25'b0, seg};
+	digseg_driver digseg_driver1(
+		bus_data_i[7:4], seg1,
+		ack1
+	);
+
+	assign bus_data_o = {24'b0, seg1, seg0};
 
 endmodule

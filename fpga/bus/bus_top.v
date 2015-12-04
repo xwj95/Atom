@@ -7,11 +7,8 @@ module bus_top(
 	//Wishbone侧的接口
 	input		wire[`WB_AddrBus]		wishbone_addr_i,
 	input		wire[`WB_DataBus]		wishbone_data_i,
-	input		wire					wishbone_we_i,		//1代表写，0代表读
-	input		wire					wishbone_stb_i,	
-	input		wire					wishbone_cyc_i,
+	input		wire					wishbone_we_i,		//1代表写，0代表�
 	input		wire[`WB_SelectBus]		wishbone_select_i,
-
 	output		reg[`WB_DataBus]		wishbone_data_o,
 	output		reg						wishbone_ack_o,
 
@@ -30,7 +27,6 @@ module bus_top(
 	//ROM侧的接口
 
 	//FLASH侧的接口
-	output								flash_busy,
 	output		[`FlashAddrBus]			flash_addr,
 	inout		[`FlashDataBus]			flash_data,
 	output		[`FlashCtrlBus]			flash_ctl,
@@ -38,8 +34,6 @@ module bus_top(
 	//VGA侧的接口
 
 	//UART侧的接口
-	output								uart_TxD_busy,
-	output								uart_RxD_data_ready,
 	output								uart_com_TxD,
 	input								uart_com_RxD,
 
@@ -51,162 +45,192 @@ module bus_top(
 
 	);
 
-	reg[`DataMemNumLog2-1:0] ram_input_addr;
-	reg[`DataBus] ram_input_data;
-	reg ram_chip_enable;
-	reg ram_read_enable;
-	reg ram_write_enable;
-	wire[`DataBus] ram_output_data;
-	wire ram_ack;
+	//slave 3 interface - VGA
+	wire[`WB_DataBus]	s3_data_o;
+	wire[`WB_AddrBus]	s3_addr_o;
+	wire				s3_we_o;
+	wire				s3_select_o;
+	reg[`WB_DataBus]	s3_data_i = 0;
+	reg					s3_ack_i = 0;
 
-	reg rom_chip_enable;
-	reg[`RomAddrBus] rom_input_addr;
-	wire[`InstBus] rom_output_inst;
-	wire rom_ack;
+	//slave 5 interface - UART_STAT
+	wire[`WB_DataBus]	s5_data_o;
+	wire[`WB_AddrBus]	s5_addr_o;
+	wire				s5_we_o;
+	wire				s5_select_o;
+	reg[`WB_DataBus]	s5_data_i = 0;
+	reg					s5_ack_i = 0;
 
-	reg flash_read_enable;
-	reg flash_erase_enable;
-	reg flash_write_enable;
-	reg[`FlashAddrBusWord] flash_input_addr;
-	reg[`FlashDataBus] flash_input_data;
-	wire[`FlashCtrlBus] flash_output_data;
-	wire flash_ack;
+	//slave 7 interface - PS2
+	wire[`WB_DataBus]	s7_data_o;
+	wire[`WB_AddrBus]	s7_addr_o;
+	wire				s7_we_o;
+	wire				s7_select_o;
+	reg[`WB_DataBus]	s7_data_i = 0;
+	reg					s7_ack_i = 0;
 
-	reg[`DigSegDataBus] uart_input_data;
-	wire[`DigSegDataBus] uart_output_data;
-	reg uart_enable;
-	reg uart_TxD_start;
-	wire uart_ack_t;
-	wire uart_ack_r;
+	wire[`WB_AddrBus] ram_addr_o;
+	wire[`WB_DataBus] ram_data_i;
+	wire[`WB_DataBus] ram_data_o;
+	wire ram_select_o;
+	wire ram_we_o;
+	wire ram_ack_i;
 
-	reg[`DigSegAddrBus] digseg_input_data1;
-	reg[`DigSegAddrBus] digseg_input_data0;
-	wire digseg_ack;
+	wire[`WB_AddrBus] rom_addr_o;
+	wire[`WB_DataBus] rom_data_i;
+	wire[`WB_DataBus] rom_data_o;
+	wire rom_select_o;
+	wire rom_we_o;
+	wire rom_ack_i;
+
+	wire[`WB_AddrBus] flash_addr_o;
+	wire[`WB_DataBus] flash_data_i;
+	wire[`WB_DataBus] flash_data_o;
+	wire flash_select_o;
+	wire flash_we_o;
+	wire flash_ack_i;
+
+	wire[`WB_AddrBus] uart_addr_o;
+	wire[`WB_DataBus] uart_data_i;
+	wire[`WB_DataBus] uart_data_o;
+	wire uart_select_o;
+	wire uart_we_o;
+	wire uart_ack_i;
+
+	wire[`WB_AddrBus] digseg_addr_o;
+	wire[`WB_DataBus] digseg_data_i;
+	wire[`WB_DataBus] digseg_data_o;
+	wire digseg_select_o;
+	wire digseg_we_o;
+	wire digseg_ack_i;
 
 	bus bus0(
-		.m_data_i(wishbone_data_i),
-		.m_addr_i(wishbone_addr_i),
-		.m_we_i(wishbone_we_i),
-		.m_select_i(wishbone_select_i),
-		.m_data_o(wishbone_data_o),
-		.m_ack_o(wishbone_ack_o),
-		.s0_data_i(ram_input_data),
-		.s0_addr_i({11'b0, ram_input_addr}),
-		.s0_we_i(ram_write_enable),
-		.s0_select_i(ram_chip_enable),
-		.s0_data_o(ram_output_data),
-		.s0_ack_o(ram_ack),
-		.s1_data_i(),
-		.s1_addr_i(rom_input_addr),
-		.s1_we_i(),
-		.s1_select_i(rom_chip_enable),
-		.s1_data_o(rom_output_inst),
-		.s1_ack_o(rom_ack),
-		.s2_data_i({16'b0, flash_input_data}),
-		.s2_addr_i({10'b0, flash_input_addr}),
-		.s2_we_i(flash_write_enable),
-		.s2_select_i(),
-		.s2_data_o(flash_output_data),
-		.s2_ack_o(flash_ack),
-		.s3_data_i(),
-		.s3_addr_i(),
-		.s3_we_i(),
-		.s3_select_i(),
-		.s3_data_o(),
-		.s3_ack_o(),
-		.s4_data_i({24'b0, uart_input_data}),
-		.s4_addr_i(),
-		.s4_we_i(!uart_TxD_start),
-		.s4_select_i(),
-		.s4_data_o({24'b0, uart_output_data}),
-		.s4_ack_o(uart_ack),
-		.s5_data_i(),
-		.s5_addr_i(),
-		.s5_we_i(),
-		.s5_select_i(),
-		.s5_data_o(),
-		.s5_ack_o(),
-		.s6_data_i(),
-		.s6_addr_i(),
-		.s6_we_i(),
-		.s6_select_i(),
-		.s6_data_o(),
-		.s6_ack_o(),
-		.s7_data_i(),
-		.s7_addr_i(),
-		.s7_we_i(),
-		.s7_select_i(),
-		.s7_data_o(),
-		.s7_ack_o()
+		.m_data_i(bus_data_i),
+		.m_addr_i(bus_addr_i),
+		.m_we_i(bus_we_i),
+		.m_select_i(bus_select_i),
+		.m_data_o(bus_data_o),
+		.m_ack_o(bus_ack_o),
+		.s0_data_o(ram_data_o),
+		.s0_addr_o(ram_addr_o),
+		.s0_we_o(ram_we_o),
+		.s0_select_o(ram_select_o),
+		.s0_data_i(ram_data_i),
+		.s0_ack_i(ram_ack_i),
+		.s1_data_o(rom_data_o),
+		.s1_addr_o(rom_addr_o),
+		.s1_we_o(rom_we_o),
+		.s1_select_o(rom_select_o),
+		.s1_data_i(rom_data_i),
+		.s1_ack_i(rom_ack_i),
+		.s2_data_o(flash_data_o),
+		.s2_addr_o(flash_addr_o),
+		.s2_we_o(flash_we_o),
+		.s2_select_o(flash_select_o),
+		.s2_data_i(flash_data_i),
+		.s2_ack_i(flash_ack_i),
+		.s3_data_o(s3_data_o),
+		.s3_addr_o(s3_addr_o),
+		.s3_we_o(s3_we_o),
+		.s3_select_o(s3_select_o),
+		.s3_data_i(s3_data_i),
+		.s3_ack_i(s3_ack_i),
+		.s4_data_o(uart_data_o),
+		.s4_addr_o(uart_addr_o),
+		.s4_we_o(uart_we_o),
+		.s4_select_o(uart_select_o),
+		.s4_data_i(uart_data_i),
+		.s4_ack_i(uart_ack_i),
+		.s5_data_o(s5_data_o),
+		.s5_addr_o(s5_addr_o),
+		.s5_we_o(s5_we_o),
+		.s5_select_o(s5_select_o),
+		.s5_data_i(s5_data_i),
+		.s5_ack_i(s5_ack_i),
+		.s6_data_o(digseg_data_o),
+		.s6_addr_o(digseg_addr_o),
+		.s6_we_o(digseg_we_o),
+		.s6_select_o(digseg_select_o),
+		.s6_data_i(digseg_data_i),
+		.s6_ack_i(digseg_ack_i),
+		.s7_data_o(s7_data_o),
+		.s7_addr_o(s7_addr_o),
+		.s7_we_o(s7_we_o),
+		.s7_select_o(s7_select_o),
+		.s7_data_i(s7_data_i),
+		.s7_ack_i(s7_ack_i)
 	);
 
 	ram ram0(
-	.clk(clk), .rst(rst), 
-	.input_addr(ram_input_addr),
-	.input_data(ram_input_data), 
-	.chip_enable(ram_chip_enable), 
-	.read_enable(ram_read_enable),
-	.write_enable(ram_write_enable), 
-	.output_data(ram_output_data), 
-	.baseram_addr(ram_baseram_addr), 
-	.baseram_data(ram_baseram_data), 
-	.baseram_ce(ram_baseram_ce), 
-	.baseram_oe(ram_baseram_oe), 
-	.baseram_we(ram_baseram_we), 
-	.extram_addr(ram_extram_addr), 
-	.extram_data(ram_extram_data), 
-	.extram_ce(ram_extram_ce), 
-	.extram_oe(ram_extram_oe), 
-	.extram_we(ram_extram_we), 
-	.ack(ram_ack)
+		.clk(clk),
+		.rst(rst),
+		.bus_addr_i(ram_addr_o),
+		.bus_data_i(ram_data_o),
+		.bus_data_o(ram_data_i),
+		.bus_select_i(ram_select_o),
+		.bus_we_i(ram_we_o),
+		.bus_ack_o(ram_ack_i),
+		.baseram_addr(baseram_addr),
+		.baseram_data(baseram_data),
+		.baseram_ce(baseram_ce),
+		.baseram_oe(baseram_oe),
+		.baseram_we(baseram_we),
+		.extram_addr(extram_addr),
+		.extram_data(extram_data),
+		.extram_ce(extram_ce),
+		.extram_oe(extram_oe),
+		.extram_we(extram_we)
 	);	
 
 	rom rom0(
-	.ce(rom_chip_enable), 
-	.addr(rom_input_addr), 
-	.inst(rom_output_inst), 
-	.ack(rom_ack)
+		.clk(clk),
+		.rst(rst),
+		.bus_addr_i(rom_addr_o),
+		.bus_data_i(rom_data_o),
+		.bus_data_o(rom_data_i),
+		.bus_select_i(rom_select_o),
+		.bus_we_i(rom_we_o),
+		.bus_ack_o(rom_ack_i)
 	);
 
 	flash flash0(
-	.clk(clk), 
-	.enable_read(flash_read_enable), 
-	.enable_erase(flash_erase_enable),
-	.enable_write(flash_write_enable), 
-	.input_addr(flash_input_addr), 
-	.input_data(flash_input_data), 
-	.output_data(flash_output_data), 
-	.flash_busy(flash_busy), 
-	.flash_addr(flash_addr), 
-	.flash_data(flash_data), 
-	.flash_ctl(flash_ctl), 
-	.ack(flash_ack)
+		.clk(clk),
+		.rst(rst),
+		.bus_addr_i(flash_addr_o),
+		.bus_data_i(flash_data_o),
+		.bus_data_o(flash_data_i),
+		.bus_select_i(flash_select_o),
+		.bus_we_i(flash_we_o),
+		.bus_ack_o(flash_ack_i),
+		.flash_addr(flash_addr),
+		.flash_data(flash_data),
+		.flash_ctl(flash_ctl)
 	);
 
 	uart uart0(
-	.clk(clk), .rst(rst), 
-	.enable(uart_enable), 
-	.data_in(uart_input_data),
-	.data_out(uart_output_data),
-	.TxD_start(uart_TxD_start), 
-	.TxD_busy(uart_TxD_busy), 
-	.RxD_data_ready(uart_RxD_data_ready), 
-	.com_TxD(uart_com_TxD), 
-	.com_RxD(uart_com_RxD), 
-	.ack_t(uart_ack_t), 
-	.ack_r(uart_ack_r)
+		.clk(clk),
+		.rst(rst),
+		.bus_addr_i(uart_addr_o),
+		.bus_data_i(uart_data_o),
+		.bus_data_o(uart_data_i),
+		.bus_select_i(uart_select_o),
+		.bus_we_i(uart_we_o),
+		.bus_ack_o(uart_ack_i),
+		.com_TxD(uart_com_TxD),
+		.com_RxD(uart_com_RxD)
 	);
 
 	digseg digseg0(
-	.data(digseg_input_data0), 
-	.seg(digseg_seg0), 
-	.ack(digseg_ack)
-	);
-	
-	digseg_driver digseg1(
-	.data(digseg_input_data1),
-	.seg(digseg_seg1),
-	.ack(digseg_ack)
+		.clk(clk),
+		.rst(rst),
+		.bus_addr_i(digseg_addr_o),
+		.bus_data_i(digseg_data_o),
+		.bus_data_o(digseg_data_i),
+		.bus_select_i(digseg_select_o),
+		.bus_we_i(digseg_we_o),
+		.bus_ack_o(digseg_ack_i),
+		.seg0(digseg_seg0),
+		.seg1(digseg_seg1)
 	);
 
 endmodule

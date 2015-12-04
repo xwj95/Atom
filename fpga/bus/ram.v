@@ -5,7 +5,7 @@ module ram (
 
 	input [`WB_AddrBus] bus_addr_i,
 	input [`WB_DataBus] bus_data_i,
-	output reg[`WB_DataBus] bus_data_o,
+	output [`WB_DataBus] bus_data_o,
 	input bus_select_i,
 	input bus_we_i,
 	output bus_ack_o,

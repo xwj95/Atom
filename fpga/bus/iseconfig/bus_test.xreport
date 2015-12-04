@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-12-04T20:57:03</DateModified>
+  <DateModified>2015-12-05T00:48:45</DateModified>
   <ModuleName>bus_test</ModuleName>
-  <SummaryTimeStamp>2015-12-04T20:52:50</SummaryTimeStamp>
-  <SavedFilePath>Z:/Documents/Project/fpga/bus/iseconfig/bus_test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>Z:/Documents/Project/fpga/bus</ImplementationReportsDirectory>
-  <DateInitialized>2015-12-04T20:48:20</DateInitialized>
+  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SavedFilePath>E:/course/GitRepository/proj8/fpga/bus/iseconfig/bus_test.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>E:/course/GitRepository/proj8/fpga/bus</ImplementationReportsDirectory>
+  <DateInitialized>2015-12-05T00:48:45</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

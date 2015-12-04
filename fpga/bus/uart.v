@@ -26,11 +26,11 @@ module uart(
 	assign bus_data_o = {{24{1'b0}}, data_out};
 	assign bus_ack_o = (bus_we_i == `WriteEnable) ? ack_in : ack_out;
 
-	uart_async_transmitter #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u0
+	uart_driver_transmitter #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u0
 	(.clk(clk), .TxD_start(bus_we_i & bus_select_i), .TxD_data(data_in),
 	.TxD(com_TxD), .TxD_busy(), .ack(ack_in));
 
-	uart_async_receiver #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u1
+	uart_driver_receiver #(.ClkFrequency(CLK_FREQ), .Baud(BAUD)) u1
 	(.clk(clk), .rst(!rst), .RxD(com_RxD),
 	.RxD_data_ready(), .RxD_waiting_data(),
 	.RxD_data(data_out), .ack(ack_out));
