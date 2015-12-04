@@ -9,7 +9,7 @@ module digseg_driver(
 
 	assign ack = 1'b1;
 	always @ (*) begin
-		if (ce == 1'b0 or we == 1'b0) begin
+		if (ce == 1'b0 || we == 1'b0) begin
 			seg_o <= 7'b1111110;
 		end else begin
 			case (data_i)
