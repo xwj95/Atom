@@ -17,6 +17,7 @@ module ctrl(
 	);
 
 	always @ (*) begin
+		new_pc <= `ZeroWord;
 		if (rst == `RstEnable) begin
 			flush <= 1'b0;
 			stall <= 6'b000000;
@@ -24,7 +25,6 @@ module ctrl(
 		end else if (excepttype_i != `ZeroWord) begin
 			flush <= 1'b1;
 			stall <= 6'b000000;
-			new_pc <= `ZeroWord;
 			case (excepttype_i)
 				32'h000000f: begin				//interrupt
 					new_pc <= 32'h00000020;
