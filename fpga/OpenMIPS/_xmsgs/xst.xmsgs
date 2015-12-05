@@ -14,6 +14,12 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 597: Assignment to <arg fmt="%s" index="1">cp0_ebase</arg> ignored, since the identifier is never used
 </msg>
 
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"\\psf\home\Documents\Project\fpga\OpenMIPS\tlb.v" Line 26: Assignment to <arg fmt="%s" index="1">tlb_reg</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"\\psf\home\Documents\Project\fpga\OpenMIPS\tlb.v" Line 51: Assignment to <arg fmt="%s" index="1">tlb_find</arg> ignored, since the identifier is never used
+</msg>
+
 <msg type="warning" file="HDLCompiler" num="872" delta="old" >"\\psf\home\Documents\Project\fpga\OpenMIPS\bus_top.v" Line 53: Using initial value of <arg fmt="%s" index="1">s3_data_o</arg> since it is never assigned
 </msg>
 
@@ -129,6 +135,21 @@
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">if_we_i</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">tlb_index</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">tlb_data</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">mmu_write</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">tlb_we</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\psf\home\Documents\Project\fpga\OpenMIPS\bus_top.v</arg>&quot; line <arg fmt="%s" index="2">107</arg>: Output port &lt;<arg fmt="%s" index="3">s3_data_o</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bus0</arg>&gt; is unconnected or connected to loadless signal.
@@ -792,150 +813,6 @@
 </msg>
 
 <msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_regs1</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_63</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_64</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_86</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_127</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_128</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_150</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_191</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_192</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_214</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_255</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_256</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_278</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_319</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_320</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_342</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_383</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_384</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_406</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_447</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_448</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_470</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_511</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_512</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_534</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_575</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_576</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_598</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_639</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_640</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_662</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_703</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_704</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_726</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_767</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_768</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_790</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_831</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_832</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_854</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_895</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_896</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_918</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_959</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_960</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_982</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">tlb_reg_15_1023</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">tlb</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">entry_lo_0_o_26</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">cp0_reg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.

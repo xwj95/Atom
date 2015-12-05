@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: openmips_min_sopc.prj
 
@@ -234,6 +234,8 @@ WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.
 Elaborating module <mmu>.
 
 Elaborating module <tlb>.
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\tlb.v" Line 26: Assignment to tlb_reg ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\tlb.v" Line 51: Assignment to tlb_find ignored, since the identifier is never used
 
 Elaborating module <wishbone_bus>.
 
@@ -708,77 +710,21 @@ Unit <mmu> synthesized.
 
 Synthesizing Unit <tlb>.
     Related source file is "\\psf\home\Documents\Project\fpga\OpenMIPS\tlb.v".
-    Found 1024-bit register for signal <n0142[1023:0]>.
-    Found 19-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][62]_wide_mux_57_OUT> created at line 118.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][23]_Mux_61_o> created at line 122.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][1]_Mux_65_o> created at line 127.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<19>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<18>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<17>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<16>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<15>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<14>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<13>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<12>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<11>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<10>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<9>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<8>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<7>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<6>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<5>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<4>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<3>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<2>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<1>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][43]_wide_mux_60_OUT<0>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<19>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<18>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<17>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<16>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<15>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<14>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<13>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<12>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<11>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<10>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<9>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<8>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<7>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<6>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<5>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<4>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<3>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<2>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<1>> created at line 125.
-    Found 1-bit 16-to-1 multiplexer for signal <tlb_find[3]_tlb_reg[15][21]_wide_mux_64_OUT<0>> created at line 125.
-    Found 19-bit comparator equal for signal <tlb_reg[1][62]_mmu_addr[31]_equal_28_o> created at line 72
-    Found 19-bit comparator equal for signal <tlb_reg[2][62]_mmu_addr[31]_equal_30_o> created at line 75
-    Found 19-bit comparator equal for signal <tlb_reg[3][62]_mmu_addr[31]_equal_32_o> created at line 78
-    Found 19-bit comparator equal for signal <tlb_reg[4][62]_mmu_addr[31]_equal_34_o> created at line 81
-    Found 19-bit comparator equal for signal <tlb_reg[5][62]_mmu_addr[31]_equal_36_o> created at line 84
-    Found 19-bit comparator equal for signal <tlb_reg[6][62]_mmu_addr[31]_equal_38_o> created at line 87
-    Found 19-bit comparator equal for signal <tlb_reg[7][62]_mmu_addr[31]_equal_40_o> created at line 90
-    Found 19-bit comparator equal for signal <tlb_reg[8][62]_mmu_addr[31]_equal_42_o> created at line 93
-    Found 19-bit comparator equal for signal <tlb_reg[9][62]_mmu_addr[31]_equal_44_o> created at line 96
-    Found 19-bit comparator equal for signal <tlb_reg[10][62]_mmu_addr[31]_equal_46_o> created at line 99
-    Found 19-bit comparator equal for signal <tlb_reg[11][62]_mmu_addr[31]_equal_48_o> created at line 102
-    Found 19-bit comparator equal for signal <tlb_reg[12][62]_mmu_addr[31]_equal_50_o> created at line 105
-    Found 19-bit comparator equal for signal <tlb_reg[13][62]_mmu_addr[31]_equal_52_o> created at line 108
-    Found 19-bit comparator equal for signal <tlb_reg[14][62]_mmu_addr[31]_equal_54_o> created at line 111
-    Found 19-bit comparator equal for signal <tlb_reg[15][62]_mmu_addr[31]_equal_56_o> created at line 114
-    Found 19-bit comparator equal for signal <tlb_find[3]_mmu_addr[31]_equal_59_o> created at line 118
-    Found 32-bit comparator lessequal for signal <n0106> created at line 149
-    Found 32-bit comparator lessequal for signal <n0108> created at line 151
-    Found 32-bit comparator lessequal for signal <n0110> created at line 151
-    Found 32-bit comparator lessequal for signal <n0113> created at line 153
-    Found 32-bit comparator lessequal for signal <n0115> created at line 153
-    Found 32-bit comparator lessequal for signal <n0118> created at line 155
-    Found 32-bit comparator lessequal for signal <n0120> created at line 155
+WARNING:Xst:647 - Input <tlb_index> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <tlb_data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mmu_write> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <tlb_we> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit comparator lessequal for signal <n0009> created at line 149
+    Found 32-bit comparator lessequal for signal <n0011> created at line 151
+    Found 32-bit comparator lessequal for signal <n0013> created at line 151
+    Found 32-bit comparator lessequal for signal <n0016> created at line 153
+    Found 32-bit comparator lessequal for signal <n0018> created at line 153
+    Found 32-bit comparator lessequal for signal <n0021> created at line 155
+    Found 32-bit comparator lessequal for signal <n0023> created at line 155
     Summary:
-	inferred 1024 D-type flip-flop(s).
-	inferred  23 Comparator(s).
-	inferred 139 Multiplexer(s).
+	inferred   7 Comparator(s).
+	inferred  13 Multiplexer(s).
 Unit <tlb> synthesized.
 
 Synthesizing Unit <wishbone_bus>.
@@ -1124,9 +1070,8 @@ Macro Statistics
  32-bit subtractor                                     : 1
  6-bit subtractor                                      : 1
  64-bit adder                                          : 1
-# Registers                                            : 290
+# Registers                                            : 289
  1-bit register                                        : 224
- 1024-bit register                                     : 1
  16-bit register                                       : 4
  18-bit register                                       : 2
  2-bit register                                        : 2
@@ -1137,30 +1082,27 @@ Macro Statistics
  4-bit register                                        : 1
  5-bit register                                        : 5
  8-bit register                                        : 4
-# Comparators                                          : 34
- 19-bit comparator equal                               : 16
+# Comparators                                          : 18
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 1
  32-bit comparator lessequal                           : 7
  5-bit comparator equal                                : 8
-# Multiplexers                                         : 869
- 1-bit 16-to-1 multiplexer                             : 42
- 1-bit 2-to-1 multiplexer                              : 466
+# Multiplexers                                         : 743
+ 1-bit 2-to-1 multiplexer                              : 413
  1-bit 3-to-1 multiplexer                              : 1
  1-bit 4-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 13
  18-bit 2-to-1 multiplexer                             : 1
- 19-bit 16-to-1 multiplexer                            : 1
  22-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 29
  3-bit 7-to-1 multiplexer                              : 1
- 32-bit 2-to-1 multiplexer                             : 224
+ 32-bit 2-to-1 multiplexer                             : 221
  32-bit 4-to-1 multiplexer                             : 8
  32-bit 8-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 17
+ 4-bit 2-to-1 multiplexer                              : 6
  5-bit 2-to-1 multiplexer                              : 26
  6-bit 2-to-1 multiplexer                              : 5
- 64-bit 2-to-1 multiplexer                             : 20
+ 64-bit 2-to-1 multiplexer                             : 4
  7-bit 2-to-1 multiplexer                              : 2
  8-bit 2-to-1 multiplexer                              : 10
 # Logic shifters                                       : 3
@@ -1408,54 +1350,6 @@ Synthesizing (advanced) Unit <uart_driver_receiver>.
 The following registers are absorbed into counter <OversamplingCnt>: 1 register on signal <OversamplingCnt>.
 The following registers are absorbed into counter <Filter_cnt>: 1 register on signal <Filter_cnt>.
 Unit <uart_driver_receiver> synthesized (advanced).
-WARNING:Xst:2677 - Node <tlb_reg_15_0> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_22> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_63> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_64> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_86> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_127> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_128> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_150> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_191> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_192> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_214> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_255> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_256> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_278> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_319> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_320> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_342> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_383> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_384> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_406> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_447> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_448> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_470> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_511> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_512> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_534> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_575> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_576> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_598> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_639> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_640> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_662> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_703> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_704> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_726> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_767> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_768> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_790> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_831> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_832> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_854> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_895> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_896> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_918> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_959> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_960> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_982> of sequential type is unconnected in block <tlb>.
-WARNING:Xst:2677 - Node <tlb_reg_15_1023> of sequential type is unconnected in block <tlb>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -1474,17 +1368,15 @@ Macro Statistics
 # Counters                                             : 3
  2-bit updown counter                                  : 1
  3-bit up counter                                      : 2
-# Registers                                            : 2653
- Flip-Flops                                            : 2653
-# Comparators                                          : 34
- 19-bit comparator equal                               : 16
+# Registers                                            : 1677
+ Flip-Flops                                            : 1677
+# Comparators                                          : 18
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 1
  32-bit comparator lessequal                           : 7
  5-bit comparator equal                                : 8
-# Multiplexers                                         : 1843
- 1-bit 16-to-1 multiplexer                             : 61
- 1-bit 2-to-1 multiplexer                              : 1440
+# Multiplexers                                         : 739
+ 1-bit 2-to-1 multiplexer                              : 411
  1-bit 3-to-1 multiplexer                              : 1
  1-bit 4-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 13
@@ -1492,10 +1384,10 @@ Macro Statistics
  22-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 27
  3-bit 7-to-1 multiplexer                              : 1
- 32-bit 2-to-1 multiplexer                             : 224
+ 32-bit 2-to-1 multiplexer                             : 221
  32-bit 4-to-1 multiplexer                             : 8
  32-bit 8-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 17
+ 4-bit 2-to-1 multiplexer                              : 6
  5-bit 2-to-1 multiplexer                              : 26
  6-bit 2-to-1 multiplexer                              : 5
  64-bit 2-to-1 multiplexer                             : 4
@@ -1980,7 +1872,7 @@ WARNING:Xst:1710 - FF/Latch <bus_top0/ram0/ram_driver0/baseram_addr_19> (without
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block openmips_min_sopc, actual ratio is 10.
+Found area constraint ratio of 100 (+ 5) on block openmips_min_sopc, actual ratio is 6.
 FlipFlop openmips0/id_ex0/ex_aluop_0 has been replicated 1 time(s)
 FlipFlop openmips0/id_ex0/ex_aluop_1 has been replicated 2 time(s)
 FlipFlop openmips0/id_ex0/ex_aluop_3 has been replicated 1 time(s)
@@ -1993,8 +1885,6 @@ FlipFlop openmips0/id_ex0/ex_reg1_3 has been replicated 1 time(s)
 FlipFlop openmips0/id_ex0/ex_reg1_31 has been replicated 1 time(s)
 FlipFlop openmips0/id_ex0/ex_reg1_4 has been replicated 1 time(s)
 FlipFlop openmips0/id_ex0/ex_reg2_31 has been replicated 1 time(s)
-FlipFlop openmips0/mmu0/tlb_addr_o_30 has been replicated 1 time(s)
-FlipFlop openmips0/mmu0/tlb_addr_o_31 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -2002,8 +1892,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2302
- Flip-Flops                                            : 2302
+# Registers                                            : 1324
+ Flip-Flops                                            : 1324
 
 =========================================================================
 
@@ -2026,25 +1916,24 @@ Top Level Output File Name         : openmips_min_sopc.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 6219
+# BELS                             : 4470
 #      GND                         : 1
 #      INV                         : 177
 #      LUT1                        : 140
-#      LUT2                        : 265
-#      LUT3                        : 252
-#      LUT4                        : 584
-#      LUT5                        : 644
-#      LUT6                        : 2961
-#      MUXCY                       : 547
-#      MUXF7                       : 184
-#      MUXF8                       : 61
+#      LUT2                        : 259
+#      LUT3                        : 248
+#      LUT4                        : 556
+#      LUT5                        : 577
+#      LUT6                        : 1615
+#      MUXCY                       : 435
+#      MUXF7                       : 59
 #      VCC                         : 1
 #      XORCY                       : 402
-# FlipFlops/Latches                : 2302
+# FlipFlops/Latches                : 1324
 #      FD                          : 35
 #      FDE                         : 120
 #      FDR                         : 108
-#      FDRE                        : 2030
+#      FDRE                        : 1052
 #      FDS                         : 4
 #      FDSE                        : 5
 # RAMS                             : 14
@@ -2066,18 +1955,18 @@ Selected Device : 6slx100fgg676-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            2302  out of  126576     1%  
- Number of Slice LUTs:                 5071  out of  63288     8%  
-    Number used as Logic:              5023  out of  63288     7%  
+ Number of Slice Registers:            1324  out of  126576     1%  
+ Number of Slice LUTs:                 3620  out of  63288     5%  
+    Number used as Logic:              3572  out of  63288     5%  
     Number used as Memory:               48  out of  15616     0%  
        Number used as RAM:               48
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   6038
-   Number with an unused Flip Flop:    3736  out of   6038    61%  
-   Number with an unused LUT:           967  out of   6038    16%  
-   Number of fully used LUT-FF pairs:  1335  out of   6038    22%  
-   Number of unique control sets:        37
+ Number of LUT Flip Flop pairs used:   4297
+   Number with an unused Flip Flop:    2973  out of   4297    69%  
+   Number with an unused LUT:           677  out of   4297    15%  
+   Number of fully used LUT-FF pairs:   647  out of   4297    15%  
+   Number of unique control sets:        36
 
 IO Utilization: 
  Number of IOs:                         175
@@ -2108,7 +1997,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 2316  |
+clk                                | BUFGP                  | 1338  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -2120,7 +2009,7 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 22.261ns (Maximum Frequency: 44.921MHz)
-   Minimum input arrival time before clock: 21.089ns
+   Minimum input arrival time before clock: 20.352ns
    Maximum output required time after clock: 5.321ns
    Maximum combinational path delay: No path found
 
@@ -2131,7 +2020,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 22.261ns (frequency: 44.921MHz)
-  Total number of paths / destination ports: 132480099860 / 5119
+  Total number of paths / destination ports: 129387647181 / 3163
 -------------------------------------------------------------------------
 Delay:               22.261ns (Levels of Logic = 26)
   Source:            openmips0/id_ex0/ex_aluop_2 (FF)
@@ -2165,8 +2054,8 @@ Delay:               22.261ns (Levels of Logic = 26)
      MUXCY:CI->O           1   0.019   0.000  openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<29> (openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_cy<29>)
      XORCY:CI->O           4   0.180   0.684  openmips0/ex0/Madd_hilo_temp[63]_GND_8_o_add_163_OUT_xor<30> (openmips0/ex0/hilo_temp[63]_GND_8_o_add_163_OUT<30>)
      LUT6:I5->O            9   0.205   0.934  openmips0/id0/Mmux_GND_5_o_imm[31]_mux_269_OUT1661 (openmips0/id_reg1_o<30>)
-     LUT5:I3->O            1   0.203   0.808  openmips0/id0/n01117_SW1 (N850)
-     LUT6:I3->O            3   0.205   0.651  openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N722)
+     LUT5:I3->O            1   0.203   0.808  openmips0/id0/n01117_SW1 (N778)
+     LUT6:I3->O            3   0.205   0.651  openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N650)
      LUT6:I5->O            1   0.205   0.580  openmips0/id0/Mmux_branch_target_address_o10111_1 (openmips0/id0/Mmux_branch_target_address_o10111)
      LUT6:I5->O            1   0.205   0.580  openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT294 (openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT293)
      LUT6:I5->O            1   0.205   0.000  openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT295 (openmips0/pc_reg0/pc[31]_new_pc[31]_mux_10_OUT<6>)
@@ -2177,41 +2066,39 @@ Delay:               22.261ns (Levels of Logic = 26)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 7533203 / 5471
+  Total number of paths / destination ports: 1504818 / 2539
 -------------------------------------------------------------------------
-Offset:              21.089ns (Levels of Logic = 20)
+Offset:              20.352ns (Levels of Logic = 18)
   Source:            rst (PAD)
-  Destination:       openmips0/id_ex0/ex_current_inst_address_31 (FF)
+  Destination:       openmips0/pc_reg0/pc_6 (FF)
   Destination Clock: clk rising
 
-  Data Path: rst to openmips0/id_ex0/ex_current_inst_address_31
+  Data Path: rst to openmips0/pc_reg0/pc_6
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          2636   1.222   2.847  rst_IBUF (rst_IBUF)
-     LUT4:I0->O           11   0.203   1.111  openmips0/tlb0/Mmux_excepttype_is_tlbl111 (openmips0/tlb0/Mmux_excepttype_is_tlbl11)
-     LUT6:I3->O          122   0.205   1.934  openmips0/tlb0/Mmux_tlb_find<0>12 (openmips0/tlb0/tlb_find<2>)
-     MUXF7:S->O            1   0.148   0.000  openmips0/tlb0/mux1024_3_f7 (openmips0/tlb0/mux1024_3_f7)
-     MUXF8:I1->O           1   0.152   0.808  openmips0/tlb0/mux1024_2_f8 (openmips0/tlb0/tlb_find[3]_tlb_reg[15][62]_wide_mux_57_OUT<0>)
-     LUT6:I3->O            1   0.205   0.000  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_lut<0> (openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<0> (openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<1> (openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<2> (openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<3> (openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<4> (openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<5> (openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<5>)
-     MUXCY:CI->O          34   0.213   1.321  openmips0/tlb0/Mcompar_tlb_find[3]_mmu_addr[31]_equal_59_o_cy<6> (openmips0/tlb0/tlb_find[3]_mmu_addr[31]_equal_59_o)
-     LUT4:I3->O           17   0.205   1.028  openmips0/tlb0/Mmux_tlb_addr4311 (openmips0/tlb0/Mmux_tlb_addr431)
-     LUT6:I5->O            4   0.205   0.684  openmips0/tlb0/Mmux_excepttype_is_tlbm11 (openmips0/tlb_excepttype_is_tlbm)
-     LUT4:I3->O            2   0.205   0.617  openmips0/mem0/Mmux_excepttype_is_ades1233_SW0 (N1069)
-     LUT4:I3->O           78   0.205   1.733  openmips0/mem0/Mmux_excepttype_is_ades1233 (openmips0/mem_excepttype_o<2>)
-     LUT4:I3->O            1   0.205   0.580  openmips0/ctrl0/excepttype_i[31]_GND_15_o_not_equal_1_o1_1 (openmips0/ctrl0/excepttype_i[31]_GND_15_o_not_equal_1_o1)
-     LUT6:I5->O          162   0.205   2.020  openmips0/ctrl0/stall<1>1 (openmips0/stall<0>)
-     LUT4:I3->O          180   0.205   2.035  openmips0/id_ex0/_n0127_inv11 (openmips0/id_ex0/_n0127_inv1)
-     FDRE:CE                   0.322          openmips0/id_ex0/ex_reg2_0
+     IBUF:I->O          1626   1.222   2.702  rst_IBUF (rst_IBUF)
+     LUT5:I0->O           62   0.203   1.855  openmips0/ex0/Mmux_cp0_reg_read_addr_o41 (openmips0/cp0_raddr_i<3>)
+     LUT5:I2->O           23   0.205   1.258  openmips0/cp0_reg0/raddr_i[4]_index_o[31]_select_255_OUT<30>31 (openmips0/cp0_reg0/raddr_i[4]_index_o[31]_select_255_OUT<30>3)
+     LUT4:I2->O            1   0.203   0.580  openmips0/ex0/Mmux_wdata_o117 (openmips0/ex0/Mmux_wdata_o19)
+     LUT6:I5->O            1   0.205   0.580  openmips0/ex0/Mmux_wdata_o131 (openmips0/ex0/Mmux_wdata_o120)
+     LUT5:I4->O            1   0.205   0.580  openmips0/ex0/Mmux_wdata_o132_SW0 (N1047)
+     LUT6:I5->O            1   0.205   0.580  openmips0/ex0/Mmux_wdata_o132 (openmips0/ex0/Mmux_wdata_o130)
+     LUT6:I5->O            1   0.205   0.684  openmips0/ex0/Mmux_wdata_o150 (openmips0/ex0/Mmux_wdata_o148)
+     LUT6:I4->O            4   0.203   0.788  openmips0/ex0/Mmux_wdata_o151 (openmips0/ex_wdata_o<0>)
+     LUT6:I4->O            3   0.203   0.651  openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o14 (openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o_mmx_out)
+     LUT2:I1->O            2   0.205   0.981  openmips0/id0/Mmux_GND_5_o_imm[31]_mux_269_OUT1431 (openmips0/id_reg1_o<0>)
+     LUT6:I0->O            1   0.203   0.580  openmips0/id0/n01112_SW0 (N799)
+     LUT6:I5->O            1   0.205   0.808  openmips0/id0/n01113 (openmips0/id0/n01113)
+     LUT5:I2->O            7   0.205   1.118  openmips0/id0/n01115 (openmips0/id0/n01115)
+     LUT6:I1->O            3   0.203   0.651  openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N650)
+     LUT6:I5->O            1   0.205   0.580  openmips0/id0/Mmux_branch_target_address_o10111_1 (openmips0/id0/Mmux_branch_target_address_o10111)
+     LUT6:I5->O            1   0.205   0.580  openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT294 (openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT293)
+     LUT6:I5->O            1   0.205   0.000  openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT295 (openmips0/pc_reg0/pc[31]_new_pc[31]_mux_10_OUT<6>)
+     FDRE:D                    0.102          openmips0/pc_reg0/pc_6
     ----------------------------------------
-    Total                     21.089ns (4.372ns logic, 16.717ns route)
-                                       (20.7% logic, 79.3% route)
+    Total                     20.352ns (4.797ns logic, 15.555ns route)
+                                       (23.6% logic, 76.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -2249,14 +2136,14 @@ clk            |   22.261|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 40.00 secs
-Total CPU time to Xst completion: 40.05 secs
+Total REAL time to Xst completion: 32.00 secs
+Total CPU time to Xst completion: 31.98 secs
  
 --> 
 
-Total memory usage is 336488 kilobytes
+Total memory usage is 319400 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  668 (   0 filtered)
+Number of warnings :  627 (   0 filtered)
 Number of infos    :   22 (   0 filtered)
 

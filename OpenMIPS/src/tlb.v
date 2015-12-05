@@ -66,7 +66,7 @@ module tlb(
 				end else begin
 					tlb_addr <= mmu_addr;
 
-					if (tlb_reg[0][62:44] == mmu_addr[31:13]) begin
+/*					if (tlb_reg[0][62:44] == mmu_addr[31:13]) begin
 						tlb_find <= 4'b0000;
 					end
 					if (tlb_reg[1][62:44] == mmu_addr[31:13]) begin
@@ -135,7 +135,7 @@ module tlb(
 						end else begin
 							excepttype_is_tlbl <= `True_v;
 						end
-					end
+					end*/
 				end
 			end
 		end

@@ -45,9 +45,14 @@ module openmips_min_sopc(
 
 	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输入
 
+	reg clk_2;
+	always @ (posedge clk) begin
+		clk_2 <= ~clk_2;
+	end
+
 	//例化处理器OpenMIPS
 	openmips openmips0(
-		.clk(clk),
+		.clk(clk_2),
 		.rst(rst),
 		.int_i(int),						//中断输入
 
@@ -63,7 +68,7 @@ module openmips_min_sopc(
 
 	//例化总线部分
 	bus_top bus_top0(
-		.clk(clk),
+		.clk(clk_2),
 		.rst(rst),
 		.wishbone_addr_i(wishbone_addr_o),
 		.wishbone_data_i(wishbone_data_o),
