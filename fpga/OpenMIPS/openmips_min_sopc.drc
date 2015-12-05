@@ -1,0 +1,39 @@
+Release 14.2 Drc P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Sat Dec 05 13:50:30 2015
+
+drc -z openmips_min_sopc.ncd openmips_min_sopc.pcf
+
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs13_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs5_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs4_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs11_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs14_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs2_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs6_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs15_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs3_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <openmips0/regfile1/Mram_regs12_RAMD_D1_O> is incomplete. The signal does not
+   drive any load pins in the design.
+DRC detected 0 errors and 10 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

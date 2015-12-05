@@ -49,6 +49,7 @@ module tlb(
 	end
 	/*********************		第二段：虚拟地址映射		*********************/
 	always @ (*) begin
+		tlb_find <= 4'b0000;
 		if (rst == `RstEnable) begin
 			tlb_addr <= `ZeroWord;
 			excepttype_is_tlbm <= `False_v;

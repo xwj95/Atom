@@ -31,16 +31,6 @@ module openmips_min_sopc(
 	output		[0:6]				segdisp1
 	);
 
-	//连接MMU
-	wire[`InstAddrBus]		inst_addr;
-	wire[`InstBus]			inst;
-	wire					rom_ce;
-	wire					mem_we_i;
-	wire[`RegBus]			mem_addr_i;
-	wire[`RegBus]			mem_data_i;
-	wire[`RegBus]			mem_data_o;
-	wire[3:0]				mem_sel_i;
-	wire					mem_ce_i;
 	wire[5:0]				int;
 	wire					timer_int;
 
@@ -71,8 +61,8 @@ module openmips_min_sopc(
 		.timer_int_o(timer_int)				//时钟中断输出
 	);
 
-	//例化Wishbone总线
-	bus bus0 (
+	//例化总线部分
+	bus_top bus_top0(
 		.clk(clk),
 		.rst(rst),
 		.wishbone_addr_i(wishbone_addr_o),
@@ -91,13 +81,9 @@ module openmips_min_sopc(
 		.ram_extram_ce(extram_ce),
 		.ram_extram_oe(extram_oe),
 		.ram_extram_we(extram_we),
-		.rom_inst(),
-		.flash_busy(),
 		.flash_addr(flash_addr),
 		.flash_data(flash_data),
 		.flash_ctl(flash_ctl),
-		.uart_TxD_busy(),
-		.uart_RxD_data_ready(),
 		.uart_com_TxD(com_TxD),
 		.uart_com_RxD(com_RxD),
 		.digseg_seg0(segdisp0),

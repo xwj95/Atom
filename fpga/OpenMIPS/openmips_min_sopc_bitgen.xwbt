@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=Z:\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.ncd
+OUTFILE=Z:\Documents\Project\fpga\OpenMIPS\openmips_min_sopc.bit
+FAMILY=Spartan6
+PART=xc6slx100-3fgg676
+WORKINGDIR=Z:\Documents\Project\fpga\OpenMIPS
+LICENSE=ISE
+USER_INFO=135256_15690819_173552794_661

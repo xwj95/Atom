@@ -194,20 +194,6 @@
 
 `define EXE_RES_NOP			3'b000
 
-//*****************			与指令存储器ROM有关的宏定义			*****************
-`define InstAddrBus			31:0				//ROM的地址总线宽度
-`define InstBus				31:0				//ROM的数据总线宽度
-
-`define InstMemNum			1048575				//ROM的实际大小为4MB
-`define InstMemNumLog2		20					//ROM实际使用的地址线
-
-//*****************			与数据存储器RAM有关的宏定义			*****************
-`define DataAddrBus			31:0				//地址总线宽度
-`define DataBus				31:0				//数据总线宽度
-`define DataMemNum			2097151				//RAM大小，单位是字，此处是2M word = 8MB
-`define DataMemNumLog2		21					//实际使用的地址宽度
-`define ByteWidth			7:0					//一个字节的宽度，是8bit
-
 //*****************			与通用寄存器Regfile有关的宏定义		*****************
 `define RegAddrBus			4:0					//Regfile模块的地址线宽度
 `define RegBus				31:0				//Regfile模块的数据线宽度
@@ -273,3 +259,36 @@
 `define WB_SELECT_UART_STAT	16'b0000000000100000
 `define WB_SELECT_DIGSEG	16'b0000000001000000
 `define WB_SELECT_PS2		16'b0000000010000000
+
+`define WB_DataBus			31:0
+`define WB_AddrBus			31:0
+`define WB_SelectBus		15:0
+
+//*****************			与数据存储器RAM有关的宏定义			*****************
+`define DataAddrBus			31:0				//地址总线宽度
+`define DataBus				31:0				//数据总线宽度
+`define DataMemNum			2097151				//RAM大小，单位是字，此处是2M word = 8MB
+`define DataMemNumLog2		21					//实际使用的地址宽度
+`define ByteWidth			7:0					//一个字节的宽度，是8bit
+
+//*****************			与指令存储器ROM有关的宏定义			*****************
+`define InstAddrBus			31:0				//指令的地址总线宽度
+`define InstBus				31:0				//指令的数据总线宽度
+
+`define InstMemNum			1024				//ROM的实际大小为4MB
+`define InstMemNumLog2		10					//ROM实际使用的地址线
+
+`define RomAddrBus			11:0				//ROM的地址总线宽度
+
+//*****************			与FLASH有关的宏定义			*****************
+`define FlashAddrBus		22:0				//FLASH的地址总线宽度
+`define FlashAddrBusWord	21:0				//FLASH的字模式下地址总线宽度
+`define FlashDataBus		15:0				//FLASH的数据总线宽度
+`define FlashCtrlBus		7:0					//FLASH的控制总线宽度
+
+//*****************			与UArt有关的宏定义			*****************
+`define UartDataBus			7:0					//Uart的数据总线宽度
+
+//*****************			与DigSeg有关的宏定义			*****************
+`define DigSegAddrBus		3:0					//DigSeg的地址总线宽度
+`define DigSegDataBus		0:6					//DigSeg的数据总线宽度

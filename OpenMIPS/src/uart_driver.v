@@ -11,7 +11,8 @@
                        // and RX receives one bit per clock cycle (for fast simulations)
 
 ////////////////////////////////////////////////////////
-module uart_async_transmitter(
+`include "defines.v"
+module uart_driver_transmitter(
 	input clk,
 	input TxD_start,
 	input [7:0] TxD_data,
@@ -73,7 +74,7 @@ endmodule
 
 
 ////////////////////////////////////////////////////////
-module uart_async_receiver(
+module uart_driver_receiver(
 	input clk,
 	input rst,	// assert to reset to waiting status
 	input RxD,

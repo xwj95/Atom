@@ -49,6 +49,7 @@ module tlb(
 	end
 	/*********************		第二段：虚拟地址映射		*********************/
 	always @ (*) begin
+		tlb_find <= 4'b0000;
 		if (rst == `RstEnable) begin
 			tlb_addr <= `ZeroWord;
 			excepttype_is_tlbm <= `False_v;
@@ -56,7 +57,6 @@ module tlb(
 			excepttype_is_tlbs <= `False_v;
 		end else begin
 			tlb_addr <= mmu_addr;
-			tlb_find <= 4'b0000;
 			excepttype_is_tlbm <= `False_v;						//默认没有发生内存修改异常
 			excepttype_is_tlbl <= `False_v;						//默认没有发生读未在TLB中映射的内存地址异常
 			excepttype_is_tlbs <= `False_v;						//默认没有发生写未在TLB中映射的内存地址异常
