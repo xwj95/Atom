@@ -57,6 +57,10 @@ module ram_driver (
 					base_ack <= 1'b0;
 					if(enable == 1'b1) begin
 						if (read_enable == 1'b1) begin
+							baseram_ce <= 1'b0;
+							baseram_oe <= 1'b0;
+							baseram_we <= 1'b1;
+							baseram_addr <= addr[`DataMemNumLog2-2:0];
 							base_state <= READ1;
 						end else if (write_enable == 1'b1) begin
 							baseram_ce <= 1'b0;
@@ -72,17 +76,7 @@ module ram_driver (
 					end
 				end
 				READ1: begin
-					baseram_ce <= 1'b0;
-					baseram_oe <= 1'b0;
-					baseram_we <= 1'b1;
-					baseram_addr <= addr[`DataMemNumLog2-2:0];
-					base_state <= READ2;
-				end
-				READ2: begin
 					base_data_out <= baseram_data;
-					base_state <= READ3;
-				end
-				READ3: begin
 					baseram_ce <= 1'b1;
 					baseram_oe <= 1'b1;
 					baseram_we <= 1'b1;
@@ -120,6 +114,10 @@ module ram_driver (
 					extra_ack <= 1'b0;
 					if (enable == 1'b1) begin
 						if (read_enable == 1'b1) begin
+							extram_ce <= 1'b0;
+							extram_oe <= 1'b0;
+							extram_we <= 1'b1;
+							extram_addr <= addr[`DataMemNumLog2-2:0];
 							extra_state <= READ1;
 						end else if (write_enable == 1'b1) begin
 							extram_ce <= 1'b0;
@@ -135,17 +133,7 @@ module ram_driver (
 					end
 				end
 				READ1: begin
-					extram_ce <= 1'b0;
-					extram_oe <= 1'b0;
-					extram_we <= 1'b1;
-					extram_addr <= addr[`DataMemNumLog2-2:0];
-					extra_state <= READ2;
-				end
-				READ2: begin
 					extra_data_out <= extram_data;
-					extra_state <= READ3;
-				end
-				READ3: begin
 					extram_ce <= 1'b1;
 					extram_oe <= 1'b1;
 					extram_we <= 1'b1;
