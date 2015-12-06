@@ -4,26 +4,34 @@ module regfile(
 	input		wire					clk,
 	input		wire					rst,
 	
-	//写端口
+	//写端�
 	input		wire					we,
 	input		wire[`RegAddrBus]		waddr,
 	input		wire[`RegBus]			wdata,
 	
-	//读端口1
+	//读端�
 	input		wire					re1,
 	input		wire[`RegAddrBus]		raddr1,
 	output		reg[`RegBus]			rdata1,
 	
-	//读端口2
+	//读端�
 	input		wire					re2,
 	input		wire[`RegAddrBus]		raddr2,
-	output		reg[`RegBus]			rdata2
+	output		reg[`RegBus]			rdata2,
+
+	input		wire[`RegAddrBus] 		select,
+	output 		reg[`RegBus]			output_data
 	);
 
-/************			第一段：定义32个32位寄存器		************/
+/************			第一段：定义32�2位寄存器		************/
 	reg[`RegBus]	regs[0:`RegNum-1];
 
-/************			第二段：写操作				************/
+	always @ (posedge clk) begin
+		output_data <= regs[select];
+	end
+
+
+/************			第二段：写操�			************/
 	always @ (posedge clk) begin
 		if (rst == `RstDisable) begin
 			if ((we == `WriteEnable) && (waddr != `RegNumLog2'h0)) begin
@@ -32,7 +40,7 @@ module regfile(
 		end
 	end
 
-/************			第三段：读端口1的读操作			************/
+/************			第三段：读端�的读操作			************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			rdata1 <= `ZeroWord;
@@ -41,8 +49,7 @@ module regfile(
 		end else if ((raddr1 == waddr) &&
 					(we == `WriteEnable) &&
 					(re1 == `ReadEnable)) begin
-			//raddr1是读操作，waddr是写地址、we是写使能、wdata是要写入的数据
-			rdata1 <= wdata;
+			//raddr1是读操作，waddr是写地址、we是写使能、wdata是要写入的数�			rdata1 <= wdata;
 		end else if (re1 == `ReadEnable) begin
 			rdata1 <= regs[raddr1];
 		end else begin
@@ -50,7 +57,7 @@ module regfile(
 		end
 	end
 
-/************			第四段：读端口2的读操作			************/
+/************			第四段：读端�的读操作			************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			rdata2 <= `ZeroWord;
@@ -59,8 +66,7 @@ module regfile(
 		end else if ((raddr2 == waddr) &&
 					(we == `WriteEnable) &&
 					(re2 == `ReadEnable)) begin
-			//raddr2是读操作，waddr是写地址、we是写使能、wdata是要写入的数据
-			rdata2 <= wdata;
+			//raddr2是读操作，waddr是写地址、we是写使能、wdata是要写入的数�			rdata2 <= wdata;
 		end else if (re2 == `ReadEnable) begin
 			rdata2 <= regs[raddr2];
 		end else begin

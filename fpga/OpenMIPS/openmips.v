@@ -13,11 +13,13 @@ module openmips(
 	output		wire					wishbone_we_o,
 	output		wire[15:0]				wishbone_select_o,
 
-	output		wire					timer_int_o
+	output		wire					timer_int_o,
+
+	input		wire[`RegAddrBus]		select,
+	output 		wire[`RegBus]			regfile_data_o
 	);
 
-	//连接IF/ID模块与译码阶段ID模块的变量
-	wire[`InstAddrBus]		pc;
+	//连接IF/ID模块与译码阶段ID模块的变�	wire[`InstAddrBus]		pc;
 	wire[`InstBus]			inst_i;
 	wire[`InstAddrBus]		id_pc_i;
 	wire[`InstBus]			id_inst_i;
@@ -114,16 +116,14 @@ module openmips(
 	wire					wb_is_in_delayslot_i;
 	wire[`RegBus]			wb_current_inst_address_i;
 
-	//连接译码阶段ID模块与通用寄存器Regfile模块的变量
-	wire					reg1_read;
+	//连接译码阶段ID模块与通用寄存器Regfile模块的变�	wire					reg1_read;
 	wire					reg2_read;
 	wire[`RegBus]			reg1_data;
 	wire[`RegBus]			reg2_data;
 	wire[`RegAddrBus]		reg1_addr;
 	wire[`RegAddrBus]		reg2_addr;
 
-	//连接执行阶段与hilo模块的输出，读取HI、LO寄存器
-	wire[`RegBus]			hi;
+	//连接执行阶段与hilo模块的输出，读取HI、LO寄存�	wire[`RegBus]			hi;
 	wire[`RegBus]			lo;
 	
 	wire[`DoubleRegBus]		hilo_temp_o;
@@ -225,8 +225,7 @@ module openmips(
 		.inst_i(id_inst_i),
 		.ex_aluop_i(ex_aluop_o),
 
-		//来自Regfile模块的输入
-		.reg1_data_i(reg1_data),
+		//来自Regfile模块的输�		.reg1_data_i(reg1_data),
 		.reg2_data_i(reg2_data),
 
 		//处于执行阶段的指令要写入的目的寄存器信息
@@ -240,14 +239,12 @@ module openmips(
 		.mem_wd_i(mem_wd_o),
 
 		.is_in_delayslot_i(is_in_delayslot_i),
-		//送到Regfile模块的信息
-		.reg1_read_o(reg1_read),
+		//送到Regfile模块的信�		.reg1_read_o(reg1_read),
 		.reg2_read_o(reg2_read),
 		.reg1_addr_o(reg1_addr),
 		.reg2_addr_o(reg2_addr),
 
-		//送到ID/EX模块的信息
-		.aluop_o(id_aluop_o),
+		//送到ID/EX模块的信�		.aluop_o(id_aluop_o),
 		.alusel_o(id_alusel_o),
 		.reg1_o(id_reg1_o),
 		.reg2_o(id_reg2_o),
@@ -278,7 +275,9 @@ module openmips(
 		.rdata1(reg1_data),
 		.re2(reg2_read),
 		.raddr2(reg2_addr),
-		.rdata2(reg2_data)
+		.rdata2(reg2_data),
+		.select(select),
+		.output_data(regfile_data_o)
 	);
 
 	//ID/EX模块例化
@@ -303,8 +302,7 @@ module openmips(
 		.id_excepttype(id_excepttype_o),
 		.id_current_inst_address(id_current_inst_address_o),
 
-		//传递到执行阶段EX模块的信息
-		.ex_aluop(ex_aluop_i),
+		//传递到执行阶段EX模块的信�		.ex_aluop(ex_aluop_i),
 		.ex_alusel(ex_alusel_i),
 		.ex_reg1(ex_reg1_i),
 		.ex_reg2(ex_reg2_i),
@@ -333,8 +331,7 @@ module openmips(
 		.lo_i(lo),
 		.inst_i(ex_inst_i),
 
-		//输出到EX/MEM模块的信息
-		.wb_hi_i(wb_hi_i),
+		//输出到EX/MEM模块的信�		.wb_hi_i(wb_hi_i),
 		.wb_lo_i(wb_lo_i),
 		.wb_whilo_i(wb_whilo_i),
 		.mem_hi_i(mem_hi_o),
@@ -347,21 +344,18 @@ module openmips(
 		.excepttype_i(ex_excepttype_i),
 		.current_inst_address_i(ex_current_inst_address_i),
 
-		//访存阶段的指令是否要写CP0，用来检测数据相关
-		.mem_cp0_reg_we(mem_cp0_reg_we_o),
+		//访存阶段的指令是否要写CP0，用来检测数据相�		.mem_cp0_reg_we(mem_cp0_reg_we_o),
 		.mem_cp0_reg_write_addr(mem_cp0_reg_write_addr_o),
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),
 
-		//回写阶段的指令是否要写CP0，用来检测数据相关
-	  	.wb_cp0_reg_we(wb_cp0_reg_we_i),
+		//回写阶段的指令是否要写CP0，用来检测数据相�	  	.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),
 
 		.cp0_reg_data_i(cp0_data_o),
 		.cp0_reg_read_addr_o(cp0_raddr_i),
 		
-		//向下一流水级传递，用于写CP0中的寄存器
-		.cp0_reg_we_o(ex_cp0_reg_we_o),
+		//向下一流水级传递，用于写CP0中的寄存�		.cp0_reg_we_o(ex_cp0_reg_we_o),
 		.cp0_reg_write_addr_o(ex_cp0_reg_write_addr_o),
 		.cp0_reg_data_o(ex_cp0_reg_data_o),	  
 			  
@@ -389,8 +383,7 @@ module openmips(
 		.stall(stall),
 		.flush(flush),
 
-		//来自执行阶段EX模块的信息
-		.ex_wd(ex_wd_o),
+		//来自执行阶段EX模块的信�		.ex_wd(ex_wd_o),
 		.ex_wreg(ex_wreg_o),
 		.ex_wdata(ex_wdata_o),
 		.ex_hi(ex_hi_o),
@@ -409,8 +402,7 @@ module openmips(
 		.ex_is_in_delayslot(ex_is_in_delayslot_o),
 		.ex_current_inst_address(ex_current_inst_address_o),
 
-		//送到访存阶段MEM模块的信息
-		.mem_wd(mem_wd_i),
+		//送到访存阶段MEM模块的信�		.mem_wd(mem_wd_i),
 		.mem_wreg(mem_wreg_i),
 		.mem_wdata(mem_wdata_i),
 		.mem_hi(mem_hi_i),
@@ -434,8 +426,7 @@ module openmips(
 	mem mem0(
 		.rst(rst),
 
-		//来自EX/MEM模块的信息
-		.wd_i(mem_wd_i),
+		//来自EX/MEM模块的信�		.wd_i(mem_wd_i),
 		.wreg_i(mem_wreg_i),
 		.wdata_i(mem_wdata_i),
 		.hi_i(mem_hi_i),
@@ -465,8 +456,7 @@ module openmips(
 		.cp0_entry_lo_1_i(cp0_entry_lo_1),
 		.cp0_entry_hi_i(cp0_entry_hi),
 
-		//回写阶段的指令是否要写CP0，用来检测数据相关
-		.wb_cp0_reg_we(wb_cp0_reg_we_i),
+		//回写阶段的指令是否要写CP0，用来检测数据相�		.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),
 
@@ -474,8 +464,7 @@ module openmips(
 		.excepttype_is_tlbl_i(tlb_excepttype_is_tlbl),
 		.excepttype_is_tlbs_i(tlb_excepttype_is_tlbs),
 
-		//送到CP0模块的信息
-		.cp0_reg_we_o(mem_cp0_reg_we_o),
+		//送到CP0模块的信�		.cp0_reg_we_o(mem_cp0_reg_we_o),
 		.cp0_reg_write_addr_o(mem_cp0_reg_write_addr_o),
 		.cp0_reg_data_o(mem_cp0_reg_data_o),
 
@@ -485,23 +474,20 @@ module openmips(
 		.current_inst_address_o(mem_current_inst_address_o),
 		.bad_v_addr_o(bad_v_addr_o),
 
-		//送到MEM/WB模块的信息
-		.wd_o(mem_wd_o),
+		//送到MEM/WB模块的信�		.wd_o(mem_wd_o),
 		.wreg_o(mem_wreg_o),
 		.wdata_o(mem_wdata_o),
 		.hi_o(mem_hi_o),
 		.lo_o(mem_lo_o),
 		.whilo_o(mem_whilo_o),
 
-		//送到MMU模块的信息
-		.mem_addr_o(ram_addr_o),
+		//送到MMU模块的信�		.mem_addr_o(ram_addr_o),
 		.mem_we_o(ram_we_o),
 		.mem_sel_o(ram_sel_o),
 		.mem_data_o(ram_data_o),
 		.mem_ce_o(ram_ce_o),
 
-		//送到TLB模块的信息
-		.tlb_we_o(tlb_we),
+		//送到TLB模块的信�		.tlb_we_o(tlb_we),
 		.tlb_index_o(tlb_index),
 		.tlb_data_o(tlb_data)
 	);
@@ -513,8 +499,7 @@ module openmips(
 		.stall(stall),
 		.flush(flush),
 		
-		//来自访存阶段MEM模块的信息
-		.mem_wd(mem_wd_o),
+		//来自访存阶段MEM模块的信�		.mem_wd(mem_wd_o),
 		.mem_wreg(mem_wreg_o),
 		.mem_wdata(mem_wdata_o),
 		.mem_hi(mem_hi_o),
@@ -525,8 +510,7 @@ module openmips(
 		.mem_cp0_reg_write_addr(mem_cp0_reg_write_addr_o),
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),
 
-		//送到回写阶段的信息
-		.wb_wd(wb_wd_i),
+		//送到回写阶段的信�		.wb_wd(wb_wd_i),
 		.wb_wreg(wb_wreg_i),
 		.wb_wdata(wb_wdata_i),
 		.wb_hi(wb_hi_i),
@@ -542,12 +526,11 @@ module openmips(
 		.clk(clk),
 		.rst(rst),
 
-		//写端口
-		.we(wb_whilo_i),
+		//写端�		.we(wb_whilo_i),
 		.hi_i(wb_hi_i),
 		.lo_i(wb_lo_i),
 
-		//读端口1
+		//读端�
 		.hi_o(hi),
 		.lo_o(lo)
 	);
@@ -603,8 +586,7 @@ module openmips(
 		.clk(clk),
 		.rst(rst),
 
-		//IF模块的接口
-		.if_ce_i(rom_ce),
+		//IF模块的接�		.if_ce_i(rom_ce),
 		.if_data_i(32'h00000000),
 		.if_addr_i(pc),
 		.if_we_i(1'b0),
@@ -613,8 +595,7 @@ module openmips(
 
 		.stall_req_if(stallreq_from_if),
 
-		//MEM模块的接口
-		.mem_ce_i(ram_ce_o),
+		//MEM模块的接�		.mem_ce_i(ram_ce_o),
 		.mem_data_i(ram_data_o),
 		.mem_addr_i(ram_addr_o),
 		.mem_we_i(ram_we_o),
@@ -623,8 +604,7 @@ module openmips(
 
 		.stall_req_mem(stallreq_from_mem),
 
-		//TLB模块的接口
-		.tlb_ce(tlb_ce),
+		//TLB模块的接�		.tlb_ce(tlb_ce),
 		.tlb_write_o(tlb_write),
 		.tlb_addr_o(tlb_addr_o),
 		.tlb_addr_i(tlb_addr_i),
@@ -669,8 +649,7 @@ module openmips(
 		.stall_i(stall),
 		.flush_i(flush),
 
-		//CPU侧读写操作信息
-		.mmu_ce_i(mmu_ce_o),
+		//CPU侧读写操作信�		.mmu_ce_i(mmu_ce_o),
 		.mmu_data_i(mmu_data_o),
 		.mmu_addr_i(mmu_addr_o),
 		.mmu_we_i(mmu_we_o),
@@ -678,8 +657,7 @@ module openmips(
 		.mmu_data_o(mmu_data_i),
 		.mmu_ack_o(mmu_ack_i),
 
-		//Wishbone总线侧接口
-		.wishbone_data_i(wishbone_data_i),
+		//Wishbone总线侧接�		.wishbone_data_i(wishbone_data_i),
 		.wishbone_ack_i(wishbone_ack_i),
 		.wishbone_addr_o(wishbone_addr_o),
 		.wishbone_data_o(wishbone_data_o),

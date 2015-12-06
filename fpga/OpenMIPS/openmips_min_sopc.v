@@ -28,7 +28,10 @@ module openmips_min_sopc(
 
 	//segdisp
 	output		[0:6]				segdisp0,
-	output		[0:6]				segdisp1
+	output		[0:6]				segdisp1,
+
+	input		[`RegAddrBus]		select,
+	output		[`RegBus]			regfile_data_o
 	);
 
 	wire[5:0]				int;
@@ -45,9 +48,14 @@ module openmips_min_sopc(
 
 	assign int = {5'b00000, timer_int};		//时钟中断作为一个中断输入
 
+	reg clk_2;
+	always @ (posedge clk) begin
+		clk_2 <= ~clk_2;
+	end
+
 	//例化处理器OpenMIPS
 	openmips openmips0(
-		.clk(clk),
+		.clk(clk_2),
 		.rst(rst),
 		.int_i(int),						//中断输入
 
@@ -58,12 +66,14 @@ module openmips_min_sopc(
 		.wishbone_we_o(wishbone_we_o),
 		.wishbone_select_o(wishbone_select_o),
 
-		.timer_int_o(timer_int)				//时钟中断输出
+		.timer_int_o(timer_int),				//时钟中断输出
+		.select(select),
+		.regfile_data_o(regfile_data_o)
 	);
 
 	//例化总线部分
 	bus_top bus_top0(
-		.clk(clk),
+		.clk(clk_2),
 		.rst(rst),
 		.wishbone_addr_i(wishbone_addr_o),
 		.wishbone_data_i(wishbone_data_o),
