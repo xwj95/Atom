@@ -6,7 +6,7 @@ module ctrl(
 	input		wire					stallreq_from_ex,
 	input		wire					stallreq_from_mem,
 
-	//æ¥è‡ªMEMæ¨¡å—çš„è¾“å…¥ä¿¡å·
+	//À´×ÔMEMÄ£¿éµÄÊäÈëĞÅºÅ
 	input		wire[31:0]				excepttype_i,
 	input		wire[`RegBus]			cp0_epc_i,
 

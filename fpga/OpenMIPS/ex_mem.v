@@ -5,7 +5,7 @@ module ex_mem(
 	input		wire[5:0]				stall,
 	input		wire					flush,
 
-	//æ¥è‡ªæ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯
+	//À´×ÔÖ´ĞĞ½×¶ÎµÄĞÅÏ¢
 	input		wire[`RegAddrBus]		ex_wd,
 	input		wire					ex_wreg,
 	input		wire[`RegBus]			ex_wdata,
@@ -13,7 +13,7 @@ module ex_mem(
 	input		wire[`RegBus]			ex_lo,
 	input		wire					ex_whilo,
 
-	//ä¸ºå®ç°åŠ è½½ã€å­˜å‚¨æŒ‡ä»¤è€Œæ·»åŠ çš„è¾“å…¥æ¥å£
+	//ÎªÊµÏÖ¼ÓÔØ¡¢´æ´¢Ö¸Áî¶øÌí¼ÓµÄÊäÈë½Ó¿Ú
 	input		wire[`AluOpBus]			ex_aluop,
 	input		wire[`RegBus]			ex_mem_addr,
 	input		wire[`RegBus]			ex_reg2,
@@ -26,7 +26,7 @@ module ex_mem(
 	input		wire					ex_is_in_delayslot,
 	input		wire[`RegBus]			ex_current_inst_address,
 
-	//é€åˆ°è®¿å­˜é˜¶æ®µçš„ä¿¡æ¯
+	//ËÍµ½·Ã´æ½×¶ÎµÄĞÅÏ¢
 	output		reg[`RegAddrBus]		mem_wd,
 	output		reg						mem_wreg,
 	output		reg[`RegBus]			mem_wdata,
@@ -34,7 +34,7 @@ module ex_mem(
 	output		reg[`RegBus]			mem_lo,
 	output		reg						mem_whilo,
 
-	//ä¸ºå®ç°åŠ è½½ã€å­˜å‚¨æŒ‡ä»¤è€Œæ·»åŠ çš„è¾“å‡ºæ¥å£
+	//ÎªÊµÏÖ¼ÓÔØ¡¢´æ´¢Ö¸Áî¶øÌí¼ÓµÄÊä³ö½Ó¿Ú
 	output		reg[`AluOpBus]			mem_aluop,
 	output		reg[`RegBus]			mem_mem_addr,
 	output		reg[`RegBus]			mem_reg2,
@@ -48,9 +48,9 @@ module ex_mem(
 	output		reg[`RegBus]			mem_current_inst_address
 	);
 
-	//ï¼ˆ1ï¼‰å½“stall[3]ä¸ºStopï¼Œstall[4]ä¸ºNoStopæ—¶ï¼Œè¡¨ç¤ºæ‰§è¡Œé˜¶æ®µæš‚åœï¼Œè€Œè®¿å­˜é˜¶æ®µç»§ç»­ï¼Œæ‰€ä»¥ä½¿ç”¨ç©ºæŒ‡ä»¤ä½œä¸ºä¸‹ä¸€ä¸ªå‘¨æœŸè¿›å…¥è®¿å­˜é˜¶æ®µçš„æŒ‡ä»¤
-	//ï¼ˆ2ï¼‰å½“stall[3]ä¸ºNoStopæ—¶ï¼Œæ‰§è¡Œé˜¶æ®µç»§ç»­ï¼Œæ‰§è¡Œåçš„æŒ‡ä»¤è¿›å…¥è®¿å­˜é˜¶æ®µ
-	//ï¼ˆ3ï¼‰å…¶ä½™æƒ…å†µä¸‹ï¼Œä¿æŒè®¿å­˜é˜¶æ®µçš„å¯„å­˜å™¨mem_wbã€mem_wregã€mem_wdataã€mem_hiã€mem_loã€mem_whiloä¸å˜
+	//£¨1£©µ±stall[3]ÎªStop£¬stall[4]ÎªNoStopÊ±£¬±íÊ¾Ö´ĞĞ½×¶ÎÔİÍ££¬¶ø·Ã´æ½×¶Î¼ÌĞø£¬ËùÒÔÊ¹ÓÃ¿ÕÖ¸Áî×÷ÎªÏÂÒ»¸öÖÜÆÚ½øÈë·Ã´æ½×¶ÎµÄÖ¸Áî
+	//£¨2£©µ±stall[3]ÎªNoStopÊ±£¬Ö´ĞĞ½×¶Î¼ÌĞø£¬Ö´ĞĞºóµÄÖ¸Áî½øÈë·Ã´æ½×¶Î
+	//£¨3£©ÆäÓàÇé¿öÏÂ£¬±£³Ö·Ã´æ½×¶ÎµÄ¼Ä´æÆ÷mem_wb¡¢mem_wreg¡¢mem_wdata¡¢mem_hi¡¢mem_lo¡¢mem_whilo²»±ä
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			mem_wd <= `NOPRegAddr;
@@ -68,7 +68,7 @@ module ex_mem(
 			mem_excepttype <= `ZeroWord;
 			mem_is_in_delayslot <= `NotInDelaySlot;
 			mem_current_inst_address <= `ZeroWord;
-		end else if (flush == 1'b1) begin									//æ¸…é™¤æµæ°´çº¿
+		end else if (flush == 1'b1) begin									//Çå³ıÁ÷Ë®Ïß
 			mem_wd <= `NOPRegAddr;
 			mem_wreg <= `WriteDisable;
 			mem_wdata <= `ZeroWord;
@@ -84,7 +84,7 @@ module ex_mem(
 			mem_excepttype <= `ZeroWord;
 			mem_is_in_delayslot <= `NotInDelaySlot;
 			mem_current_inst_address <= `ZeroWord;
-		end else if (stall[3] == `Stop && stall[4] == `NoStop) begin		//æ‰§è¡Œé˜¶æ®µæš‚åœï¼Œè®¿å­˜é˜¶æ®µæ²¡æœ‰æš‚åœ
+		end else if (stall[3] == `Stop && stall[4] == `NoStop) begin		//Ö´ĞĞ½×¶ÎÔİÍ££¬·Ã´æ½×¶ÎÃ»ÓĞÔİÍ£
 			mem_wd <= `NOPRegAddr;
 			mem_wreg <= `WriteDisable;
 			mem_wdata <= `ZeroWord;
@@ -100,7 +100,7 @@ module ex_mem(
 			mem_excepttype <= `ZeroWord;
 			mem_is_in_delayslot <= `NotInDelaySlot;
 			mem_current_inst_address <= `ZeroWord;
-		end else if (stall[3] == `NoStop) begin								//æ‰§è¡Œé˜¶æ®µæ²¡æœ‰æš‚åœ
+		end else if (stall[3] == `NoStop) begin								//Ö´ĞĞ½×¶ÎÃ»ÓĞÔİÍ£
 			mem_wd <= ex_wd;
 			mem_wreg <= ex_wreg;
 			mem_wdata <= ex_wdata;

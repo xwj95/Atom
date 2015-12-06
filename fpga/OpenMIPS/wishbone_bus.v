@@ -4,11 +4,11 @@ module wishbone_bus(
 	input		wire					clk,
 	input		wire					rst,
 
-	//æ¥è‡ªctrlæ¨¡å—
+	//À´×ÔctrlÄ£¿é
 	input		wire[5:0]				stall_i,
 	input		wire					flush_i,
 
-	//MMUä¾§çš„æ¥å£
+	//MMU²àµÄ½Ó¿Ú
 	input		wire					mmu_ce_i,
 	input		wire[`RegBus]			mmu_data_i,
 	input		wire[`RegBus]			mmu_addr_i,
@@ -17,7 +17,7 @@ module wishbone_bus(
 	output		reg[`RegBus]			mmu_data_o,
 	output		reg						mmu_ack_o,
 
-	//Wishboneä¾§çš„æ¥å£
+	//Wishbone²àµÄ½Ó¿Ú
 	input		wire[`RegBus]			wishbone_data_i,
 	input		wire					wishbone_ack_i,
 	output		reg[`RegBus]			wishbone_addr_o,
@@ -28,10 +28,10 @@ module wishbone_bus(
 	output		reg						stallreq
 	);
 
-	reg[1:0] wishbone_state;								//ä¿å­˜Wishboneæ€»çº¿æ¥å£æ¨¡å—çš„çŠ¶æ€
-	reg[`RegBus] rd_buf;									//å¯„å­˜é€šè¿‡Wishboneæ€»çº¿è®¿é—®åˆ°çš„æ•°æ®
+	reg[1:0] wishbone_state;								//±£´æWishbone×ÜÏß½Ó¿ÚÄ£¿éµÄ×´Ì¬
+	reg[`RegBus] rd_buf;									//¼Ä´æÍ¨¹ıWishbone×ÜÏß·ÃÎÊµ½µÄÊı¾İ
 
-	/*********************		ç¬¬ä¸€æ®µï¼šæ§åˆ¶çŠ¶æ€è½¬åŒ–çš„æ—¶åºç”µè·¯		*********************/
+	/*********************		µÚÒ»¶Î£º¿ØÖÆ×´Ì¬×ª»¯µÄÊ±ĞòµçÂ·		*********************/
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			wishbone_state <= `WB_IDLE;
@@ -42,16 +42,16 @@ module wishbone_bus(
 			rd_buf <= `ZeroWord;
 		end else begin
 			case (wishbone_state)
-				`WB_IDLE: begin								//WB_IDLEçŠ¶æ€
+				`WB_IDLE: begin								//WB_IDLE×´Ì¬
 					if ((mmu_ce_i == 1'b1) && (flush_i == `False_v)) begin
 						wishbone_addr_o <= mmu_addr_i;
 						wishbone_data_o <= mmu_data_i;
 						wishbone_we_o <= mmu_we_i;
 						wishbone_select_o <= mmu_select_i;
-						wishbone_state <= `WB_BUSY;			//è¿›å…¥WB_BUSYçŠ¶æ€
+						wishbone_state <= `WB_BUSY;			//½øÈëWB_BUSY×´Ì¬
 					end
 				end
-				`WB_BUSY: begin								//WB_BUSYçŠ¶æ€
+				`WB_BUSY: begin								//WB_BUSY×´Ì¬
 					if (wishbone_ack_i == 1'b1) begin
 						wishbone_addr_o <= `ZeroWord;
 						wishbone_data_o <= `ZeroWord;
@@ -61,7 +61,7 @@ module wishbone_bus(
 						if (mmu_we_i == `WriteDisable) begin
 							rd_buf <= wishbone_data_i;
 						end
-						if (stall_i != 6'b000000) begin		//è¿›å…¥WB_WAIT_FOR_STALLçŠ¶æ€
+						if (stall_i != 6'b000000) begin		//½øÈëWB_WAIT_FOR_STALL×´Ì¬
 							wishbone_state <= `WB_WAIT_FOR_STALL;
 						end
 					end else if (flush_i == `True_v) begin
@@ -69,13 +69,13 @@ module wishbone_bus(
 						wishbone_data_o <= `ZeroWord;
 						wishbone_we_o <= `WriteDisable;
 						wishbone_select_o <= 4'b0000;
-						wishbone_state <= `WB_IDLE;			//è¿›å…¥WB_IDLEçŠ¶æ€
+						wishbone_state <= `WB_IDLE;			//½øÈëWB_IDLE×´Ì¬
 						rd_buf <= `ZeroWord;
 					end
 				end
-				`WB_WAIT_FOR_STALL: begin					//WB_WAIT_FOR_STALLçŠ¶æ€
+				`WB_WAIT_FOR_STALL: begin					//WB_WAIT_FOR_STALL×´Ì¬
 					if (stall_i == 6'b000000) begin
-						wishbone_state <= `WB_IDLE;			//è¿›å…¥WB_IDLEçŠ¶æ€
+						wishbone_state <= `WB_IDLE;			//½øÈëWB_IDLE×´Ì¬
 					end
 				end
 				default: begin
@@ -84,7 +84,7 @@ module wishbone_bus(
 		end
 	end
 
-	/*********************		ç¬¬äºŒæ®µï¼šç»™å¤„ç†å™¨æ¥å£ä¿¡å·èµ‹å€¼çš„ç»„åˆç”µè·¯		*********************/
+	/*********************		µÚ¶ş¶Î£º¸ø´¦ÀíÆ÷½Ó¿ÚĞÅºÅ¸³ÖµµÄ×éºÏµçÂ·		*********************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			stallreq <= `NoStop;
@@ -95,13 +95,13 @@ module wishbone_bus(
 			mmu_data_o <= `ZeroWord;
 			mmu_ack_o <= wishbone_ack_i;
 			case (wishbone_state)
-				`WB_IDLE: begin								//WB_IDLEçŠ¶æ€
+				`WB_IDLE: begin								//WB_IDLE×´Ì¬
 					if ((mmu_ce_i == 1'b1) && (flush_i == `False_v)) begin
 						stallreq <= `Stop;
 						mmu_data_o <= `ZeroWord;
 					end
 				end
-				`WB_BUSY: begin								//WB_BUSYçŠ¶æ€
+				`WB_BUSY: begin								//WB_BUSY×´Ì¬
 					if (wishbone_ack_i == 1'b1) begin
 						stallreq <= `NoStop;
 						if (wishbone_we_o == `WriteDisable) begin
@@ -114,7 +114,7 @@ module wishbone_bus(
 						mmu_data_o <= `ZeroWord;
 					end
 				end
-				`WB_WAIT_FOR_STALL: begin					//WB_WAIT_FOR_STALLçŠ¶æ€
+				`WB_WAIT_FOR_STALL: begin					//WB_WAIT_FOR_STALL×´Ì¬
 					stallreq <= `NoStop;
 					mmu_data_o <= rd_buf;
 				end

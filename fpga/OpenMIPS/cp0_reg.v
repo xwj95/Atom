@@ -30,118 +30,118 @@ module cp0_reg(
 	output			reg					timer_int_o
 	);
 
-	/*********************		ç¬¬ä¸€æ®µï¼šå¯¹CP0ä¸­å¯„å­˜å™¨çš„å†™æ“ä½œ		*********************/
+	/*********************		µÚÒ»¶Î£º¶ÔCP0ÖĞ¼Ä´æÆ÷µÄĞ´²Ù×÷		*********************/
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 
-			//Indexå¯„å­˜å™¨çš„åˆå§‹å€¼ï¼Œä¸º0
+			//Index¼Ä´æÆ÷µÄ³õÊ¼Öµ£¬Îª0
 			index_o <= `ZeroWord;
 
-			//EntryLo0å¯„å­˜å™¨çš„åˆå§‹å€¼
+			//EntryLo0¼Ä´æÆ÷µÄ³õÊ¼Öµ
 			entry_lo_0_o <= `ZeroWord;
 
-			//EntryLo1å¯„å­˜å™¨çš„åˆå§‹å€¼
+			//EntryLo1¼Ä´æÆ÷µÄ³õÊ¼Öµ
 			entry_lo_1_o <= `ZeroWord;
 
-			//BadVAddrå¯„å­˜å™¨çš„åˆå§‹å€¼
+			//BadVAddr¼Ä´æÆ÷µÄ³õÊ¼Öµ
 			bad_v_addr_o <= `ZeroWord;
 
-			//Countå¯„å­˜å™¨çš„åˆå§‹å€¼ï¼Œä¸º0
+			//Count¼Ä´æÆ÷µÄ³õÊ¼Öµ£¬Îª0
 			count_o <= `ZeroWord;
 
-			//EntryHiå¯„å­˜å™¨çš„åˆå§‹å€¼
+			//EntryHi¼Ä´æÆ÷µÄ³õÊ¼Öµ
 			entry_hi_o <= `ZeroWord;
 
-			//Compareå¯„å­˜å™¨çš„åˆå§‹å€¼ï¼Œä¸º0
+			//Compare¼Ä´æÆ÷µÄ³õÊ¼Öµ£¬Îª0
 			compare_o <= `ZeroWord;
 
-			//Statuså¯„å­˜å™¨çš„åˆå§‹å€¼ï¼Œå…¶ä¸­CUå­—æ®µä¸º4'b0001ï¼Œè¡¨ç¤ºåå¤„ç†å™¨CP0å­˜åœ¨
+			//Status¼Ä´æÆ÷µÄ³õÊ¼Öµ£¬ÆäÖĞCU×Ö¶ÎÎª4'b0001£¬±íÊ¾Ğ­´¦ÀíÆ÷CP0´æÔÚ
 			status_o <= 32'b00010000000000000000000000000000;
 
-			//Causeå¯„å­˜å™¨çš„åˆå§‹å€¼
+			//Cause¼Ä´æÆ÷µÄ³õÊ¼Öµ
 			cause_o <= `ZeroWord;
 
-			//EPCå¯„å­˜å™¨çš„åˆå§‹å€¼
+			//EPC¼Ä´æÆ÷µÄ³õÊ¼Öµ
 			epc_o <= `ZeroWord;
 
-			//EBaseå¯„å­˜å™¨çš„åˆå§‹å€¼
+			//EBase¼Ä´æÆ÷µÄ³õÊ¼Öµ
 			ebase_o <= 32'b10000000000000000000000000000000;			
 
 			timer_int_o <= `InterruptNotAssert;
 
 		end else begin
 
-			count_o <= count_o + 1;				//Countå¯„å­˜å™¨çš„å€¼åœ¨æ¯ä¸ªæ—¶é’Ÿå‘¨æœŸåŠ 1
-			cause_o[15:10] <= int_i;			//Causeå¯„å­˜å™¨çš„ç¬¬10~15bitä¿æŒå¤–éƒ¨ä¸­æ–­å£°æ˜
+			count_o <= count_o + 1;				//Count¼Ä´æÆ÷µÄÖµÔÚÃ¿¸öÊ±ÖÓÖÜÆÚ¼Ó1
+			cause_o[15:10] <= int_i;			//Cause¼Ä´æÆ÷µÄµÚ10~15bit±£³ÖÍâ²¿ÖĞ¶ÏÉùÃ÷
 
-			//å½“Compareå¯„å­˜å™¨ä¸ä¸º0ï¼Œä¸”Countå¯„å­˜å™¨çš„å€¼ç­‰äºCompareå¯„å­˜å™¨çš„å€¼æ—¶ï¼Œå°†è¾“å‡ºä¿¡å·timer_int_oç½®ä¸º1ï¼Œè¡¨ç¤ºæ—¶é’Ÿä¸­æ–­å‘ç”Ÿ
+			//µ±Compare¼Ä´æÆ÷²»Îª0£¬ÇÒCount¼Ä´æÆ÷µÄÖµµÈÓÚCompare¼Ä´æÆ÷µÄÖµÊ±£¬½«Êä³öĞÅºÅtimer_int_oÖÃÎª1£¬±íÊ¾Ê±ÖÓÖĞ¶Ï·¢Éú
 			if (compare_o != `ZeroWord && count_o == compare_o) begin
 				timer_int_o <= `InterruptAssert;
 			end
 
 			if (we_i == `WriteEnable) begin
 				case (waddr_i)
-					`CP0_REG_INDEX: begin		//å†™Indexå¯„å­˜å™¨
-						//31ä½æ£€æµ‹æ•…éšœï¼Œå½“TLBPæŒ‡ä»¤æ²¡æœ‰åœ¨TLBä¸­å¯»å¾—åŒ¹é…çš„æ—¶å€™ç½®ä¸º1
-						//30:6ä½å›ºå®šä¸º0
+					`CP0_REG_INDEX: begin		//Ğ´Index¼Ä´æÆ÷
+						//31Î»¼ì²â¹ÊÕÏ£¬µ±TLBPÖ¸ÁîÃ»ÓĞÔÚTLBÖĞÑ°µÃÆ¥ÅäµÄÊ±ºòÖÃÎª1
+						//30:6Î»¹Ì¶¨Îª0
 						index_o[5:0] <= data_i[5:0];
 					end
-					`CP0_REG_ENTRYLO0: begin	//å†™EntryLo0å¯„å­˜å™¨
-						//31:30ä½å’Œ29:26ä½å›ºå®šä¸º0
-						//25:6ä½å¯¹åº”ç‰©ç†åœ°å€çš„31:12ä½
+					`CP0_REG_ENTRYLO0: begin	//Ğ´EntryLo0¼Ä´æÆ÷
+						//31:30Î»ºÍ29:26Î»¹Ì¶¨Îª0
+						//25:6Î»¶ÔÓ¦ÎïÀíµØÖ·µÄ31:12Î»
 						entry_lo_0_o[25:6] <= data_i[25:6];
 
-						//5:3ä½ä¸ºé¡µé¢ä¸€è‡´æ€§å±æ€§
+						//5:3Î»ÎªÒ³ÃæÒ»ÖÂĞÔÊôĞÔ
 						entry_lo_0_o[5:3] <= data_i[5:3];
 
-						//2,1,0åˆ†åˆ«ä¸ºå·²ä½¿ç”¨æˆ–å†™ä½¿èƒ½ä½ã€æœ‰æ•ˆä½ã€å…¨å±€ä½
+						//2,1,0·Ö±ğÎªÒÑÊ¹ÓÃ»òĞ´Ê¹ÄÜÎ»¡¢ÓĞĞ§Î»¡¢È«¾ÖÎ»
 						entry_lo_0_o[2:0] <= data_i[2:0];
 					end
-					`CP0_REG_ENTRYLO1: begin	//å†™EntryLo1å¯„å­˜å™¨
-						//31:30ä½å’Œ29:26ä½å›ºå®šä¸º0
-						//25:6ä½å¯¹åº”ç‰©ç†åœ°å€çš„31:12ä½
+					`CP0_REG_ENTRYLO1: begin	//Ğ´EntryLo1¼Ä´æÆ÷
+						//31:30Î»ºÍ29:26Î»¹Ì¶¨Îª0
+						//25:6Î»¶ÔÓ¦ÎïÀíµØÖ·µÄ31:12Î»
 						entry_lo_1_o[25:6] <= data_i[25:6];
 
-						//5:3ä½ä¸ºé¡µé¢ä¸€è‡´æ€§å±æ€§
+						//5:3Î»ÎªÒ³ÃæÒ»ÖÂĞÔÊôĞÔ
 						entry_lo_1_o[5:3] <= data_i[5:3];
 
-						//2,1,0åˆ†åˆ«ä¸ºå·²ä½¿ç”¨æˆ–å†™ä½¿èƒ½ä½ã€æœ‰æ•ˆä½ã€å…¨å±€ä½
+						//2,1,0·Ö±ğÎªÒÑÊ¹ÓÃ»òĞ´Ê¹ÄÜÎ»¡¢ÓĞĞ§Î»¡¢È«¾ÖÎ»
 						entry_lo_1_o[2:0] <= data_i[2:0];
 					end
-					`CP0_REG_BADVADDR: begin	//å†™BadVAddrå¯„å­˜å™¨
+					`CP0_REG_BADVADDR: begin	//Ğ´BadVAddr¼Ä´æÆ÷
 						bad_v_addr_o <= data_i;
 					end
-					`CP0_REG_COUNT: begin		//å†™Countå¯„å­˜å™¨
+					`CP0_REG_COUNT: begin		//Ğ´Count¼Ä´æÆ÷
 						count_o <= data_i;
 					end
-					`CP0_REG_ENTRYHI: begin		//å†™EntryHiå¯„å­˜å™¨
+					`CP0_REG_ENTRYHI: begin		//Ğ´EntryHi¼Ä´æÆ÷
 						entry_hi_o[31:13] <= data_i[31:13];
 						entry_hi_o[7:0] <= data_i[7:0];
 					end
-					`CP0_REG_COMPARE: begin		//å†™Compareå¯„å­˜å™¨
+					`CP0_REG_COMPARE: begin		//Ğ´Compare¼Ä´æÆ÷
 						compare_o <= data_i;
 						timer_int_o <= `InterruptNotAssert;
 					end
-					`CP0_REG_STATUS: begin		//å†™Statuså¯„å­˜å™¨
+					`CP0_REG_STATUS: begin		//Ğ´Status¼Ä´æÆ÷
 						status_o <= data_i;
 					end
-					`CP0_REG_CAUSE: begin		//å†™Causeå¯„å­˜å™¨
-						//Causeå¯„å­˜å™¨åªæœ‰IP[1:0]ã€IVã€WPå­—æ®µæ˜¯å¯å†™çš„
+					`CP0_REG_CAUSE: begin		//Ğ´Cause¼Ä´æÆ÷
+						//Cause¼Ä´æÆ÷Ö»ÓĞIP[1:0]¡¢IV¡¢WP×Ö¶ÎÊÇ¿ÉĞ´µÄ
 						cause_o[9:8] <= data_i[9:8];
 						cause_o[23] <= data_i[23];
 						cause_o[22] <= data_i[22];
 					end
-					`CP0_REG_EPC: begin			//å†™EPCå¯„å­˜å™¨
+					`CP0_REG_EPC: begin			//Ğ´EPC¼Ä´æÆ÷
 						epc_o <= data_i;
 					end
-					`CP0_REG_EBASE: begin		//å†™EBaseå¯„å­˜å™¨
-						//å†™å…¥æ—¶è¯¥ä½å¿½ç•¥ï¼Œè¯»å–æ—¶è¿”å›0
+					`CP0_REG_EBASE: begin		//Ğ´EBase¼Ä´æÆ÷
+						//Ğ´ÈëÊ±¸ÃÎ»ºöÂÔ£¬¶ÁÈ¡Ê±·µ»Ø0
 						ebase_o[31] <= data_i[31];
 
-						//æŒ‡å®šå¼‚å¸¸çš„åŸºåœ°å€
+						//Ö¸¶¨Òì³£µÄ»ùµØÖ·
 						ebase_o[29:12] <= data_i[29:12];
 
-						//è¿™9ä½ç”±å¤–éƒ¨è®¾ç½®ï¼Œå¯¹æ¯ä¸ªCPUéƒ½æ˜¯å”¯ä¸€çš„ï¼Œè¿™ä¸ªåŒºåŸŸçš„å€¼ç”±è¿æ¥åˆ°å†…æ ¸çš„SI.CPUNum[9:0]é™æ€è¾“å…¥ç®¡è„šè®¾ç½®
+						//Õâ9Î»ÓÉÍâ²¿ÉèÖÃ£¬¶ÔÃ¿¸öCPU¶¼ÊÇÎ¨Ò»µÄ£¬Õâ¸öÇøÓòµÄÖµÓÉÁ¬½Óµ½ÄÚºËµÄSI.CPUNum[9:0]¾²Ì¬ÊäÈë¹Ü½ÅÉèÖÃ
 						ebase_o[9:0] <= data_i[9:0];
 					end
 					default: begin
@@ -153,7 +153,7 @@ module cp0_reg(
 				`EXCEPTION_INTERRUPT: begin
 					if (is_in_delayslot_i == `InDelaySlot) begin
 						epc_o <= current_inst_addr_i - 4;
-						cause_o[31] <= 1'b1;	//Causeçš„Branch Delayslot
+						cause_o[31] <= 1'b1;	//CauseµÄBranch Delayslot
 					end else begin
 						epc_o <= current_inst_addr_i;
 						cause_o[31] <= 1'b0;
@@ -232,16 +232,16 @@ module cp0_reg(
 					bad_v_addr_o <= bad_v_addr_i;
 				end
 				`EXCEPTION_SYSCALL: begin
-					if (status_o[1] == 1'b0) begin						//EXLå­—æ®µï¼Œ0è¡¨ç¤ºå¼‚å¸¸æœªå‘ç”Ÿ
-						if (is_in_delayslot_i == `InDelaySlot) begin	//å¦‚æœå½“å‰æŒ‡ä»¤åœ¨å»¶è¿Ÿæ§½ä¸­
+					if (status_o[1] == 1'b0) begin						//EXL×Ö¶Î£¬0±íÊ¾Òì³£Î´·¢Éú
+						if (is_in_delayslot_i == `InDelaySlot) begin	//Èç¹ûµ±Ç°Ö¸ÁîÔÚÑÓ³Ù²ÛÖĞ
 							epc_o <= current_inst_addr_i - 4;
-							cause_o[31] <= 1'b1;						//BDå­—æ®µï¼Œ1è¡¨ç¤ºåœ¨å»¶è¿Ÿæ§½ä¸­
+							cause_o[31] <= 1'b1;						//BD×Ö¶Î£¬1±íÊ¾ÔÚÑÓ³Ù²ÛÖĞ
 						end else begin
 							epc_o <= current_inst_addr_i;
 							cause_o[31] <= 1'b0;
 						end
 					end
-					status_o[1] <= 1'b1;								//EXLå­—æ®µï¼Œ1è¡¨ç¤ºå¼‚å¸¸å‘ç”Ÿ
+					status_o[1] <= 1'b1;								//EXL×Ö¶Î£¬1±íÊ¾Òì³£·¢Éú
 					cause_o[6:2] <= 5'b01000;
 				end
 				`EXCEPTION_RI: begin
@@ -292,44 +292,44 @@ module cp0_reg(
 		end
 	end
 
-	/*********************		ç¬¬äºŒæ®µï¼šå¯¹CP0ä¸­å¯„å­˜å™¨çš„è¯»æ“ä½œ		*********************/
+	/*********************		µÚ¶ş¶Î£º¶ÔCP0ÖĞ¼Ä´æÆ÷µÄ¶Á²Ù×÷		*********************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			data_o <= `ZeroWord;
 		end else begin
 			data_o <= `ZeroWord;
 			case (raddr_i)
-				`CP0_REG_INDEX: begin			//è¯»Indexå¯„å­˜å™¨
+				`CP0_REG_INDEX: begin			//¶ÁIndex¼Ä´æÆ÷
 					data_o <= index_o;
 				end
-				`CP0_REG_ENTRYLO0: begin		//è¯»EntryLo0å¯„å­˜å™¨
+				`CP0_REG_ENTRYLO0: begin		//¶ÁEntryLo0¼Ä´æÆ÷
 					data_o <= entry_lo_0_o;
 				end
-				`CP0_REG_ENTRYLO1: begin		//è¯»EntryLo1å¯„å­˜å™¨
+				`CP0_REG_ENTRYLO1: begin		//¶ÁEntryLo1¼Ä´æÆ÷
 					data_o <= entry_lo_1_o;
 				end
-				`CP0_REG_BADVADDR: begin		//è¯»BadVAddrå¯„å­˜å™¨
+				`CP0_REG_BADVADDR: begin		//¶ÁBadVAddr¼Ä´æÆ÷
 					data_o <= bad_v_addr_o;
 				end
-				`CP0_REG_COUNT: begin			//è¯»Countå¯„å­˜å™¨
+				`CP0_REG_COUNT: begin			//¶ÁCount¼Ä´æÆ÷
 					data_o <= count_o;
 				end
-				`CP0_REG_ENTRYHI: begin			//è¯»EntryHiå¯„å­˜å™¨
+				`CP0_REG_ENTRYHI: begin			//¶ÁEntryHi¼Ä´æÆ÷
 					data_o <= entry_hi_o;
 				end
-				`CP0_REG_COMPARE: begin			//è¯»Compareå¯„å­˜å™¨
+				`CP0_REG_COMPARE: begin			//¶ÁCompare¼Ä´æÆ÷
 					data_o <= compare_o;
 				end
-				`CP0_REG_STATUS: begin			//è¯»Statuså¯„å­˜å™¨
+				`CP0_REG_STATUS: begin			//¶ÁStatus¼Ä´æÆ÷
 					data_o <= status_o;
 				end
-				`CP0_REG_CAUSE: begin			//è¯»Causeå¯„å­˜å™¨
+				`CP0_REG_CAUSE: begin			//¶ÁCause¼Ä´æÆ÷
 					data_o <= cause_o;
 				end
-				`CP0_REG_EPC: begin				//è¯»EPCå¯„å­˜å™¨
+				`CP0_REG_EPC: begin				//¶ÁEPC¼Ä´æÆ÷
 					data_o <= epc_o;
 				end
-				`CP0_REG_EBASE: begin			//è¯»EBaseå¯„å­˜å™¨
+				`CP0_REG_EBASE: begin			//¶ÁEBase¼Ä´æÆ÷
 					data_o <= ebase_o;
 				end
 				default: begin

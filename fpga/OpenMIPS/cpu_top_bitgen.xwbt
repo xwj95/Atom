@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=E:\course\GitRepository\proj8\fpga\OpenMIPS\cpu_top.ncd
-OUTFILE=E:\course\GitRepository\proj8\fpga\OpenMIPS\cpu_top.bit
+INFILE=Z:\Documents\Project\fpga\OpenMIPS\cpu_top.ncd
+OUTFILE=Z:\Documents\Project\fpga\OpenMIPS\cpu_top.bit
 FAMILY=Spartan6
 PART=xc6slx100-3fgg676
-WORKINGDIR=E:\course\GitRepository\proj8\fpga\OpenMIPS
+WORKINGDIR=Z:\Documents\Project\fpga\OpenMIPS
 LICENSE=ISE
-USER_INFO=__0_0_0
+USER_INFO=135256_15690819_173552794_661

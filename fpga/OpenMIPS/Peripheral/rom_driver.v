@@ -6,7 +6,7 @@ module rom_driver(
 	output reg ack
 	);
 
-	//褰撳浣嶄俊鍙锋棤鏁堟椂锛屾牴鎹緭鍏ョ殑鍦板潃锛岀粰鍑烘寚浠ゅ瓨鍌ㄥ櫒ROM涓搴旂殑鍏冪礌
+	//当复位信号无效时，根据输入的地址，给出指令存储器ROM中对应的元素
 	always @ (*) begin
 		if (ce == `ChipDisable) begin
 			inst <= `ZeroWord;

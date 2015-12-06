@@ -4,7 +4,7 @@ module mmu(
 	input		wire					clk,
 	input		wire					rst,
 
-	//IFæ¨¡å—çš„æ¥å£
+	//IFÄ£¿éµÄ½Ó¿Ú
 	input		wire					if_ce_i,
 	input		wire[`RegBus]			if_data_i,
 	input		wire[`RegBus]			if_addr_i,
@@ -14,7 +14,7 @@ module mmu(
 
 	output		reg						stall_req_if,
 
-	//MEMæ¨¡å—çš„æ¥å£
+	//MEMÄ£¿éµÄ½Ó¿Ú
 	input		wire					mem_ce_i,
 	input		wire[`RegBus]			mem_data_i,
 	input		wire[`RegBus]			mem_addr_i,
@@ -24,14 +24,14 @@ module mmu(
 
 	output		reg						stall_req_mem,
 
-	//TLBæ¨¡å—çš„æ¥å£
+	//TLBÄ£¿éµÄ½Ó¿Ú
 	output		reg						tlb_ce,
 	output		reg						tlb_write_o,
 	output		reg[`RegBus]			tlb_addr_o,
 	input		wire[`RegBus]			tlb_addr_i,
 	input		wire[15:0]				tlb_select_i,
 
-	//MMUä¾§çš„æ¥å£
+	//MMU²àµÄ½Ó¿Ú
 	output		reg						mmu_ce_o,
 	output		reg[`RegBus]			mmu_data_o,
 	output		reg[`RegBus]			mmu_addr_o,
@@ -43,7 +43,7 @@ module mmu(
 	input		wire					stall_req
 	);
 
-	reg[2:0] mmu_state;											//ä¿å­˜MMUæ¨¡å—çš„çŠ¶æ€
+	reg[2:0] mmu_state;											//±£´æMMUÄ£¿éµÄ×´Ì¬
 	reg[2:0] mmu_state_next;
 	reg[`RegBus] mem_wdata;
 
@@ -67,7 +67,7 @@ module mmu(
 		end else begin
 			mmu_state <= mmu_state_next;
 			case (mmu_state)
-				`MMU_IF0_MEMW0_MEMR0: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜æœªå®Œæˆï¼Œè¯»è®¿å­˜æœªå®Œæˆ
+				`MMU_IF0_MEMW0_MEMR0: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÎ´Íê³É£¬¶Á·Ã´æÎ´Íê³É
 					mmu_ce_o <= `ChipEnable;
 					mmu_data_o <= `ZeroWord;
 					mmu_addr_o <= tlb_addr_i;
@@ -79,7 +79,7 @@ module mmu(
 					tlb_write_o <= `False_v;
 					tlb_addr_o <= mem_addr_i;
 				end
-				`MMU_IF0_MEMW0_MEMR1: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜æœªå®Œæˆï¼Œè¯»è®¿å­˜å·²å®Œæˆ
+				`MMU_IF0_MEMW0_MEMR1: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÎ´Íê³É£¬¶Á·Ã´æÒÑÍê³É
 					mmu_ce_o <= `ChipEnable;
 					mmu_data_o <= mem_wdata;
 					mmu_addr_o <= tlb_addr_i;
@@ -91,7 +91,7 @@ module mmu(
 					tlb_write_o <= `True_v;
 					tlb_addr_o <= mem_addr_i;
 				end
-				`MMU_IF0_MEMW1_MEMR0: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜å·²å®Œæˆï¼Œè¯»è®¿å­˜æœªå®Œæˆ
+				`MMU_IF0_MEMW1_MEMR0: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÒÑÍê³É£¬¶Á·Ã´æÎ´Íê³É
 					mmu_ce_o <= `ChipEnable;
 					mmu_data_o <= `ZeroWord;
 					mmu_addr_o <= tlb_addr_i;
@@ -103,7 +103,7 @@ module mmu(
 					tlb_write_o <= `False_v;
 					tlb_addr_o <= mem_addr_i;
 				end
-				`MMU_IF0_MEMW1_MEMR1: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜å·²å®Œæˆï¼Œè¯»è®¿å­˜å·²å®Œæˆ
+				`MMU_IF0_MEMW1_MEMR1: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÒÑÍê³É£¬¶Á·Ã´æÒÑÍê³É
 					mmu_ce_o <= `ChipEnable;
 					mmu_data_o <= `ZeroWord;
 					mmu_addr_o <= tlb_addr_i;
@@ -115,7 +115,7 @@ module mmu(
 					tlb_write_o <= `False_v;
 					tlb_addr_o <= if_addr_i;
 				end
-				`MMU_IF1_MEMW1_MEMR1: begin						//å–æŒ‡å·²å®Œæˆï¼Œå†™è®¿å­˜å·²å®Œæˆï¼Œè¯»è®¿å­˜å·²å®Œæˆ
+				`MMU_IF1_MEMW1_MEMR1: begin						//È¡Ö¸ÒÑÍê³É£¬Ğ´·Ã´æÒÑÍê³É£¬¶Á·Ã´æÒÑÍê³É
 					mmu_ce_o <= `ChipEnable;
 					mmu_data_o <= `ZeroWord;
 					mmu_addr_o <= `ZeroWord;
@@ -151,12 +151,12 @@ module mmu(
 			if_data_o <= `ZeroWord;
 			mem_data_o <= `ZeroWord;
 			case (mmu_state)
-				`MMU_IF0_MEMW0_MEMR0: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜æœªå®Œæˆï¼Œè¯»è®¿å­˜æœªå®Œæˆ
+				`MMU_IF0_MEMW0_MEMR0: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÎ´Íê³É£¬¶Á·Ã´æÎ´Íê³É
 					memr_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
 						mem_data_o <= mmu_data_i;
 						mem_wdata <= mem_data_i; 
-						if (mem_sel_i != 4'b1111) begin			//éœ€è¦å…ˆè¯»åå†™çš„æŒ‡ä»¤ï¼Œè¯»è®¿å­˜å®Œæˆåä¿®æ”¹å¯¹åº”å­—èŠ‚
+						if (mem_sel_i != 4'b1111) begin			//ĞèÒªÏÈ¶ÁºóĞ´µÄÖ¸Áî£¬¶Á·Ã´æÍê³ÉºóĞŞ¸Ä¶ÔÓ¦×Ö½Ú
 							if (mem_sel_i[3] == 1'b0) begin
 								mem_wdata[31:24] <= mmu_data_o[31:24];
 							end
@@ -173,27 +173,27 @@ module mmu(
 						mmu_state_next <= `MMU_IF0_MEMW0_MEMR1;
 					end
 				end
-				`MMU_IF0_MEMW0_MEMR1: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜æœªå®Œæˆï¼Œè¯»è®¿å­˜å·²å®Œæˆ
+				`MMU_IF0_MEMW0_MEMR1: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÎ´Íê³É£¬¶Á·Ã´æÒÑÍê³É
 					memw_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
 						mmu_state_next <= `MMU_IF0_MEMW1_MEMR1;
 					end
 				end
-				`MMU_IF0_MEMW1_MEMR0: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜å·²å®Œæˆï¼Œè¯»è®¿å­˜æœªå®Œæˆ
+				`MMU_IF0_MEMW1_MEMR0: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÒÑÍê³É£¬¶Á·Ã´æÎ´Íê³É
 					memr_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
 						mem_data_o <= mmu_data_i;
 						mmu_state_next <= `MMU_IF0_MEMW1_MEMR1;
 					end
 				end
-				`MMU_IF0_MEMW1_MEMR1: begin						//å–æŒ‡æœªå®Œæˆï¼Œå†™è®¿å­˜å·²å®Œæˆï¼Œè¯»è®¿å­˜å·²å®Œæˆ
+				`MMU_IF0_MEMW1_MEMR1: begin						//È¡Ö¸Î´Íê³É£¬Ğ´·Ã´æÒÑÍê³É£¬¶Á·Ã´æÒÑÍê³É
 					if_ack <= mmu_ack_i;
 					if (mmu_ack_i == `True_v) begin
 						if_data_o <= mmu_data_i;
 						mmu_state_next <= `MMU_IF1_MEMW1_MEMR1;
 					end
 				end
-				`MMU_IF1_MEMW1_MEMR1: begin						//å–æŒ‡å·²å®Œæˆï¼Œå†™è®¿å­˜å·²å®Œæˆï¼Œè¯»è®¿å­˜å·²å®Œæˆ
+				`MMU_IF1_MEMW1_MEMR1: begin						//È¡Ö¸ÒÑÍê³É£¬Ğ´·Ã´æÒÑÍê³É£¬¶Á·Ã´æÒÑÍê³É
 					if (if_ce_i == `ChipEnable) begin
 						if_ack <= `False_v;
 					end else begin
@@ -205,7 +205,7 @@ module mmu(
 							if (mem_sel_i == 4'b1111) begin
 								memw_ack <= `False_v;
 								memr_ack <= `True_v;
-							end else begin						//å¦‚æœåªå†™éƒ¨åˆ†å­—èŠ‚ï¼Œéœ€è¦å…ˆè¯»åå†™
+							end else begin						//Èç¹ûÖ»Ğ´²¿·Ö×Ö½Ú£¬ĞèÒªÏÈ¶ÁºóĞ´
 								memw_ack <= `False_v;
 								memr_ack <= `False_v;
 							end

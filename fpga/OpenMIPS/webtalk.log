@@ -4,13 +4,11 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Project Information
 --------------------
 ProjectID=9ED5C8613A9644EB91154E1F27F0598E
-ProjectIteration=8
+ProjectIteration=12
 
 WebTalk Summary
 ----------------
-INFO:WebTalk:2 - WebTalk is enabled.
+INFO:WebTalk:3 - WebTalk is disabled.
 
 INFO:WebTalk:8 - WebTalk Install setting is ON.
-INFO:WebTalk:6 - WebTalk User setting is ON.
-
-INFO:WebTalk:4 - E:/course/GitRepository/proj8/fpga/OpenMIPS/usage_statistics_webtalk.html WebTalk report has been successfully sent to Xilinx on 2015-12-06T02:12:48.  For additional details about this file, please refer to the WebTalk help file at E:/programming/ISE/Xilinx/14.2/ISE_DS/ISE/data/reports/webtalk_introduction.html
+INFO:WebTalk:7 - WebTalk User setting is OFF.

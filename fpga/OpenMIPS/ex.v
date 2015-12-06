@@ -2,7 +2,7 @@
 module ex(
 	input		wire					rst,
 
-	//è¯‘ç é˜¶æ®µé€åˆ°æ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯
+	//ÒëÂë½×¶ÎËÍµ½Ö´ĞĞ½×¶ÎµÄĞÅÏ¢
 	input		wire[`AluOpBus]			aluop_i,
 	input		wire[`AluSelBus]		alusel_i,
 	input		wire[`RegBus]			reg1_i,
@@ -10,46 +10,46 @@ module ex(
 	input		wire[`RegAddrBus]		wd_i,
 	input		wire					wreg_i,
 
-	//inst_içš„å€¼æ˜¯å½“å‰å¤„äºæ‰§è¡Œé˜¶æ®µçš„æŒ‡ä»¤
+	//inst_iµÄÖµÊÇµ±Ç°´¦ÓÚÖ´ĞĞ½×¶ÎµÄÖ¸Áî
 	input		wire[`RegBus]			inst_i,
 	input		wire[31:0]				excepttype_i,
 	input		wire[`RegBus]			current_inst_address_i,
 
-	//HILOæ¨¡å—ç»™å‡ºçš„HIã€LOå¯„å­˜å™¨çš„å€¼
+	//HILOÄ£¿é¸ø³öµÄHI¡¢LO¼Ä´æÆ÷µÄÖµ
 	input		wire[`RegBus]			hi_i,
 	input		wire[`RegBus]			lo_i,
 
-	//å›å†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™HIã€LOï¼Œç”¨äºæ£€æµ‹HIã€LOå¯„å­˜å™¨å¸¦æ¥çš„æ•°æ®ç›¸å…³é—®é¢˜
+	//»ØĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´HI¡¢LO£¬ÓÃÓÚ¼ì²âHI¡¢LO¼Ä´æÆ÷´øÀ´µÄÊı¾İÏà¹ØÎÊÌâ
 	input		wire[`RegBus]			wb_hi_i,
 	input		wire[`RegBus]			wb_lo_i,
 	input		wire					wb_whilo_i,
 	
-	//è®¿å­˜é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™HIã€LOï¼Œç”¨äºæ£€æµ‹HIã€LOå¯„å­˜å™¨å¸¦æ¥çš„æ•°æ®ç›¸å…³é—®é¢˜
+	//·Ã´æ½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´HI¡¢LO£¬ÓÃÓÚ¼ì²âHI¡¢LO¼Ä´æÆ÷´øÀ´µÄÊı¾İÏà¹ØÎÊÌâ
 	input		wire[`RegBus]			mem_hi_i,
 	input		wire[`RegBus]			mem_lo_i,
 	input		wire					mem_whilo_i,
 
-	//å¤„äºæ‰§è¡Œé˜¶æ®µçš„è½¬ç§»æŒ‡ä»¤è¦ä¿å­˜çš„è¿”å›åœ°å€
+	//´¦ÓÚÖ´ĞĞ½×¶ÎµÄ×ªÒÆÖ¸ÁîÒª±£´æµÄ·µ»ØµØÖ·
 	input		wire[`RegBus]			link_address_i,
 
-	//å½“å‰æ‰§è¡Œé˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦ä½äºå»¶è¿Ÿæ§½
+	//µ±Ç°Ö´ĞĞ½×¶ÎµÄÖ¸ÁîÊÇ·ñÎ»ÓÚÑÓ³Ù²Û
 	input		wire					is_in_delayslot_i,
 
-	//è®¿å­˜é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­çš„å¯„å­˜å™¨ï¼Œç”¨æ¥æ£€æµ‹æ•°æ®ç›¸å…³
+	//·Ã´æ½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞµÄ¼Ä´æÆ÷£¬ÓÃÀ´¼ì²âÊı¾İÏà¹Ø
 	input		wire					mem_cp0_reg_we,
 	input		wire[4:0]				mem_cp0_reg_write_addr,
 	input		wire[`RegBus]			mem_cp0_reg_data,
 
-	//å›å†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­çš„å¯„å­˜å™¨ï¼Œä¹Ÿæ˜¯ç”¨æ¥æ£€æµ‹æ•°æ®ç›¸å…³
+	//»ØĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞµÄ¼Ä´æÆ÷£¬Ò²ÊÇÓÃÀ´¼ì²âÊı¾İÏà¹Ø
 	input		wire					wb_cp0_reg_we,
 	input		wire[4:0]				wb_cp0_reg_write_addr,
 	input		wire[`RegBus]			wb_cp0_reg_data,
 
-	//ä¸CP0ç›´æ¥ç›¸è¿ï¼Œç”¨äºè¯»å–å…¶ä¸­æŒ‡å®šå¯„å­˜å™¨çš„å€¼
+	//ÓëCP0Ö±½ÓÏàÁ¬£¬ÓÃÓÚ¶ÁÈ¡ÆäÖĞÖ¸¶¨¼Ä´æÆ÷µÄÖµ
 	input		wire[`RegBus]			cp0_reg_data_i,
 	output		reg[4:0]				cp0_reg_read_addr_o,
 
-	//å‘æµæ°´çº¿ä¸‹ä¸€çº§ä¼ é€’ï¼Œç”¨äºå†™CP0ä¸­çš„æŒ‡å®šå¯„å­˜å™¨
+	//ÏòÁ÷Ë®ÏßÏÂÒ»¼¶´«µİ£¬ÓÃÓÚĞ´CP0ÖĞµÄÖ¸¶¨¼Ä´æÆ÷
 	output		reg						cp0_reg_we_o,
 	output		reg[4:0]				cp0_reg_write_addr_o,
 	output		reg[`RegBus]			cp0_reg_data_o,
@@ -58,7 +58,7 @@ module ex(
 	output		reg						wreg_o,
 	output		reg[`RegBus]			wdata_o,
 
-	//å¤„äºæ‰§è¡Œé˜¶æ®µçš„æŒ‡ä»¤å¯¹HIã€LOå¯„å­˜å™¨çš„å†™æ“ä½œè¯·æ±‚
+	//´¦ÓÚÖ´ĞĞ½×¶ÎµÄÖ¸Áî¶ÔHI¡¢LO¼Ä´æÆ÷µÄĞ´²Ù×÷ÇëÇó
 	output		reg[`RegBus]			hi_o,
 	output		reg[`RegBus]			lo_o,
 	output		reg						whilo_o,
@@ -67,7 +67,7 @@ module ex(
 	output		wire					is_in_delayslot_o,
 	output		wire[`RegBus]			current_inst_address_o,
 
-	//ä¸ºåŠ è½½ã€å­˜å‚¨æŒ‡ä»¤å‡†å¤‡çš„æ¥å£
+	//Îª¼ÓÔØ¡¢´æ´¢Ö¸Áî×¼±¸µÄ½Ó¿Ú
 	output		wire[`AluOpBus]			aluop_o,
 	output		wire[`RegBus]			mem_addr_o,
 	output		wire[`RegBus]			reg2_o,
@@ -75,60 +75,60 @@ module ex(
 	output		reg						stallreq
 	);
 
-	reg[`RegBus] logicout;					//ä¿å­˜é€»è¾‘è¿ç®—çš„ç»“æœ
-	reg[`RegBus] shiftres;					//ä¿å­˜ç§»ä½è¿ç®—çš„ç»“æœ
-	reg[`RegBus] moveres;					//ä¿å­˜ç§»åŠ¨æ“ä½œçš„ç»“æœ
-	reg[`RegBus] HI;						//ä¿å­˜HIå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	reg[`RegBus] LO;						//ä¿å­˜LOå¯„å­˜å™¨çš„æœ€æ–°å€¼
+	reg[`RegBus] logicout;					//±£´æÂß¼­ÔËËãµÄ½á¹û
+	reg[`RegBus] shiftres;					//±£´æÒÆÎ»ÔËËãµÄ½á¹û
+	reg[`RegBus] moveres;					//±£´æÒÆ¶¯²Ù×÷µÄ½á¹û
+	reg[`RegBus] HI;						//±£´æHI¼Ä´æÆ÷µÄ×îĞÂÖµ
+	reg[`RegBus] LO;						//±£´æLO¼Ä´æÆ÷µÄ×îĞÂÖµ
 
-	wire ov_sum;							//ä¿å­˜æº¢å‡ºæƒ…å†µ
-	wire reg1_eq_reg2;						//ç¬¬ä¸€ä¸ªæ“ä½œæ•°æ˜¯å¦ç­‰äºç¬¬äºŒä¸ªæ“ä½œæ•°
-	wire reg1_lt_reg2;						//ç¬¬ä¸€ä¸ªæ“ä½œæ•°æ˜¯å¦å°äºç¬¬äºŒä¸ªæ“ä½œæ•°
-	reg[`RegBus] arithmeticres;				//ä¿å­˜ç®—æ•°è¿ç®—çš„ç»“æœ
-	wire[`RegBus] reg2_i_mux;				//ä¿å­˜è¾“å…¥çš„ç¬¬äºŒä¸ªæ“ä½œæ•°reg2_içš„è¡¥ç 
-	wire[`RegBus] reg1_i_not;				//ä¿å­˜è¾“å…¥çš„ç¬¬ä¸€ä¸ªæ“ä½œæ•°reg1_içš„ååçš„å€¼
-	wire[`RegBus] result_sum;				//ä¿å­˜åŠ æ³•ç»“æœ
-	wire[`RegBus] opdata1_mult;				//ä¹˜æ³•æ“ä½œä¸­çš„è¢«ä¹˜æ•°
-	wire[`RegBus] opdata2_mult;				//ä¹˜æ³•æ“ä½œä¸­çš„ä¹˜æ•°
-	wire[`DoubleRegBus] hilo_temp; 			//ä¸´æ—¶ä¿å­˜ä¹˜æ³•ç»“æœï¼Œå®½åº¦ä¸º64ä½
-	reg[`DoubleRegBus] mulres;				//ä¿å­˜ä¹˜æ³•ç»“æœï¼Œå®½åº¦ä¸º64ä½
+	wire ov_sum;							//±£´æÒç³öÇé¿ö
+	wire reg1_eq_reg2;						//µÚÒ»¸ö²Ù×÷ÊıÊÇ·ñµÈÓÚµÚ¶ş¸ö²Ù×÷Êı
+	wire reg1_lt_reg2;						//µÚÒ»¸ö²Ù×÷ÊıÊÇ·ñĞ¡ÓÚµÚ¶ş¸ö²Ù×÷Êı
+	reg[`RegBus] arithmeticres;				//±£´æËãÊıÔËËãµÄ½á¹û
+	wire[`RegBus] reg2_i_mux;				//±£´æÊäÈëµÄµÚ¶ş¸ö²Ù×÷Êıreg2_iµÄ²¹Âë
+	wire[`RegBus] reg1_i_not;				//±£´æÊäÈëµÄµÚÒ»¸ö²Ù×÷Êıreg1_iµÄ·´ºóµÄÖµ
+	wire[`RegBus] result_sum;				//±£´æ¼Ó·¨½á¹û
+	wire[`RegBus] opdata1_mult;				//³Ë·¨²Ù×÷ÖĞµÄ±»³ËÊı
+	wire[`RegBus] opdata2_mult;				//³Ë·¨²Ù×÷ÖĞµÄ³ËÊı
+	wire[`DoubleRegBus] hilo_temp; 			//ÁÙÊ±±£´æ³Ë·¨½á¹û£¬¿í¶ÈÎª64Î»
+	reg[`DoubleRegBus] mulres;				//±£´æ³Ë·¨½á¹û£¬¿í¶ÈÎª64Î»
 
-	//aluop_oä¼šä¼ é€’åˆ°è®¿å­˜é˜¶æ®µï¼Œå±Šæ—¶å°†åˆ©ç”¨å…¶ç¡®å®šåŠ è½½ã€å­˜å‚¨ç±»å‹
+	//aluop_o»á´«µİµ½·Ã´æ½×¶Î£¬½ìÊ±½«ÀûÓÃÆäÈ·¶¨¼ÓÔØ¡¢´æ´¢ÀàĞÍ
 	assign aluop_o = aluop_i;
 
-	//mem_addr_oä¼šä¼ é€’åˆ°è®¿å­˜é˜¶æ®µï¼Œæ˜¯åŠ è½½ã€å­˜å‚¨æŒ‡ä»¤å¯¹åº”çš„å­˜å‚¨å™¨åœ°å€ï¼Œæ­¤å¤„çš„reg1_iå°±æ˜¯åŠ è½½ï¼Œ
-	//å­˜å‚¨æŒ‡ä»¤ä¸­åœ°å€ä¸ºbaseçš„é€šç”¨å¯„å­˜å™¨çš„å€¼ï¼Œinst_i[15:0]å°±æ˜¯æŒ‡ä»¤ä¸­çš„offset
+	//mem_addr_o»á´«µİµ½·Ã´æ½×¶Î£¬ÊÇ¼ÓÔØ¡¢´æ´¢Ö¸Áî¶ÔÓ¦µÄ´æ´¢Æ÷µØÖ·£¬´Ë´¦µÄreg1_i¾ÍÊÇ¼ÓÔØ£¬
+	//´æ´¢Ö¸ÁîÖĞµØÖ·ÎªbaseµÄÍ¨ÓÃ¼Ä´æÆ÷µÄÖµ£¬inst_i[15:0]¾ÍÊÇÖ¸ÁîÖĞµÄoffset
 	assign mem_addr_o = reg1_i + {{16{inst_i[15]}}, inst_i[15:0]};
 
-	//reg2_iæ˜¯å­˜å‚¨æŒ‡ä»¤è¦å­˜å‚¨çš„æ•°æ®ï¼Œæˆ–è€…lwlã€lwræŒ‡ä»¤è¦åŠ è½½åˆ°ç›®çš„å¯„å­˜å™¨çš„çš„åŸå§‹å€¼ï¼Œ
-	//å°†è¯¥å€¼é€šè¿‡reg2_oæ¥å£ä¼ é€’åˆ°è®¿å­˜é˜¶æ®µ
+	//reg2_iÊÇ´æ´¢Ö¸ÁîÒª´æ´¢µÄÊı¾İ£¬»òÕßlwl¡¢lwrÖ¸ÁîÒª¼ÓÔØµ½Ä¿µÄ¼Ä´æÆ÷µÄµÄÔ­Ê¼Öµ£¬
+	//½«¸ÃÖµÍ¨¹ıreg2_o½Ó¿Ú´«µİµ½·Ã´æ½×¶Î
 	assign reg2_o = reg2_i;
 
-	//æ‰§è¡Œé˜¶æ®µè¾“å‡ºçš„å¼‚å¸¸ä¿¡æ¯å°±æ˜¯è¯‘ç é˜¶æ®µçš„å¼‚å¸¸ä¿¡æ¯
+	//Ö´ĞĞ½×¶ÎÊä³öµÄÒì³£ĞÅÏ¢¾ÍÊÇÒëÂë½×¶ÎµÄÒì³£ĞÅÏ¢
 	assign excepttype_o = excepttype_i;
 
-	//å½“å‰æŒ‡ä»¤æ˜¯å¦åœ¨å»¶è¿Ÿæ§½ä¸­
+	//µ±Ç°Ö¸ÁîÊÇ·ñÔÚÑÓ³Ù²ÛÖĞ
 	assign is_in_delayslot_o = is_in_delayslot_i;
 
-	//å½“å‰å¤„äºæ‰§è¡Œé˜¶æ®µæŒ‡ä»¤çš„åœ°å€
+	//µ±Ç°´¦ÓÚÖ´ĞĞ½×¶ÎÖ¸ÁîµÄµØÖ·
 	assign current_inst_address_o = current_inst_address_i;
 
-	//ä¾æ®aluop_iæŒ‡ç¤ºçš„è¿ç®—å­ç±»å‹è¿›è¡Œè¿ç®—
+	//ÒÀ¾İaluop_iÖ¸Ê¾µÄÔËËã×ÓÀàĞÍ½øĞĞÔËËã
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			logicout <= `ZeroWord;
 		end else begin
 			case (aluop_i)
-				`EXE_OR_OP: begin			//é€»è¾‘æˆ–è¿ç®—
+				`EXE_OR_OP: begin			//Âß¼­»òÔËËã
 					logicout <= reg1_i | reg2_i;
 				end
-				`EXE_AND_OP: begin			//é€»è¾‘ä¸è¿ç®—
+				`EXE_AND_OP: begin			//Âß¼­ÓëÔËËã
 					logicout <= reg1_i & reg2_i;
 				end
-				`EXE_NOR_OP: begin			//é€»è¾‘æˆ–éè¿ç®—
+				`EXE_NOR_OP: begin			//Âß¼­»ò·ÇÔËËã
 					logicout <= ~(reg1_i | reg2_i);
 				end
-				`EXE_XOR_OP: begin			//é€»è¾‘å¼‚æˆ–è¿ç®—
+				`EXE_XOR_OP: begin			//Âß¼­Òì»òÔËËã
 					logicout <= reg1_i ^ reg2_i;
 				end
 				default: begin
@@ -143,13 +143,13 @@ module ex(
 			shiftres <= `ZeroWord;
 		end else begin
 			case (aluop_i)
-				`EXE_SLL_OP: begin			//é€»è¾‘å·¦ç§»
+				`EXE_SLL_OP: begin			//Âß¼­×óÒÆ
 					shiftres <= reg2_i << reg1_i[4:0];
 				end
-				`EXE_SRL_OP: begin			//é€»è¾‘å³ç§»
+				`EXE_SRL_OP: begin			//Âß¼­ÓÒÒÆ
 					shiftres <= reg2_i >> reg1_i[4:0];
 				end
-				`EXE_SRA_OP: begin			//ç®—æœ¯å·¦ç§»
+				`EXE_SRA_OP: begin			//ËãÊõ×óÒÆ
 					shiftres <= ({32{reg2_i[31]}} << (6'd32 - {1'b0, reg1_i[4:0]})) | reg2_i >> reg1_i[4:0];
 				end
 				default: begin
@@ -159,55 +159,55 @@ module ex(
 		end
 	end
 
-	//ï¼ˆ1ï¼‰å¦‚æœæ˜¯å‡æ³•æˆ–è€…æœ‰ç¬¦å·æ¯”è¾ƒè¿ç®—ï¼Œé‚£ä¹ˆreg2_i_muxç­‰äºç¬¬äºŒä¸ªæ“ä½œæ•°
-	//	reg2_içš„è¡¥ç ï¼Œå¦åˆ™reg2_i_muxå°±ç­‰äºç¬¬äºŒä¸ªæ“ä½œæ•°reg2_i
+	//£¨1£©Èç¹ûÊÇ¼õ·¨»òÕßÓĞ·ûºÅ±È½ÏÔËËã£¬ÄÇÃ´reg2_i_muxµÈÓÚµÚ¶ş¸ö²Ù×÷Êı
+	//	reg2_iµÄ²¹Âë£¬·ñÔòreg2_i_mux¾ÍµÈÓÚµÚ¶ş¸ö²Ù×÷Êıreg2_i
 	assign reg2_i_mux = ((aluop_i == `EXE_SUB_OP) ||
 						 (aluop_i == `EXE_SUBU_OP) ||
 						 (aluop_i == `EXE_SLT_OP)) ?
 						 (~reg2_i)+1 : reg2_i;
 
-	//ï¼ˆ2ï¼‰åˆ†ä¸‰ç§æƒ…å†µï¼š
-	//		A.å¦‚æœæ˜¯åŠ æ³•è¿ç®—ï¼Œæ­¤æ—¶reg2_i_muxå°±æ˜¯ç¬¬äºŒä¸ªæ“ä½œæ•°reg2_iï¼Œæ‰€ä»¥result_sumå°±æ˜¯åŠ æ³•è¿ç®—çš„ç»“æœ
-	//		B.å¦‚æœæ˜¯å‡æ³•è¿ç®—ï¼Œæ­¤æ—¶reg2_i_muxæ˜¯ç¬¬äºŒä¸ªæ“ä½œæ•°reg2_içš„è¡¥ç ï¼Œæ‰€ä»¥result_sumå°±æ˜¯å‡æ³•è¿ç®—çš„ç»“æœ
-	//		C.å¦‚æœæ˜¯æœ‰ç¬¦å·æ¯”è¾ƒè¿ç®—è¿ç®—ï¼Œæ­¤æ—¶reg2_i_muxä¹Ÿæ˜¯ç¬¬äºŒä¸ªæ“ä½œæ•°reg2_içš„è¡¥ç ï¼Œæ‰€ä»¥result_sumä¹Ÿæ˜¯å‡æ³•è¿ç®—çš„ç»“æœï¼Œ
-	//		  å¯ä»¥é€šè¿‡åˆ¤æ–­å‡æ³•çš„ç»“æœæ˜¯å¦å°äº0ï¼Œè¿›è€Œåˆ¤æ–­ç¬¬ä¸€ä¸ªæ“ä½œæ•°reg1_iæ˜¯å¦å°äºç¬¬äºŒä¸ªæ“ä½œæ•°reg2_i
+	//£¨2£©·ÖÈıÖÖÇé¿ö£º
+	//		A.Èç¹ûÊÇ¼Ó·¨ÔËËã£¬´ËÊ±reg2_i_mux¾ÍÊÇµÚ¶ş¸ö²Ù×÷Êıreg2_i£¬ËùÒÔresult_sum¾ÍÊÇ¼Ó·¨ÔËËãµÄ½á¹û
+	//		B.Èç¹ûÊÇ¼õ·¨ÔËËã£¬´ËÊ±reg2_i_muxÊÇµÚ¶ş¸ö²Ù×÷Êıreg2_iµÄ²¹Âë£¬ËùÒÔresult_sum¾ÍÊÇ¼õ·¨ÔËËãµÄ½á¹û
+	//		C.Èç¹ûÊÇÓĞ·ûºÅ±È½ÏÔËËãÔËËã£¬´ËÊ±reg2_i_muxÒ²ÊÇµÚ¶ş¸ö²Ù×÷Êıreg2_iµÄ²¹Âë£¬ËùÒÔresult_sumÒ²ÊÇ¼õ·¨ÔËËãµÄ½á¹û£¬
+	//		  ¿ÉÒÔÍ¨¹ıÅĞ¶Ï¼õ·¨µÄ½á¹ûÊÇ·ñĞ¡ÓÚ0£¬½ø¶øÅĞ¶ÏµÚÒ»¸ö²Ù×÷Êıreg1_iÊÇ·ñĞ¡ÓÚµÚ¶ş¸ö²Ù×÷Êıreg2_i
 	assign result_sum = reg1_i + reg2_i_mux;
 
-	//ï¼ˆ3ï¼‰è®¡ç®—æ˜¯å¦æº¢å‡ºï¼ŒåŠ æ³•æŒ‡ä»¤ï¼ˆaddå’Œaddiï¼‰ã€å‡æ³•æŒ‡ä»¤ï¼ˆsubï¼‰æ‰§è¡Œçš„æ—¶å€™ï¼Œéœ€è¦åˆ¤æ–­æ˜¯å¦æº¢å‡ºï¼Œæ»¡è¶³ä»¥ä¸‹ä¸¤ç§æƒ…å†µä¹‹ä¸€æ—¶ï¼Œæœ‰æº¢å‡ºï¼š
-	//		A.reg1_iä¸ºæ­£æ•°ï¼Œreg2_i_muxä¸ºæ­£æ•°ï¼Œä½†æ˜¯ä¸¤è€…ä¹‹å’Œä¸ºè´Ÿæ•°
-	//		B.reg1_iä¸ºè´Ÿæ•°ï¼Œreg2_i_muxä¸ºè´Ÿæ•°ï¼Œä½†æ˜¯ä¸¤è€…ä¹‹å’Œä¸ºæ­£æ•°
+	//£¨3£©¼ÆËãÊÇ·ñÒç³ö£¬¼Ó·¨Ö¸Áî£¨addºÍaddi£©¡¢¼õ·¨Ö¸Áî£¨sub£©Ö´ĞĞµÄÊ±ºò£¬ĞèÒªÅĞ¶ÏÊÇ·ñÒç³ö£¬Âú×ãÒÔÏÂÁ½ÖÖÇé¿öÖ®Ò»Ê±£¬ÓĞÒç³ö£º
+	//		A.reg1_iÎªÕıÊı£¬reg2_i_muxÎªÕıÊı£¬µ«ÊÇÁ½ÕßÖ®ºÍÎª¸ºÊı
+	//		B.reg1_iÎª¸ºÊı£¬reg2_i_muxÎª¸ºÊı£¬µ«ÊÇÁ½ÕßÖ®ºÍÎªÕıÊı
 	assign ov_sum = ((!reg1_i[31] && !reg2_i_mux[31]) && result_sum[31]) ||
 					((reg1_i[31] && reg2_i_mux[31]) && (!result_sum[31]));
 
-	//ï¼ˆ4ï¼‰è®¡ç®—æ“ä½œæ•°1æ˜¯å¦å°äºæ“ä½œæ•°2ï¼Œåˆ†ä¸¤ç§æƒ…å†µï¼š
-	//		A.aluop_iä¸ºEXE_SLT_OPè¡¨ç¤ºæœ‰ç¬¦å·æ¯”è¾ƒè¿ç®—ï¼Œæ­¤æ—¶åˆåˆ†3ç§æƒ…å†µ
-	//			A1.reg1_iä¸ºè´Ÿæ•°ã€reg2_iä¸ºæ­£æ•°ï¼Œæ˜¾ç„¶reg1_iå°äºreg2_i
-	//			A2.reg1_iä¸ºæ­£æ•°ï¼Œreg2_iä¸ºæ­£æ•°ï¼Œå¹¶ä¸”reg1_iå‡å»reg2_içš„å€¼å°äº0ï¼ˆå³result_sumä¸ºè´Ÿï¼‰ï¼Œæ­¤æ—¶ä¹Ÿæœ‰reg1_iå°äºreg2_i
-	//			A3.reg1_iä¸ºè´Ÿæ•°ã€reg2_iä¸ºè´Ÿæ•°ï¼Œå¹¶ä¸”reg1_iå‡å»reg2_içš„å€¼å°äº0ï¼ˆå³result_sumä¸ºè´Ÿï¼‰ï¼Œæ­¤æ—¶ä¹Ÿæœ‰reg1_iå°äºreg2_i
-	//		B.æ— ç¬¦å·æ•°æ¯”è¾ƒçš„æ—¶å€™ï¼Œç›´æ¥ä½¿ç”¨æ¯”è¾ƒè¿ç®—ç¬¦æ¯”è¾ƒreg1_iä¸reg2_i
+	//£¨4£©¼ÆËã²Ù×÷Êı1ÊÇ·ñĞ¡ÓÚ²Ù×÷Êı2£¬·ÖÁ½ÖÖÇé¿ö£º
+	//		A.aluop_iÎªEXE_SLT_OP±íÊ¾ÓĞ·ûºÅ±È½ÏÔËËã£¬´ËÊ±ÓÖ·Ö3ÖÖÇé¿ö
+	//			A1.reg1_iÎª¸ºÊı¡¢reg2_iÎªÕıÊı£¬ÏÔÈ»reg1_iĞ¡ÓÚreg2_i
+	//			A2.reg1_iÎªÕıÊı£¬reg2_iÎªÕıÊı£¬²¢ÇÒreg1_i¼õÈ¥reg2_iµÄÖµĞ¡ÓÚ0£¨¼´result_sumÎª¸º£©£¬´ËÊ±Ò²ÓĞreg1_iĞ¡ÓÚreg2_i
+	//			A3.reg1_iÎª¸ºÊı¡¢reg2_iÎª¸ºÊı£¬²¢ÇÒreg1_i¼õÈ¥reg2_iµÄÖµĞ¡ÓÚ0£¨¼´result_sumÎª¸º£©£¬´ËÊ±Ò²ÓĞreg1_iĞ¡ÓÚreg2_i
+	//		B.ÎŞ·ûºÅÊı±È½ÏµÄÊ±ºò£¬Ö±½ÓÊ¹ÓÃ±È½ÏÔËËã·û±È½Ïreg1_iÓëreg2_i
 	assign reg1_lt_reg2 = ((aluop_i == `EXE_SLT_OP)) ?
 						  ((reg1_i[31] && !reg2_i[31]) ||
 						   (!reg1_i[31] && !reg2_i[31] && result_sum[31]) ||
 						   (reg1_i[31] && reg2_i[31] && result_sum[31]))
 						  : (reg1_i < reg2_i);
 
-	//ï¼ˆ5ï¼‰å¯¹æ“ä½œæ•°1é€ä½å–åï¼Œèµ‹ç»™reg1_i_not
+	//£¨5£©¶Ô²Ù×÷Êı1ÖğÎ»È¡·´£¬¸³¸øreg1_i_not
 	assign reg1_i_not = ~reg1_i;
 
-	//å¾—åˆ°æœ€æ–°çš„HIã€LOå¯„å­˜å™¨çš„å€¼ï¼Œæ­¤å¤„è¦è§£å†³æ•°æ®ç›¸å…³é—®é¢˜
+	//µÃµ½×îĞÂµÄHI¡¢LO¼Ä´æÆ÷µÄÖµ£¬´Ë´¦Òª½â¾öÊı¾İÏà¹ØÎÊÌâ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			{HI, LO} <= {`ZeroWord, `ZeroWord};
 		end else if (mem_whilo_i == `WriteEnable) begin
-			{HI, LO} <= {mem_hi_i, mem_lo_i};	//è®¿å­˜é˜¶æ®µçš„æŒ‡ä»¤è¦å†™HIã€LOå¯„å­˜å™¨
+			{HI, LO} <= {mem_hi_i, mem_lo_i};	//·Ã´æ½×¶ÎµÄÖ¸ÁîÒªĞ´HI¡¢LO¼Ä´æÆ÷
 		end else if (wb_whilo_i == `WriteEnable) begin
-			{HI, LO} <= {wb_hi_i, wb_lo_i};		//å›å†™é˜¶æ®µçš„æŒ‡ä»¤è¦å†™HIã€LOå¯„å­˜å™¨
+			{HI, LO} <= {wb_hi_i, wb_lo_i};		//»ØĞ´½×¶ÎµÄÖ¸ÁîÒªĞ´HI¡¢LO¼Ä´æÆ÷
 		end else begin
 			{HI, LO} <= {hi_i, lo_i};
 		end
 	end
 
-	//MFHIã€MFLOã€MOVNã€MOVZæŒ‡ä»¤
+	//MFHI¡¢MFLO¡¢MOVN¡¢MOVZÖ¸Áî
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			moveres <= `ZeroWord;
@@ -217,31 +217,31 @@ module ex(
 			cp0_reg_read_addr_o <= 5'b00000;
 			case (aluop_i)
 				`EXE_MFHI_OP: begin
-					//å¦‚æœæ˜¯mfhiæŒ‡ä»¤ï¼Œé‚£ä¹ˆå°†HIçš„å€¼ä½œä¸ºç§»åŠ¨æ“ä½œçš„ç»“æœ
+					//Èç¹ûÊÇmfhiÖ¸Áî£¬ÄÇÃ´½«HIµÄÖµ×÷ÎªÒÆ¶¯²Ù×÷µÄ½á¹û
 					moveres <= HI;
 				end
 				`EXE_MFLO_OP: begin
-					//å¦‚æœæ˜¯mfloæŒ‡ä»¤ï¼Œé‚£ä¹ˆå°†LOçš„å€¼ä½œä¸ºç§»åŠ¨æ“ä½œçš„ç»“æœ
+					//Èç¹ûÊÇmfloÖ¸Áî£¬ÄÇÃ´½«LOµÄÖµ×÷ÎªÒÆ¶¯²Ù×÷µÄ½á¹û
 					moveres <= LO;
 				end
 				`EXE_MOVZ_OP: begin
-					//å¦‚æœæ˜¯movzæŒ‡ä»¤ï¼Œé‚£ä¹ˆå°†reg1_içš„å€¼ä½œä¸ºç§»åŠ¨æ“ä½œçš„ç»“æœ
+					//Èç¹ûÊÇmovzÖ¸Áî£¬ÄÇÃ´½«reg1_iµÄÖµ×÷ÎªÒÆ¶¯²Ù×÷µÄ½á¹û
 					moveres <= reg1_i;
 				end
 				`EXE_MOVN_OP: begin
-					//å¦‚æœæ˜¯movnæŒ‡ä»¤ï¼Œé‚£ä¹ˆå°†reg1_içš„å€¼ä½œä¸ºç§»åŠ¨æ“ä½œçš„ç»“æœ
+					//Èç¹ûÊÇmovnÖ¸Áî£¬ÄÇÃ´½«reg1_iµÄÖµ×÷ÎªÒÆ¶¯²Ù×÷µÄ½á¹û
 					moveres <= reg1_i;
 				end
 				`EXE_MFC0_OP: begin
-					//è¦ä»CP0ä¸­è¯»å–çš„å¯„å­˜å™¨çš„åœ°å€
+					//Òª´ÓCP0ÖĞ¶ÁÈ¡µÄ¼Ä´æÆ÷µÄµØÖ·
 					cp0_reg_read_addr_o <= inst_i[15:11];
 
-					//è¯»å–åˆ°çš„CP0ä¸­æŒ‡å®šå¯„å­˜å™¨çš„å€¼
+					//¶ÁÈ¡µ½µÄCP0ÖĞÖ¸¶¨¼Ä´æÆ÷µÄÖµ
 					moveres <= cp0_reg_data_i;
 
-					//åˆ¤æ–­æ˜¯å¦å­˜åœ¨æ•°æ®ç›¸å…³
+					//ÅĞ¶ÏÊÇ·ñ´æÔÚÊı¾İÏà¹Ø
 					if (mem_cp0_reg_we == `WriteEnable && mem_cp0_reg_write_addr == inst_i[15:11]) begin
-						moveres <= mem_cp0_reg_data;		//ä¸è®¿å­˜é˜¶æ®µå­˜åœ¨æ•°æ®ç›¸å…³
+						moveres <= mem_cp0_reg_data;		//Óë·Ã´æ½×¶Î´æÔÚÊı¾İÏà¹Ø
 					end else if (wb_cp0_reg_we == `WriteEnable && wb_cp0_reg_write_addr == inst_i[15:11]) begin
 						moveres <= wb_cp0_reg_data;
 					end
@@ -252,20 +252,20 @@ module ex(
 		end
 	end
 
-	//ä¾æ®alusel_iæŒ‡ç¤ºçš„è¿ç®—ç±»å‹ï¼Œé€‰æ‹©ä¸€ä¸ªè¿ç®—ç»“æœä½œä¸ºæœ€ç»ˆç»“æœ
+	//ÒÀ¾İalusel_iÖ¸Ê¾µÄÔËËãÀàĞÍ£¬Ñ¡ÔñÒ»¸öÔËËã½á¹û×÷Îª×îÖÕ½á¹û
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			arithmeticres <= `ZeroWord;
 		end else begin
-			case (aluop_i)							//aluop_iå°±æ˜¯è¿ç®—ç±»å‹
+			case (aluop_i)							//aluop_i¾ÍÊÇÔËËãÀàĞÍ
 				`EXE_SLT_OP, `EXE_SLTU_OP: begin
-					arithmeticres <= reg1_lt_reg2;	//æ¯”è¾ƒè¿ç®—
+					arithmeticres <= reg1_lt_reg2;	//±È½ÏÔËËã
 				end
 				`EXE_ADD_OP, `EXE_ADDU_OP, `EXE_ADDI_OP, `EXE_ADDIU_OP: begin
-					arithmeticres <= result_sum;	//åŠ æ³•è¿ç®—
+					arithmeticres <= result_sum;	//¼Ó·¨ÔËËã
 				end
 				`EXE_SUB_OP, `EXE_SUBU_OP: begin
-					arithmeticres <= result_sum;	//å‡æ³•è¿ç®—
+					arithmeticres <= result_sum;	//¼õ·¨ÔËËã
 				end
 				`EXE_CLZ_OP: begin
 					arithmeticres <= reg1_i[31] ? 0 : reg1_i[30] ? 1 :
@@ -327,23 +327,23 @@ module ex(
 		end
 	end
 
-	//è¿›è¡Œä¹˜æ³•è¿ç®—
-	//ï¼ˆ1ï¼‰å–å¾—ä¹˜æ³•è¿ç®—çš„è¢«ä¹˜æ•°ï¼Œå¦‚æœæ˜¯æœ‰ç¬¦å·ä¹˜æ³•ä¸”è¢«ä¹˜æ•°æ˜¯è´Ÿæ•°ï¼Œé‚£ä¹ˆå–è¡¥ç 
+	//½øĞĞ³Ë·¨ÔËËã
+	//£¨1£©È¡µÃ³Ë·¨ÔËËãµÄ±»³ËÊı£¬Èç¹ûÊÇÓĞ·ûºÅ³Ë·¨ÇÒ±»³ËÊıÊÇ¸ºÊı£¬ÄÇÃ´È¡²¹Âë
 	assign opdata1_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP)) &&
 							(reg1_i[31] == 1'b1)) ? (~reg1_i + 1) : reg1_i;
 
-	//ï¼ˆ2ï¼‰å–å¾—ä¹˜æ³•è¿ç®—çš„ä¹˜æ•°ï¼Œå¦‚æœæ˜¯æœ‰ç¬¦å·ä¹˜æ³•ä¸”ä¹˜æ•°æ˜¯è´Ÿæ•°ï¼Œé‚£ä¹ˆå–è¡¥ç 
+	//£¨2£©È¡µÃ³Ë·¨ÔËËãµÄ³ËÊı£¬Èç¹ûÊÇÓĞ·ûºÅ³Ë·¨ÇÒ³ËÊıÊÇ¸ºÊı£¬ÄÇÃ´È¡²¹Âë
 	assign opdata2_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP)) &&
 							(reg2_i[31] == 1'b1)) ? (~reg2_i + 1) : reg2_i;
 
-	//ï¼ˆ3ï¼‰å¾—åˆ°ä¸´æ—¶ä¹˜æ³•ç»“æœï¼Œä¿å­˜åœ¨å˜é‡hilo_tempä¸­
+	//£¨3£©µÃµ½ÁÙÊ±³Ë·¨½á¹û£¬±£´æÔÚ±äÁ¿hilo_tempÖĞ
 	assign hilo_temp = opdata1_mult * opdata2_mult;
 
-	//ï¼ˆ4ï¼‰å¯¹ä¸´æ—¶ä¹˜æ³•ç»“æœè¿›è¡Œä¿®æ­£ï¼Œæœ€ç»ˆçš„ä¹˜æ³•ç»“æœä¿å­˜åœ¨å˜é‡mulresä¸­ï¼Œä¸»è¦æœ‰ä¸¤ç‚¹ï¼š
-	//		A.å¦‚æœæ˜¯æœ‰ç¬¦å·ä¹˜æ³•æŒ‡ä»¤multã€mulï¼Œé‚£ä¹ˆéœ€è¦ä¿®æ­£ä¸´æ—¶ä¹˜æ³•ç»“æœï¼Œå¦‚ä¸‹ï¼š
-	//			A1.å¦‚æœè¢«ä¹˜æ•°ä¸ä¹˜æ•°ä¸¤è€…ä¸€æ­£ä¸€è´Ÿï¼Œé‚£ä¹ˆéœ€è¦å¯¹ä¸´æ—¶ä¹˜æ³•ç»“æœhilo_tempæ±‚è¡¥ç ï¼Œä½œä¸ºæœ€ç»ˆçš„ä¹˜æ³•ç»“æœï¼Œèµ‹ç»™å˜é‡mulres
-	//			A2.å¦‚æœè¢«ä¹˜æ•°ä¸ä¹˜æ•°åŒå·ï¼Œé‚£ä¹ˆhilo_tempçš„å€¼å°±ä½œä¸ºæœ€ç»ˆçš„ä¹˜æ³•ç»“æœï¼Œèµ‹ç»™å˜é‡mulres
-	//		B.å¦‚æœæ˜¯æ— ç¬¦å·ä¹˜æ³•æŒ‡ä»¤multuï¼Œé‚£ä¹ˆhilo_tempçš„å€¼å°±ä½œä¸ºæœ€ç»ˆçš„ä¹˜æ³•ç»“æœï¼Œèµ‹ç»™å˜é‡mulres
+	//£¨4£©¶ÔÁÙÊ±³Ë·¨½á¹û½øĞĞĞŞÕı£¬×îÖÕµÄ³Ë·¨½á¹û±£´æÔÚ±äÁ¿mulresÖĞ£¬Ö÷ÒªÓĞÁ½µã£º
+	//		A.Èç¹ûÊÇÓĞ·ûºÅ³Ë·¨Ö¸Áîmult¡¢mul£¬ÄÇÃ´ĞèÒªĞŞÕıÁÙÊ±³Ë·¨½á¹û£¬ÈçÏÂ£º
+	//			A1.Èç¹û±»³ËÊıÓë³ËÊıÁ½ÕßÒ»ÕıÒ»¸º£¬ÄÇÃ´ĞèÒª¶ÔÁÙÊ±³Ë·¨½á¹ûhilo_tempÇó²¹Âë£¬×÷Îª×îÖÕµÄ³Ë·¨½á¹û£¬¸³¸ø±äÁ¿mulres
+	//			A2.Èç¹û±»³ËÊıÓë³ËÊıÍ¬ºÅ£¬ÄÇÃ´hilo_tempµÄÖµ¾Í×÷Îª×îÖÕµÄ³Ë·¨½á¹û£¬¸³¸ø±äÁ¿mulres
+	//		B.Èç¹ûÊÇÎŞ·ûºÅ³Ë·¨Ö¸Áîmultu£¬ÄÇÃ´hilo_tempµÄÖµ¾Í×÷Îª×îÖÕµÄ³Ë·¨½á¹û£¬¸³¸ø±äÁ¿mulres
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			mulres <= {`ZeroWord, `ZeroWord};
@@ -358,30 +358,30 @@ module ex(
 		end
 	end
 
-	//ç¡®å®šè¦å†™å…¥ç›®çš„å¯„å­˜å™¨çš„æ•°æ®
+	//È·¶¨ÒªĞ´ÈëÄ¿µÄ¼Ä´æÆ÷µÄÊı¾İ
 	always @ (*) begin
-		wd_o <= wd_i;							//wd_oç­‰äºwd_iï¼Œè¦å†™çš„ç›®çš„å¯„å­˜å™¨åœ°å€
-		//å¦‚æœæ˜¯addã€addiã€subã€subiæŒ‡ä»¤ï¼Œä¸”å‘ç”Ÿæº¢å‡ºï¼Œé‚£ä¹ˆè®¾ç½®wreg_oä¸ºWriteDisableï¼Œè¡¨ç¤ºä¸å†™ç›®çš„å¯„å­˜å™¨
+		wd_o <= wd_i;							//wd_oµÈÓÚwd_i£¬ÒªĞ´µÄÄ¿µÄ¼Ä´æÆ÷µØÖ·
+		//Èç¹ûÊÇadd¡¢addi¡¢sub¡¢subiÖ¸Áî£¬ÇÒ·¢ÉúÒç³ö£¬ÄÇÃ´ÉèÖÃwreg_oÎªWriteDisable£¬±íÊ¾²»Ğ´Ä¿µÄ¼Ä´æÆ÷
 		if (((aluop_i == `EXE_ADD_OP) || (aluop_i == `EXE_ADDI_OP) ||
 			 (aluop_i == `EXE_SUB_OP)) && (ov_sum == 1'b1)) begin
 			wreg_o <= `WriteDisable;
 		end else begin
-			wreg_o <= wreg_i;					//wreg_oç­‰äºwreg_iï¼Œè¡¨ç¤ºæ˜¯å¦è¦å†™ç›®çš„å¯„å­˜å™¨
+			wreg_o <= wreg_i;					//wreg_oµÈÓÚwreg_i£¬±íÊ¾ÊÇ·ñÒªĞ´Ä¿µÄ¼Ä´æÆ÷
 		end
-		case (alusel_i)							//wdata_oä¸­å­˜æ”¾è¿ç®—ç»“æœ
+		case (alusel_i)							//wdata_oÖĞ´æ·ÅÔËËã½á¹û
 			`EXE_RES_LOGIC: begin
-				wdata_o <= logicout;			//é€‰æ‹©é€»è¾‘è¿ç®—ç»“æœä¸ºæœ€ç»ˆè¿ç®—ç»“æœ
+				wdata_o <= logicout;			//Ñ¡ÔñÂß¼­ÔËËã½á¹ûÎª×îÖÕÔËËã½á¹û
 			end
 			`EXE_RES_SHIFT: begin
-				wdata_o <= shiftres;			//é€‰æ‹©ç§»ä½è¿ç®—ç»“æœä¸ºæœ€ç»ˆè¿ç®—ç»“æœ
+				wdata_o <= shiftres;			//Ñ¡ÔñÒÆÎ»ÔËËã½á¹ûÎª×îÖÕÔËËã½á¹û
 			end
 			`EXE_RES_MOVE: begin
-				wdata_o <= moveres;				//é€‰æ‹©ç§»åŠ¨è¿ç®—ç»“æœä¸ºæœ€ç»ˆè¿ç®—ç»“æœ
+				wdata_o <= moveres;				//Ñ¡ÔñÒÆ¶¯ÔËËã½á¹ûÎª×îÖÕÔËËã½á¹û
 			end
-			`EXE_RES_ARITHMETIC: begin			//é™¤ä¹˜æ³•å¤–çš„ç®€å•ç®—æœ¯æ“ä½œæŒ‡ä»¤
+			`EXE_RES_ARITHMETIC: begin			//³ı³Ë·¨ÍâµÄ¼òµ¥ËãÊõ²Ù×÷Ö¸Áî
 				wdata_o <= arithmeticres;
 			end
-			`EXE_RES_MUL: begin					//ä¹˜æ³•æŒ‡ä»¤mul
+			`EXE_RES_MUL: begin					//³Ë·¨Ö¸Áîmul
 				wdata_o <= mulres[31:0];
 			end
 			`EXE_RES_JUMP_BRANCH: begin
@@ -393,15 +393,15 @@ module ex(
 		endcase
 	end
 
-	//ç¡®å®šå¯¹HIã€LOå¯„å­˜å™¨çš„æ“ä½œä¿¡æ¯
-	//å¦‚æœæ˜¯MTHIã€MTLOæŒ‡ä»¤ï¼Œé‚£ä¹ˆéœ€è¦ç»™å‡ºwhilo_oã€hi_oã€lo_içš„å€¼
+	//È·¶¨¶ÔHI¡¢LO¼Ä´æÆ÷µÄ²Ù×÷ĞÅÏ¢
+	//Èç¹ûÊÇMTHI¡¢MTLOÖ¸Áî£¬ÄÇÃ´ĞèÒª¸ø³öwhilo_o¡¢hi_o¡¢lo_iµÄÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			whilo_o <= `WriteDisable;
 			hi_o <= `ZeroWord;
 			lo_o <= `ZeroWord;
 		end else if ((aluop_i == `EXE_MULT_OP) ||
-					 (aluop_i == `EXE_MULTU_OP)) begin		//multã€multuæŒ‡ä»¤
+					 (aluop_i == `EXE_MULTU_OP)) begin		//mult¡¢multuÖ¸Áî
 			whilo_o <= `WriteEnable;
 			hi_o <= mulres[63:32];
 			lo_o <= mulres[31:0];
@@ -420,7 +420,7 @@ module ex(
 		end
 	end
 
-	//ç»™å‡ºmtc0æŒ‡ä»¤çš„æ‰§è¡Œç»“æœ
+	//¸ø³ömtc0Ö¸ÁîµÄÖ´ĞĞ½á¹û
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_reg_write_addr_o <= 5'b00000;

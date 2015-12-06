@@ -1,6 +1,7 @@
 module cpu_top(
 	input clk,
 	input rst,
+	input clk_key,
 	input [31:0] sw_dip,
 	output reg[15:0] led,
 
@@ -26,10 +27,10 @@ module cpu_top(
 	output 		[0:6]				segdisp1
 	);
 
-	wire[4:0] select;
+	wire[31:0] select;
 	wire[31:0] regfile_data_o;
 
-	assign select = sw_dip[4:0];
+	assign select = sw_dip;
 
 	always @ (posedge clk) begin
 		led <= regfile_data_o[15:0];
@@ -38,6 +39,7 @@ module cpu_top(
 	openmips_min_sopc sopc(
 		clk,
 		rst,
+		clk_key,
 		baseram_addr,
 		baseram_data,
 		baseram_ce,

@@ -2,6 +2,7 @@
 module openmips_min_sopc(
 	input							clk,
 	input							rst,
+	input							clk_key,
 
 	//RAM
 	output		[19:0]				baseram_addr,
@@ -30,8 +31,8 @@ module openmips_min_sopc(
 	output		[0:6]				segdisp0,
 	output		[0:6]				segdisp1,
 
-	input		[`RegAddrBus]		select,
-	output		[`RegBus]			regfile_data_o
+	input		[31:0]		select,
+	output		[`RegBus]			data_o
 	);
 
 	wire[5:0]				int;
@@ -46,18 +47,26 @@ module openmips_min_sopc(
 	wire					wishbone_stb_o;
 	wire					wishbone_cyc_o;
 
-	assign int = {5'b00000, timer_int};		//æ—¶é’Ÿä¸­æ–­ä½œä¸ºä¸€ä¸ªä¸­æ–­è¾“å…¥
-
+	assign int = {5'b00000, timer_int};		//Ê±ÖÓÖÐ¶Ï×÷ÎªÒ»¸öÖÐ¶ÏÊäÈë
 	reg clk_2;
 	always @ (posedge clk) begin
 		clk_2 <= ~clk_2;
 	end
 
-	//ä¾‹åŒ–å¤„ç†å™¨OpenMIPS
+	reg clk_tmp;
+	always @ (*) begin
+		if (select[31] == 1'b1) begin
+			clk_tmp <= clk_key;
+		end else begin
+			clk_tmp <= clk_2;
+		end
+	end
+
+	//Àý»¯´¦ÀíÆ÷OpenMIPS
 	openmips openmips0(
-		.clk(clk_2),
-		.rst(rst),
-		.int_i(int),						//ä¸­æ–­è¾“å…¥
+		.clk(clk_tmp),
+		.rst(!rst),
+		.int_i(int),						//ÖÐ¶ÏÊäÈë
 
 		.wishbone_data_i(wishbone_data_i),
 		.wishbone_ack_i(wishbone_ack_i),
@@ -66,15 +75,15 @@ module openmips_min_sopc(
 		.wishbone_we_o(wishbone_we_o),
 		.wishbone_select_o(wishbone_select_o),
 
-		.timer_int_o(timer_int),				//æ—¶é’Ÿä¸­æ–­è¾“å‡º
+		.timer_int_o(timer_int),				//Ê±ÖÓÖÐ¶ÏÊä³ö
 		.select(select),
-		.regfile_data_o(regfile_data_o)
+		.data_o(data_o)
 	);
 
-	//ä¾‹åŒ–æ€»çº¿éƒ¨åˆ†
+	//Àý»¯×ÜÏß²¿·Ö
 	bus_top bus_top0(
-		.clk(clk_2),
-		.rst(rst),
+		.clk(clk_tmp),
+		.rst(!rst),
 		.wishbone_addr_i(wishbone_addr_o),
 		.wishbone_data_i(wishbone_data_o),
 		.wishbone_we_i(wishbone_we_o),

@@ -4,7 +4,7 @@ module bus_top(
 	input		wire					clk,
 	input		wire					rst,
 
-	//Wishbone渚х殑鎺ュ彛
+	//Wishbone侧的接口
 	input		wire[`WB_AddrBus]		wishbone_addr_i,
 	input		wire[`WB_DataBus]		wishbone_data_i,
 	input		wire					wishbone_we_i,
@@ -12,7 +12,7 @@ module bus_top(
 	output		wire[`WB_DataBus]		wishbone_data_o,
 	output		wire					wishbone_ack_o,
 
-	//RAM渚х殑鎺ュ彛
+	//RAM侧的接口
 	output		[`DataMemNumLog2-2:0]	ram_baseram_addr,
 	inout		[`DataBus]				ram_baseram_data,
 	output								ram_baseram_ce,
@@ -24,24 +24,24 @@ module bus_top(
 	output								ram_extram_oe,
 	output								ram_extram_we,
 
-	//ROM渚х殑鎺ュ彛
+	//ROM侧的接口
 
-	//FLASH渚х殑鎺ュ彛
+	//FLASH侧的接口
 	output		[`FlashAddrBus]			flash_addr,
 	inout		[`FlashDataBus]			flash_data,
 	output		[`FlashCtrlBus]			flash_ctl,
 
-	//VGA渚х殑鎺ュ彛
+	//VGA侧的接口
 
-	//UART渚х殑鎺ュ彛
+	//UART侧的接口
 	output								uart_com_TxD,
 	input								uart_com_RxD,
 
-	//segdisp渚х殑鎺ュ彛
+	//segdisp侧的接口
 	output		[`DigSegDataBus]		digseg_seg1,
 	output		[`DigSegDataBus]		digseg_seg0
 
-	//PS2渚х殑鎺ュ彛
+	//PS2侧的接口
 
 	);
 

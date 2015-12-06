@@ -353,7 +353,7 @@ module openmips(
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),
 
 		//回写阶段的指令是否要写CP0，用来检测数据相关
-	  	.wb_cp0_reg_we(wb_cp0_reg_we_i),
+		.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),
 
@@ -363,8 +363,8 @@ module openmips(
 		//向下一流水级传递，用于写CP0中的寄存器
 		.cp0_reg_we_o(ex_cp0_reg_we_o),
 		.cp0_reg_write_addr_o(ex_cp0_reg_write_addr_o),
-		.cp0_reg_data_o(ex_cp0_reg_data_o),	  
-			  
+		.cp0_reg_data_o(ex_cp0_reg_data_o),
+
 		.wd_o(ex_wd_o),
 		.wreg_o(ex_wreg_o),
 		.wdata_o(ex_wdata_o),

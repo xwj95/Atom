@@ -1,9 +1,9 @@
 //! **************************************************************************
-// Written by: Map P.28xd on Sat Dec 05 21:50:27 2015
+// Written by: Map P.28xd on Sun Dec 06 13:25:09 2015
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "clk" LOCATE = SITE "U26" LEVEL 1;
+COMP "clk" LOCATE = SITE "T3" LEVEL 1;
 COMP "rst" LOCATE = SITE "T1" LEVEL 1;
 COMP "segdisp0<0>" LOCATE = SITE "B26" LEVEL 1;
 COMP "segdisp0<1>" LOCATE = SITE "C25" LEVEL 1;

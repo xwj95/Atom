@@ -5,7 +5,7 @@ module openmips(
 
 	input		wire[5:0]				int_i,
 
-	//wishbone鎬荤嚎
+	//wishbone总线
 	input		wire[`RegBus]			wishbone_data_i,
 	input		wire					wishbone_ack_i,
 	output		wire[`RegBus]			wishbone_addr_o,
@@ -15,16 +15,17 @@ module openmips(
 
 	output		wire					timer_int_o,
 
-	input		wire[`RegAddrBus]		select,
-	output 		wire[`RegBus]			regfile_data_o
+	input		wire[31:0]				select,
+	output 		wire[`RegBus]			data_o
 	);
 
-	//杩炴帴IF/ID妯″潡涓庤瘧鐮侀樁娈礗D妯″潡鐨勫彉閲	wire[`InstAddrBus]		pc;
+	//连接IF/ID模块与译码阶段ID模块的变量
+	wire[`InstAddrBus]		pc;
 	wire[`InstBus]			inst_i;
 	wire[`InstAddrBus]		id_pc_i;
 	wire[`InstBus]			id_inst_i;
 
-	//杩炴帴璇戠爜闃舵ID妯″潡杈撳嚭涓嶪D/EX妯″潡鐨勮緭鍏ョ殑鍙橀噺
+	//连接译码阶段ID模块输出与ID/EX模块的输入的变量
 	wire[`AluOpBus]			id_aluop_o;
 	wire[`AluSelBus]		id_alusel_o;
 	wire[`RegBus]			id_reg1_o;
@@ -37,7 +38,7 @@ module openmips(
 	wire[31:0]				id_excepttype_o;
 	wire[`RegBus]			id_current_inst_address_o;
 
-	//杩炴帴ID/EX妯″潡杈撳嚭涓庢墽琛岄樁娈礒X妯″潡鐨勮緭鍏ョ殑鍙橀噺
+	//连接ID/EX模块输出与执行阶段EX模块的输入的变量
 	wire[`AluOpBus]			ex_aluop_i;
 	wire[`AluSelBus]		ex_alusel_i;
 	wire[`RegBus]			ex_reg1_i;
@@ -50,7 +51,7 @@ module openmips(
 	wire[31:0]				ex_excepttype_i;
 	wire[`RegBus]			ex_current_inst_address_i;
 
-	//杩炴帴鎵ц闃舵EX鐨勬ā鍧楃殑杈撳嚭涓嶦X/MEM妯″潡鐨勮緭鍏ョ殑鍙橀噺
+	//连接执行阶段EX的模块的输出与EX/MEM模块的输入的变量
 	wire					ex_wreg_o;
 	wire[`RegAddrBus]		ex_wd_o;
 	wire[`RegBus]			ex_wdata_o;
@@ -68,7 +69,7 @@ module openmips(
 	wire[`RegBus]			ex_current_inst_address_o;
 	wire					ex_is_in_delayslot_o;
 
-	//杩炴帴EX/MEM妯″潡鐨勮緭鍑轰笌璁垮瓨闃舵MEM妯″潡鐨勮緭鍏ョ殑鍙橀噺
+	//连接EX/MEM模块的输出与访存阶段MEM模块的输入的变量
 	wire					mem_wreg_i;
 	wire[`RegAddrBus]		mem_wd_i;
 	wire[`RegBus]			mem_wdata_i;
@@ -87,7 +88,7 @@ module openmips(
 	wire					mem_is_in_delayslot_i;
 	wire[`RegBus]			mem_current_inst_address_i;
 
-	//杩炴帴璁垮瓨闃舵MEM妯″潡鐨勮緭鍑轰笌MEM/WB妯″潡鐨勮緭鍏ョ殑鍙橀噺
+	//连接访存阶段MEM模块的输出与MEM/WB模块的输入的变量
 	wire					mem_wreg_o;
 	wire[`RegAddrBus]		mem_wd_o;
 	wire[`RegBus]			mem_wdata_o;
@@ -102,7 +103,7 @@ module openmips(
 	wire[`RegBus]			mem_current_inst_address_o;
 	wire[`RegBus]			bad_v_addr_o;
 
-	//杩炴帴MEM/WB妯″潡鐨勮緭鍑轰笌鍥炲啓闃舵鐨勮緭鍏ョ殑鍙橀噺
+	//连接MEM/WB模块的输出与回写阶段的输入的变量
 	wire					wb_wreg_i;
 	wire[`RegAddrBus]		wb_wd_i;
 	wire[`RegBus]			wb_wdata_i;
@@ -116,14 +117,16 @@ module openmips(
 	wire					wb_is_in_delayslot_i;
 	wire[`RegBus]			wb_current_inst_address_i;
 
-	//杩炴帴璇戠爜闃舵ID妯″潡涓庨�氱敤瀵勫瓨鍣≧egfile妯″潡鐨勫彉閲	wire					reg1_read;
+	//连接译码阶段ID模块与通用寄存器Regfile模块的变量
+	wire					reg1_read;
 	wire					reg2_read;
 	wire[`RegBus]			reg1_data;
 	wire[`RegBus]			reg2_data;
 	wire[`RegAddrBus]		reg1_addr;
 	wire[`RegAddrBus]		reg2_addr;
 
-	//杩炴帴鎵ц闃舵涓巋ilo妯″潡鐨勮緭鍑猴紝璇诲彇HI銆丩O瀵勫瓨鍣	wire[`RegBus]			hi;
+	//连接执行阶段与hilo模块的输出，读取HI、LO寄存器
+	wire[`RegBus]			hi;
 	wire[`RegBus]			lo;
 	
 	wire[`DoubleRegBus]		hilo_temp_o;
@@ -193,7 +196,23 @@ module openmips(
 	wire					tlb_excepttype_is_tlbl;
 	wire					tlb_excepttype_is_tlbs;
 
-	//pc_reg渚嬪寲
+	wire[`RegBus]			regfile_data_o;
+
+	reg data_output;
+	assign data_o = data_output;
+	always @ (*) begin
+		if (select[23] == 1'b1) begin
+			if (select[15] == 1'b1) begin
+				data_output <= pc;
+			end else begin
+				data_output <= id_inst_i;
+			end
+		end else begin
+			data_output <= regfile_data_o;
+		end
+	end
+
+	//pc_reg例化
 	pc_reg pc_reg0(
 		.clk(clk),
 		.rst(rst),
@@ -206,7 +225,7 @@ module openmips(
 		.ce(rom_ce)
 	);
 
-	//IF/ID妯″潡渚嬪寲
+	//IF/ID模块例化
 	if_id if_id0(
 		.clk(clk),
 		.rst(rst),
@@ -218,33 +237,36 @@ module openmips(
 		.id_inst(id_inst_i)
 	);
 
-	//璇戠爜闃舵ID妯″潡渚嬪寲
+	//译码阶段ID模块例化
 	id id0(
 		.rst(rst),
 		.pc_i(id_pc_i),
 		.inst_i(id_inst_i),
 		.ex_aluop_i(ex_aluop_o),
 
-		//鏉ヨ嚜Regfile妯″潡鐨勮緭鍏		.reg1_data_i(reg1_data),
+		//来自Regfile模块的输入
+		.reg1_data_i(reg1_data),
 		.reg2_data_i(reg2_data),
 
-		//澶勪簬鎵ц闃舵鐨勬寚浠よ鍐欏叆鐨勭洰鐨勫瘎瀛樺櫒淇℃伅
+		//处于执行阶段的指令要写入的目的寄存器信息
 		.ex_wreg_i(ex_wreg_o),
 		.ex_wdata_i(ex_wdata_o),
 		.ex_wd_i(ex_wd_o),
 
-		//澶勪簬璁垮瓨闃舵鐨勬寚浠よ鍐欏叆鐨勭洰鐨勫瘎瀛樺櫒淇℃伅
+		//处于访存阶段的指令要写入的目的寄存器信息
 		.mem_wreg_i(mem_wreg_o),
 		.mem_wdata_i(mem_wdata_o),
 		.mem_wd_i(mem_wd_o),
 
 		.is_in_delayslot_i(is_in_delayslot_i),
-		//閫佸埌Regfile妯″潡鐨勪俊鎭		.reg1_read_o(reg1_read),
+		//送到Regfile模块的信息
+		.reg1_read_o(reg1_read),
 		.reg2_read_o(reg2_read),
 		.reg1_addr_o(reg1_addr),
 		.reg2_addr_o(reg2_addr),
 
-		//閫佸埌ID/EX妯″潡鐨勪俊鎭		.aluop_o(id_aluop_o),
+		//送到ID/EX模块的信息
+		.aluop_o(id_aluop_o),
 		.alusel_o(id_alusel_o),
 		.reg1_o(id_reg1_o),
 		.reg2_o(id_reg2_o),
@@ -263,7 +285,7 @@ module openmips(
 		.stallreq(stallreq_from_id)
 	);
 
-	//閫氱敤瀵勫瓨鍣≧egfile妯″潡渚嬪寲
+	//通用寄存器Regfile模块例化
 	regfile regfile1(
 		.clk(clk),
 		.rst(rst),
@@ -276,11 +298,11 @@ module openmips(
 		.re2(reg2_read),
 		.raddr2(reg2_addr),
 		.rdata2(reg2_data),
-		.select(select),
+		.select(select[4:0]),
 		.output_data(regfile_data_o)
 	);
 
-	//ID/EX妯″潡渚嬪寲
+	//ID/EX模块例化
 	id_ex id_ex0(
 		.clk(clk),
 		.rst(rst),
@@ -288,7 +310,7 @@ module openmips(
 		.stall(stall),
 		.flush(flush),
 
-		//浠庤瘧鐮侀樁娈礗D妯″潡浼犻�掕繃鏉ョ殑淇℃伅
+		//从译码阶段ID模块传递过来的信息
 		.id_aluop(id_aluop_o),
 		.id_alusel(id_alusel_o),
 		.id_reg1(id_reg1_o),
@@ -302,7 +324,8 @@ module openmips(
 		.id_excepttype(id_excepttype_o),
 		.id_current_inst_address(id_current_inst_address_o),
 
-		//浼犻�掑埌鎵ц闃舵EX妯″潡鐨勪俊鎭		.ex_aluop(ex_aluop_i),
+		//传递到执行阶段EX模块的信息
+		.ex_aluop(ex_aluop_i),
 		.ex_alusel(ex_alusel_i),
 		.ex_reg1(ex_reg1_i),
 		.ex_reg2(ex_reg2_i),
@@ -316,11 +339,11 @@ module openmips(
 		.ex_current_inst_address(ex_current_inst_address_i)
 	);
 
-	//EX妯″潡渚嬪寲
+	//EX模块例化
 	ex ex0(
 		.rst(rst),
 
-		//浠嶪D/EX妯″潡浼犻�掕繃鏉ョ殑淇℃伅
+		//从ID/EX模块传递过来的信息
 		.aluop_i(ex_aluop_i),
 		.alusel_i(ex_alusel_i),
 		.reg1_i(ex_reg1_i),
@@ -331,7 +354,8 @@ module openmips(
 		.lo_i(lo),
 		.inst_i(ex_inst_i),
 
-		//杈撳嚭鍒癊X/MEM妯″潡鐨勪俊鎭		.wb_hi_i(wb_hi_i),
+		//输出到EX/MEM模块的信息
+		.wb_hi_i(wb_hi_i),
 		.wb_lo_i(wb_lo_i),
 		.wb_whilo_i(wb_whilo_i),
 		.mem_hi_i(mem_hi_o),
@@ -344,20 +368,23 @@ module openmips(
 		.excepttype_i(ex_excepttype_i),
 		.current_inst_address_i(ex_current_inst_address_i),
 
-		//璁垮瓨闃舵鐨勬寚浠ゆ槸鍚﹁鍐機P0锛岀敤鏉ユ娴嬫暟鎹浉鍏		.mem_cp0_reg_we(mem_cp0_reg_we_o),
+		//访存阶段的指令是否要写CP0，用来检测数据相关
+		.mem_cp0_reg_we(mem_cp0_reg_we_o),
 		.mem_cp0_reg_write_addr(mem_cp0_reg_write_addr_o),
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),
 
-		//鍥炲啓闃舵鐨勬寚浠ゆ槸鍚﹁鍐機P0锛岀敤鏉ユ娴嬫暟鎹浉鍏	  	.wb_cp0_reg_we(wb_cp0_reg_we_i),
+		//回写阶段的指令是否要写CP0，用来检测数据相关
+		.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),
 
 		.cp0_reg_data_i(cp0_data_o),
 		.cp0_reg_read_addr_o(cp0_raddr_i),
 		
-		//鍚戜笅涓�娴佹按绾т紶閫掞紝鐢ㄤ簬鍐機P0涓殑瀵勫瓨鍣		.cp0_reg_we_o(ex_cp0_reg_we_o),
+		//向下一流水级传递，用于写CP0中的寄存器
+		.cp0_reg_we_o(ex_cp0_reg_we_o),
 		.cp0_reg_write_addr_o(ex_cp0_reg_write_addr_o),
-		.cp0_reg_data_o(ex_cp0_reg_data_o),	  
+		.cp0_reg_data_o(ex_cp0_reg_data_o),
 			  
 		.wd_o(ex_wd_o),
 		.wreg_o(ex_wreg_o),
@@ -376,14 +403,15 @@ module openmips(
 		.stallreq(stallreq_from_ex)
 	);
 
-	//EX/MEM妯″潡渚嬪寲
+	//EX/MEM模块例化
 	ex_mem ex_mem0(
 		.clk(clk),
 		.rst(rst),
 		.stall(stall),
 		.flush(flush),
 
-		//鏉ヨ嚜鎵ц闃舵EX妯″潡鐨勪俊鎭		.ex_wd(ex_wd_o),
+		//来自执行阶段EX模块的信息
+		.ex_wd(ex_wd_o),
 		.ex_wreg(ex_wreg_o),
 		.ex_wdata(ex_wdata_o),
 		.ex_hi(ex_hi_o),
@@ -402,7 +430,8 @@ module openmips(
 		.ex_is_in_delayslot(ex_is_in_delayslot_o),
 		.ex_current_inst_address(ex_current_inst_address_o),
 
-		//閫佸埌璁垮瓨闃舵MEM妯″潡鐨勪俊鎭		.mem_wd(mem_wd_i),
+		//送到访存阶段MEM模块的信息
+		.mem_wd(mem_wd_i),
 		.mem_wreg(mem_wreg_i),
 		.mem_wdata(mem_wdata_i),
 		.mem_hi(mem_hi_i),
@@ -422,11 +451,12 @@ module openmips(
 		.mem_current_inst_address(mem_current_inst_address_i)
 	);
 
-	//MEM妯″潡渚嬪寲
+	//MEM模块例化
 	mem mem0(
 		.rst(rst),
 
-		//鏉ヨ嚜EX/MEM妯″潡鐨勪俊鎭		.wd_i(mem_wd_i),
+		//来自EX/MEM模块的信息
+		.wd_i(mem_wd_i),
 		.wreg_i(mem_wreg_i),
 		.wdata_i(mem_wdata_i),
 		.hi_i(mem_hi_i),
@@ -456,7 +486,8 @@ module openmips(
 		.cp0_entry_lo_1_i(cp0_entry_lo_1),
 		.cp0_entry_hi_i(cp0_entry_hi),
 
-		//鍥炲啓闃舵鐨勬寚浠ゆ槸鍚﹁鍐機P0锛岀敤鏉ユ娴嬫暟鎹浉鍏		.wb_cp0_reg_we(wb_cp0_reg_we_i),
+		//回写阶段的指令是否要写CP0，用来检测数据相关
+		.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),
 
@@ -464,7 +495,8 @@ module openmips(
 		.excepttype_is_tlbl_i(tlb_excepttype_is_tlbl),
 		.excepttype_is_tlbs_i(tlb_excepttype_is_tlbs),
 
-		//閫佸埌CP0妯″潡鐨勪俊鎭		.cp0_reg_we_o(mem_cp0_reg_we_o),
+		//送到CP0模块的信息
+		.cp0_reg_we_o(mem_cp0_reg_we_o),
 		.cp0_reg_write_addr_o(mem_cp0_reg_write_addr_o),
 		.cp0_reg_data_o(mem_cp0_reg_data_o),
 
@@ -474,32 +506,36 @@ module openmips(
 		.current_inst_address_o(mem_current_inst_address_o),
 		.bad_v_addr_o(bad_v_addr_o),
 
-		//閫佸埌MEM/WB妯″潡鐨勪俊鎭		.wd_o(mem_wd_o),
+		//送到MEM/WB模块的信息
+		.wd_o(mem_wd_o),
 		.wreg_o(mem_wreg_o),
 		.wdata_o(mem_wdata_o),
 		.hi_o(mem_hi_o),
 		.lo_o(mem_lo_o),
 		.whilo_o(mem_whilo_o),
 
-		//閫佸埌MMU妯″潡鐨勪俊鎭		.mem_addr_o(ram_addr_o),
+		//送到MMU模块的信息
+		.mem_addr_o(ram_addr_o),
 		.mem_we_o(ram_we_o),
 		.mem_sel_o(ram_sel_o),
 		.mem_data_o(ram_data_o),
 		.mem_ce_o(ram_ce_o),
 
-		//閫佸埌TLB妯″潡鐨勪俊鎭		.tlb_we_o(tlb_we),
+		//送到TLB模块的信息
+		.tlb_we_o(tlb_we),
 		.tlb_index_o(tlb_index),
 		.tlb_data_o(tlb_data)
 	);
 
-	//MEM/WB妯″潡渚嬪寲
+	//MEM/WB模块例化
 	mem_wb mem_wb0(
 		.clk(clk),
 		.rst(rst),
 		.stall(stall),
 		.flush(flush),
 		
-		//鏉ヨ嚜璁垮瓨闃舵MEM妯″潡鐨勪俊鎭		.mem_wd(mem_wd_o),
+		//来自访存阶段MEM模块的信息
+		.mem_wd(mem_wd_o),
 		.mem_wreg(mem_wreg_o),
 		.mem_wdata(mem_wdata_o),
 		.mem_hi(mem_hi_o),
@@ -510,7 +546,8 @@ module openmips(
 		.mem_cp0_reg_write_addr(mem_cp0_reg_write_addr_o),
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),
 
-		//閫佸埌鍥炲啓闃舵鐨勪俊鎭		.wb_wd(wb_wd_i),
+		//送到回写阶段的信息	
+		.wb_wd(wb_wd_i),
 		.wb_wreg(wb_wreg_i),
 		.wb_wdata(wb_wdata_i),
 		.wb_hi(wb_hi_i),
@@ -526,11 +563,12 @@ module openmips(
 		.clk(clk),
 		.rst(rst),
 
-		//鍐欑鍙		.we(wb_whilo_i),
+		//写端口
+		.we(wb_whilo_i),
 		.hi_i(wb_hi_i),
 		.lo_i(wb_lo_i),
 
-		//璇荤鍙
+		//读端口1
 		.hi_o(hi),
 		.lo_o(lo)
 	);
@@ -586,7 +624,8 @@ module openmips(
 		.clk(clk),
 		.rst(rst),
 
-		//IF妯″潡鐨勬帴鍙		.if_ce_i(rom_ce),
+		//IF模块的接口
+		.if_ce_i(rom_ce),
 		.if_data_i(32'h00000000),
 		.if_addr_i(pc),
 		.if_we_i(1'b0),
@@ -595,7 +634,8 @@ module openmips(
 
 		.stall_req_if(stallreq_from_if),
 
-		//MEM妯″潡鐨勬帴鍙		.mem_ce_i(ram_ce_o),
+		//MEM模块的接口	
+		.mem_ce_i(ram_ce_o),
 		.mem_data_i(ram_data_o),
 		.mem_addr_i(ram_addr_o),
 		.mem_we_i(ram_we_o),
@@ -604,13 +644,14 @@ module openmips(
 
 		.stall_req_mem(stallreq_from_mem),
 
-		//TLB妯″潡鐨勬帴鍙		.tlb_ce(tlb_ce),
+		//TLB模块的接口
+		.tlb_ce(tlb_ce),
 		.tlb_write_o(tlb_write),
 		.tlb_addr_o(tlb_addr_o),
 		.tlb_addr_i(tlb_addr_i),
 		.tlb_select_i(tlb_select_i),
 
-		//鎬荤嚎渚х殑鎺ュ彛
+		//总线侧的接口
 		.mmu_ce_o(mmu_ce_o),
 		.mmu_data_o(mmu_data_o),
 		.mmu_addr_o(mmu_addr_o),
@@ -645,11 +686,12 @@ module openmips(
 		.clk(clk),
 		.rst(rst),
 
-		//鏉ヨ嚜鎺у埗妯″潡Ctrl
+		//来自控制模块Ctrl
 		.stall_i(stall),
 		.flush_i(flush),
 
-		//CPU渚ц鍐欐搷浣滀俊鎭		.mmu_ce_i(mmu_ce_o),
+		//CPU侧读写操作信息
+		.mmu_ce_i(mmu_ce_o),
 		.mmu_data_i(mmu_data_o),
 		.mmu_addr_i(mmu_addr_o),
 		.mmu_we_i(mmu_we_o),
@@ -657,7 +699,8 @@ module openmips(
 		.mmu_data_o(mmu_data_i),
 		.mmu_ack_o(mmu_ack_i),
 
-		//Wishbone鎬荤嚎渚ф帴鍙		.wishbone_data_i(wishbone_data_i),
+		//Wishbone总线侧接口
+		.wishbone_data_i(wishbone_data_i),
 		.wishbone_ack_i(wishbone_ack_i),
 		.wishbone_addr_o(wishbone_addr_o),
 		.wishbone_data_o(wishbone_data_o),

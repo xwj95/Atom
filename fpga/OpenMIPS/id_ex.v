@@ -5,7 +5,7 @@ module id_ex(
 	input		wire[5:0]				stall,
 	input		wire					flush,
 
-	//ä»è¯‘ç é˜¶æ®µä¼ é€’è¿‡æ¥çš„ä¿¡æ¯
+	//´ÓÒëÂë½×¶Î´«µİ¹ıÀ´µÄĞÅÏ¢
 	input		wire[`AluOpBus]			id_aluop,
 	input		wire[`AluSelBus]		id_alusel,
 	input		wire[`RegBus]			id_reg1,
@@ -19,7 +19,7 @@ module id_ex(
 	input		wire[`RegBus]			id_current_inst_address,
 	input		wire[31:0]				id_excepttype,
 	
-	//ä¼ é€’åˆ°æ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯
+	//´«µİµ½Ö´ĞĞ½×¶ÎµÄĞÅÏ¢
 	output		reg[`AluOpBus]			ex_aluop,
 	output		reg[`AluSelBus]			ex_alusel,
 	output		reg[`RegBus]			ex_reg1,
@@ -34,9 +34,9 @@ module id_ex(
 	output		reg[31:0]				ex_excepttype
 	);
 
-	//ï¼ˆ1ï¼‰å½“stall[2]ä¸ºStopï¼Œstall[3]ä¸ºNoStopæ—¶ï¼Œè¡¨ç¤ºè¯‘ç é˜¶æ®µæš‚åœï¼Œè€Œæ‰§è¡Œé˜¶æ®µç»§ç»­ï¼Œæ‰€ä»¥ä½¿ç”¨ç©ºæŒ‡ä»¤ä½œä¸ºä¸‹ä¸€ä¸ªå‘¨æœŸè¿›å…¥æ‰§è¡Œé˜¶æ®µçš„æŒ‡ä»¤
-	//ï¼ˆ2ï¼‰å½“stall[2]ä¸ºNoStopæ—¶ï¼Œè¯‘ç é˜¶æ®µç»§ç»­ï¼Œè¯‘ç åçš„æŒ‡ä»¤è¿›å…¥æ‰§è¡Œé˜¶æ®µ
-	//ï¼ˆ3ï¼‰å…¶ä½™æƒ…å†µä¸‹ï¼Œä¿æŒæ‰§è¡Œé˜¶æ®µçš„å¯„å­˜å™¨ä¸ºex_aluopã€ex_aluselã€ex_reg1ã€ex_reg2ã€ex_wdã€ex_wregä¸å˜
+	//£¨1£©µ±stall[2]ÎªStop£¬stall[3]ÎªNoStopÊ±£¬±íÊ¾ÒëÂë½×¶ÎÔİÍ££¬¶øÖ´ĞĞ½×¶Î¼ÌĞø£¬ËùÒÔÊ¹ÓÃ¿ÕÖ¸Áî×÷ÎªÏÂÒ»¸öÖÜÆÚ½øÈëÖ´ĞĞ½×¶ÎµÄÖ¸Áî
+	//£¨2£©µ±stall[2]ÎªNoStopÊ±£¬ÒëÂë½×¶Î¼ÌĞø£¬ÒëÂëºóµÄÖ¸Áî½øÈëÖ´ĞĞ½×¶Î
+	//£¨3£©ÆäÓàÇé¿öÏÂ£¬±£³ÖÖ´ĞĞ½×¶ÎµÄ¼Ä´æÆ÷Îªex_aluop¡¢ex_alusel¡¢ex_reg1¡¢ex_reg2¡¢ex_wd¡¢ex_wreg²»±ä
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			ex_aluop <= `EXE_NOP_OP;
@@ -51,7 +51,7 @@ module id_ex(
 			ex_inst <= `ZeroWord;
 			ex_excepttype <= `ZeroWord;
 			ex_current_inst_address <= `ZeroWord;
-		end else if (flush == 1'b1) begin									//æ¸…é™¤æµæ°´çº¿
+		end else if (flush == 1'b1) begin									//Çå³ıÁ÷Ë®Ïß
 			ex_aluop <= `EXE_NOP_OP;
 			ex_alusel <= `EXE_RES_NOP;
 			ex_reg1 <= `ZeroWord;
@@ -64,7 +64,7 @@ module id_ex(
 			ex_is_in_delayslot <= `NotInDelaySlot;
 			is_in_delayslot_o <= `NotInDelaySlot;
 			ex_current_inst_address <= `ZeroWord;
-		end else if (stall[2] == `Stop && stall[3] == `NoStop) begin		//è¯‘ç é˜¶æ®µæš‚åœï¼Œæ‰§è¡Œé˜¶æ®µæ²¡æœ‰æš‚åœ
+		end else if (stall[2] == `Stop && stall[3] == `NoStop) begin		//ÒëÂë½×¶ÎÔİÍ££¬Ö´ĞĞ½×¶ÎÃ»ÓĞÔİÍ£
 			ex_aluop <= `EXE_NOP_OP;
 			ex_alusel <= `EXE_RES_NOP;
 			ex_reg1 <= `ZeroWord;
@@ -76,7 +76,7 @@ module id_ex(
 			ex_inst <= `ZeroWord;
 			ex_excepttype <= `ZeroWord;
 			ex_current_inst_address <= `ZeroWord;
-		end else if (stall[2] == `NoStop) begin								//è¯‘ç é˜¶æ®µæ²¡æœ‰æš‚åœ
+		end else if (stall[2] == `NoStop) begin								//ÒëÂë½×¶ÎÃ»ÓĞÔİÍ£
 			ex_aluop <= id_aluop;
 			ex_alusel <= id_alusel;
 			ex_reg1 <= id_reg1;
@@ -86,7 +86,7 @@ module id_ex(
 			ex_link_address <= id_link_address;
 			ex_is_in_delayslot <= id_is_in_delayslot;
 			is_in_delayslot_o <= next_inst_in_delayslot_i;
-			//åœ¨è¯‘ç é˜¶æ®µæ²¡æœ‰æš‚åœçš„æƒ…å†µä¸‹ï¼Œç›´æ¥å°†IDæ¨¡å—çš„è¾“å…¥é€šè¿‡æ¥å£ex_instè¾“å‡º
+			//ÔÚÒëÂë½×¶ÎÃ»ÓĞÔİÍ£µÄÇé¿öÏÂ£¬Ö±½Ó½«IDÄ£¿éµÄÊäÈëÍ¨¹ı½Ó¿Úex_instÊä³ö
 			ex_inst <= id_inst;
 			ex_excepttype <= id_excepttype;
 			ex_current_inst_address <= id_current_inst_address;

@@ -22,7 +22,7 @@ module tlb(
 	reg[`TLBDataBus] tlb_reg[0:`TLBIndexNum-1];
 	reg[`TLBIndexBus] tlb_find;
 
-	/*********************		ç¬¬ä¸€æ®µï¼šTLBè¡¨é¡¹å†™æ“ä½œ		*********************/
+	/*********************		µÚÒ»¶Î£ºTLB±íÏîĞ´²Ù×÷		*********************/
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
 			tlb_reg[0] <= {`TLBDataWidth{1'b0}};
@@ -47,7 +47,7 @@ module tlb(
 			end
 		end
 	end
-	/*********************		ç¬¬äºŒæ®µï¼šè™šæ‹Ÿåœ°å€æ˜ å°„		*********************/
+	/*********************		µÚ¶ş¶Î£ºĞéÄâµØÖ·Ó³Éä		*********************/
 	always @ (*) begin
 		tlb_find <= 4'b0000;
 		if (rst == `RstEnable) begin
@@ -57,11 +57,11 @@ module tlb(
 			excepttype_is_tlbs <= `False_v;
 		end else begin
 			tlb_addr <= mmu_addr;
-			excepttype_is_tlbm <= `False_v;						//é»˜è®¤æ²¡æœ‰å‘ç”Ÿå†…å­˜ä¿®æ”¹å¼‚å¸¸
-			excepttype_is_tlbl <= `False_v;						//é»˜è®¤æ²¡æœ‰å‘ç”Ÿè¯»æœªåœ¨TLBä¸­æ˜ å°„çš„å†…å­˜åœ°å€å¼‚å¸¸
-			excepttype_is_tlbs <= `False_v;						//é»˜è®¤æ²¡æœ‰å‘ç”Ÿå†™æœªåœ¨TLBä¸­æ˜ å°„çš„å†…å­˜åœ°å€å¼‚å¸¸
+			excepttype_is_tlbm <= `False_v;						//Ä¬ÈÏÃ»ÓĞ·¢ÉúÄÚ´æĞŞ¸ÄÒì³£
+			excepttype_is_tlbl <= `False_v;						//Ä¬ÈÏÃ»ÓĞ·¢Éú¶ÁÎ´ÔÚTLBÖĞÓ³ÉäµÄÄÚ´æµØÖ·Òì³£
+			excepttype_is_tlbs <= `False_v;						//Ä¬ÈÏÃ»ÓĞ·¢ÉúĞ´Î´ÔÚTLBÖĞÓ³ÉäµÄÄÚ´æµØÖ·Òì³£
 			if (tlb_ce == `ChipEnable) begin
-				if (mmu_addr[31:30] == 2'b10) begin				//è™šæ‹Ÿåœ°å€åœ¨[0x80000000, 0xbfffffff]èŒƒå›´å†…ï¼Œä¸è¿›è¡Œåœ°å€æ˜ å°„
+				if (mmu_addr[31:30] == 2'b10) begin				//ĞéÄâµØÖ·ÔÚ[0x80000000, 0xbfffffff]·¶Î§ÄÚ£¬²»½øĞĞµØÖ·Ó³Éä
 					tlb_addr <= {2'b00, mmu_addr[29:0]};
 				end else begin
 					tlb_addr <= mmu_addr;
@@ -141,7 +141,7 @@ module tlb(
 		end
 	end
 
-	/*********************		ç¬¬ä¸‰æ®µï¼šç‰©ç†åœ°å€åˆ’åˆ†		*********************/
+	/*********************		µÚÈı¶Î£ºÎïÀíµØÖ·»®·Ö		*********************/
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			tlb_select <= `WB_SELECT_ZERO;

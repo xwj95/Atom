@@ -2,7 +2,7 @@
 module mem(
 	input		wire					rst,
 
-	//æ¥è‡ªæ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯
+	//À´×ÔÖ´ĞĞ½×¶ÎµÄĞÅÏ¢
 	input		wire[`RegAddrBus]		wd_i,
 	input		wire					wreg_i,
 	input		wire[`RegBus]			wdata_i,
@@ -13,19 +13,19 @@ module mem(
 	input		wire[`RegBus]			mem_addr_i,
 	input		wire[`RegBus]			reg2_i,
 
-	//æ¥è‡ªMMUæ¨¡å—çš„ä¿¡æ¯
+	//À´×ÔMMUÄ£¿éµÄĞÅÏ¢
 	input		wire[`RegBus]			mem_data_i,
 
 	input		wire					cp0_reg_we_i,
 	input		wire[4:0]				cp0_reg_write_addr_i,
 	input		wire[`RegBus]			cp0_reg_data_i,
 
-	//æ¥è‡ªæ‰§è¡Œé˜¶æ®µ
+	//À´×ÔÖ´ĞĞ½×¶Î
 	input		wire[31:0]				excepttype_i,
 	input		wire					is_in_delayslot_i,
 	input		wire[`RegBus]			current_inst_address_i,
 
-	//CP0çš„å„ä¸ªå¯„å­˜å™¨çš„å€¼ï¼Œä½†ä¸ä¸€å®šæ˜¯æœ€æ–°çš„å€¼ï¼Œè¦é˜²æ­¢å›å†™é˜¶æ®µæŒ‡ä»¤å†™CP0
+	//CP0µÄ¸÷¸ö¼Ä´æÆ÷µÄÖµ£¬µ«²»Ò»¶¨ÊÇ×îĞÂµÄÖµ£¬Òª·ÀÖ¹»ØĞ´½×¶ÎÖ¸ÁîĞ´CP0
 	input		wire[`RegBus]			cp0_bad_v_addr_i,
 	input		wire[`RegBus]			cp0_status_i,
 	input		wire[`RegBus]			cp0_cause_i,
@@ -35,17 +35,17 @@ module mem(
 	input		wire[`RegBus]			cp0_entry_lo_1_i,
 	input		wire[`RegBus]			cp0_entry_hi_i,
 
-	//æ¥è‡ªå›å†™é˜¶æ®µçš„æŒ‡ä»¤å¯¹CP0å¯„å­˜å™¨çš„å†™ä¿¡æ¯ï¼Œç”¨æ¥æ£€æµ‹æ•°æ®ç›¸å…³
+	//À´×Ô»ØĞ´½×¶ÎµÄÖ¸Áî¶ÔCP0¼Ä´æÆ÷µÄĞ´ĞÅÏ¢£¬ÓÃÀ´¼ì²âÊı¾İÏà¹Ø
 	input		wire					wb_cp0_reg_we,
 	input		wire[4:0]				wb_cp0_reg_write_addr,
 	input		wire[`RegBus]			wb_cp0_reg_data,
 
-	//æ¥è‡ªMMUæ¨¡å—çš„TLBå¼‚å¸¸ä¿¡æ¯
+	//À´×ÔMMUÄ£¿éµÄTLBÒì³£ĞÅÏ¢
 	input		wire					excepttype_is_tlbm_i,
 	input		wire					excepttype_is_tlbl_i,
 	input		wire					excepttype_is_tlbs_i,
 
-	//è®¿å­˜é˜¶æ®µçš„ç»“æœ
+	//·Ã´æ½×¶ÎµÄ½á¹û
 	output		reg[`RegAddrBus]		wd_o,
 	output		reg						wreg_o,
 	output		reg[`RegBus]			wdata_o,
@@ -57,14 +57,14 @@ module mem(
 	output		reg[4:0]				cp0_reg_write_addr_o,
 	output		reg[`RegBus]			cp0_reg_data_o,
 
-	//é€åˆ°MMUçš„ä¿¡æ¯
+	//ËÍµ½MMUµÄĞÅÏ¢
 	output		reg[`RegBus]			mem_addr_o,
 	output		wire					mem_we_o,
 	output		reg[3:0]				mem_sel_o,
 	output		reg[`RegBus]			mem_data_o,
 	output		reg						mem_ce_o,
 
-	//é€åˆ°CP0å¯„å­˜å™¨çš„ä¿¡æ¯
+	//ËÍµ½CP0¼Ä´æÆ÷µÄĞÅÏ¢
 	output		reg[31:0]				excepttype_o,
 	output		wire[`RegBus]			cp0_epc_o,
 	output		wire					is_in_delayslot_o,
@@ -72,7 +72,7 @@ module mem(
 	output		wire[`RegBus]			current_inst_address_o,
 	output		reg[`RegBus]			bad_v_addr_o,
 
-	//é€åˆ°TLBæ¨¡å—çš„ä¿¡æ¯
+	//ËÍµ½TLBÄ£¿éµÄĞÅÏ¢
 	output		reg						tlb_we_o,
 	output		reg[`TLBIndexBus]		tlb_index_o,
 	output		reg[`TLBDataBus]		tlb_data_o
@@ -81,33 +81,33 @@ module mem(
 	wire[`RegBus] zero32;
 	reg mem_we;
 
-	reg[`RegBus] cp0_bad_v_addr;		//ç”¨æ¥ä¿å­˜CP0ä¸­BadVAddrå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	reg[`RegBus] cp0_status;			//ç”¨æ¥ä¿å­˜CP0ä¸­Statuså¯„å­˜å™¨çš„æœ€æ–°å€¼
-	reg[`RegBus] cp0_cause;				//ç”¨æ¥ä¿å­˜CP0ä¸­Causeå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	reg[`RegBus] cp0_epc;				//ç”¨æ¥ä¿å­˜CP0ä¸­EPCå¯„å­˜å™¨çš„æœ€æ–°å€¼
+	reg[`RegBus] cp0_bad_v_addr;		//ÓÃÀ´±£´æCP0ÖĞBadVAddr¼Ä´æÆ÷µÄ×îĞÂÖµ
+	reg[`RegBus] cp0_status;			//ÓÃÀ´±£´æCP0ÖĞStatus¼Ä´æÆ÷µÄ×îĞÂÖµ
+	reg[`RegBus] cp0_cause;				//ÓÃÀ´±£´æCP0ÖĞCause¼Ä´æÆ÷µÄ×îĞÂÖµ
+	reg[`RegBus] cp0_epc;				//ÓÃÀ´±£´æCP0ÖĞEPC¼Ä´æÆ÷µÄ×îĞÂÖµ
 
-	reg[`RegBus] cp0_index;				//ç”¨æ¥ä¿å­˜CP0ä¸­Indexå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	reg[`RegBus] cp0_entry_lo_0;		//ç”¨æ¥ä¿å­˜CP0ä¸­EntryLo0å¯„å­˜å™¨çš„æœ€æ–°å€¼
-	reg[`RegBus] cp0_entry_lo_1;		//ç”¨æ¥ä¿å­˜CP0ä¸­EntryLo1å¯„å­˜å™¨çš„æœ€æ–°å€¼
-	reg[`RegBus] cp0_entry_hi;			//ç”¨æ¥ä¿å­˜CP0ä¸­EntryHiå¯„å­˜å™¨çš„æœ€æ–°å€¼
+	reg[`RegBus] cp0_index;				//ÓÃÀ´±£´æCP0ÖĞIndex¼Ä´æÆ÷µÄ×îĞÂÖµ
+	reg[`RegBus] cp0_entry_lo_0;		//ÓÃÀ´±£´æCP0ÖĞEntryLo0¼Ä´æÆ÷µÄ×îĞÂÖµ
+	reg[`RegBus] cp0_entry_lo_1;		//ÓÃÀ´±£´æCP0ÖĞEntryLo1¼Ä´æÆ÷µÄ×îĞÂÖµ
+	reg[`RegBus] cp0_entry_hi;			//ÓÃÀ´±£´æCP0ÖĞEntryHi¼Ä´æÆ÷µÄ×îĞÂÖµ
 
-	reg excepttype_is_adel;				//æ˜¯å¦æ˜¯è¯»è®¿é—®éå¯¹é½å¼‚å¸¸ADEL
-	reg excepttype_is_ades;				//æ˜¯å¦æ˜¯å†™è®¿é—®éå¯¹é½å¼‚å¸¸ADES
-	reg excepttype_is_watch;			//æ˜¯å¦æ˜¯Watchç›‘æ§å¼‚å¸¸Watch
+	reg excepttype_is_adel;				//ÊÇ·ñÊÇ¶Á·ÃÎÊ·Ç¶ÔÆëÒì³£ADEL
+	reg excepttype_is_ades;				//ÊÇ·ñÊÇĞ´·ÃÎÊ·Ç¶ÔÆëÒì³£ADES
+	reg excepttype_is_watch;			//ÊÇ·ñÊÇWatch¼à¿ØÒì³£Watch
 
 	wire[31:0] excepttype;
 
 	assign zero32 = `ZeroWord;
 
-	//è®¿å­˜é˜¶æ®µæŒ‡ä»¤æ˜¯å¦æ˜¯å»¶è¿Ÿæ§½æŒ‡ä»¤
+	//·Ã´æ½×¶ÎÖ¸ÁîÊÇ·ñÊÇÑÓ³Ù²ÛÖ¸Áî
 	assign is_in_delayslot_o = is_in_delayslot_i;
 	assign current_inst_address_o = current_inst_address_i;
 
-	//excepttype_oçš„ç¬¬1bitè¡¨ç¤ºæ˜¯å¦æ˜¯å†…å­˜ä¿®æ”¹å¼‚å¸¸ï¼Œç¬¬2bitè¡¨ç¤ºæ˜¯å¦æ˜¯è¯»æœªåœ¨TLBä¸­æ˜ å°„çš„å†…å­˜åœ°å€å¼‚å¸¸ï¼Œç¬¬3bitè¡¨ç¤ºæ˜¯å¦æ˜¯å†™æœªåœ¨TLBä¸­æ˜ å°„çš„å†…å­˜åœ°å€å¼‚å¸¸ï¼Œ
-	//ç¬¬4bitè¡¨ç¤ºæ˜¯å¦æ˜¯è¯»è®¿é—®éå¯¹é½å¼‚å¸¸ADELï¼Œç¬¬5bitè¡¨ç¤ºæ˜¯å¦æ˜¯å†™è®¿é—®éå¯¹é½å¼‚å¸¸ï¼Œç¬¬23bitè¡¨ç¤ºæ˜¯å¦æ˜¯Watchç›‘æ§å¼‚å¸¸
+	//excepttype_oµÄµÚ1bit±íÊ¾ÊÇ·ñÊÇÄÚ´æĞŞ¸ÄÒì³££¬µÚ2bit±íÊ¾ÊÇ·ñÊÇ¶ÁÎ´ÔÚTLBÖĞÓ³ÉäµÄÄÚ´æµØÖ·Òì³££¬µÚ3bit±íÊ¾ÊÇ·ñÊÇĞ´Î´ÔÚTLBÖĞÓ³ÉäµÄÄÚ´æµØÖ·Òì³££¬
+	//µÚ4bit±íÊ¾ÊÇ·ñÊÇ¶Á·ÃÎÊ·Ç¶ÔÆëÒì³£ADEL£¬µÚ5bit±íÊ¾ÊÇ·ñÊÇĞ´·ÃÎÊ·Ç¶ÔÆëÒì³££¬µÚ23bit±íÊ¾ÊÇ·ñÊÇWatch¼à¿ØÒì³£
 	assign excepttype = {excepttype_i[31:24], excepttype_is_watch, excepttype_i[22:6], excepttype_is_ades, excepttype_is_adel, excepttype_is_tlbs_i, excepttype_is_tlbl_i, excepttype_is_tlbm_i, excepttype_i[0]};
 
-	//mem_we_oè¾“å‡ºåˆ°æ•°æ®å­˜å‚¨å™¨ï¼Œè¡¨ç¤ºæ˜¯å¦æ˜¯å¯¹æ•°æ®å­˜å‚¨å™¨çš„å†™æ“ä½œï¼Œå¦‚æœå‘ç”Ÿäº†å¼‚å¸¸ï¼Œé‚£ä¹ˆéœ€è¦å–æ¶ˆå¯¹æ•°æ®å­˜å‚¨å™¨çš„å†™æ“ä½œ
+	//mem_we_oÊä³öµ½Êı¾İ´æ´¢Æ÷£¬±íÊ¾ÊÇ·ñÊÇ¶ÔÊı¾İ´æ´¢Æ÷µÄĞ´²Ù×÷£¬Èç¹û·¢ÉúÁËÒì³££¬ÄÇÃ´ĞèÒªÈ¡Ïû¶ÔÊı¾İ´æ´¢Æ÷µÄĞ´²Ù×÷
 	assign mem_we_o = mem_we & (~(|excepttype_o));
 
 	always @ (*) begin
@@ -149,9 +149,9 @@ module mem(
 			cp0_reg_write_addr_o <= cp0_reg_write_addr_i;
 			cp0_reg_data_o <= cp0_reg_data_i;
 			bad_v_addr_o <= `ZeroWord;
-			excepttype_is_adel <= `False_v;			//é»˜è®¤æ²¡æœ‰å‘ç”Ÿè¯»è®¿é—®éå¯¹é½å¼‚å¸¸
-			excepttype_is_ades <= `False_v;			//é»˜è®¤æ²¡æœ‰å‘ç”Ÿå†™è®¿é—®éå¯¹é½å¼‚å¸¸
-			excepttype_is_watch <= `False_v;		//é»˜è®¤æ²¡æœ‰å‘ç”ŸWatchç›‘æ§å¼‚å¸¸
+			excepttype_is_adel <= `False_v;			//Ä¬ÈÏÃ»ÓĞ·¢Éú¶Á·ÃÎÊ·Ç¶ÔÆëÒì³£
+			excepttype_is_ades <= `False_v;			//Ä¬ÈÏÃ»ÓĞ·¢ÉúĞ´·ÃÎÊ·Ç¶ÔÆëÒì³£
+			excepttype_is_watch <= `False_v;		//Ä¬ÈÏÃ»ÓĞ·¢ÉúWatch¼à¿ØÒì³£
 			tlb_we_o <= `WriteDisable;
 			tlb_data_o <= `ZeroWord;
 			tlb_index_o <= 4'b0000;
@@ -442,9 +442,9 @@ module mem(
 		end
 	end
 
-	//å¾—åˆ°CP0ä¸­Statuså¯„å­˜å™¨çš„æœ€æ–°å€¼
-	//åˆ¤æ–­å½“å‰å¤„äºå›å†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­çš„Statuså¯„å­˜å™¨ï¼Œå¦‚æœè¦å†™ï¼Œé‚£ä¹ˆè¦å†™å…¥çš„å€¼å°±æ˜¯Statuså¯„å­˜å™¨çš„æœ€æ–°å€¼ï¼Œ
-	//åä¹‹ï¼Œä»CP0æ¨¡å—é€šè¿‡cp0_status_iæ¥å£ä¼ å…¥çš„æ•°æ®å°±æ˜¯Statuså¯„å­˜å™¨çš„æœ€æ–°å€¼
+	//µÃµ½CP0ÖĞStatus¼Ä´æÆ÷µÄ×îĞÂÖµ
+	//ÅĞ¶Ïµ±Ç°´¦ÓÚ»ØĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞµÄStatus¼Ä´æÆ÷£¬Èç¹ûÒªĞ´£¬ÄÇÃ´ÒªĞ´ÈëµÄÖµ¾ÍÊÇStatus¼Ä´æÆ÷µÄ×îĞÂÖµ£¬
+	//·´Ö®£¬´ÓCP0Ä£¿éÍ¨¹ıcp0_status_i½Ó¿Ú´«ÈëµÄÊı¾İ¾ÍÊÇStatus¼Ä´æÆ÷µÄ×îĞÂÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_status <= `ZeroWord;
@@ -455,9 +455,9 @@ module mem(
 		end
 	end
 
-	//å¾—åˆ°CP0ä¸­EPCå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	//åˆ¤æ–­å½“å‰å¤„äºä¼šå†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­EPCå¯„å­˜å™¨ï¼Œå¦‚æœè¦å†™ï¼Œé‚£ä¹ˆè¦å†™å…¥çš„å€¼å°±æ˜¯EPCå¯„å­˜å™¨çš„æœ€æ–°å€¼ï¼Œ
-	//åä¹‹ï¼Œä»CP0æ¨¡å—é€šè¿‡cp0_reg_iæ¥å£ä¼ å…¥çš„æ•°æ®å°±æ˜¯EPCå¯„å­˜å™¨çš„æœ€æ–°å€¼
+	//µÃµ½CP0ÖĞEPC¼Ä´æÆ÷µÄ×îĞÂÖµ
+	//ÅĞ¶Ïµ±Ç°´¦ÓÚ»áĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞEPC¼Ä´æÆ÷£¬Èç¹ûÒªĞ´£¬ÄÇÃ´ÒªĞ´ÈëµÄÖµ¾ÍÊÇEPC¼Ä´æÆ÷µÄ×îĞÂÖµ£¬
+	//·´Ö®£¬´ÓCP0Ä£¿éÍ¨¹ıcp0_reg_i½Ó¿Ú´«ÈëµÄÊı¾İ¾ÍÊÇEPC¼Ä´æÆ÷µÄ×îĞÂÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_epc <= `ZeroWord;
@@ -468,13 +468,13 @@ module mem(
 		end
 	end
 
-	//å°†EPCå¯„å­˜å™¨çš„æœ€æ–°å€¼é€šè¿‡æ¥å£cp0_epc_oè¾“å‡º
+	//½«EPC¼Ä´æÆ÷µÄ×îĞÂÖµÍ¨¹ı½Ó¿Úcp0_epc_oÊä³ö
 	assign cp0_epc_o = cp0_epc;
 
-	//å¾—åˆ°CP0ä¸­Causeå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	//åˆ¤æ–­å½“å‰å¤„äºä¼šå†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­çš„Causeå¯„å­˜å™¨ï¼Œå¦‚æœè¦å†™ï¼Œé‚£ä¹ˆè¦å†™å…¥çš„å€¼å°±æ˜¯Causeå¯„å­˜å™¨çš„æœ€æ–°å€¼ï¼Œ
-	//ä¸è¿‡è¦æ³¨æ„ä¸€ç‚¹ï¼šCauseå¯„å­˜å™¨åªæœ‰å‡ ä¸ªå­—æ®µæ˜¯å¯å†™çš„
-	//åä¹‹ï¼Œä»CP0æ¨¡å—é€šè¿‡cp0_cause_iæ¥å£ä¼ å…¥çš„æ•°æ®å°±æ˜¯Causeå¯„å­˜å™¨çš„æœ€æ–°å€¼
+	//µÃµ½CP0ÖĞCause¼Ä´æÆ÷µÄ×îĞÂÖµ
+	//ÅĞ¶Ïµ±Ç°´¦ÓÚ»áĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞµÄCause¼Ä´æÆ÷£¬Èç¹ûÒªĞ´£¬ÄÇÃ´ÒªĞ´ÈëµÄÖµ¾ÍÊÇCause¼Ä´æÆ÷µÄ×îĞÂÖµ£¬
+	//²»¹ıÒª×¢ÒâÒ»µã£ºCause¼Ä´æÆ÷Ö»ÓĞ¼¸¸ö×Ö¶ÎÊÇ¿ÉĞ´µÄ
+	//·´Ö®£¬´ÓCP0Ä£¿éÍ¨¹ıcp0_cause_i½Ó¿Ú´«ÈëµÄÊı¾İ¾ÍÊÇCause¼Ä´æÆ÷µÄ×îĞÂÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_cause <= `ZeroWord;
@@ -485,9 +485,9 @@ module mem(
 		end
 	end
 
-	//å¾—åˆ°CP0ä¸­Indexå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	//åˆ¤æ–­å½“å‰å¤„äºä¼šå†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­Indexå¯„å­˜å™¨ï¼Œå¦‚æœè¦å†™ï¼Œé‚£ä¹ˆè¦å†™å…¥çš„å€¼å°±æ˜¯Indexå¯„å­˜å™¨çš„æœ€æ–°å€¼ï¼Œ
-	//åä¹‹ï¼Œä»CP0æ¨¡å—é€šè¿‡cp0_reg_iæ¥å£ä¼ å…¥çš„æ•°æ®å°±æ˜¯Indexå¯„å­˜å™¨çš„æœ€æ–°å€¼
+	//µÃµ½CP0ÖĞIndex¼Ä´æÆ÷µÄ×îĞÂÖµ
+	//ÅĞ¶Ïµ±Ç°´¦ÓÚ»áĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞIndex¼Ä´æÆ÷£¬Èç¹ûÒªĞ´£¬ÄÇÃ´ÒªĞ´ÈëµÄÖµ¾ÍÊÇIndex¼Ä´æÆ÷µÄ×îĞÂÖµ£¬
+	//·´Ö®£¬´ÓCP0Ä£¿éÍ¨¹ıcp0_reg_i½Ó¿Ú´«ÈëµÄÊı¾İ¾ÍÊÇIndex¼Ä´æÆ÷µÄ×îĞÂÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_index <= `ZeroWord;
@@ -498,9 +498,9 @@ module mem(
 		end
 	end
 
-	//å¾—åˆ°CP0ä¸­EntryLo0å¯„å­˜å™¨çš„æœ€æ–°å€¼
-	//åˆ¤æ–­å½“å‰å¤„äºä¼šå†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­EntryLo0å¯„å­˜å™¨ï¼Œå¦‚æœè¦å†™ï¼Œé‚£ä¹ˆè¦å†™å…¥çš„å€¼å°±æ˜¯EntryLo0å¯„å­˜å™¨çš„æœ€æ–°å€¼ï¼Œ
-	//åä¹‹ï¼Œä»CP0æ¨¡å—é€šè¿‡cp0_reg_iæ¥å£ä¼ å…¥çš„æ•°æ®å°±æ˜¯EntryLo0å¯„å­˜å™¨çš„æœ€æ–°å€¼
+	//µÃµ½CP0ÖĞEntryLo0¼Ä´æÆ÷µÄ×îĞÂÖµ
+	//ÅĞ¶Ïµ±Ç°´¦ÓÚ»áĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞEntryLo0¼Ä´æÆ÷£¬Èç¹ûÒªĞ´£¬ÄÇÃ´ÒªĞ´ÈëµÄÖµ¾ÍÊÇEntryLo0¼Ä´æÆ÷µÄ×îĞÂÖµ£¬
+	//·´Ö®£¬´ÓCP0Ä£¿éÍ¨¹ıcp0_reg_i½Ó¿Ú´«ÈëµÄÊı¾İ¾ÍÊÇEntryLo0¼Ä´æÆ÷µÄ×îĞÂÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_entry_lo_0 <= `ZeroWord;
@@ -511,9 +511,9 @@ module mem(
 		end
 	end
 
-	//å¾—åˆ°CP0ä¸­EntryLo1å¯„å­˜å™¨çš„æœ€æ–°å€¼
-	//åˆ¤æ–­å½“å‰å¤„äºä¼šå†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­EntryLo1å¯„å­˜å™¨ï¼Œå¦‚æœè¦å†™ï¼Œé‚£ä¹ˆè¦å†™å…¥çš„å€¼å°±æ˜¯EntryLo1å¯„å­˜å™¨çš„æœ€æ–°å€¼ï¼Œ
-	//åä¹‹ï¼Œä»CP0æ¨¡å—é€šè¿‡cp0_reg_iæ¥å£ä¼ å…¥çš„æ•°æ®å°±æ˜¯EntryLo1å¯„å­˜å™¨çš„æœ€æ–°å€¼
+	//µÃµ½CP0ÖĞEntryLo1¼Ä´æÆ÷µÄ×îĞÂÖµ
+	//ÅĞ¶Ïµ±Ç°´¦ÓÚ»áĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞEntryLo1¼Ä´æÆ÷£¬Èç¹ûÒªĞ´£¬ÄÇÃ´ÒªĞ´ÈëµÄÖµ¾ÍÊÇEntryLo1¼Ä´æÆ÷µÄ×îĞÂÖµ£¬
+	//·´Ö®£¬´ÓCP0Ä£¿éÍ¨¹ıcp0_reg_i½Ó¿Ú´«ÈëµÄÊı¾İ¾ÍÊÇEntryLo1¼Ä´æÆ÷µÄ×îĞÂÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_entry_lo_1 <= `ZeroWord;
@@ -524,9 +524,9 @@ module mem(
 		end
 	end
 
-	//å¾—åˆ°CP0ä¸­EntryHiå¯„å­˜å™¨çš„æœ€æ–°å€¼
-	//åˆ¤æ–­å½“å‰å¤„äºä¼šå†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ä¸­EntryHiå¯„å­˜å™¨ï¼Œå¦‚æœè¦å†™ï¼Œé‚£ä¹ˆè¦å†™å…¥çš„å€¼å°±æ˜¯EntryHiå¯„å­˜å™¨çš„æœ€æ–°å€¼ï¼Œ
-	//åä¹‹ï¼Œä»CP0æ¨¡å—é€šè¿‡cp0_reg_iæ¥å£ä¼ å…¥çš„æ•°æ®å°±æ˜¯EntryHiå¯„å­˜å™¨çš„æœ€æ–°å€¼
+	//µÃµ½CP0ÖĞEntryHi¼Ä´æÆ÷µÄ×îĞÂÖµ
+	//ÅĞ¶Ïµ±Ç°´¦ÓÚ»áĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0ÖĞEntryHi¼Ä´æÆ÷£¬Èç¹ûÒªĞ´£¬ÄÇÃ´ÒªĞ´ÈëµÄÖµ¾ÍÊÇEntryHi¼Ä´æÆ÷µÄ×îĞÂÖµ£¬
+	//·´Ö®£¬´ÓCP0Ä£¿éÍ¨¹ıcp0_reg_i½Ó¿Ú´«ÈëµÄÊı¾İ¾ÍÊÇEntryHi¼Ä´æÆ÷µÄ×îĞÂÖµ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			cp0_entry_hi <= `ZeroWord;
@@ -537,7 +537,7 @@ module mem(
 		end
 	end
 
-	//ç»™å‡ºæœ€ç»ˆçš„å¼‚å¸¸ç±»å‹
+	//¸ø³ö×îÖÕµÄÒì³£ÀàĞÍ
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			excepttype_o <= `ZeroWord;

@@ -6,30 +6,30 @@ module if_id(
 	input		wire[5:0]				stall,
 	input		wire					flush,
 
-	//æ¥è‡ªå–æŒ‡é˜¶æ®µçš„ä¿¡å·ï¼Œå…¶ä¸­å®å®šä¹‰InstBusè¡¨ç¤ºæŒ‡ä»¤å®½åº¦ï¼Œä¸º32
+	//À´×ÔÈ¡Ö¸½×¶ÎµÄĞÅºÅ£¬ÆäÖĞºê¶¨ÒåInstBus±íÊ¾Ö¸Áî¿í¶È£¬Îª32
 	input		wire[`InstAddrBus]		if_pc,
 	input		wire[`InstBus]			if_inst,
 
-	//å¯¹åº”è¯‘ç é˜¶æ®µçš„ä¿¡å·
+	//¶ÔÓ¦ÒëÂë½×¶ÎµÄĞÅºÅ
 	output		reg[`InstAddrBus]		id_pc,
 	output		reg[`InstBus]			id_inst
 	);
 
-	//ï¼ˆ1ï¼‰å½“stall[1]ä¸ºStopï¼Œstall[2]ä½NoStopæ—¶ï¼Œè¡¨ç¤ºå–æŒ‡é˜¶æ®µæš‚åœï¼Œè€Œè¯‘ç é˜¶æ®µç»§ç»­ï¼Œæ‰€ä»¥ä½¿ç”¨ç©ºæŒ‡ä»¤ä½œä¸ºä¸‹ä¸€ä¸ªå‘¨æœŸè¿›å…¥è¯‘ç é˜¶æ®µçš„æŒ‡ä»¤
-	//ï¼ˆ2ï¼‰å½“stall[1]ä½NoStopæ—¶ï¼Œå–æŒ‡é˜¶æ®µç»§ç»­ï¼Œå–å¾—çš„æŒ‡ä»¤è¿›å…¥è¯‘ç é˜¶æ®µ
-	//ï¼ˆ3ï¼‰å…¶ä½™æƒ…å†µä¸‹ï¼Œä¿æŒè¯‘ç é˜¶æ®µçš„å¯„å­˜å™¨id_pcã€id_instä¸å˜
+	//£¨1£©µ±stall[1]ÎªStop£¬stall[2]Î»NoStopÊ±£¬±íÊ¾È¡Ö¸½×¶ÎÔİÍ££¬¶øÒëÂë½×¶Î¼ÌĞø£¬ËùÒÔÊ¹ÓÃ¿ÕÖ¸Áî×÷ÎªÏÂÒ»¸öÖÜÆÚ½øÈëÒëÂë½×¶ÎµÄÖ¸Áî
+	//£¨2£©µ±stall[1]Î»NoStopÊ±£¬È¡Ö¸½×¶Î¼ÌĞø£¬È¡µÃµÄÖ¸Áî½øÈëÒëÂë½×¶Î
+	//£¨3£©ÆäÓàÇé¿öÏÂ£¬±£³ÖÒëÂë½×¶ÎµÄ¼Ä´æÆ÷id_pc¡¢id_inst²»±ä
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin
-			id_pc <= `ZeroWord;						//å¤ä½çš„æ—¶å€™pcä¸º0
-			id_inst <= `ZeroWord;					//å¤ä½çš„æ—¶å€™æŒ‡ä»¤ä¹Ÿä¸º0ï¼Œå…¶å®å°±æ˜¯ç©ºæŒ‡ä»¤
-		end else if (flush == 1'b1) begin			//flushä¸º1è¡¨ç¤ºå¼‚å¸¸å‘ç”Ÿï¼Œè¦æ¸…é™¤æµæ°´çº¿ï¼Œæ‰€ä»¥å¤ä½id_pc,id_instå¯„å­˜å™¨çš„å€¼
+			id_pc <= `ZeroWord;						//¸´Î»µÄÊ±ºòpcÎª0
+			id_inst <= `ZeroWord;					//¸´Î»µÄÊ±ºòÖ¸ÁîÒ²Îª0£¬ÆäÊµ¾ÍÊÇ¿ÕÖ¸Áî
+		end else if (flush == 1'b1) begin			//flushÎª1±íÊ¾Òì³£·¢Éú£¬ÒªÇå³ıÁ÷Ë®Ïß£¬ËùÒÔ¸´Î»id_pc,id_inst¼Ä´æÆ÷µÄÖµ
 			id_pc <= `ZeroWord;
 			id_inst <= `ZeroWord;
 		end else if (stall[1] == `Stop && stall[2] == `NoStop) begin
 			id_pc <= `ZeroWord;
 			id_inst <= `ZeroWord;
 		end else if (stall[1] == `NoStop) begin
-			id_pc <= if_pc;							//å…¶ä½™æ—¶åˆ»å‘ä¸‹ä¼ é€’å–æŒ‡é˜¶æ®µçš„å€¼
+			id_pc <= if_pc;							//ÆäÓàÊ±¿ÌÏòÏÂ´«µİÈ¡Ö¸½×¶ÎµÄÖµ
 			id_inst <= if_inst;
 		end
 	end
