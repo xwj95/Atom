@@ -31,10 +31,9 @@ module ram_driver (
 	assign baseram_data = baseram_oe ? base_data_latch : {32{1'bz}}, 
 		extram_data = extram_oe ? extra_data_latch : {32{1'bz}};
 		
-	reg[2:0] base_state;
-	reg[2:0] extra_state;
-	localparam IDLE = 3'b000, READ1 = 3'b001, READ2 = 3'b011, READ3 = 3'b010,
-		WRITE1 = 3'b110, WRITE2 = 3'b111;
+	reg base_state;
+	reg extra_state;
+	localparam IDLE = 1'b0, WRITE1 = 1'b1;
 
 	reg[`DataBus] extra_data_out;
 	reg[`DataBus] base_data_out;
@@ -64,7 +63,7 @@ module ram_driver (
 						end else if (write_enable == 1'b1) begin
 							baseram_ce <= 1'b0;
 							baseram_oe <= 1'b1;
-							baseram_we <= 1'b1;
+							baseram_we <= 1'b0;
 							baseram_addr <= addr[`DataMemNumLog2-2:0];
 							base_data_latch <= data_in;
 							base_state <= WRITE1;
@@ -75,17 +74,10 @@ module ram_driver (
 					end
 				end
 				WRITE1: begin
-					baseram_we <= 1'b0;
-					base_state <= WRITE2;
-				end
-				WRITE2: begin
 					baseram_ce <= 1'b1;
 					baseram_we <= 1'b1;
 					baseram_oe <= 1'b1;
 					base_ack <= 1'b1;
-					base_state <= IDLE;
-				end
-				default: begin
 					base_state <= IDLE;
 				end
 			endcase
@@ -112,7 +104,7 @@ module ram_driver (
 						end else if (write_enable == 1'b1) begin
 							extram_ce <= 1'b0;
 							extram_oe <= 1'b1;
-							extram_we <= 1'b1;
+							extram_we <= 1'b0;
 							extram_addr <= addr[`DataMemNumLog2-2:0];
 							extra_data_latch <= data_in;
 							extra_state <= WRITE1;
@@ -122,25 +114,11 @@ module ram_driver (
 						end
 					end
 				end
-				READ3: begin
-					extram_ce <= 1'b1;
-					extram_oe <= 1'b1;
-					extram_we <= 1'b1;
-					extra_ack <= 1'b1;
-					extra_state <= IDLE;
-				end
 				WRITE1: begin
-					extram_we <= 1'b0;
-					extra_state <= WRITE2;
-				end
-				WRITE2: begin
 					extram_ce <= 1'b1;
 					extram_we <= 1'b1;
 					extram_oe <= 1'b1;
 					extra_ack <= 1'b1;
-					extra_state <= IDLE;
-				end
-				default: begin
 					extra_state <= IDLE;
 				end
 			endcase
