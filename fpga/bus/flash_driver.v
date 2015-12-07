@@ -59,20 +59,24 @@ module flash_driver (
 	reg [2:0] read_wait_cnt;
 	always @ (posedge clk) begin
 		case (state)
+			ack <= 1'b1;
 			IDLE: begin
 				addr_latch <= addr;
 				if (enable_write) begin
+					ack <= 1'b0;
 					data_in_latch <= data_in;
 					flash_we <= 0;
 					data_to_write <= 16'h0040;
 					state <= WRITE1;
 					busy <= 1;
 				end else if (enable_erase) begin
+					ack <= 1'b0;
 					flash_we <= 0;
 					data_to_write <= 16'h0020;
 					state <= ERASE1;
 					busy <= 1;
 				end else if (enable_read) begin
+					ack <= 1'b0;
 					flash_we <= 0;
 					data_to_write <= 16'h00ff;
 					state <= READ1;
