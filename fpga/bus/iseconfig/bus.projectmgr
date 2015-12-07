@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!--This is an ISE project configuration file.-->
 <!--It holds project specific layout data for the projectmgr plugin.-->
 <!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
@@ -8,6 +8,7 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/bus Z:|Documents|Project|fpga|bus|bus.v</ClosedNode>
+         <ClosedNode>/bus_test E:|course|GitRepository|proj8|fpga|bus|bus_test.v/bus_top0 - bus_top</ClosedNode>
          <ClosedNode>/bus_test Z:|Documents|Project|fpga|bus|bus_test.v/bus0 - bus</ClosedNode>
          <ClosedNode>/bus_test Z:|Documents|Project|fpga|bus|bus_test.v/bus_top0 - bus_top/bus0 - bus</ClosedNode>
          <ClosedNode>/bus_test Z:|Documents|Project|fpga|bus|bus_test.v/bus_top0 - bus_top/digseg0 - digseg</ClosedNode>
@@ -26,31 +27,32 @@
          <ClosedNode>/uart_async_transmitter Z:|Documents|Project|fpga|bus|uart_driver.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>bus_test (Z:/Documents/Project/fpga/bus/bus_test.v)</SelectedItem>
+         <SelectedItem>bus_test (E:/course/GitRepository/proj8/fpga/bus/bus_test.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >9</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000010d000000020000000000000000000000000200000064ffffffff0000008100000003000000020000010d0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000010b000000020000000000000000000000000200000064ffffffff0000008100000003000000020000010b0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>bus_test (Z:/Documents/Project/fpga/bus/bus_test.v)</CurrentItem>
+      <CurrentItem>bus_test (E:/course/GitRepository/proj8/fpga/bus/bus_test.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
          <ClosedNode>Implement Design</ClosedNode>
          <ClosedNode>Synthesize - XST</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Configure Target Device</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000e7000000010000000100000000000000000000000064ffffffff000000810000000000000001000000e70000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Configure Target Device</CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -59,9 +61,9 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000218000000040101000100000000000000000000000064ffffffff000000810000000000000004000000760000000100000000000000c000000001000000000000007800000001000000000000006a0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027d000000040101000100000000000000000000000064ffffffff000000810000000000000004000000760000000100000000000000c00000000100000000000000780000000100000000000000cf0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>bus.ucf</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
