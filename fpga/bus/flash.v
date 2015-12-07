@@ -20,9 +20,9 @@ module flash (
 	assign bus_data_o = {{16{1'b0}}, output_data};
 
 	flash_driver flash_driver0(
-		.clk(bus_clk_i), .addr(bus_addr_i[`FlashAddrBusWord]), .data_in(bus_data_i[`FlashDataBus]), 
+		.clk(clk), .addr(bus_addr_i[`FlashAddrBusWord]), .data_in(bus_data_i[`FlashDataBus]), 
 		.data_out(output_data), .enable_erase(1'b0), 
-		.enable_read(!bus_we_i), .enable_write(1'b0),
+		.enable_read(!bus_we_i), .enable_write(bus_we_i),
 		.flash_ctl(flash_ctl), .flash_addr(flash_addr), .flash_data(flash_data), 
 		.ack(bus_ack_o)
 	);
