@@ -207,9 +207,6 @@ Elaborating module <cpu_top>.
 Elaborating module <openmips_min_sopc>.
 
 Elaborating module <openmips>.
-WARNING:HDLCompiler:413 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 206: Result of 32-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 208: Result of 32-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 211: Result of 32-bit expression is truncated to fit in 1-bit target.
 
 Elaborating module <pc_reg>.
 
@@ -234,9 +231,9 @@ Elaborating module <hilo_reg>.
 Elaborating module <ctrl>.
 
 Elaborating module <cp0_reg>.
-WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 612: Assignment to cp0_count ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 614: Assignment to cp0_compare ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 618: Assignment to cp0_ebase ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 631: Assignment to cp0_count ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 633: Assignment to cp0_compare ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" Line 637: Assignment to cp0_ebase ignored, since the identifier is never used
 
 Elaborating module <mmu>.
 
@@ -317,14 +314,14 @@ Unit <openmips_min_sopc> synthesized.
 
 Synthesizing Unit <openmips>.
     Related source file is "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v".
-WARNING:Xst:647 - Input <select<14:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <select<22:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <select<6:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <select<15:11>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <select<31:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 592: Output port <count_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 592: Output port <compare_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 592: Output port <ebase_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 611: Output port <count_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 611: Output port <compare_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "\\psf\home\Documents\Project\fpga\OpenMIPS\openmips.v" line 611: Output port <ebase_o> of the instance <cp0_reg0> is unconnected or connected to loadless signal.
     Summary:
-	inferred   2 Multiplexer(s).
+	inferred  12 Multiplexer(s).
 Unit <openmips> synthesized.
 
 Synthesizing Unit <pc_reg>.
@@ -723,10 +720,9 @@ WARNING:Xst:647 - Input <if_we_i> is never used. This port will be preserved and
     Found 1-bit register for signal <tlb_write_o>.
     Found 32-bit register for signal <tlb_addr_o>.
     Found 3-bit register for signal <mmu_state>.
-    Found 3-bit 7-to-1 multiplexer for signal <_n0150> created at line 153.
     Summary:
 	inferred 120 D-type flip-flop(s).
-	inferred  77 Multiplexer(s).
+	inferred  94 Multiplexer(s).
 Unit <mmu> synthesized.
 
 Synthesizing Unit <tlb>.
@@ -1108,16 +1104,15 @@ Macro Statistics
  32-bit comparator greater                             : 1
  32-bit comparator lessequal                           : 7
  5-bit comparator equal                                : 8
-# Multiplexers                                         : 746
- 1-bit 2-to-1 multiplexer                              : 416
+# Multiplexers                                         : 773
+ 1-bit 2-to-1 multiplexer                              : 433
  1-bit 3-to-1 multiplexer                              : 1
  1-bit 4-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 13
  18-bit 2-to-1 multiplexer                             : 1
  22-bit 2-to-1 multiplexer                             : 1
- 3-bit 2-to-1 multiplexer                              : 29
- 3-bit 7-to-1 multiplexer                              : 1
- 32-bit 2-to-1 multiplexer                             : 221
+ 3-bit 2-to-1 multiplexer                              : 28
+ 32-bit 2-to-1 multiplexer                             : 233
  32-bit 4-to-1 multiplexer                             : 8
  32-bit 8-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 6
@@ -1273,62 +1268,6 @@ WARNING:Xst:1710 - FF/Latch <cause_o_26> (without init value) has a constant val
 WARNING:Xst:1710 - FF/Latch <cause_o_25> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_20> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cause_o_24> (without init value) has a constant value of 0 in block <cp0_reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_15> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_14> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_13> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_12> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_11> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_10> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_9> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_8> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_7> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_6> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_5> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_4> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_3> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_2> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_1> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <wishbone_addr_o_22> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_23> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_24> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_25> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_26> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_27> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_28> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_29> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_30> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <wishbone_addr_o_31> of sequential type is unconnected in block <wishbone_bus0>.
-WARNING:Xst:2677 - Node <output_data_1> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_2> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_3> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_4> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_5> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_6> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_7> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_8> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_9> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_10> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_11> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_12> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_13> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_14> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_15> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_16> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_17> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_18> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_19> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_20> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_21> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_22> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_23> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_24> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_25> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_26> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_27> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_28> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_29> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_30> of sequential type is unconnected in block <regfile1>.
-WARNING:Xst:2677 - Node <output_data_31> of sequential type is unconnected in block <regfile1>.
 WARNING:Xst:2677 - Node <ex_inst_16> of sequential type is unconnected in block <id_ex0>.
 WARNING:Xst:2677 - Node <ex_inst_17> of sequential type is unconnected in block <id_ex0>.
 WARNING:Xst:2677 - Node <ex_inst_18> of sequential type is unconnected in block <id_ex0>.
@@ -1466,16 +1405,15 @@ Macro Statistics
  32-bit comparator greater                             : 1
  32-bit comparator lessequal                           : 7
  5-bit comparator equal                                : 8
-# Multiplexers                                         : 742
- 1-bit 2-to-1 multiplexer                              : 414
+# Multiplexers                                         : 769
+ 1-bit 2-to-1 multiplexer                              : 431
  1-bit 3-to-1 multiplexer                              : 1
  1-bit 4-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 13
  18-bit 2-to-1 multiplexer                             : 1
  22-bit 2-to-1 multiplexer                             : 1
- 3-bit 2-to-1 multiplexer                              : 27
- 3-bit 7-to-1 multiplexer                              : 1
- 32-bit 2-to-1 multiplexer                             : 221
+ 3-bit 2-to-1 multiplexer                              : 26
+ 32-bit 2-to-1 multiplexer                             : 233
  32-bit 4-to-1 multiplexer                             : 8
  32-bit 8-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 6
@@ -1788,100 +1726,83 @@ WARNING:Xst:1710 - FF/Latch <sopc/openmips0/mmu0/mmu_select_o_10> (without init 
 WARNING:Xst:1710 - FF/Latch <sopc/openmips0/mmu0/mmu_select_o_11> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <sopc/openmips0/mmu0/mmu_select_o_12> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <sopc/openmips0/mmu0/mmu_select_o_13> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_12> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_11> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_10> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_9> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_8> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_7> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_6> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_5> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_4> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_3> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_2> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_1> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_0> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <sopc/openmips0/mmu0/mmu_select_o_15> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <sopc/openmips0/mmu0/mmu_select_o_14> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_9> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_8> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_7> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_6> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_5> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_4> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_3> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_2> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_1> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/mmu0/mmu_select_o_15> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_0> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_1> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_2> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_3> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_4> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_5> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_6> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_7> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_8> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_9> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_10> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_11> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sopc/openmips0/wishbone_bus0/wishbone_data_o_12> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_0> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_29> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_28> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_27> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_26> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_25> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_24> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_23> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_22> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_21> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_20> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_19> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_18> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_17> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_16> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_15> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_14> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_13> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_1> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_2> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_3> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_4> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_5> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_6> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_7> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_8> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_9> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_10> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_11> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_12> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_13> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_14> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <led_15> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_31> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_30> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_26> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_25> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_24> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_23> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_22> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_21> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_20> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_19> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_18> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_17> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_16> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_15> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_14> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_13> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_12> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_11> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_10> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_12> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_11> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_10> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_9> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_8> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_7> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_6> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_5> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_4> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_3> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_2> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_1> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_0> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_31> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_30> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_29> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_28> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_2> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_3> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_4> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_5> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_6> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_7> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_8> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_9> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_10> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_11> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_12> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_13> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_14> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_16> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_17> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_18> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_19> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_20> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_21> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_22> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_23> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_24> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_25> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_26> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_27> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_28> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_29> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_30> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_31> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_1> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_2> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_3> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_4> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_5> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_6> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_7> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_8> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_9> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_10> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_11> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_12> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_13> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_14> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_16> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_17> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_18> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_19> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_20> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_21> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_22> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_23> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_24> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_25> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_26> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_27> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_28> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_29> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_30> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_31> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_0> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <sopc/openmips0/wishbone_bus0/wishbone_addr_o_31> of sequential type is unconnected in block <cpu_top>.
 WARNING:Xst:2677 - Node <sopc/openmips0/wishbone_bus0/wishbone_addr_o_30> of sequential type is unconnected in block <cpu_top>.
 WARNING:Xst:2677 - Node <sopc/openmips0/wishbone_bus0/wishbone_addr_o_29> of sequential type is unconnected in block <cpu_top>.
@@ -1974,6 +1895,8 @@ WARNING:Xst:2677 - Node <sopc/openmips0/mmu0/mmu_addr_o_25> of sequential type i
 WARNING:Xst:2677 - Node <sopc/openmips0/mmu0/mmu_addr_o_24> of sequential type is unconnected in block <cpu_top>.
 WARNING:Xst:2677 - Node <sopc/openmips0/mmu0/mmu_addr_o_23> of sequential type is unconnected in block <cpu_top>.
 WARNING:Xst:2677 - Node <sopc/openmips0/mmu0/mmu_addr_o_22> of sequential type is unconnected in block <cpu_top>.
+WARNING:Xst:1293 - FF/Latch <sopc/bus_top0/ram0/ram_driver0/extra_data_latch_15> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sopc/bus_top0/ram0/ram_driver0/base_data_latch_15> has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <sopc/bus_top0/ram0/ram_driver0/baseram_addr_19> (without init value) has a constant value of 0 in block <cpu_top>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
@@ -1998,8 +1921,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1326
- Flip-Flops                                            : 1326
+# Registers                                            : 1341
+ Flip-Flops                                            : 1341
 
 =========================================================================
 
@@ -2022,21 +1945,21 @@ Top Level Output File Name         : cpu_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 4470
+# BELS                             : 4567
 #      GND                         : 1
 #      INV                         : 177
 #      LUT1                        : 140
-#      LUT2                        : 254
-#      LUT3                        : 251
-#      LUT4                        : 548
-#      LUT5                        : 575
-#      LUT6                        : 1626
+#      LUT2                        : 260
+#      LUT3                        : 260
+#      LUT4                        : 561
+#      LUT5                        : 592
+#      LUT6                        : 1681
 #      MUXCY                       : 435
-#      MUXF7                       : 60
+#      MUXF7                       : 57
 #      VCC                         : 1
 #      XORCY                       : 402
-# FlipFlops/Latches                : 1326
-#      FD                          : 36
+# FlipFlops/Latches                : 1341
+#      FD                          : 51
 #      FDE                         : 120
 #      FDR                         : 109
 #      FDRE                        : 1051
@@ -2049,8 +1972,8 @@ Primitive and Black Box Usage:
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 199
-#      IBUF                        : 11
+# IO Buffers                       : 209
+#      IBUF                        : 21
 #      IOBUF                       : 80
 #      OBUF                        : 108
 # DSPs                             : 4
@@ -2064,22 +1987,22 @@ Selected Device : 6slx100fgg676-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:            1325  out of  126576     1%  
- Number of Slice LUTs:                 3619  out of  63288     5%  
-    Number used as Logic:              3571  out of  63288     5%  
+ Number of Slice LUTs:                 3719  out of  63288     5%  
+    Number used as Logic:              3671  out of  63288     5%  
     Number used as Memory:               48  out of  15616     0%  
        Number used as RAM:               48
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   4322
-   Number with an unused Flip Flop:    2997  out of   4322    69%  
-   Number with an unused LUT:           703  out of   4322    16%  
-   Number of fully used LUT-FF pairs:   622  out of   4322    14%  
-   Number of unique control sets:        38
+ Number of LUT Flip Flop pairs used:   4377
+   Number with an unused Flip Flop:    3052  out of   4377    69%  
+   Number with an unused LUT:           658  out of   4377    15%  
+   Number of fully used LUT-FF pairs:   667  out of   4377    15%  
+   Number of unique control sets:        37
 
 IO Utilization: 
  Number of IOs:                         224
- Number of bonded IOBs:                 200  out of    480    41%  
-    IOB Flip Flops/Latches:               1
+ Number of bonded IOBs:                 210  out of    480    43%  
+    IOB Flip Flops/Latches:              16
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                1  out of    268     0%  
@@ -2108,7 +2031,7 @@ Clock Information:
 -----------------------------------+----------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                    | Load  |
 -----------------------------------+----------------------------------------------------------+-------+
-clk                                | BUFGP                                                    | 2     |
+clk                                | BUFGP                                                    | 17    |
 sopc/clk_tmp(sopc/Mmux_clk_tmp11:O)| BUFG(*)(sopc/bus_top0/ram0/ram_driver0/extra_data_out_31)| 1339  |
 -----------------------------------+----------------------------------------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
@@ -2124,7 +2047,7 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 22.261ns (Maximum Frequency: 44.921MHz)
-   Minimum input arrival time before clock: 19.501ns
+   Minimum input arrival time before clock: 19.503ns
    Maximum output required time after clock: 5.321ns
    Maximum combinational path delay: No path found
 
@@ -2156,7 +2079,7 @@ Delay:               1.493ns (Levels of Logic = 0)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sopc/clk_tmp'
   Clock period: 22.261ns (frequency: 44.921MHz)
-  Total number of paths / destination ports: 129387973771 / 3204
+  Total number of paths / destination ports: 129387915405 / 3204
 -------------------------------------------------------------------------
 Delay:               22.261ns (Levels of Logic = 26)
   Source:            sopc/openmips0/id_ex0/ex_aluop_2 (FF)
@@ -2190,8 +2113,8 @@ Delay:               22.261ns (Levels of Logic = 26)
      MUXCY:CI->O           1   0.019   0.000  sopc/openmips0/ex0/Madd_hilo_temp[63]_GND_9_o_add_163_OUT_cy<29> (sopc/openmips0/ex0/Madd_hilo_temp[63]_GND_9_o_add_163_OUT_cy<29>)
      XORCY:CI->O           4   0.180   0.684  sopc/openmips0/ex0/Madd_hilo_temp[63]_GND_9_o_add_163_OUT_xor<30> (sopc/openmips0/ex0/hilo_temp[63]_GND_9_o_add_163_OUT<30>)
      LUT6:I5->O            9   0.205   0.934  sopc/openmips0/id0/Mmux_GND_6_o_imm[31]_mux_269_OUT1661 (sopc/openmips0/id_reg1_o<30>)
-     LUT5:I3->O            1   0.203   0.808  sopc/openmips0/id0/n01117_SW1 (N778)
-     LUT6:I3->O            3   0.205   0.651  sopc/openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N650)
+     LUT5:I3->O            1   0.203   0.808  sopc/openmips0/id0/n01117_SW1 (N776)
+     LUT6:I3->O            3   0.205   0.651  sopc/openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N648)
      LUT6:I5->O            1   0.205   0.580  sopc/openmips0/id0/Mmux_branch_target_address_o10111_1 (sopc/openmips0/id0/Mmux_branch_target_address_o10111)
      LUT6:I5->O            1   0.205   0.580  sopc/openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT294 (sopc/openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT293)
      LUT6:I5->O            1   0.205   0.000  sopc/openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT295 (sopc/openmips0/pc_reg0/pc[31]_new_pc[31]_mux_10_OUT<6>)
@@ -2202,29 +2125,38 @@ Delay:               22.261ns (Levels of Logic = 26)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 2 / 1
+  Total number of paths / destination ports: 835 / 16
 -------------------------------------------------------------------------
-Offset:              2.451ns (Levels of Logic = 2)
-  Source:            sw_dip<23> (PAD)
-  Destination:       led_0 (FF)
+Offset:              12.783ns (Levels of Logic = 11)
+  Source:            rst (PAD)
+  Destination:       led_7 (FF)
   Destination Clock: clk rising
 
-  Data Path: sw_dip<23> to led_0
+  Data Path: rst to led_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.222   0.924  sw_dip_23_IBUF (sw_dip_23_IBUF)
-     LUT5:I0->O            1   0.203   0.000  sopc/openmips0/Mmux_data_output11 (regfile_data_o<0>)
-     FD:D                      0.102          led_0
+     IBUF:I->O          1207   1.222   2.361  rst_IBUF (rst_IBUF)
+     LUT2:I0->O            3   0.203   0.995  sopc/openmips0/tlb0/Mmux_tlb_addr111 (sopc/openmips0/tlb_addr_i<19>)
+     LUT6:I1->O            1   0.203   0.580  sopc/openmips0/tlb0/GND_19_o_tlb_addr[31]_AND_1290_o1_SW0 (N168)
+     LUT6:I5->O            2   0.205   0.961  sopc/openmips0/tlb0/GND_19_o_tlb_addr[31]_AND_1290_o1 (sopc/openmips0/tlb0/GND_19_o_tlb_addr[31]_AND_1290_o1)
+     LUT5:I0->O            2   0.203   0.721  sopc/openmips0/tlb0/tlb_addr[31]_GND_19_o_equal_36_o<31>11 (sopc/openmips0/tlb0/tlb_addr[31]_GND_19_o_equal_36_o<31>1)
+     LUT6:I4->O            1   0.203   0.580  sopc/openmips0/tlb0/tlb_addr[31]_GND_19_o_equal_36_o<31>2_SW1 (N1053)
+     LUT6:I5->O            7   0.205   0.878  sopc/openmips0/tlb0/tlb_addr[31]_GND_19_o_equal_36_o<31>2 (sopc/openmips0/tlb0/tlb_addr[31]_GND_19_o_equal_36_o<31>2)
+     LUT5:I3->O            1   0.203   0.944  sopc/openmips0/tlb0/Mmux_tlb_select7_SW1 (N1049)
+     LUT6:I0->O            2   0.203   0.721  sopc/openmips0/tlb0/Mmux_tlb_select7 (sopc/openmips0/tlb_select_i<7>)
+     LUT6:I4->O            1   0.203   0.684  sopc/openmips0/Mmux_data_output1014 (sopc/openmips0/Mmux_data_output1013)
+     LUT6:I4->O            1   0.203   0.000  sopc/openmips0/Mmux_data_output1015 (regfile_data_o<7>)
+     FD:D                      0.102          led_7
     ----------------------------------------
-    Total                      2.451ns (1.527ns logic, 0.924ns route)
-                                       (62.3% logic, 37.7% route)
+    Total                     12.783ns (3.358ns logic, 9.425ns route)
+                                       (26.3% logic, 73.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sopc/clk_tmp'
-  Total number of paths / destination ports: 1514535 / 2548
+  Total number of paths / destination ports: 1513110 / 2548
 -------------------------------------------------------------------------
-Offset:              19.501ns (Levels of Logic = 17)
+Offset:              19.503ns (Levels of Logic = 17)
   Source:            rst (PAD)
   Destination:       sopc/openmips0/pc_reg0/pc_6 (FF)
   Destination Clock: sopc/clk_tmp rising
@@ -2233,7 +2165,7 @@ Offset:              19.501ns (Levels of Logic = 17)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1198   1.222   2.599  rst_IBUF (rst_IBUF)
+     IBUF:I->O          1207   1.222   2.601  rst_IBUF (rst_IBUF)
      LUT5:I0->O           62   0.203   1.855  sopc/openmips0/ex0/Mmux_cp0_reg_read_addr_o41 (sopc/openmips0/cp0_raddr_i<3>)
      LUT5:I2->O           23   0.205   1.258  sopc/openmips0/cp0_reg0/raddr_i[4]_index_o[31]_select_255_OUT<30>31 (sopc/openmips0/cp0_reg0/raddr_i[4]_index_o[31]_select_255_OUT<30>3)
      LUT4:I2->O            1   0.203   0.580  sopc/openmips0/ex0/Mmux_wdata_o117 (sopc/openmips0/ex0/Mmux_wdata_o19)
@@ -2243,33 +2175,33 @@ Offset:              19.501ns (Levels of Logic = 17)
      LUT6:I4->O            4   0.203   0.788  sopc/openmips0/ex0/Mmux_wdata_o151 (sopc/openmips0/ex_wdata_o<0>)
      LUT6:I4->O            3   0.203   0.651  sopc/openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o14 (sopc/openmips0/id0/pre_inst_is_load_reg1_read_o_AND_99_o_mmx_out)
      LUT2:I1->O            2   0.205   0.961  sopc/openmips0/id0/Mmux_GND_6_o_imm[31]_mux_269_OUT1431 (sopc/openmips0/id_reg1_o<0>)
-     LUT6:I1->O            1   0.203   0.579  sopc/openmips0/id0/n01112_SW0 (N799)
+     LUT6:I1->O            1   0.203   0.579  sopc/openmips0/id0/n01112_SW0 (N797)
      MUXF7:S->O            1   0.148   0.924  sopc/openmips0/id0/n01113 (sopc/openmips0/id0/n01113)
      LUT5:I0->O            7   0.203   1.118  sopc/openmips0/id0/n01115 (sopc/openmips0/id0/n01115)
-     LUT6:I1->O            3   0.203   0.651  sopc/openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N650)
+     LUT6:I1->O            3   0.203   0.651  sopc/openmips0/id0/Mmux_next_inst_in_delayslot_o112_SW2 (N648)
      LUT6:I5->O            1   0.205   0.580  sopc/openmips0/id0/Mmux_branch_target_address_o10111_1 (sopc/openmips0/id0/Mmux_branch_target_address_o10111)
      LUT6:I5->O            1   0.205   0.580  sopc/openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT294 (sopc/openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT293)
      LUT6:I5->O            1   0.205   0.000  sopc/openmips0/pc_reg0/Mmux_pc[31]_new_pc[31]_mux_10_OUT295 (sopc/openmips0/pc_reg0/pc[31]_new_pc[31]_mux_10_OUT<6>)
      FDRE:D                    0.102          sopc/openmips0/pc_reg0/pc_6
     ----------------------------------------
-    Total                     19.501ns (4.533ns logic, 14.968ns route)
+    Total                     19.503ns (4.533ns logic, 14.970ns route)
                                        (23.2% logic, 76.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 1 / 1
+  Total number of paths / destination ports: 16 / 16
 -------------------------------------------------------------------------
 Offset:              3.597ns (Levels of Logic = 1)
-  Source:            led_0 (FF)
-  Destination:       led<0> (PAD)
+  Source:            led_15 (FF)
+  Destination:       led<15> (PAD)
   Source Clock:      clk rising
 
-  Data Path: led_0 to led<0>
+  Data Path: led_15 to led<15>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               1   0.447   0.579  led_0 (led_0)
-     OBUF:I->O                 2.571          led_0_OBUF (led<0>)
+     FD:C->Q               1   0.447   0.579  led_15 (led_15)
+     OBUF:I->O                 2.571          led_15_OBUF (led<15>)
     ----------------------------------------
     Total                      3.597ns (3.018ns logic, 0.579ns route)
                                        (83.9% logic, 16.1% route)
@@ -2305,7 +2237,7 @@ Clock to Setup on destination clock clk
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
 clk            |    1.493|         |         |         |
-sopc/clk_tmp   |    2.737|         |         |         |
+sopc/clk_tmp   |   12.987|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sopc/clk_tmp
@@ -2319,14 +2251,14 @@ sopc/clk_tmp   |   22.261|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 33.00 secs
-Total CPU time to Xst completion: 33.02 secs
+Total REAL time to Xst completion: 34.00 secs
+Total CPU time to Xst completion: 33.27 secs
  
 --> 
 
-Total memory usage is 326440 kilobytes
+Total memory usage is 318888 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  694 (   0 filtered)
+Number of warnings :  620 (   0 filtered)
 Number of infos    :   23 (   0 filtered)
 

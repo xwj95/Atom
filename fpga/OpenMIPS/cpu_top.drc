@@ -1,7 +1,7 @@
 Release 14.2 Drc P.28xd (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Sun Dec 06 14:10:33 2015
+Sun Dec 06 16:45:04 2015
 
 drc -z cpu_top.ncd cpu_top.pcf
 
@@ -9,31 +9,31 @@ WARNING:PhysDesignRules:367 - The signal
    <sopc/openmips0/regfile1/Mram_regs24_RAMD_D1_O> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <sopc/openmips0/regfile1/Mram_regs21_RAMD_D1_O> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <sopc/openmips0/regfile1/Mram_regs11_RAMD_D1_O> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <sopc/openmips0/regfile1/Mram_regs23_RAMD_D1_O> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
    <sopc/openmips0/regfile1/Mram_regs14_RAMD_D1_O> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <sopc/openmips0/regfile1/Mram_regs22_RAMD_D1_O> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <sopc/openmips0/regfile1/Mram_regs25_RAMD_D1_O> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <sopc/openmips0/regfile1/Mram_regs12_RAMD_D1_O> is incomplete. The signal
+   <sopc/openmips0/regfile1/Mram_regs15_RAMD_D1_O> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <sopc/openmips0/regfile1/Mram_regs13_RAMD_D1_O> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <sopc/openmips0/regfile1/Mram_regs15_RAMD_D1_O> is incomplete. The signal
+   <sopc/openmips0/regfile1/Mram_regs11_RAMD_D1_O> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <sopc/openmips0/regfile1/Mram_regs12_RAMD_D1_O> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <sopc/openmips0/regfile1/Mram_regs25_RAMD_D1_O> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <sopc/openmips0/regfile1/Mram_regs21_RAMD_D1_O> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <sopc/openmips0/regfile1/Mram_regs23_RAMD_D1_O> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <sopc/openmips0/regfile1/Mram_regs22_RAMD_D1_O> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
    (RAMB8BWER).  9K Block RAM initialization data, both user defined and

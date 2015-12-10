@@ -40,7 +40,8 @@ module mmu(
 	input		wire[`RegBus]			mmu_data_i,
 	input		wire					mmu_ack_i,
 
-	input		wire					stall_req
+	input		wire					stall_req,
+	output		wire[12:0]				state
 	);
 
 	reg[2:0] mmu_state;											//±£´æMMUÄ£¿éµÄ×´Ì¬
@@ -50,6 +51,8 @@ module mmu(
 	reg	if_ack;
 	reg	memw_ack;
 	reg memr_ack;
+
+	assign state = {if_ce_i, mem_ce_i, stall_req_mem, stall_req_if, mmu_state_next, mmu_state, memr_ack, memw_ack, if_ack};
 
 	always @ (posedge clk) begin
 		if (rst == `RstEnable) begin

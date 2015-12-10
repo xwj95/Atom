@@ -197,16 +197,35 @@ module openmips(
 	wire					tlb_excepttype_is_tlbs;
 
 	wire[`RegBus]			regfile_data_o;
+	wire[12:0]				mmu_state;
 
-	reg data_output;
+	reg[31:0] data_output;
 	assign data_o = data_output;
 	always @ (*) begin
-		if (select[23] == 1'b1) begin
-			if (select[15] == 1'b1) begin
-				data_output <= pc;
-			end else begin
-				data_output <= id_inst_i;
-			end
+		if (select[7] == 1'b1) begin
+			data_output <= wishbone_data_i;
+		end else if (select[8] == 1'b1) begin
+			data_output <= {31'b0, wishbone_ack_i};
+		end else if (select[9] == 1'b1) begin
+			data_output <= wishbone_data_o;
+		end else if (select[10] == 1'b1) begin
+			data_output <= wishbone_addr_o;
+		end else if (select[16] == 1'b1) begin
+			data_output <= 32'h12345678;
+		end else if (select[17] == 1'b1) begin
+			data_output <= mmu_addr_o;
+		end else if (select[18] == 1'b1) begin
+			data_output <= pc;
+		end else if (select[19] == 1'b1) begin
+			data_output <= id_inst_i;
+		end else if (select[20] == 1'b1) begin
+			data_output <= mmu_state;
+		end else if (select[21] == 1'b1) begin
+			data_output <= tlb_addr_o;
+		end else if (select[22] == 1'b1) begin
+			data_output <= tlb_addr_i;
+		end else if (select[23] == 1'b1) begin
+			data_output <= {{16{1'b0}}, tlb_select_i};
 		end else begin
 			data_output <= regfile_data_o;
 		end
@@ -660,7 +679,9 @@ module openmips(
 		.mmu_data_i(mmu_data_i),
 		.mmu_ack_i(mmu_ack_i),
 
-		.stall_req(stallreq_from_wishbone)
+		.stall_req(stallreq_from_wishbone),
+		
+		.state(mmu_state)
 	);
 
 	tlb tlb0(
