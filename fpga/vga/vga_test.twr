@@ -1,0 +1,100 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+E:\programming\ISE\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle
+ise -v 3 -s 3 -n 3 -fastpaths -xml vga_test.twx vga_test.ncd -o vga_test.twr
+vga_test.pcf -ucf vga.ucf -ucf segdisp.ucf -ucf led.ucf -ucf misc.ucf
+
+Design file:              vga_test.ncd
+Physical constraint file: vga_test.pcf
+Device,package,speed:     xc6slx100,fgg676,C,-3 (PRODUCTION 1.22 2012-07-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock clk50M to Pad
+----------------+-----------------+------------+-----------------+------------+------------------+--------+
+                |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination     |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+----------------+-----------------+------------+-----------------+------------+------------------+--------+
+led<0>          |         8.254(R)|      SLOW  |         4.380(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<1>          |         7.931(R)|      SLOW  |         4.194(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<2>          |         8.198(R)|      SLOW  |         4.347(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<3>          |         8.133(R)|      SLOW  |         4.312(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<4>          |         7.581(R)|      SLOW  |         3.984(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<5>          |         9.854(R)|      SLOW  |         5.354(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<6>          |         7.415(R)|      SLOW  |         3.882(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<7>          |         9.645(R)|      SLOW  |         5.227(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<8>          |         8.768(R)|      SLOW  |         4.717(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<9>          |         9.930(R)|      SLOW  |         5.404(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<10>         |         8.076(R)|      SLOW  |         4.287(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<11>         |         8.235(R)|      SLOW  |         4.408(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<12>         |         7.903(R)|      SLOW  |         4.199(R)|      FAST  |clk50M_BUFGP      |   0.000|
+led<13>         |         8.328(F)|      SLOW  |         4.408(F)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp0<0>     |         9.352(R)|      SLOW  |         4.731(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp0<1>     |         9.498(R)|      SLOW  |         4.824(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp0<2>     |         9.261(R)|      SLOW  |         4.722(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp0<3>     |         9.450(R)|      SLOW  |         4.817(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp0<4>     |         9.240(R)|      SLOW  |         4.879(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp0<5>     |         9.180(R)|      SLOW  |         4.821(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp0<6>     |         9.054(R)|      SLOW  |         4.489(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp1<0>     |        10.653(R)|      SLOW  |         5.498(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp1<1>     |        11.055(R)|      SLOW  |         5.757(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp1<2>     |        10.886(R)|      SLOW  |         5.685(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp1<3>     |        11.072(R)|      SLOW  |         5.777(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp1<4>     |        10.851(R)|      SLOW  |         5.835(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp1<5>     |        10.825(R)|      SLOW  |         5.817(R)|      FAST  |clk50M_BUFGP      |   0.000|
+segdisp1<6>     |         9.651(R)|      SLOW  |         4.839(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<0>|         8.432(R)|      SLOW  |         4.503(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<1>|         8.867(R)|      SLOW  |         4.767(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<2>|         9.854(R)|      SLOW  |         5.354(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<3>|        10.083(R)|      SLOW  |         5.498(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<4>|         8.636(R)|      SLOW  |         4.637(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<5>|         8.607(R)|      SLOW  |         4.620(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<6>|         7.888(R)|      SLOW  |         4.181(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<7>|         9.922(R)|      SLOW  |         5.401(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_color_out<8>|         8.247(R)|      SLOW  |         4.400(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_hsync       |         9.769(R)|      SLOW  |         4.823(R)|      FAST  |clk50M_BUFGP      |   0.000|
+vga_vsync       |        10.023(R)|      SLOW  |         4.659(R)|      FAST  |clk50M_BUFGP      |   0.000|
+----------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk50M
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk50M         |    3.705|         |         |    3.923|
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Tue Dec 15 19:12:32 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 333 MB
+
+
+
