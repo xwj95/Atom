@@ -4,6 +4,7 @@
 	.set nomacro
 	.global _start
 _start:
+	nop
 	ori $1, $0, 0xf			#$1=0xf
 	mtc0 $1, $12, 0x0 		#将0xf写入CP0中的Compare寄存器
 

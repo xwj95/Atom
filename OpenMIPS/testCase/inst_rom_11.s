@@ -4,6 +4,7 @@
 	.set nomacro
 	.global _start
 _start:
+	nop
 	ori $1, $0, 0x1234			#$1=0x00001234
 	sw $1, 0x0($0)				#向数据存储器的地址0x0处存储0x00001234,[0x0]=0x00001234
 
