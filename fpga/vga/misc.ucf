@@ -1,0 +1,1 @@
+NET "clk50M" LOC = U26;
