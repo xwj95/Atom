@@ -2,6 +2,7 @@
 .global _start
 .set noat
 _start:
+	nop
 	#第一段：测试add、addi、addiu、addu、sub、subu指令
 	ori $1, $0, 0x8000		# $1 = 0x00008000
 	sll $1, $1, 16			# $1 = 0x80000000

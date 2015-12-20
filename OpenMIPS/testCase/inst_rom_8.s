@@ -4,6 +4,7 @@
 .set nomacro
 .global _start
 _start:
+	nop
 	ori $1, $0, 0x0001		#(1)$1 = 0x1
 	j 0x20 					#转移到0x20处
 	ori $1, $0, 0x0002		#(2)$1 = 0x2,这是延迟槽指令

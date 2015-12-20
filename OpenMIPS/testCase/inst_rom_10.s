@@ -4,7 +4,7 @@
 	.set nomacro
 	.global _start
 _start:
-
+	nop
 	#第一段：测试sb、lb、lbu指令
 	ori $3, $0, 0xeeff		#$3=0x0000eeff
 	sb $3, 0x3($0)			#向RAM地址0x3处存储0xff，[0x3]=0xff

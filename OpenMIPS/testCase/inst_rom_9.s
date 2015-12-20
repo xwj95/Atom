@@ -4,6 +4,7 @@
 	.set nomacro
 	.global _start
 _start:
+	nop
 	ori $3, $0, 0x8000
 	sll $3, 16				#设置$3=0x80000000
 	ori $1, $0, 0x0001		#(1)$1 = 0x0001
