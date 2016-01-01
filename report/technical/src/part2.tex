@@ -21,10 +21,10 @@ PC的取值有三种情况：
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{PC模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{PC模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -46,8 +46,8 @@ PC的取值有三种情况：
 		\hline
 		ce & 1 & 输出 & 指令存储器ROM使能信号 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsubsection{IF/ID模块}
 \paragraph{功能描述}
 \quad
@@ -59,10 +59,10 @@ PC的取值有三种情况：
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{IF/ID模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{IF/ID模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -82,8 +82,8 @@ PC的取值有三种情况：
 		\hline
 		id$\_$inst & 32 & 输出 & 译码阶段的指令 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsection{译码阶段}
 译码阶段将对取到的指令进行译码：给出要进行的运算类型，以及参与运算的操作数。译码阶段包括Regfile、ID和ID/EX三个模块。
 \subsubsection{Regfile模块}
@@ -123,10 +123,10 @@ Regfile模块可以分为四段进行理解。
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{Regfile模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{Regfile模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -152,8 +152,8 @@ Regfile模块可以分为四段进行理解。
 		\hline
 		rdata2 & 32 & 输出 & 第二个读寄存器端口输出的寄存器值 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsubsection{ID模块}
 \paragraph{功能描述}
 \quad
@@ -202,9 +202,11 @@ ID模块还处理了冲突相关的部分内容。
 此外，有关转移指令的实现，如果在流水线执行阶段进行转移判断，并且发生转移，那么就会有2条无效指令，导致浪费了两个时钟周期。为了减少损失，规定转移指令后面的指令位置为“延迟槽”，延迟槽中的指令被称为“延迟指令”。延迟指令总是被执行，与转移发生与否没有关系。为了避免时钟周期的浪费，我们在译码阶段进行了转移判断：
 
 \begin{enumerate}[(1)]
-	\item 如果处于译码阶段的指令是转移指令，并且满足转移条件，那么ID模块设置转移发生标志branch$\_$flag$\_$o为Branch，同时通过branch$\_$target$\_$address$\_$o接口给出转移目的地址，送到PC模块，后者据此修改取指地址。
+	\item 如果处于译码阶段的指令是转移指令，并且满足转移条件，那么ID模块设置转移发生标志branch$\_$flag$\_$o\\
+	为Branch，同时通过branch$\_$target$\_$address$\_$o接口给出转移目的地址，送到PC模块，后者据此修改取指地址。
 	
-	\item 如果处于译码阶段的指令是转移指令，并且满足转移条件，那么ID模块还会设置next$\_$inst$\_$in$\_$delayslot$\_$o为InDelaySlot，表示下一条指令是延迟槽指令，其中InDelaySlot是一个宏定义。next$\_$inst$\_$in$\_$delayslot$\_$o信号会送入ID/EX模块，并在下一个时钟周期通过ID/EX模块的is$\_$in$\_$delayslot$\_$o接口送回到ID模块，ID模块可以据此判断当前处于译码阶段的指令是否是延迟槽指令。
+	\item 如果处于译码阶段的指令是转移指令，并且满足转移条件，那么ID模块还会设置next$\_$inst$\_$in$\_$delayslot$\_$o\\
+	为InDelaySlot，表示下一条指令是延迟槽指令，其中InDelaySlot是一个宏定义。next$\_$inst$\_$in$\_$delayslot$\_$o信号会送入ID/EX模块，并在下一个时钟周期通过ID/EX模块的is$\_$in$\_$delayslot$\_$o接口送回到ID模块，ID模块可以据此判断当前处于译码阶段的指令是否是延迟槽指令。
 	
 	\item 如果转移指令需要保存返回地址，那么ID模块还要计算返回地址，并通过link$\_$addr$\_$o接口输出，该值最终会传递到EX模块，作为要写入目的寄存器的值。
 \end{enumerate}
@@ -213,10 +215,10 @@ ID模块还处理了冲突相关的部分内容。
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{ID模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{ID模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -284,8 +286,8 @@ ID模块还处理了冲突相关的部分内容。
 		\hline
 		stallreq & 1 & 输出 & 译码阶段请求流水暂停 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsubsection{ID/EX模块}
 \paragraph{功能描述}
 \quad
@@ -297,10 +299,10 @@ ID模块还处理了冲突相关的部分内容。
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{ID/EX模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{ID/EX模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -360,8 +362,8 @@ ID模块还处理了冲突相关的部分内容。
 		\hline
 		ex$\_$wreg & 1 & 输出 & 执行阶段的指令是否有要写入的目的寄存器 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsection{执行阶段}
 执行阶段将依据译码阶段的结果，对源操作数1、源操作数2进行指定的运算。执行阶段包括EX、EX/MEM两个模块。
 \subsubsection{EX模块}
@@ -386,10 +388,10 @@ EX模块还处理了冲突相关的部分内容，具体如下。
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{EX模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{EX模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -451,12 +453,6 @@ EX模块还处理了冲突相关的部分内容，具体如下。
 		\hline
 		wb$\_$lo$\_$i & 32 & 输入 & 处于写回阶段的指令要写入LO寄存器的值 \\
 		\hline
-	\end{tabular}
-\end{table}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
 		whilo$\_$o & 1 & 输出 & 处于执行阶段的指令是否要写HI、LO寄存器 \\
 		\hline
 		hi$\_$o & 32 & 输出 & 处于执行阶段的指令要写入HI寄存器的值 \\
@@ -496,8 +492,8 @@ EX模块还处理了冲突相关的部分内容，具体如下。
 		\hline
 		stallreq & 1 & 输出 & 执行阶段是否请求流水线暂停 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsubsection{EX/MEM模块}
 \paragraph{功能描述}
 \quad
@@ -509,10 +505,10 @@ EX模块还处理了冲突相关的部分内容，具体如下。
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{EX/MEM模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{EX/MEM模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -574,12 +570,6 @@ EX模块还处理了冲突相关的部分内容，具体如下。
 		\hline
 		mem$\_$lo & 32 & 输出 & 访存阶段的指令要写入LO寄存器的值 \\
 		\hline
-	\end{tabular}
-\end{table}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
 		ex$\_$excepttype & 32 & 输入 & 译码、执行阶段收集到的异常信息 \\
 		\hline
 		ex$\_$current$\_$inst$\_$address & 32 & 输入 & 执行阶段指令的地址 \\
@@ -600,8 +590,8 @@ EX模块还处理了冲突相关的部分内容，具体如下。
 		\hline
 		cnt$\_$o & 2 & 输出 & 当前处于执行阶段的第几个时钟周期 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsection{访存阶段}
 流水线的访存阶段包括MEM、MEM/WB两个模块。
 \subsubsection{MEM模块}
@@ -648,10 +638,10 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{MEM模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{MEM模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -712,12 +702,6 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 		\hline
 		cp0$\_$reg$\_$data$\_$o & 32 & 输出 & 访存阶段的指令最终要写入CP0中寄存器的数据 \\
 		\hline
-	\end{tabular}
-\end{table}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
 		excepttype$\_$i & 32 & 输入 & 译码、执行阶段收集到的异常信息 \\
 		\hline
 		current$\_$inst$\_$address & 32 & 输入 & 访存阶段指令的地址 \\
@@ -744,8 +728,8 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 		\hline
 		cp0$\_$epc$\_$o & 32 & 输出 & CP0中EPC寄存器的最新值 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsubsection{MEM/WB模块}
 \paragraph{功能描述}
 \quad
@@ -757,10 +741,10 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{MEM/WB模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{MEM/WB模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -808,8 +792,8 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 		\hline
 		flush & 1 & 输入 & 是否清除流水线 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsection{回写阶段}
 \subsubsection{CP0模块}
 \paragraph{功能描述}
@@ -817,17 +801,18 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 
 \quad
 
-对应MIPS架构中的协处理器CP0，实现了Index、EntryLo0、EntryLo1、BadVAddr、Count、EntryHi、Compare、Status、Cause、EPC、EBase共11个寄存器，对应cp0$\_$reg.v文件。
+对应MIPS架构中的协处理器CP0，实现了Index、EntryLo0、EntryLo1、BadVAddr、Count、EntryHi、\\
+Compare、Status、Cause、EPC、EBase共11个寄存器，对应cp0$\_$reg.v文件。
 
 具体地，首先实现了对CP0中寄存器的写操作，依据写入地址，将输入数据保存到不同的寄存器中，这是一个时序逻辑；而后实现了对CP0中寄存器的读操作，依据读取地址，将相应寄存器的值通过data$\_$o接口输出，这是一个组合逻辑。
 \paragraph{端口说明}
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{CP0模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{CP0模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -877,8 +862,8 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 		\hline
 		is$\_$in$\_$delayslot$\_$i & 1 & 输入 & 发生异常的指令是否是延迟槽指令 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsubsection{HILO模块}
 \paragraph{功能描述}
 \quad
@@ -890,10 +875,10 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{HILO模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{HILO模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -911,8 +896,8 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 		\hline
 		lo$\_$o & 32 & 输出 & LO寄存器的值 \\
 		\hline
-	\end{tabular}
-\end{table}
+	\end{longtable}
+%\end{table}
 \subsection{控制部件}
 \subsubsection{CTRL模块}
 \paragraph{功能描述}
@@ -945,20 +930,17 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 	\end{enumerate}
 \end{enumerate}
 
-（需要调排版）
-
 当发生异常时（excepttype$\_$i不为0），CTRL模块会依据异常类型，给出新的取指地址（即异常处理例程入口地址），同时决定是否要清除流水线。
-
 
 
 \paragraph{端口说明}
 \quad
 
 \quad
-\begin{table}[H]
-	\centering
-	\caption{CTRL模块的接口描述}
-	\begin{tabular}{|l|l|l|l|}
+%\begin{table}[H]
+%	\centering
+%	\caption{CTRL模块的接口描述}
+	\begin{longtable}{|l|l|l|l|}
 		\hline
 		接口名 & 宽度(bit) & 输入/输出 & 作用 \\
 		\hline
@@ -978,5 +960,28 @@ OpenMIPS处理器会在访存阶段的MEM模块综合所有的异常信息、CP0
 		\hline
 		flush & 1 & 输出 & 是否清除流水线 \\
 		\hline
-	\end{tabular}
+	\end{longtable}
+%\end{table}
+
+\subsection{MMU}
+
+MMU单元负责进行虚拟地址到物理地址的转换。具体映射方案如下。
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cll}
+\hline
+物理地址范围&设备&说明\\
+\hline
+$\left[ 0x00000000, 0x007FFFFF\right] $&RAM&共8MB\\
+$\left[ 0x1FC00000, 0x1FC00FFF\right] $&引导ROM&共4KB\\
+$\left[ 0x1E000000, 0x1EFFFFFF\right] $&flash&地址空间共16MB，但对于32位字，只有低16位有效\\
+$\left[ 0x1A000000, 0x1A096000\right] $&VGA&\\
+0x1FD003F8&串口数据&\\
+0x1FD003FC&串口状态&\\
+0x1FD00400&数码管&\\
+0x0F000000&键盘码&\\
+\hline
+\end{tabular}
 \end{table}
+
