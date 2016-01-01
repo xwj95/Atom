@@ -1,0 +1,31 @@
+\thispagestyle{empty}
+ % 流程图定义基本形状
+\tikzstyle{device} = [rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{cpu} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{bus} = [rectangle, minimum width=15cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{arrow} = [thick,<->,>=stealth]
+ 
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+
+\node (CPU) [cpu] {CPU};
+\node (ARBITRATION) [cpu, below of=CPU] {仲裁器};
+\node (BUS) [bus, below of=ARBITRATION] {总线};
+\node (RAM) [device, below of=BUS] {ram};
+\node (ROM) [device, left of=RAM] {rom};
+\node (FLASH) [device, right of=RAM] {flash};
+\node (UART) [device, left of=ROM] {uart};
+\node (VGA) [device, right of=FLASH] {VGA};
+\node (PS2) [device, right of=VGA] {ps/2};
+
+\draw [arrow] (CPU) -- (ARBITRATION);
+\draw [arrow] (BUS) -- (ARBITRATION);
+\draw [arrow] (BUS) -- (RAM);
+\draw [arrow] (BUS) -- (ROM);
+\draw [arrow] (BUS) -- (FLASH);
+\draw [arrow] (BUS) -- (UART);
+\draw [arrow] (BUS) -- (VGA);
+\draw [arrow] (BUS) -- (PS2);
+
+\end{tikzpicture}
+\end{center}
