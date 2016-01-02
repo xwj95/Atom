@@ -1,7 +1,0 @@
-xst -intstyle ise -ifn "D:/Users/huang/Desktop/cpld/xilinx_working_dir/cpld.xst" -ofn "D:/Users/huang/Desktop/cpld/xilinx_working_dir/cpld.syr" 
-ngdbuild -intstyle ise -dd _ngo -uc D:/Users/huang/Desktop/cpld/cpld.ucf -p xc95144xl-TQ100-5 cpld.ngc cpld.ngd  
-cpldfit -intstyle ise -p xc95144xl-5-TQ100 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 25 -unused float -power std -terminate float cpld.ngd 
-XSLTProcess cpld_build.xml 
-tsim -intstyle ise cpld cpld.nga 
-taengine -intstyle ise -f cpld -w --format html1 -l cpld_html/tim/timing_report.htm 
-hprep6 -s IEEE1149 -n cpld -i cpld 

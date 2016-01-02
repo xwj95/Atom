@@ -29,10 +29,6 @@ module ex(
 	input		wire[`RegBus]			mem_lo_i,
 	input		wire					mem_whilo_i,
 
-	//执行的结果
-	input		wire[`DoubleRegBus]		hilo_temp_i,
-	input		wire[1:0]				cnt_i,
-
 	//处于执行阶段的转移指令要保存的返回地址
 	input		wire[`RegBus]			link_address_i,
 
@@ -66,8 +62,6 @@ module ex(
 	output		reg[`RegBus]			hi_o,
 	output		reg[`RegBus]			lo_o,
 	output		reg						whilo_o,
-	output		reg[`DoubleRegBus]		hilo_temp_o,
-	output		reg[1:0]				cnt_o,
 
 	output		wire[31:0]				excepttype_o,
 	output		wire					is_in_delayslot_o,
@@ -77,8 +71,8 @@ module ex(
 	output		wire[`AluOpBus]			aluop_o,
 	output		wire[`RegBus]			mem_addr_o,
 	output		wire[`RegBus]			reg2_o,
-	output		reg						stallreq
 
+	output		reg						stallreq
 	);
 
 	reg[`RegBus] logicout;					//保存逻辑运算的结果
@@ -217,8 +211,10 @@ module ex(
 	always @ (*) begin
 		if (rst == `RstEnable) begin
 			moveres <= `ZeroWord;
+			cp0_reg_read_addr_o <= 5'b00000;
 		end else begin
 			moveres <= `ZeroWord;
+			cp0_reg_read_addr_o <= 5'b00000;
 			case (aluop_i)
 				`EXE_MFHI_OP: begin
 					//如果是mfhi指令，那么将HI的值作为移动操作的结果

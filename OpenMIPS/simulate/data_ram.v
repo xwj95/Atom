@@ -1,52 +1,102 @@
+`timescale 1ns/1ps
 `include "defines.v"
 module data_ram(
 	input			wire					clk,
+	input			wire					rst,
 	input			wire					ce,
 	input			wire					we,
 	input			wire[`DataAddrBus]		addr,
-	input			wire[3:0]				sel,
 	input			wire[`DataBus]			data_i,
-	output			reg[`DataBus]			data_o
+	output			reg[`DataBus]			data_o,
+	output			reg						ack
 	);
 
 	//定义四个字节数组
-	reg[`ByteWidth] data_mem0[0:`DataMemNum-1];
-	reg[`ByteWidth] data_mem1[0:`DataMemNum-1];
-	reg[`ByteWidth] data_mem2[0:`DataMemNum-1];
-	reg[`ByteWidth] data_mem3[0:`DataMemNum-1];
+	// reg[31:0] data_mem[0:`DataMemNum-1];
+	reg[31:0] data_mem[0:`DataMemNum-1];
 
-	//写操作
-	always @ (posedge clk) begin
-		if (ce == `ChipDisable) begin
-			//data_o <= `ZeroWord;
-		end else if (we == `WriteEnable) begin
-			if (sel[3] == 1'b1) begin
-				data_mem3[addr[`DataMemNumLog2+1:2]] <= data_i[31:24];
-			end
-			if (sel[2] == 1'b1) begin
-				data_mem2[addr[`DataMemNumLog2+1:2]] <= data_i[23:16];
-			end
-			if (sel[1] == 1'b1) begin
-				data_mem1[addr[`DataMemNumLog2+1:2]] <= data_i[15:8];
-			end
-			if (sel[0] == 1'b1) begin
-				data_mem0[addr[`DataMemNumLog2+1:2]] <= data_i[7:0];
-			end
-		end
+	initial begin
+		`include "input.v"
 	end
 
-	//读操作
+	localparam IDLE = 1'b0, WRITE = 1'b1;
+	reg state;
+
+	initial state = IDLE;
+
 	always @ (*) begin
-		if (ce == `ChipDisable) begin
-			data_o <= `ZeroWord;
-		end else if (we == `WriteDisable) begin
-			data_o <= {data_mem3[addr[`DataMemNumLog2+1:2]],
-						data_mem2[addr[`DataMemNumLog2+1:2]],
-						data_mem1[addr[`DataMemNumLog2+1:2]],
-						data_mem0[addr[`DataMemNumLog2+1:2]]};
+		if (rst == `RstEnable) begin
+			ack <= 1'b1;
 		end else begin
-			data_o <= `ZeroWord;
+			if (ce == `ChipDisable) begin
+				ack <= 1'b1;
+			end else begin
+				case (state)
+					IDLE: begin
+						ack <= 1'b1;
+						if (we == `WriteEnable) begin
+							ack <= 1'b0;
+						end
+					end
+					WRITE: begin
+						ack <= 1'b1;
+					end
+				endcase
+			end
 		end
 	end
+
+	always @ (posedge clk) begin
+		if (rst == `RstDisable) begin
+			if (ce == `ChipDisable) begin
+				// data_o <= `ZeroWord;
+			end else begin
+				case (state)
+					IDLE: begin
+						if (we == `WriteEnable) begin
+							state <= WRITE;
+						end
+						// end else begin
+							data_o <= data_mem[addr[`DataMemNumLog2+1:2]];
+						// end
+					end
+					WRITE: begin
+						data_mem[addr[`DataMemNumLog2+1:2]] <= data_i;
+						state <= IDLE;
+					end
+				endcase
+			end
+		end
+	end
+
+
+	// always @ (posedge clk) begin
+	// 	if (rst == `RstEnable) begin
+	// 		ack <= 1'b1;
+	// 		data_o <= `ZeroWord;
+	// 	end else begin
+	// 		if (ce == `ChipDisable) begin
+	// 			ack <= 1'b1;
+	// 			data_o <= `ZeroWord;
+	// 		end else begin
+	// 			case (state)
+	// 				IDLE: begin
+	// 					ack <= 1'b1;
+	// 					if (we == `WriteEnable) begin
+	// 						ack <= 1'b0;
+	// 						state <= WRITE;
+	// 					end else begin
+	// 						data_o <= data_mem[addr[`DataMemNumLog2+1:2]];
+	// 					end
+	// 				end
+	// 				WRITE: begin
+	// 					data_mem[addr[`DataMemNumLog2+1:2]] <= data_i;
+	// 					ack <= 1'b1;
+	// 					state <= IDLE;
+	// 				end
+	// 			endcase
+	// 		end
+	// 	end
+	// end
 
 endmodule

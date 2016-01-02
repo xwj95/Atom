@@ -43,7 +43,7 @@ module mem_wb(
 			wb_cp0_reg_we <= `WriteDisable;
 			wb_cp0_reg_write_addr <= 5'b00000;
 			wb_cp0_reg_data <= `ZeroWord;
-		end else if (flush == 1'b1) begin									//清除流水线
+		end else if (flush == 1'b1) begin							//清除流水线
 			wb_wd <= `NOPRegAddr;
 			wb_wreg <= `WriteDisable;
 			wb_wdata <= `ZeroWord;

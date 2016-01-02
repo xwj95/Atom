@@ -194,20 +194,6 @@
 
 `define EXE_RES_NOP			3'b000
 
-//*****************			与指令存储器ROM有关的宏定义			*****************
-`define InstAddrBus			31:0				//ROM的地址总线宽度
-`define InstBus				31:0				//ROM的数据总线宽度
-
-`define InstMemNum			1048575				//ROM的实际大小为4MB
-`define InstMemNumLog2		20					//ROM实际使用的地址线
-
-//*****************			与数据存储器RAM有关的宏定义			*****************
-`define DataAddrBus			31:0				//地址总线宽度
-`define DataBus				31:0				//数据总线宽度
-`define DataMemNum			2097151				//RAM大小，单位是字，此处是2M word = 8MB
-`define DataMemNumLog2		21					//实际使用的地址宽度
-`define ByteWidth			7:0					//一个字节的宽度，是8bit
-
 //*****************			与通用寄存器Regfile有关的宏定义		*****************
 `define RegAddrBus			4:0					//Regfile模块的地址线宽度
 `define RegBus				31:0				//Regfile模块的数据线宽度
@@ -231,22 +217,36 @@
 `define CP0_REG_EPC			5'b10000
 `define CP0_REG_EBASE		5'b10010
 
+//*****************			与异常中断有关的宏定义		*****************
+`define EXCEPTION_INTERRUPT	32'h0000000f
+`define EXCEPTION_TLBM		32'h00000001
+`define EXCEPTION_TLBL		32'h00000002
+`define EXCEPTION_TLBS		32'h00000003
+`define EXCEPTION_ADEL		32'h00000004
+`define EXCEPTION_ADES		32'h00000005
+`define EXCEPTION_SYSCALL	32'h00000008
+`define EXCEPTION_RI		32'h0000000a
+`define EXCEPTION_CPU		32'h0000000b
+`define EXCEPTION_WATCH		32'h00000017
+`define EXCEPTION_ERET		32'h0000000e
+
 //*****************			与Wishbone总线有关的宏定义		*****************
 `define WB_IDLE				2'b00				//空闲状态
 `define WB_BUSY				2'b01				//忙状态
 `define WB_WAIT_FOR_STALL	2'b11				//等待暂停结束状态
 
 //*****************			与MMU有关的宏定义		******************
-`define MMU_IF0_MEMW0_MEMR0	3'b000				//取指未完成，写访存未完成，读访存未完成
-`define MMU_IF0_MEMW0_MEMR1	3'b001				//取指未完成，写访存未完成，读访存已完成
-`define MMU_IF0_MEMW1_MEMR0	3'b010				//取指未完成，写访存已完成，读访存未完成
-`define MMU_IF0_MEMW1_MEMR1	3'b011				//取指未完成，写访存已完成，读访存已完成
-`define MMU_IF1_MEMW1_MEMR1	3'b111				//取指已完成，写访存已完成，读访存已完成
+`define WISHBONE_MEMW0_MEMR0_IF0	3'b000		//写访存未完成，读访存未完成，取指未完成
+`define WISHBONE_MEMW0_MEMR0_IF1	3'b001		//写访存未完成，读访存未完成，取指已完成
+`define WISHBONE_MEMW0_MEMR1_IF0	3'b010		//写访存未完成，读访存已完成，取指未完成
+`define WISHBONE_MEMW0_MEMR1_IF1	3'b011		//写访存未完成，读访存已完成，取指已完成
+`define WISHBONE_MEMW1_MEMR1_IF1	3'b111		//写访存已完成，读访存已完成，取指已完成
 
 //*****************			与TLB有关的宏定义		******************
 `define TLBIndexWidth		4					//TLB索引宽度
 `define TLBIndexNum			16					//TLB索引项数
 `define TLBIndexBus			3:0					//TLB索引总线
+`define TLBDataWidth		64					//TLB数据宽度
 `define TLBDataBus			63:0				//TLB数据总线
 
 //*****************			与外设有关的宏定义		******************
@@ -259,3 +259,36 @@
 `define WB_SELECT_UART_STAT	16'b0000000000100000
 `define WB_SELECT_DIGSEG	16'b0000000001000000
 `define WB_SELECT_PS2		16'b0000000010000000
+
+`define WB_DataBus			31:0
+`define WB_AddrBus			31:0
+`define WB_SelectBus		15:0
+
+//*****************			与数据存储器RAM有关的宏定义			*****************
+`define DataAddrBus			31:0				//地址总线宽度
+`define DataBus				31:0				//数据总线宽度
+`define DataMemNum			2097151				//RAM大小，单位是字，此处是2M word = 8MB
+`define DataMemNumLog2		21					//实际使用的地址宽度
+`define ByteWidth			7:0					//一个字节的宽度，是8bit
+
+//*****************			与指令存储器ROM有关的宏定义			*****************
+`define InstAddrBus			31:0				//指令的地址总线宽度
+`define InstBus				31:0				//指令的数据总线宽度
+
+`define InstMemNum			1024				//ROM的实际大小为4MB
+`define InstMemNumLog2		10					//ROM实际使用的地址线
+
+`define RomAddrBus			11:0				//ROM的地址总线宽度
+
+//*****************			与FLASH有关的宏定义			*****************
+`define FlashAddrBus		22:0				//FLASH的地址总线宽度
+`define FlashAddrBusWord	21:0				//FLASH的字模式下地址总线宽度
+`define FlashDataBus		15:0				//FLASH的数据总线宽度
+`define FlashCtrlBus		7:0					//FLASH的控制总线宽度
+
+//*****************			与UArt有关的宏定义			*****************
+`define UartDataBus			7:0					//Uart的数据总线宽度
+
+//*****************			与DigSeg有关的宏定义			*****************
+`define DigSegAddrBus		3:0					//DigSeg的地址总线宽度
+`define DigSegDataBus		0:6					//DigSeg的数据总线宽度

@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=Z:\Documents\Project\fpga\OpenMIPS\cpu_top.ncd
-OUTFILE=Z:\Documents\Project\fpga\OpenMIPS\cpu_top.bit
-FAMILY=Spartan6
-PART=xc6slx100-3fgg676
-WORKINGDIR=Z:\Documents\Project\fpga\OpenMIPS
-LICENSE=ISE
-USER_INFO=135256_15690819_173552794_661

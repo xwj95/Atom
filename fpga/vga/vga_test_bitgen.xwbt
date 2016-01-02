@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=E:\course\GitRepository\proj8\fpga\vga\vga_test.ncd
-OUTFILE=E:\course\GitRepository\proj8\fpga\vga\vga_test.bit
-FAMILY=Spartan6
-PART=xc6slx100-3fgg676
-WORKINGDIR=E:\course\GitRepository\proj8\fpga\vga
-LICENSE=ISE
-USER_INFO=__0_0_0

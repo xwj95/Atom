@@ -217,15 +217,6 @@ module id(
 									reg2_read_o <= 1'b1;
 									instvalid <= `InstValid;
 								end
-								`EXE_CACHE: begin		//cache指令
-									wreg_o <= `WriteEnable;
-									aluop_o <= `EXE_SLL_OP;
-									alusel_o <= `EXE_RES_SHIFT;
-									reg1_read_o <= 1'b0;
-									reg2_read_o <= 1'b0;
-									imm <= `ZeroWord;
-									instvalid <= `InstValid;
-								end
 								`EXE_MFHI: begin		//mfhi指令
 									wreg_o <= `WriteEnable;
 									aluop_o <= `EXE_MFHI_OP;
@@ -791,6 +782,7 @@ module id(
 					instvalid <= `InstValid;
 				end
 			end
+
 			if (inst_i == `EXE_ERET) begin
 				wreg_o <= `WriteDisable;
 				aluop_o <= `EXE_ERET_OP;
@@ -812,7 +804,8 @@ module id(
 					cp0_reg_addr != `CP0_REG_BADVADDR && cp0_reg_addr != `CP0_REG_COUNT && cp0_reg_addr != `CP0_REG_ENTRYHI &&
 					cp0_reg_addr != `CP0_REG_COMPARE && cp0_reg_addr != `CP0_REG_STATUS && cp0_reg_addr != `CP0_REG_CAUSE &&
 					cp0_reg_addr != `CP0_REG_EPC && cp0_reg_addr != `CP0_REG_EBASE) begin
-					excepttype_is_cpu <= `True_v;	
+					excepttype_is_cpu <= `True_v;
+				end else begin
 				end
 			end else if (inst_i[31:21] == 11'b01000000100 && inst_i[10:0] == 11'b00000000000) begin
 				aluop_o <= `EXE_MTC0_OP;
@@ -824,10 +817,11 @@ module id(
 				reg2_read_o <= 1'b0;
 				cp0_reg_addr <= inst_i[15:11];
 				if (cp0_reg_addr != `CP0_REG_INDEX && cp0_reg_addr != `CP0_REG_ENTRYLO0 && cp0_reg_addr != `CP0_REG_ENTRYLO1 &&
-					cp0_reg_addr != `CP0_REG_BADVADDR && cp0_reg_addr != `CP0_REG_COUNT && cp0_reg_addr != `CP0_REG_ENTRYHI &&
-					cp0_reg_addr != `CP0_REG_COMPARE && cp0_reg_addr != `CP0_REG_STATUS && cp0_reg_addr != `CP0_REG_CAUSE &&
-					cp0_reg_addr != `CP0_REG_EPC && cp0_reg_addr != `CP0_REG_EBASE) begin
-					excepttype_is_cpu <= `True_v;	
+					cp0_reg_addr != `CP0_REG_COUNT && cp0_reg_addr != `CP0_REG_ENTRYHI && cp0_reg_addr != `CP0_REG_COMPARE &&
+					cp0_reg_addr != `CP0_REG_STATUS && cp0_reg_addr != `CP0_REG_CAUSE && cp0_reg_addr != `CP0_REG_EPC &&
+					cp0_reg_addr != `CP0_REG_EBASE) begin
+					excepttype_is_cpu <= `True_v;
+				end else begin
 				end
 			end else if (inst_i == 32'b01000010000000000000000000000010) begin
 				aluop_o <= `EXE_TLBWI_OP;
@@ -836,6 +830,13 @@ module id(
 				instvalid <= `InstValid;
 				reg1_read_o <= 1'b0;
 				reg2_read_o <= 1'b0;
+			end else if (inst_i[31:26] == 32'b101111) begin	//cache
+				wreg_o <= `WriteEnable;
+				aluop_o <= `EXE_NOP_OP;
+				alusel_o <= `EXE_RES_NOP;
+				reg1_read_o <= 1'b0;
+				reg2_read_o <= 1'b0;
+				instvalid <= `InstValid;
 			end
 		end
 	end
@@ -851,6 +852,7 @@ module id(
 	//设置stallreq_for_reg1_loadrelate为Stop
 	always @ (*) begin
 		stallreq_for_reg1_loadrelate <= `NoStop;
+		reg1_o <= `ZeroWord;
 		if (rst == `RstEnable) begin
 			reg1_o <= `ZeroWord;
 		end else if (pre_inst_is_load == 1'b1 && ex_wd_i == reg1_addr_o && reg1_read_o == 1'b1) begin
@@ -879,6 +881,7 @@ module id(
 	//设置stall_req_for_reg2_loadrelate为Stop
 	always @ (*) begin
 		stallreq_for_reg2_loadrelate <= `NoStop;
+		reg2_o <= `ZeroWord;
 		if (rst == `RstEnable) begin
 			reg2_o <= `ZeroWord;
 		end else if (pre_inst_is_load == 1'b1 && ex_wd_i == reg2_addr_o && reg2_read_o == 1'b1) begin
